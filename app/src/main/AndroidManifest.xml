@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.poussiere.babybooh">
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.poussiere.babybooh.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.poussiere.babybooh.activite1.EcouteActivity"
+            android:label="@string/title_activity_ecoute"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.poussiere.babybooh.annexes.EnregistrerActivity"
+            android:label="@string/title_activity_enregistrer"
+            android:parentActivityName="com.poussiere.babybooh.MainActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.poussiere.babybooh.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.poussiere.babybooh.mainFragment2.StatsActivity"
+            android:label="@string/title_activity_stats"
+            android:screenOrientation="portrait"
+          />
+        <activity
+            android:name="com.poussiere.babybooh.annexes.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.poussiere.babybooh.mainFragment3.IdMonstreActivity"
+            android:label="@string/title_activity_id_monstre"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.poussiere.babybooh.mainFragment3.ChasseFullScreenActivity"
+            android:label="@string/title_activity_chasse_full_screen"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.poussiere.babybooh.mainFragment3.TableauDeChasseActivity"
+            android:label="@string/title_activity_tableau_de_chasse"
+            android:theme="@style/AppTheme"/>
+
+
+        <activity android:name="com.poussiere.babybooh.annexes.EnregistrerRecyclerViewAdapter"></activity>
+    </application>
+
+</manifest>

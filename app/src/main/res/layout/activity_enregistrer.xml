@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ffffff"
+    android:backgroundTint="#ffffff"
+    android:backgroundTintMode="src_over">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.MyApp.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        style="@style/Widget.MyApp.Toolbar.Solid"
+        android:layout_alignParentEnd="true"
+        app:elevation="4dp" />
+
+
+
+    <TextView
+        android:id="@+id/tvMerci"
+        android:text="@string/consigneRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/my_toolbar"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:layout_toStartOf="@+id/boutonFlottantEnregistrer"
+        android:elegantTextHeight="false"
+        android:enabled="true"
+        android:gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/tvVol"
+        android:text="@string/vol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="true"
+        android:gravity="center_vertical"
+        android:layout_below="@id/tvMerci"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="34dp"/>
+
+
+<SeekBar
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/tvMerci"
+    android:id="@+id/seek_volume"
+    android:layout_alignEnd="@+id/boutonFlottantEnregistrer"
+    android:layout_toRightOf="@id/tvVol"
+    android:layout_marginTop="30dp"
+    android:progressTint="@color/ripple_material_light"
+    android:thumbTint="@color/ripple_material_light" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view_enregistrer"
+        android:layout_below="@id/seek_volume"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:layout_marginTop="20dp"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/boutonFlottantEnregistrer"
+        app:backgroundTint="#e12525"
+        android:src="@android:drawable/ic_btn_speak_now"
+        app:elevation="6dp"
+        android:clickable="true"
+        android:onClick="onClick3"
+        app:pressedTranslationZ="12dp"
+        android:tint="@color/background_floating_material_light"
+        android:layout_alignTop="@+id/tvMerci"
+        android:layout_alignEnd="@+id/recycler_view_enregistrer"
+        android:layout_marginTop="-5dp" />
+
+
+</RelativeLayout>

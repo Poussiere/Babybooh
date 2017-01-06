@@ -1,0 +1,24 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:defaultValue="@string/pref_default_display_name"
+        android:inputType="textCapWords"
+        android:key="nom"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_display_name" />
+
+
+    <ListPreference
+        android:defaultValue="400"
+        android:entries="@array/pref_sensibilite_titles"
+        android:entryValues="@array/pref_sensibilite_values"
+        android:key="sensibilite_micro"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/pref_sensibilite_micro" />
+
+</PreferenceScreen>

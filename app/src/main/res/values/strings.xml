@@ -1,0 +1,188 @@
+<resources>
+    <string name="app_name">BabyboOH</string>
+
+    <string name="hello_world">Hello bébé!</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="veille_bouton">Lancer la veille</string>
+    <string name="stop_veille_bouton">Arrêter la veille</string>
+    <string name="titre_fragment1">Accueil</string>
+    <string name="titre_activite2">Historique</string>
+    <string name="titre_activite3">Gallerie</string>
+    <string name="merci">Votre bébé est maintenant en parfaite sécurité</string>
+    <string name="consigneRecord">Veuillez sélectionner le son qui sera joué à votre bébé lorsqu\'il se réveillera ou bien en enregistrer un nouveau en appuyant sur le micro.</string>
+    <string name="consigneRecord2">Enregistrement en cours! Appuyez à nouveau sur le micro pour le stopper.</string>
+    <string name="record">Démarrer l\'enregistrement</string>
+    <string name="stopRecord">Arrêter l\'enregistrement</string>
+    <string name="recordButton"> enregistrer votre voix !</string>
+    <string name="supConfirm">Voulez vraiment supprimer ce son?</string>
+    <string name="confirmer">confirmer</string>
+    <string name="annuler">annuler</string>
+    <string name="vol">Volume</string>
+    <string name="inconnu">Inconnu</string>
+    <string name="salleEnregistrement">Salle d\'enregistrement</string>
+
+    <string name="oui">OUI</string>
+    <string name="non">NON</string>
+
+    <string name="sonSelection">a été sélectionné.</string>
+
+    <string name="alerte1">Souhaitez vous écouter votre message?</string>
+    <string name="alerte2">Pour la sécurité de votre bébé, la veille ne peut pas etre lancée si votre smartphone n\'est pas en mode avion. Souhaitez-vous accéder maintenant au menu vous permettant d\'activer le mode avion.</string>
+    <string name="alerte3">Vous quittez le mode veille et éloignez le téléphone de votre bébé. Vous pouvez si vous le souhaitez désactiver le mode avion. Appuyez sur oui pour aller au menu du mode avion.</string>
+    <string name="alerte4">Attention, toutes les données de l\'application vont etre supprimées, y compris les monstres et l\'historique des évènements. Souhaitez vous vraiment continuer?</string>
+    <string name="alerte5">Veuillez donner un nom à votre message (par exemple maman)</string>
+
+    <string name="title_activity_ecoute">EcouteActivity</string>
+    <string name="statistiques_bouton">Carnet de bord</string>
+    <string name="tableau_bouton">Tableau de chasse</string>
+    <string name="title_activity_enregistrer">EnregistrerActivity</string>
+    <string name="title_activity_stats">StatsActivity</string>
+    <string name="decibels">décibels</string>
+    <string name="lux">lux</string>
+
+    <string name="monstre1_nom">Dédé</string>
+    <string name="monstre1_alias">La terreur nocturne</string>
+    <string name="monstre1_desc">Ce monstre est un vrai barjot. Il a terrorisé tellemenent d\'enfants que des scientifiques
+        ont donné son nom à un symptome de peur panique.
+        Si votre enfant a survecu à sa rencontre, il y a fort à parier qu\'il n\'ait plus jamais peur de rien.</string>
+    <string name="monstre1_conditions">Il frappe toujours quand on ne l\'attend pas, avec une victime bien endormie, dans le noir complet. On dit que certains enfants auraient crié tellement fort après l\'avoir vu qu\'on les aurait entendu à des kilomètres à la ronde. </string>
+
+
+    <string name="monstre2_nom">Bobo</string>
+    <string name="monstre2_alias">La terreur... des bacs à sables</string>
+    <string name="monstre2_desc">Il aime jouer les durs à cuir mais sa tete de pain d\'épices ne joue pas en sa faveur. Plus d\'un enfant l\'a déjà confondu avec son doudou!</string>
+    <string name="monstre2_conditions">Il est suseptible d\'apparaitre à toute heure de la journée mais rarement la nuit. Il provoque des cris d\'enfants très modérés (et parfois meme des rires!)</string>
+
+    <string name="monstre3_nom">Arbracadabra</string>
+    <string name="monstre3_alias">Les vieilles branches</string>
+    <string name="monstre3_desc">Inséparables, elles chantent en choeur des chansons effrayantes. Si vous entendez de la musique dans la chambre de bébé, elle ne vient pas forcément de la veilleuse!</string>
+    <string name="monstre3_conditions">Les vieilles branches vivent la nuit et sont attirés par la lumière. </string>
+
+    <string name="monstre4_nom">Kipic</string>
+    <string name="monstre4_alias">Le dévoreur de reves</string>
+    <string name="monstre4_desc">Il se nourrit des reves des enfants. Leurs cauchemards sont ses friandises. Si vous le croisez dans la chambre de bébé, n\'essayez surtout pas de le toucher!</string>
+    <string name="monstre4_conditions">Il apparait la nuit lorsque votre enfant dort profondément. Une fois que bébé est réveillé il s\'en va rapidement</string>
+
+    <string name="monstre5_nom">Miam Miam</string>
+    <string name="monstre5_alias">L\'insatiable</string>
+    <string name="monstre5_desc">Attention prudence! Malgré son apparence ce monstre n\'est pas un tendre. Toujours affamé, il mange tout ce qu\'il trouve. </string>
+    <string name="monstre5_conditions">Il apparait souvent à l\'heure du repas, pendant la journée. Méfiez-vous de la sièste digestive!</string>
+
+    <string name="monstre6_nom">Grozeuils</string>
+    <string name="monstre6_alias">La longue vue</string>
+    <string name="monstre6_desc">Très curieux, il fourre ses yeux partout. Il est difficile de s\'en débarasser!</string>
+    <string name="monstre6_conditions">Il apparait à toute heure de la journée et de la nuit, pourvu qu\'il y ait de la lumière. Généralement les enfants n\'en ont pas très peur.</string>
+
+    <string name="monstre7_nom">Freluquet</string>
+    <string name="monstre7_alias">L\'infiltré</string>
+    <string name="monstre7_desc">Il est passé maitre dans l\'art du camouflage. Depuis combien de temps n\'avez vous pas regardé sous le lit?</string>
+    <string name="monstre7_conditions">Il est là, tout le temps et partout, tant est si bien que les enfants ont fini par s\'y habituer. Les pleurs provoqués sont de faible intensité.</string>
+
+    <string name="monstre8_nom">Bouledoeil</string>
+    <string name="monstre8_alias">Bouboule</string>
+    <string name="monstre8_desc">Il reste tapis dans l\'ombre à regarder les enfants pendant des heures. Au fond, il les aime bien. Il lui arrive meme de rever qu\'il est une grosse peluche serrée dans leurs bras.</string>
+    <string name="monstre8_conditions">Plutot timide, il vit dans la pénombre et sort surtout la nuit. </string>
+
+    <string name="monstre9_nom">Skeletic</string>
+    <string name="monstre9_alias">Bel os</string>
+    <string name="monstre9_desc">Ce monstre terrifiant est gigantesque. Il arrive toutefois à passer innaperçu grace à sa faculté à s\'accrocher aux murs, tel un lézard.
+    Avez-vous regardé au plafond avant de fermer la porte de la chambre de bébé?</string>
+    <string name="monstre9_conditions">Il apparait à toute heure de la journée, meme en pleine lumière! Les cris qu\'il provoque peuvent etre très intenses.</string>
+
+    <string name="monstre10_nom">Pleurnichard</string>
+    <string name="monstre10_alias">La guimauve</string>
+    <string name="monstre10_desc">Sans doute le plus attachant des monstres! Il a tellement peur des enfants que lorsqu\'il en apperçoit un il se met à pleurer. Ne soyez pas trop méchant avec lui si vous le croisez. Il est innofensif.</string>
+    <string name="monstre10_conditions">Il sort le plus souvent à des heures où tout le monde dort. Il est attiré par la lumière des veilleuses car elle le rassurent. S\'il réveille bébé dites-vous bien qu\'il ne l\'a surement pas fait exprès!</string>
+
+    <string name="monstre11_nom">Pouponnator</string>
+    <string name="monstre11_alias">Le sombre calin</string>
+    <string name="monstre11_desc">Attention, ce monstre essaie de se faire passer pour vous! Son passe temps favoris : pouponner, dorloter, caliner. Mais lorsque bébé réalise la supercherie, il se met souvent dans une colère monstre.</string>
+    <string name="monstre11_conditions">Il aime sortir avant la sièste ou en début de soirée car il croit qu\'il peut aider les enfants à s\'endormir. Il aime passer aussi passer derrière les autres monstres dans l\'espoir de consoler les bébés appeurés.</string>
+
+    <string name="monstre12_nom">Flameche</string>
+    <string name="monstre12_alias">La lanterne</string>
+    <string name="monstre12_desc">Il brille dans la nuit. Sa lumière fascine les enfants et c\'est certainement ce qui le rend le plus redoutable.</string>
+    <string name="monstre12_conditions">Il apparait dans l\'obscurité totale, quelle que soit l\'heure du jour ou de la nuit. Vous regrettez d\'avoir fermé les volets n\'est-ce pas? </string>
+    :
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Nom de Bébé</string>
+    <string name="pref_default_display_name">Bébé</string>
+
+    <string name="pref_sensibilite_micro">Sensibilité du micro</string>
+
+    <string-array name="pref_sensibilite_titles">
+        <item>forte</item>
+        <item>normale</item>
+        <item>faible</item>
+    </string-array>
+    <string-array name="pref_sensibilite_values">
+        <item>200</item>
+        <item>400</item>
+        <item>600</item>
+    </string-array>
+
+
+    <string name="pref_eteint_ecran_title">Autoriser l\'ecran à s\'éteindre</string>
+    <string name="pref_eteint_ecran_summary">L\'écran s\'éteindra pendant la veille. Recommandé si vous souhaitez que votre bébé soit dans le noir complet ou si vous souhaitez économiser votre batterie</string>
+
+    <string name="first_time_tittle">Bienvenue dans babyboOH !</string>
+    <string name="first_time1">Notre équipe de chasseurs de monstres va veiller sur votre bébé pendant qu\'il dort. </string>
+    <string name="first_time2">A chaque fois que votre bébé se réveillera, un message apaisant que vous allez lui enregistrer sera diffusé jusqu\'à ce qu\'il se rendorme.</string>
+    <string name="first_time3">Nos experts analyseront alors les cris qui ont été émis par votre bébé ainsi que son environnement pour vous dire quel type de monstre l\'a réveillé! </string>
+
+    <string name="continuer">continuer</string>
+    <string name="ask_genre1">Avant de commencer, nous aimerions en savoir un peu plus sur votre bout de chou. Est-ce...</string>
+    <string name="ask_genre2">Est-ce…</string>
+    <string name="fille">une fille ? (et c\'est la plus jolie!)</string>
+    <string name="garcon">un garçon ? (et il est trop mignon!)</string>
+    <string name="ask_nom">Et quel est son petit nom?</string>
+    <string name="caractere_fille">En voilà un bien joli prénom pour une petite fille!  </string>
+    <string name="caractere_fille1"> Après analyse de notre équipe d\'experts il semblerait que les %1$s soient de grandes aventurières. Avec notre aide, elle devrait pouvoir venir à bout de n\'importe quelle créature de la nuit!</string>
+    <string name="caractere_fille2"> Après analyse de notre équipe d\'experts il semblerait que les %1$s fassent de très jolies princesses. En attendant son prince charmant, elle aura bien besoin d\'un peu d\'aide de notre part pour venir à bout de tous les monstres qui peuplent sa chambre!</string>
+
+    <string name="caractere_garcon">En voilà un bien joli prénom pour un petit garçon! </string>
+    <string name="caractere_garçon1"> Après analyse de notre équipe d\'experts il semblerait que les %1$s soient de grands aventuriers! Avec notre aide, il devrait pouvoir venir à bout de n\'importe quelle créature de la nuit! </string>
+    <string name="caractere_garçon2"> Après analyse de notre équipe d\'experts il semblerait que les %1$s soient des garçons sensibles et intellecutels.  En attendant qu\'il ait inventé sa propre machine à chasser les monstres, il aura bien besoin de notre aide pour venir à bout de toutes les créatures qui se cachent sous son lit!</string>
+
+    <string name="ask_record1">Il ne vous reste plus qu\'à enregistrer le message qui sera diffusé à %1$s et nous aurons tous les éléments en main pour veiller au mieux sur %2$s pendant son sommeil!</string>
+    <string name="ask_record2">Appuyez sur \"continuer\" pour enregistrer le message tout de suite ou sur \"menu principal\" pour aller à l\'accueil de l\'application et enregistrer le message plus tard.</string>
+    <string name="menu_principal">menu principal</string>
+    <string name="lui">lui</string>
+    <string name="elle">elle</string>
+
+    <string name="salle_enregistrement">Salle d\'enregistrement</string>
+
+    <color name="white">#FFFFFF</color>
+
+    <color name="lavande">#E6E6FA</color>
+
+    <color name="gris_material">#E0E0E0</color>
+    <string name="title_activity_id_monstre">IdMonstreActivity</string>
+
+    <string name="nom">Nom : </string>
+    <string name="alias">Alias : </string>
+    <string name="description">Description : </string>
+    <string name="title_activity_chasse">ChasseActivity</string>
+    <string name="title_activity_chasse_full_screen">ChasseFullScreenActivity</string>
+    <string name="title_activity_tableau_de_chasse">TableauDeChasseActivity</string>
+
+    <string name="retour_de_ecoute1">%1$s s\'est réveillé une fois lors de la dernière veille. Un monstre a été détécté! Rendez-vous dans le carnet de bord pour en savoir plus!</string>
+    <string name="retour_de_ecoute2">%1$s s\'est révéillé plusieurs fois lors de la dernière veille. Au moins un monstre a été détécté! Rendez-vous dans le carnet de bord pour en savoir plus.</string>
+
+    <string name="inconnu_description">Utilisez encore BabyboOH avec votre bébé. Ce monstre apparaitra peut-etre pendant la prochaine sièste!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
