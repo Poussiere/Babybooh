@@ -26,6 +26,7 @@ import android.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.InputFilter;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -115,14 +116,17 @@ public class MainActivity extends AppCompatActivity {
         });
 
       MenuItem selectedItem;
-       if (savedInstanceState != null) {
+     /*  if (savedInstanceState != null) {
             mSelectedItem = savedInstanceState.getInt(SELECTED_ITEM, 0);
             selectedItem = mBottomNav.getMenu().findItem(mSelectedItem);
-        } else {
-            selectedItem = mBottomNav.getMenu().getItem(0);
+        } else { selectedItem = mBottomNav.getMenu().getItem(0);
+
 
         }
 
+
+        */
+        selectedItem = mBottomNav.getMenu().getItem(0);
         selectFragment(selectedItem);
 
 
@@ -140,9 +144,39 @@ public class MainActivity extends AppCompatActivity {
      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Sequence du premier lancement :
 
-        prefs = PreferenceManager.getDefaultSharedPreferences(this); //déjà instancié dans le Onresume. A voir si nécessaire de le refaire icic
+      //  prefs = PreferenceManager.getDefaultSharedPreferences(this); //déjà instancié dans le Onresume. A voir si nécessaire de le refaire icic
+     //   if (prefs.getBoolean("firstrun", true)) {
+
+
+
+
+        
+    }// fin du onCreate
+
+    @Override
+    protected void onResume()
+    {
+        //Il faut mettre toutes les shared preferences à false des le onResume sinon un message concernant les réveils s'affiche au premier lancement
+
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
         if (prefs.getBoolean("firstrun", true)) {
 
+            /////////////////////////////////////////////////////////////////////////////////////////
+            //Création des sharedpréference qui permettront de dire si un monstre a été débloqué ou non (ne pas oublier de remettre à 0 en cas de reinitrences lorsqu'on fait reset (sharedprefenrece.clear())
+            prefs.edit().putBoolean("monstre1", false).apply();
+            prefs.edit().putBoolean("monstre2", false).apply();
+            prefs.edit().putBoolean("monstre3", false).apply();
+            prefs.edit().putBoolean("monstre4", false).apply();
+            prefs.edit().putBoolean("monstre5", false).apply();
+            prefs.edit().putBoolean("monstre6", false).apply();
+            prefs.edit().putBoolean("monstre7", false).apply();
+            prefs.edit().putBoolean("monstre8", false).apply();
+            prefs.edit().putBoolean("monstre9", false).apply();
+            prefs.edit().putBoolean("monstre10", false).apply();
+            prefs.edit().putBoolean("monstre11", false).apply();
+            prefs.edit().putBoolean("monstre12", false).apply();
+            prefs.edit().putBoolean("unReveil",false).apply();
+            prefs.edit().putBoolean("plusieursReveil",false).apply();
 
 
             /////////////////////////////////////////////////////////////
@@ -165,10 +199,14 @@ public class MainActivity extends AppCompatActivity {
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT);
+
+            InputFilter[] FilterArray = new InputFilter[1];
+            FilterArray[0] = new InputFilter.LengthFilter(20);
+            bebeNom.setFilters(FilterArray);
             bebeNom.setLayoutParams(lp);
             /////////////////////////////////////////////////////////////
 
-           //Septieme alertDialog
+            //Septieme alertDialog
 
             final AlertDialog.Builder veryFirstTime7 = new AlertDialog.Builder(
                     MainActivity.this);
@@ -220,7 +258,7 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                     });
-            
+
             // Quatrieme alertDialog fille
             final AlertDialog.Builder veryFirstTime4Fille = new AlertDialog.Builder(
                     MainActivity.this);
@@ -230,7 +268,7 @@ public class MainActivity extends AppCompatActivity {
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
-                          veryFirstTime5.show();
+                            veryFirstTime5.show();
 
                         }
                     });
@@ -260,35 +298,35 @@ public class MainActivity extends AppCompatActivity {
             veryFirstTime3.setPositiveButton(com.poussiere.babybooh.R.string.continuer,
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                         
-                         //On récupère le nom du bébé dans l'editText
-                         nom=bebeNom.getText().toString();
-                         
-                          // On enregistre le nom du bébé dans les sharedPref
-                           prefs.edit().putString("nom", nom).apply();
-                          
-                          // On construit la phrase personnalisée de l'alerdialog 5
-                          nbNom=nom.length();
-                          // Si fille et nombre de lettres du nom est pair :
-                          if (prefs.getBoolean("fille",true) && (nbNom%2)==0)
-                                {alertDiag5=getString(com.poussiere.babybooh.R.string.caractere_fille1, nom);}
-                                
-                            // Si Fille et nombre de lettres du nom est impair :    
+
+                            //On récupère le nom du bébé dans l'editText
+                            nom=bebeNom.getText().toString();
+
+                            // On enregistre le nom du bébé dans les sharedPref
+                            prefs.edit().putString("nom", nom).apply();
+
+                            // On construit la phrase personnalisée de l'alerdialog 5
+                            nbNom=nom.length();
+                            // Si fille et nombre de lettres du nom est pair :
+                            if (prefs.getBoolean("fille",true) && (nbNom%2)==0)
+                            {alertDiag5=getString(com.poussiere.babybooh.R.string.caractere_fille1, nom);}
+
+                            // Si Fille et nombre de lettres du nom est impair :
                             else if (prefs.getBoolean("fille",true) && (nbNom%2)!=0)
-                                {alertDiag5=getString(com.poussiere.babybooh.R.string.caractere_fille2, nom);}
-                                
-                             // Si Garcon et nombre de lettres du nom est pair :    
+                            {alertDiag5=getString(com.poussiere.babybooh.R.string.caractere_fille2, nom);}
+
+                            // Si Garcon et nombre de lettres du nom est pair :
                             else if (!prefs.getBoolean("fille",true) && (nbNom%2)==0)
-                                {alertDiag5=getString(com.poussiere.babybooh.R.string.caractere_garçon1, nom);}
-                                
-                              // Si garcon et nombre de lettres du nom est impair :    
+                            {alertDiag5=getString(com.poussiere.babybooh.R.string.caractere_garçon1, nom);}
+
+                            // Si garcon et nombre de lettres du nom est impair :
                             else if (!prefs.getBoolean("fille",true) && (nbNom%2)!=0)
-                                {alertDiag5=getString(com.poussiere.babybooh.R.string.caractere_garçon2, nom);}
-                                veryFirstTime5.setMessage(alertDiag5);
+                            {alertDiag5=getString(com.poussiere.babybooh.R.string.caractere_garçon2, nom);}
+                            veryFirstTime5.setMessage(alertDiag5);
 
 
                             //On construit la phrase personnalisé de l'alertDialog 6
-                           lui=getString(com.poussiere.babybooh.R.string.lui);
+                            lui=getString(com.poussiere.babybooh.R.string.lui);
                             elle=getString(com.poussiere.babybooh.R.string.elle);
 
                             if (prefs.getBoolean("fille",true)) alertDiag6=getString(com.poussiere.babybooh.R.string.ask_record1, nom, elle);
@@ -301,7 +339,7 @@ public class MainActivity extends AppCompatActivity {
                             {dialog.dismiss();
                                 veryFirstTime4Fille.show();}
 
-                                //SI c'est un garcon :
+                            //SI c'est un garcon :
                             else
                             {dialog.dismiss();
                                 veryFirstTime4Garcon.show();
@@ -413,35 +451,16 @@ public class MainActivity extends AppCompatActivity {
             prefs.edit().putBoolean("firstrun", false).apply();
         }
 
-      // fin de la séquence du premier lancement
-      //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // fin de la séquence du premier lancement
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        
-    }// fin du onCreate
 
-    @Override
-    protected void onResume()
-    {
-        //Il faut mettre toutes les shared preferences à false des le onResume sinon un message concernant les réveils s'affiche au premier lancement
-        prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if (prefs.getBoolean("firstrun", true)) {
 
-            /////////////////////////////////////////////////////////////////////////////////////////
-            //Création des sharedpréference qui permettront de dire si un monstre a été débloqué ou non (ne pas oublier de remettre à 0 en cas de reinitrences lorsqu'on fait reset (sharedprefenrece.clear())
-            prefs.edit().putBoolean("monstre1", false).apply();
-            prefs.edit().putBoolean("monstre2", false).apply();
-            prefs.edit().putBoolean("monstre3", false).apply();
-            prefs.edit().putBoolean("monstre4", false).apply();
-            prefs.edit().putBoolean("monstre5", false).apply();
-            prefs.edit().putBoolean("monstre6", false).apply();
-            prefs.edit().putBoolean("monstre7", false).apply();
-            prefs.edit().putBoolean("monstre8", false).apply();
-            prefs.edit().putBoolean("monstre9", false).apply();
-            prefs.edit().putBoolean("monstre10", false).apply();
-            prefs.edit().putBoolean("monstre11", false).apply();
-            prefs.edit().putBoolean("monstre12", false).apply();
-            prefs.edit().putBoolean("unReveil",false).apply();
-            prefs.edit().putBoolean("plusieursReveil",false).apply();}
+
+
+
+
+
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //Vérification s'il y a des notifications à afficher
         if(prefs.getBoolean("unReveil", true))
@@ -483,6 +502,7 @@ public class MainActivity extends AppCompatActivity {
             alertReveil2.show();
 
         }
+
         super.onResume();
     }
 

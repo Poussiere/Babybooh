@@ -23,6 +23,7 @@ import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -42,7 +43,7 @@ import java.io.IOException;
 
 
 
-public class EnregistrerActivity extends AppCompatActivity {
+public class EnregistrerActivity extends AppCompatActivity implements RecyclerViewClickListener {
 
     public static final String ACT3 = "activite 3";
     TextView tv1;
@@ -53,12 +54,11 @@ public class EnregistrerActivity extends AppCompatActivity {
     GridLayoutManager lLayout;
     EnregistrerRecyclerViewAdapter rcAdapter;
     RecyclerView rView;
-    SharedPreferences prefs = null;
     FloatingActionButton fb;
     String sn;
     private SeekBar volumeSeekbar = null;
     private AudioManager audioManager = null;
-
+    View llView;
 
 
     @Override
@@ -72,14 +72,13 @@ public class EnregistrerActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(ContextCompat.getColor(this, R.color.indigo_material_700));
+            window.setStatusBarColor(ContextCompat.getColor(this, R.color.gris_material_700));
         }
         //////////////////////////////////////////////////////////////
 
 
         tv1=(TextView)findViewById(R.id.tvMerci);
         fb=(FloatingActionButton)findViewById(R.id.boutonFlottantEnregistrer);
-
         Toolbar mToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle(R.string.salle_enregistrement);
@@ -138,11 +137,14 @@ public class EnregistrerActivity extends AppCompatActivity {
         /////////////////////////////////////////////////////////////////////////
         //Creation de la swipe to delete de la recyclerView
 
-        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+       ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
 
             @Override
             public boolean onMove (RecyclerView r, RecyclerView.ViewHolder vh, RecyclerView.ViewHolder vh2)
             {return true;}
+
+
+
 
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
@@ -159,16 +161,14 @@ public class EnregistrerActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 File file = new File (Environment.getExternalStorageDirectory().getAbsolutePath()+"/babyboohSongs/"+sn);
                                 file.delete();
-                                rcAdapter = new EnregistrerRecyclerViewAdapter(EnregistrerActivity.this);
-                                rView.setAdapter(rcAdapter);
+                                rcAdapter.notifyDataSetChanged();
                                 dialog.dismiss();
                             }
                         });
                 supConfirm.setNegativeButton(R.string.annuler,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                rcAdapter = new EnregistrerRecyclerViewAdapter(EnregistrerActivity.this);
-                                rView.setAdapter(rcAdapter);
+                                rcAdapter.notifyDataSetChanged();
                                 dialog.dismiss();
                             }
                         });
@@ -183,14 +183,11 @@ public class EnregistrerActivity extends AppCompatActivity {
         /////////////////////////////////////////////////////////////////////////////
 
 
-        rcAdapter = new EnregistrerRecyclerViewAdapter(EnregistrerActivity.this);
+        rcAdapter = new EnregistrerRecyclerViewAdapter(EnregistrerActivity.this, this);
         rView.setAdapter(rcAdapter);
-
 
         enregistrementEnCours=false;
         enregistreur = new Enregistreur();
-
-
 
 
     }
@@ -266,12 +263,13 @@ public class EnregistrerActivity extends AppCompatActivity {
                             File to = new File(repertoire, nom.trim() + ".mp4");
                             from.renameTo(to);
 
-                            // Apres il faut mettre à jour la vue. Il y a surement un moyen plus optimal que de recreer une instance de l'adapter commee ci dessois
-                            rcAdapter = new EnregistrerRecyclerViewAdapter(EnregistrerActivity.this);
-                            rView.setAdapter(rcAdapter);
+
+
+                            // Apres il faut mettre à jour la vue. Il y a surement un moyen plus optimal que de recreer une instance de l'adapter commee ci dessous
+                          rcAdapter.notifyDataSetChanged();
                         }
                     });
-            /////////////////////////////////////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
 
             // Affichage de la premi�re fenetre de dialogue
 
@@ -352,4 +350,9 @@ public class EnregistrerActivity extends AppCompatActivity {
         super.onPause();}
 
 
+    @Override
+    public void recyclerViewListClicked(View v, int position) {
+       // rcAdapter.notifyDataSetChanged();
+
+    }
 }

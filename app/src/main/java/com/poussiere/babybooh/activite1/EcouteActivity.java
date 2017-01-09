@@ -303,6 +303,13 @@ Modification à prévoir: insérer l'heure de début dans la base de données + 
 
                     lectureActive = false;
 
+                    // On fait une petite pause sinon l'echo du son lu déclenche à nouveau le capteur
+                    try {
+                        background.sleep(1000);//le thread background sera relanc� toutes les 300 millisecondes tant que la valeur seuil n'aura pas �t� d�pass�e.
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
                     Log.i(ACT2, "Test des decibels 3");
                     resultEcoute = ecoute.obtenirDecibels();
 

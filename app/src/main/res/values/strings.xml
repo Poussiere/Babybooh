@@ -6,7 +6,7 @@
     <string name="veille_bouton">Lancer la veille</string>
     <string name="stop_veille_bouton">Arrêter la veille</string>
     <string name="titre_fragment1">Accueil</string>
-    <string name="titre_activite2">Historique</string>
+    <string name="titre_activite2">Carnet de bord</string>
     <string name="titre_activite3">Gallerie</string>
     <string name="merci">Votre bébé est maintenant en parfaite sécurité</string>
     <string name="consigneRecord">Veuillez sélectionner le son qui sera joué à votre bébé lorsqu\'il se réveillera ou bien en enregistrer un nouveau en appuyant sur le micro.</string>

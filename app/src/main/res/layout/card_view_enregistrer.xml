@@ -10,11 +10,13 @@
     >
 
     <LinearLayout
+        android:id="@+id/card_view_enr_cont"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-
+        android:background="@drawable/selector_enregistrer_activity"
         >
+
 
         <TextView
             android:id="@+id/son_nom_tv"
@@ -22,15 +24,15 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:layout_weight="1"
-            android:background="?attr/selectableItemBackground"
+
             />
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@android:drawable/ic_media_play"
             android:id="@+id/play_image"
             android:layout_weight="6"
-            android:background="?attr/selectableItemBackground"
             android:backgroundTint="#b3caff"
             />
 

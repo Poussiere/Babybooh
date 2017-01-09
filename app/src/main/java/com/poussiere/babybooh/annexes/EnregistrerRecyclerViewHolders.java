@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,9 +19,10 @@ import com.poussiere.babybooh.objets.Lecture;
  La lecture du son fonctionne lorsque l'on clique sur un nom. Il faudrait faire en sorte qu'on ne puisse pas lancer 2 lecture en meme temps
  +Ajouter le highlight au moment du clique. Bisous à plus.
  */
-public class EnregistrerRecyclerViewHolders extends RecyclerView.ViewHolder {
+/*public class EnregistrerRecyclerViewHolders extends RecyclerView.ViewHolder {
 
-    public TextView sonNom ;
+    public TextView sonNomTx ;
+    public View conteneur;
     public ImageView playImage;
     public String nomDuSon;
     private Lecture lecture ;
@@ -31,16 +33,15 @@ public class EnregistrerRecyclerViewHolders extends RecyclerView.ViewHolder {
 
     public EnregistrerRecyclerViewHolders(View itemView) {
         super(itemView);
-        sonNom = (TextView)itemView.findViewById(R.id.son_nom_tv);
+        sonNomTx = (TextView)itemView.findViewById(R.id.son_nom_tv);
         playImage=(ImageView)itemView.findViewById(R.id.play_image);
+        conteneur=(View)itemView.findViewById(R.id.card_view_enr_cont);
         lecture=new Lecture();
 
-
-
-        sonNom.setOnClickListener(new View.OnClickListener() {
+        sonNomTx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nomDuSon = sonNom.getText().toString();
+                nomDuSon = sonNomTx.getText().toString();
 
 
                 Context context = view.getContext();
@@ -50,11 +51,19 @@ public class EnregistrerRecyclerViewHolders extends RecyclerView.ViewHolder {
                 prefs.edit().putString("nomDuSon", nomDuSon).apply();
 
 
+
                 toasty=nomDuSon+" "+res.getString(R.string.sonSelection);
 
               //  toasty= res.getString(R.string.sonSelection, nomDuSon);
 
                 Toast.makeText(context,toasty, Toast.LENGTH_SHORT ).show();
+              //  conteneur.setSelected(true);
+
+
+                    conteneur.setSelected(true);
+
+
+
             }
         });
 
@@ -68,7 +77,7 @@ public class EnregistrerRecyclerViewHolders extends RecyclerView.ViewHolder {
                                                  @Override
                                                  public void run() {
 
-                                                     nomDuSon = sonNom.getText().toString();
+                                                     nomDuSon = sonNomTx.getText().toString();
                                                      lecture.lire(nomDuSon);
                                                      lecture.getMediaPlayer().setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                                                          public void onCompletion(MediaPlayer mp) {
@@ -90,3 +99,4 @@ public class EnregistrerRecyclerViewHolders extends RecyclerView.ViewHolder {
     public String getNomDuSon ()
     {return nomDuSon;}
 }
+*/

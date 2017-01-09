@@ -17,14 +17,20 @@
         android:layout_alignParentEnd="true"
         app:elevation="4dp" />
 
-
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/my_toolbar"
+        android:backgroundTintMode="src_over"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
 
     <TextView
         android:id="@+id/tvMerci"
         android:text="@string/consigneRecord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/my_toolbar"
+
         android:layout_marginTop="30dp"
         android:layout_marginRight="10dp"
         android:layout_toStartOf="@+id/boutonFlottantEnregistrer"
@@ -55,6 +61,9 @@
     android:progressTint="@color/ripple_material_light"
     android:thumbTint="@color/ripple_material_light" />
 
+
+
+            >
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_enregistrer"
         android:layout_below="@id/seek_volume"
@@ -69,14 +78,17 @@
         android:id="@+id/boutonFlottantEnregistrer"
         app:backgroundTint="#e12525"
         android:src="@android:drawable/ic_btn_speak_now"
-        app:elevation="6dp"
+        app:elevation="12dp"
+        app:borderWidth="0dp"
         android:clickable="true"
         android:onClick="onClick3"
         app:pressedTranslationZ="12dp"
         android:tint="@color/background_floating_material_light"
         android:layout_alignTop="@+id/tvMerci"
-        android:layout_alignEnd="@+id/recycler_view_enregistrer"
-        android:layout_marginTop="-5dp" />
+        android:layout_alignEnd="@id/recycler_view_enregistrer"
+        android:layout_marginTop="-5dp"
+        android:layout_marginRight="3dp"
+       />
 
-
+    </RelativeLayout>
 </RelativeLayout>
