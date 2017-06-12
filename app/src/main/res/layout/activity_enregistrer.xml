@@ -59,7 +59,8 @@
     android:layout_toRightOf="@id/tvVol"
     android:layout_marginTop="30dp"
     android:progressTint="@color/ripple_material_light"
-    android:thumbTint="@color/ripple_material_light" />
+    android:thumbTint="@color/ripple_material_light"
+    />
 
 
 
@@ -88,6 +89,7 @@
         android:layout_alignEnd="@id/recycler_view_enregistrer"
         android:layout_marginTop="-5dp"
         android:layout_marginRight="3dp"
+        android:contentDescription="@string/content_description_demarrer_enregistreent"
        />
 
     </RelativeLayout>

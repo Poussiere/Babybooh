@@ -27,6 +27,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.InputFilter;
+import android.text.InputType;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -203,6 +205,33 @@ public class MainActivity extends AppCompatActivity {
             InputFilter[] FilterArray = new InputFilter[1];
             FilterArray[0] = new InputFilter.LengthFilter(20);
             bebeNom.setFilters(FilterArray);
+
+            InputFilter[] filters = new InputFilter[1];
+
+
+
+            //Liste des charactères autorisés pour l'edittext
+            filters[0] = new InputFilter(){
+                @Override
+                public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                    if (end > start) {
+
+                        char[] acceptedChars = new char[]{'a', 'b', 'c', 'd', 'e','é','è','-','f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+                                'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+                                '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' '};
+
+                        for (int index = start; index < end; index++) {
+                            if (!new String(acceptedChars).contains(String.valueOf(source.charAt(index)))) {
+                                return "";
+                            }
+                        }
+                    }
+                    return null;
+                }
+
+            };
+            bebeNom.setFilters(filters);
+            bebeNom.setInputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);// première lettre en majuscule
             bebeNom.setLayoutParams(lp);
             /////////////////////////////////////////////////////////////
 
@@ -299,10 +328,14 @@ public class MainActivity extends AppCompatActivity {
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
 
-                            //On récupère le nom du bébé dans l'editText
+
+                             //On récupère le nom du bébé dans l'editText
                             nom=bebeNom.getText().toString();
 
-                            // On enregistre le nom du bébé dans les sharedPref
+
+
+
+                            // On enregistre le nom du bébé dans les sharedPre
                             prefs.edit().putString("nom", nom).apply();
 
                             // On construit la phrase personnalisée de l'alerdialog 5
@@ -344,6 +377,8 @@ public class MainActivity extends AppCompatActivity {
                             {dialog.dismiss();
                                 veryFirstTime4Garcon.show();
                             }
+
+
 
                         }
                     });
@@ -505,10 +540,6 @@ public class MainActivity extends AppCompatActivity {
 
         super.onResume();
     }
-
-
-
-
 
 
 

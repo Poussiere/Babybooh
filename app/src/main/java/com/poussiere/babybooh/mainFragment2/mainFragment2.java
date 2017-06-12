@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.poussiere.babybooh.MainActivity;
 import com.poussiere.babybooh.R;
@@ -31,6 +32,7 @@ public class mainFragment2 extends Fragment implements LoaderManager.LoaderCallb
     private BddDAO maBase;
     protected ListView lv;
     protected MyCursorAdapter ad;
+    private TextView emptyView;
 
 
     public mainFragment2() {
@@ -61,7 +63,10 @@ public class mainFragment2 extends Fragment implements LoaderManager.LoaderCallb
         maBase = new BddDAO(getActivity());
         maBase.open();
         lv = (ListView)layoutView.findViewById(R.id.lvEvenements);
+        emptyView=(TextView)layoutView.findViewById((R.id.empty_view));
         ad = new MyCursorAdapter(getActivity(), null, 1);
+
+        lv.setEmptyView(emptyView);
         lv.setAdapter(ad);
 
         getLoaderManager().initLoader(1, null, this);

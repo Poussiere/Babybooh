@@ -32,13 +32,13 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
     File[] fichiersSons = mCurentFile.listFiles();
     String nomDuSon, nomDuSonSelectionne;
     private Context context;
-    private RecyclerViewClickListener itemListener;
 
-    public EnregistrerRecyclerViewAdapter(Context context, RecyclerViewClickListener itemListener)
+
+    public EnregistrerRecyclerViewAdapter(Context context)
 
     {
         this.context = context;
-        this.itemListener=itemListener;
+
     }
 
 
@@ -128,7 +128,6 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
 
                     conteneur.setSelected(true);
                     notifyDataSetChanged();
-                    itemListener.recyclerViewListClicked(view, 1);
 
 
                 }

@@ -21,6 +21,8 @@
     <string name="inconnu">Inconnu</string>
     <string name="salleEnregistrement">Salle d\'enregistrement</string>
 
+    <string name="empty_view_alert">Aucun monstre détecté! Lancer la veille lors de la prochaine sièste de bébé!</string>
+
     <string name="oui">OUI</string>
     <string name="non">NON</string>
 
@@ -182,7 +184,14 @@
 
     <string name="inconnu_description">Utilisez encore BabyboOH avec votre bébé. Ce monstre apparaitra peut-etre pendant la prochaine sièste!</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <!-- Content descriptions -->
+    <string name="content_description_veille_bouton">Démarrer la veille</string>
+    <string name="content_description_apperçu_monstre">Image du monstre qui a réveillé votre bébé</string>
+    <string name="content_description_photo_monstre">Image du monstre débloqué. Cliquez pour accéder à sa carte d\'identité</string>
+    <string name="content_description_stop_veille_bouton">Stopper la veille</string>
+    <string name="content_description_demarrer_enregistreent">Démarrer l\'enregistrement</string>
+    <string name="content_description_arreter_enregistreent">Arrêter l\'enregistrement</string>
+    <string name="content_description_gallerie">Gallerie</string>
+    <string name="content_description_carnet_de_bord">Carnet de bord</string>
+    <string name="content_description_accueil">Accueil</string>
 </resources>

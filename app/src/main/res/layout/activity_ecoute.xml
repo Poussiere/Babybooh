@@ -12,12 +12,13 @@
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:focusable="true"
         android:id="@+id/boutonFlottant"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         app:backgroundTint="#e12525"
         android:clickable="true"
         android:onClick="onClick2"
-        android:contentDescription="Stopper la veille" />
+        android:contentDescription="@string/content_description_stop_veille_bouton" />
 
 </RelativeLayout>

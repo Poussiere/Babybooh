@@ -7,7 +7,8 @@
         android:icon="@drawable/ic_home_white_24dp"
         android:title="@string/titre_fragment1"
         android:checked="true"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="ifRoom"
+        />
     <item
         android:id="@+id/historique_btn"
         android:enabled="true"
@@ -21,5 +22,6 @@
         android:icon="@drawable/bug_monstre_ico"
         android:title="@string/titre_activite3"
         android:checked="false"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="ifRoom"
+        />
 </menu>

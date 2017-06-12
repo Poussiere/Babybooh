@@ -16,6 +16,8 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -43,7 +45,7 @@ import java.io.IOException;
 
 
 
-public class EnregistrerActivity extends AppCompatActivity implements RecyclerViewClickListener {
+public class EnregistrerActivity extends AppCompatActivity {
 
     public static final String ACT3 = "activite 3";
     TextView tv1;
@@ -58,7 +60,7 @@ public class EnregistrerActivity extends AppCompatActivity implements RecyclerVi
     String sn;
     private SeekBar volumeSeekbar = null;
     private AudioManager audioManager = null;
-    View llView;
+
 
 
     @Override
@@ -161,14 +163,16 @@ public class EnregistrerActivity extends AppCompatActivity implements RecyclerVi
                             public void onClick(DialogInterface dialog, int which) {
                                 File file = new File (Environment.getExternalStorageDirectory().getAbsolutePath()+"/babyboohSongs/"+sn);
                                 file.delete();
-                                rcAdapter.notifyDataSetChanged();
+                                rcAdapter = new EnregistrerRecyclerViewAdapter(EnregistrerActivity.this);
+                                rView.setAdapter(rcAdapter);
                                 dialog.dismiss();
                             }
                         });
                 supConfirm.setNegativeButton(R.string.annuler,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                rcAdapter.notifyDataSetChanged();
+                                rcAdapter = new EnregistrerRecyclerViewAdapter(EnregistrerActivity.this);
+                                rView.setAdapter(rcAdapter);
                                 dialog.dismiss();
                             }
                         });
@@ -183,7 +187,7 @@ public class EnregistrerActivity extends AppCompatActivity implements RecyclerVi
         /////////////////////////////////////////////////////////////////////////////
 
 
-        rcAdapter = new EnregistrerRecyclerViewAdapter(EnregistrerActivity.this, this);
+        rcAdapter = new EnregistrerRecyclerViewAdapter(EnregistrerActivity.this);
         rView.setAdapter(rcAdapter);
 
         enregistrementEnCours=false;
@@ -206,7 +210,7 @@ public class EnregistrerActivity extends AppCompatActivity implements RecyclerVi
 
             fb.startAnimation(animation);
             tv1.setText(R.string.consigneRecord2);
-
+            fb.setContentDescription(getString(R.string.content_description_arreter_enregistreent));
             background1 = new Thread (new Runnable(){
 
                 public void run () {
@@ -232,7 +236,9 @@ public class EnregistrerActivity extends AppCompatActivity implements RecyclerVi
             enregistreur.arreterEnregistrement();
             enregistrementEnCours = false;
             fb.clearAnimation();
+            fb.setContentDescription(getString(R.string.content_description_demarrer_enregistreent));
             tv1.setText(R.string.consigneRecord);
+
 
             //////////////////////////////////////////////////////////////////////////////////////////////////
             //Construction d'une alertedialog pour demander de nommer le fichier son
@@ -242,6 +248,38 @@ public class EnregistrerActivity extends AppCompatActivity implements RecyclerVi
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT);
+
+
+            InputFilter[] FilterArray = new InputFilter[1]; // Filtre pour limiter la taille du texte saisi
+            FilterArray[0] = new InputFilter.LengthFilter(10);
+            sonNom.setFilters(FilterArray);
+
+            InputFilter[] filters = new InputFilter[1];
+
+
+
+            //Liste des charactères autorisés pour l'edittext
+            filters[0] = new InputFilter(){
+                @Override
+                public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                    if (end > start) {
+
+                        char[] acceptedChars = new char[]{'a', 'b', 'c', 'd', 'e','f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+                                'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+                                '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' '};
+
+                        for (int index = start; index < end; index++) {
+                            if (!new String(acceptedChars).contains(String.valueOf(source.charAt(index)))) {
+                                return "";
+                            }
+                        }
+                    }
+                    return null;
+                }
+
+            };
+            sonNom.setFilters(filters);
+
             sonNom.setLayoutParams(lp);
 
             final AlertDialog.Builder alerteNom = new AlertDialog.Builder(EnregistrerActivity.this);
@@ -266,7 +304,8 @@ public class EnregistrerActivity extends AppCompatActivity implements RecyclerVi
 
 
                             // Apres il faut mettre à jour la vue. Il y a surement un moyen plus optimal que de recreer une instance de l'adapter commee ci dessous
-                          rcAdapter.notifyDataSetChanged();
+                            rcAdapter = new EnregistrerRecyclerViewAdapter(EnregistrerActivity.this);
+                            rView.setAdapter(rcAdapter);
                         }
                     });
             ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -350,9 +389,5 @@ public class EnregistrerActivity extends AppCompatActivity implements RecyclerVi
         super.onPause();}
 
 
-    @Override
-    public void recyclerViewListClicked(View v, int position) {
-       // rcAdapter.notifyDataSetChanged();
 
-    }
 }

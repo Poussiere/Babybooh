@@ -29,9 +29,9 @@
         android:tint="@color/background_floating_material_light"
         app:fabSize="normal"
         app:borderWidth="0dp"
-
         android:layout_marginTop="156dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/content_description_veille_bouton"/>
 
 </RelativeLayout>
