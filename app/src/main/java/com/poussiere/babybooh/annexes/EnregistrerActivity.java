@@ -1,15 +1,18 @@
 package com.poussiere.babybooh.annexes;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -61,9 +64,9 @@ public class EnregistrerActivity extends AppCompatActivity {
     private SeekBar volumeSeekbar = null;
     private AudioManager audioManager = null;
     public static final int MY_PERMISSIONS_REQUEST_AUDIO_RECORD = 42;
+    public static final int MY_PERMISSIONS_REQUEST_WRITE = 43
 
-
-
+;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -201,13 +204,16 @@ public class EnregistrerActivity extends AppCompatActivity {
     public void onClick3 (View view)
     {
         //Voir si on a bien la permission d'enregistrer en accédant au micro (persmission dangeureuse!!!)
-        int permissionCheck = ContextCompat.checkSelfPermission(this,
+        int permissionCheckAudio = ContextCompat.checkSelfPermission(this,
         Manifest.permission.RECORD_AUDIO);
+
+        int permissionChecWrite= ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         
         
         if (!enregistrementEnCours) {
            
-        if (permissionCheck==PackageManager.PERMISSION_GRANTED){
+        if (permissionCheckAudio== PackageManager.PERMISSION_GRANTED && permissionChecWrite==PackageManager.PERMISSION_GRANTED){
+
             
             enregistrementEnCours = true;
 
@@ -237,11 +243,19 @@ public class EnregistrerActivity extends AppCompatActivity {
 
             //bouton3.setText(R.string.stopRecord);
             background1.start();
-        }else if (permissionCheck==PackageManager.PERMISSION_DENIED){
+        }else {
             //On va demander l'autorisation
-             ActivityCompat.requestPermissions(this,
-                new String[]{Manifest.permission.RECORD_AUDIO},
-                MY_PERMISSIONS_REQUEST_AUDIO_RECORD);}
+           if (permissionCheckAudio== PackageManager.PERMISSION_DENIED){
+               ActivityCompat.requestPermissions(this,
+                       new String[]{Manifest.permission.RECORD_AUDIO},
+                       MY_PERMISSIONS_REQUEST_AUDIO_RECORD);
+           }
+            if (permissionChecWrite==PackageManager.PERMISSION_DENIED){
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        MY_PERMISSIONS_REQUEST_WRITE);
+            }
+        }
                   
         
         }
