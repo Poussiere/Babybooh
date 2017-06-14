@@ -60,6 +60,7 @@ public class EnregistrerActivity extends AppCompatActivity {
     String sn;
     private SeekBar volumeSeekbar = null;
     private AudioManager audioManager = null;
+    public static final int MY_PERMISSIONS_REQUEST_AUDIO_RECORD = 42;
 
 
 
@@ -199,7 +200,15 @@ public class EnregistrerActivity extends AppCompatActivity {
 
     public void onClick3 (View view)
     {
+        //Voir si on a bien la permission d'enregistrer en accédant au micro (persmission dangeureuse!!!)
+        int permissionCheck = ContextCompat.checkSelfPermission(this,
+        Manifest.permission.RECORD_AUDIO);
+        
+        
         if (!enregistrementEnCours) {
+           
+        if (permissionCheck==PackageManager.PERMISSION_GRANTED){
+            
             enregistrementEnCours = true;
 
             final Animation animation = new AlphaAnimation(1, 0); // Change alpha from fully visible to invisible
@@ -228,6 +237,13 @@ public class EnregistrerActivity extends AppCompatActivity {
 
             //bouton3.setText(R.string.stopRecord);
             background1.start();
+        }else if (permissionCheck==PackageManager.PERMISSION_DENIED){
+            //On va demander l'autorisation
+             ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.RECORD_AUDIO},
+                MY_PERMISSIONS_REQUEST_AUDIO_RECORD);}
+                  
+        
         }
 
         else
