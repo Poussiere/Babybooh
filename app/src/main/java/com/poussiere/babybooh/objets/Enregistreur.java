@@ -31,6 +31,7 @@ public class Enregistreur {
     public void demarrerEnregistrement() throws IOException {
 
         fichierVoix = Environment.getExternalStorageDirectory().getAbsolutePath() ;
+      //  fichierVoix = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).getAbsolutePath();
         fichierVoix += "/babyboohSongs/MessagePourBebe.mp4";
 
         if (mediaRecorder == null) {
