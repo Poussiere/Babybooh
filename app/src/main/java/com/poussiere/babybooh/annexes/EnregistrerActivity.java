@@ -327,7 +327,7 @@ public class EnregistrerActivity extends AppCompatActivity {
                             String cheminFichierTx = Environment.getExternalStorageDirectory().getAbsolutePath();
                             cheminFichierTx += "/babyboohSongs/";
                             File repertoire = new File(cheminFichierTx);
-                            File from = new File(repertoire, "messagePourBebe.mp4");
+                            File from = new File(repertoire, "MessagePourBebe.mp4");
                             File to = new File(repertoire, nom.trim() + ".mp4");
                             from.renameTo(to);
 

@@ -8,12 +8,14 @@
 
 package com.poussiere.babybooh;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Environment;
 import android.preference.PreferenceManager;
@@ -23,6 +25,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -59,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
     Intent intentSettings;
     SharedPreferences prefs = null;
     FrameLayout conteneur;
+    public static final int MY_PERMISSIONS_REQUEST_AUDIO_RECORD = 42;
+    public static final int MY_PERMISSIONS_REQUEST_WRITE = 43;
 
     //Déclrations des variables servant dans les alertDialog du premier lancement
     String fille, garcon;
@@ -163,6 +168,56 @@ public class MainActivity extends AppCompatActivity {
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         if (prefs.getBoolean("firstrun", true)) {
 
+            //On va demander toutes les permissions tout de suite, comme ça ce sera fait!!
+            int permissionCheckAudio = ContextCompat.checkSelfPermission(this,
+                    Manifest.permission.RECORD_AUDIO);
+
+            int permissionChecWrite= ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+            if (permissionChecWrite!= PackageManager.PERMISSION_GRANTED) {
+
+                // Should we show an explanation?
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+
+                    //Lancer un alertDialog ici
+                    // Show an explanation to the user *asynchronously* -- don't block
+                    // this thread waiting for the user's response! After the user
+                    // sees the explanation, try again to request the permission.
+
+                } else {
+
+
+                    ActivityCompat.requestPermissions(this,
+                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                            MY_PERMISSIONS_REQUEST_WRITE);
+
+                }
+            }
+            if (permissionCheckAudio != PackageManager.PERMISSION_GRANTED) {
+
+
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                        Manifest.permission.RECORD_AUDIO)) {
+
+                    //Lancer un alertDialog ici
+                    // Show an explanation to the user *asynchronously* -- don't block
+                    // this thread waiting for the user's response! After the user
+                    // sees the explanation, try again to request the permission.
+
+                } else {
+
+                    // No explanation needed, we can request the permission.
+
+                    ActivityCompat.requestPermissions(this,
+                            new String[]{Manifest.permission.RECORD_AUDIO},
+                            MY_PERMISSIONS_REQUEST_AUDIO_RECORD);
+
+
+                }
+            }
+
+
             /////////////////////////////////////////////////////////////////////////////////////////
             //Création des sharedpréference qui permettront de dire si un monstre a été débloqué ou non (ne pas oublier de remettre à 0 en cas de reinitrences lorsqu'on fait reset (sharedprefenrece.clear())
             prefs.edit().putBoolean("monstre1", false).apply();
@@ -189,6 +244,7 @@ public class MainActivity extends AppCompatActivity {
             if (!f.exists()) {
                 f.mkdirs();
             }
+
 
             //////////////////////////////////////////////////////////
             //Construction des modalités de la question du sexe
