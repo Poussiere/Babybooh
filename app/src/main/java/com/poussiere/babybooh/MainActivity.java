@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
                             MY_PERMISSIONS_REQUEST_AUDIO_RECORD);
 
 
-                }
+                } 
             }
 
 
