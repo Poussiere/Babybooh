@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
             //On va demander toutes les permissions tout de suite, comme ça ce sera fait!!
             int permissionCheckAudio = ContextCompat.checkSelfPermission(this,
                     Manifest.permission.RECORD_AUDIO);
-
+        /*
             int permissionChecWrite= ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
             if (permissionChecWrite!= PackageManager.PERMISSION_GRANTED) {
@@ -194,6 +194,9 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             }
+
+            */
+
             if (permissionCheckAudio != PackageManager.PERMISSION_GRANTED) {
 
 
@@ -214,7 +217,7 @@ public class MainActivity extends AppCompatActivity {
                             MY_PERMISSIONS_REQUEST_AUDIO_RECORD);
 
 
-                } 
+                }
             }
 
 
@@ -240,7 +243,8 @@ public class MainActivity extends AppCompatActivity {
             //Création du folder dans lequel sertont enregistrés les sons
             String folder_main = "babyboohSongs";
 
-            File f = new File(Environment.getExternalStorageDirectory(), folder_main);
+            File f = new File(getExternalFilesDir(null), folder_main);
+
             if (!f.exists()) {
                 f.mkdirs();
             }

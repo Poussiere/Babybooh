@@ -1,11 +1,14 @@
 package com.poussiere.babybooh.objets;
 
+import android.content.Context;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Environment;
 import android.util.Log;
 
 import java.io.IOException;
+
+import static java.security.AccessController.getContext;
 
 // Créer le repertoire dans lequel seront sauvegardées les sons lors du premier lancement
 
@@ -16,8 +19,8 @@ public class Enregistreur {
     //Fichier unique où est enregistré le message du parent pour le bébé
 
     private String fichierVoix;
-   private MediaPlayer mediaPlayer; //idem que pour Lecture, le rendre privé et ascesseur
-
+    private MediaPlayer mediaPlayer; //idem que pour Lecture, le rendre privé et ascesseur
+    private Context context;
 
 
     //Methode permettant d'accéder au mediaplayer depuis l'exterieur
@@ -26,11 +29,15 @@ public class Enregistreur {
         return mediaPlayer;
     }
 
+    public Enregistreur (Context c){
+        context = c;
+    }
+
 
     // Méthode qui va lancer l'enregistrement du message pour le bébé
     public void demarrerEnregistrement() throws IOException {
 
-        fichierVoix = Environment.getExternalStorageDirectory().getAbsolutePath() ;
+        fichierVoix = context.getExternalFilesDir(null).getAbsolutePath() ;
       //  fichierVoix = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).getAbsolutePath();
         fichierVoix += "/babyboohSongs/MessagePourBebe.mp4";
 

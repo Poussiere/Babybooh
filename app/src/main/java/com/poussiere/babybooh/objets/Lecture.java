@@ -1,5 +1,6 @@
 package com.poussiere.babybooh.objets;
 
+import android.content.Context;
 import android.media.MediaPlayer;
 import android.os.Environment;
 import android.util.Log;
@@ -14,14 +15,18 @@ public class Lecture {
     // Creation d'un objet MEdiaPlayer pour lire le son enregistr� Le rendre privé et mettre un ascesseur
    private MediaPlayer mediaPlayer ;
     private String son;
+    private Context context;
 
+    public Lecture (Context c){
+        context=c;
+    }
 
     // M�thode permettant de lancer la lecture du son enregistr�
     public void lire(String sonNom)
 
     {if (mediaPlayer==null)
 
-    {son= Environment.getExternalStorageDirectory().getAbsolutePath() ;
+    {son= context.getExternalFilesDir(null).getAbsolutePath() ;
         son += "/babyboohSongs/"+sonNom ;
 
         mediaPlayer = new MediaPlayer();

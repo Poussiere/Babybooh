@@ -127,7 +127,7 @@ Modification à prévoir: insérer l'heure de début dans la base de données + 
         sonNom=prefs.getString("nomDuSon","MessagePourBebe.mp4");
         
         ecoute=new Ecoute();
-        lecture=new Lecture();
+        lecture=new Lecture(this);
 
         final Animation animation = new AlphaAnimation(1, 0); // Change alpha from fully visible to invisible
         animation.setDuration(1000); // duration - half a second

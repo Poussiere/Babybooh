@@ -165,7 +165,7 @@ public class EnregistrerActivity extends AppCompatActivity {
                 supConfirm.setPositiveButton(R.string.confirmer,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                File file = new File (Environment.getExternalStorageDirectory().getAbsolutePath()+"/babyboohSongs/"+sn);
+                                File file = new File (getExternalFilesDir(null).getAbsolutePath()+"/babyboohSongs/"+sn);
                                 file.delete();
                                 rcAdapter = new EnregistrerRecyclerViewAdapter(EnregistrerActivity.this);
                                 rView.setAdapter(rcAdapter);
@@ -195,7 +195,7 @@ public class EnregistrerActivity extends AppCompatActivity {
         rView.setAdapter(rcAdapter);
 
         enregistrementEnCours=false;
-        enregistreur = new Enregistreur();
+        enregistreur = new Enregistreur(this);
 
 
     }
@@ -207,12 +207,12 @@ public class EnregistrerActivity extends AppCompatActivity {
         int permissionCheckAudio = ContextCompat.checkSelfPermission(this,
         Manifest.permission.RECORD_AUDIO);
 
-        int permissionChecWrite= ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+      //  int permissionChecWrite= ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         
         
         if (!enregistrementEnCours) {
            
-        if (permissionCheckAudio== PackageManager.PERMISSION_GRANTED && permissionChecWrite==PackageManager.PERMISSION_GRANTED){
+        if (permissionCheckAudio==PackageManager.PERMISSION_GRANTED){
 
             
             enregistrementEnCours = true;
@@ -250,11 +250,11 @@ public class EnregistrerActivity extends AppCompatActivity {
                        new String[]{Manifest.permission.RECORD_AUDIO},
                        MY_PERMISSIONS_REQUEST_AUDIO_RECORD);
            }
-            if (permissionChecWrite==PackageManager.PERMISSION_DENIED){
+         /*   if (permissionChecWrite==PackageManager.PERMISSION_DENIED){
                 ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                         MY_PERMISSIONS_REQUEST_WRITE);
-            }
+            } */
         }
                   
         
@@ -324,7 +324,7 @@ public class EnregistrerActivity extends AppCompatActivity {
                             //On récupère le nom du bébé dans l'editText
                             String nom = sonNom.getText().toString();
 
-                            String cheminFichierTx = Environment.getExternalStorageDirectory().getAbsolutePath();
+                            String cheminFichierTx = getExternalFilesDir(null).getAbsolutePath();
                             cheminFichierTx += "/babyboohSongs/";
                             File repertoire = new File(cheminFichierTx);
                             File from = new File(repertoire, "MessagePourBebe.mp4");

@@ -27,11 +27,13 @@ import static java.security.AccessController.getContext;
 public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<EnregistrerRecyclerViewAdapter.EnrRecyclerViewHolders> {
 
 
-    String cheminFichier = Environment.getExternalStorageDirectory().getAbsolutePath() + "/babyboohSongs/";
-    File mCurentFile = new File(cheminFichier);
-    File[] fichiersSons = mCurentFile.listFiles();
+
+
+
     String nomDuSon, nomDuSonSelectionne;
     private Context context;
+
+
 
 
     public EnregistrerRecyclerViewAdapter(Context context)
@@ -59,7 +61,9 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
         //  mCurentFile =  new File(cheminFichier);
         // fichiersSons = mCurentFile.listFiles();
 
-
+        String cheminFichier = context.getExternalFilesDir(null).getAbsolutePath() + "/babyboohSongs/";
+        File mCurentFile = new File(cheminFichier);
+        File[] fichiersSons = mCurentFile.listFiles();
 
         nomDuSon = fichiersSons[position].getName();
         holder.sonNomTx.setText(nomDuSon);
@@ -82,6 +86,10 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
 
     @Override
     public int getItemCount() {
+        String cheminFichier = context.getExternalFilesDir(null).getAbsolutePath() + "/babyboohSongs/";
+        File mCurentFile = new File(cheminFichier);
+        File[] fichiersSons = mCurentFile.listFiles();
+
         if (fichiersSons != null) return fichiersSons.length;
         else return 0;
     }
@@ -102,7 +110,7 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
             sonNomTx = (TextView)itemView.findViewById(R.id.son_nom_tv);
             playImage=(ImageView)itemView.findViewById(R.id.play_image);
             conteneur=(View)itemView.findViewById(R.id.card_view_enr_cont);
-            lecture=new Lecture();
+            lecture=new Lecture(context);
 
             sonNomTx.setOnClickListener(new View.OnClickListener() {
                 @Override
