@@ -41,16 +41,13 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-
-import com.poussiere.babybooh.activite1.EcouteActivity;
 import com.poussiere.babybooh.mainFragment1.main_fragment1;
-import com.poussiere.babybooh.mainFragment2.StatsActivity;
 import com.poussiere.babybooh.mainFragment2.mainFragment2;
-import com.poussiere.babybooh.mainFragment3.TableauDeChasseActivity;
 import com.poussiere.babybooh.annexes.EnregistrerActivity;
 import com.poussiere.babybooh.annexes.SettingsActivity;
 import com.poussiere.babybooh.bdd.BddDAO;
 import com.poussiere.babybooh.mainFragment3.mainFragment3;
+import com.poussiere.babybooh.welcomeFragments.WelcomeFragment1;
 
 import java.io.File;
 
@@ -61,9 +58,9 @@ public class MainActivity extends AppCompatActivity {
     Intent intentEnregistrer;
     Intent intentSettings;
     SharedPreferences prefs = null;
-    FrameLayout conteneur;
+    private FrameLayout conteneur;
+    private FrameLayout welcomeConteneur;
     public static final int MY_PERMISSIONS_REQUEST_AUDIO_RECORD = 42;
-    public static final int MY_PERMISSIONS_REQUEST_WRITE = 43;
 
     //Déclrations des variables servant dans les alertDialog du premier lancement
     String fille, garcon;
@@ -89,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         intentEnregistrer = new Intent(MainActivity.this, EnregistrerActivity.class);
         intentSettings = new Intent(MainActivity.this, SettingsActivity.class);
         conteneur=(FrameLayout)findViewById(R.id.conteneur_boutons);
+        welcomeConteneur=(FrameLayout)findViewById(R.id.conteneur_du_premier_lancement);
         // couleur de la barre de statuts pour Lolipo et +
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
@@ -172,31 +170,7 @@ public class MainActivity extends AppCompatActivity {
             //On va demander toutes les permissions tout de suite, comme ça ce sera fait!!
             int permissionCheckAudio = ContextCompat.checkSelfPermission(this,
                     Manifest.permission.RECORD_AUDIO);
-        /*
-            int permissionChecWrite= ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
-            if (permissionChecWrite!= PackageManager.PERMISSION_GRANTED) {
-
-                // Should we show an explanation?
-                if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-
-                    //Lancer un alertDialog ici
-                    // Show an explanation to the user *asynchronously* -- don't block
-                    // this thread waiting for the user's response! After the user
-                    // sees the explanation, try again to request the permission.
-
-                } else {
-
-
-                    ActivityCompat.requestPermissions(this,
-                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                            MY_PERMISSIONS_REQUEST_WRITE);
-
-                }
-            }
-
-            */
 
             if (permissionCheckAudio != PackageManager.PERMISSION_GRANTED) {
 
@@ -248,6 +222,28 @@ public class MainActivity extends AppCompatActivity {
 
             if (!f.exists()) {
                 f.mkdirs();
+            }
+
+
+            ///////////////////////////////////////////////////////////////
+            //Lancement du welcome fragment
+
+            Fragment welcomeFrag = WelcomeFragment1.newInstance();
+
+
+            welcomeConteneur.setVisibility(View.VISIBLE);
+
+            Log.i(ACT_NAME, "welcome fragment crée");
+            if (welcomeFrag != null) {
+
+
+                FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
+
+                fragTrans.add(R.id.conteneur_du_premier_lancement, welcomeFrag, welcomeFrag.getTag());
+                fragTrans.commit();
+
+                Log.i(ACT_NAME, "welcome fragment affiché");
+
             }
 
 
