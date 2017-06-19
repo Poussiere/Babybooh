@@ -160,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
         
     }// fin du onCreate
 
+
     @Override
     protected void onResume()
     {
