@@ -61,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
     private FrameLayout conteneur;
     private FrameLayout welcomeConteneur;
     public static final int MY_PERMISSIONS_REQUEST_AUDIO_RECORD = 42;
+    
+    //Circle indicator de la séquence de bienvenue
+    private ImageView [] circleTab;
 
     //Déclrations des variables servant dans les alertDialog du premier lancement
     String fille, garcon;
@@ -102,6 +105,29 @@ public class MainActivity extends AppCompatActivity {
 
 
         getSupportActionBar().setTitle(com.poussiere.babybooh.R.string.app_name);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Création du circle indicator de la séquence de bienvenue
+      
+ 
+     
+        circleTab = new ImageView[5]; // Il y a 5 fragents dans la séquence d'accueil, donc 5 cercles
+ 
+        for (int i = 0; i < 5 ; i++) {
+            circleTab[i] = new ImageView(this);
+            circleTab[i].setImageDrawable(getResources().getDrawable(R.drawable.nonselecteditem_dot));
+ 
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+ 
+            params.setMargins(4, 0, 4, 0);
+ 
+            pager_indicator.addView(dots[i], params);
+        }
+ 
+        circleIndicator[0].setImageDrawable(getResources().getDrawable(R.drawable.selecteditem_dot));
+    
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -737,6 +763,7 @@ public class MainActivity extends AppCompatActivity {
             ft.add(R.id.conteneur_boutons, frag, frag.getTag());
             ft.commit();
         }
+      
     }
 
 
