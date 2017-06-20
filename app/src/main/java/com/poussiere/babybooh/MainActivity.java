@@ -40,7 +40,10 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+
 import com.poussiere.babybooh.mainFragment1.main_fragment1;
 import com.poussiere.babybooh.mainFragment2.mainFragment2;
 import com.poussiere.babybooh.annexes.EnregistrerActivity;
@@ -59,7 +62,9 @@ public class MainActivity extends AppCompatActivity {
     Intent intentSettings;
     SharedPreferences prefs = null;
     private FrameLayout conteneur;
-    private FrameLayout welcomeConteneur;
+    private RelativeLayout welcomeConteneur;
+    private LinearLayout circlesConteneur;
+    private android.support.v4.app.Fragment welcomeFragment;
     public static final int MY_PERMISSIONS_REQUEST_AUDIO_RECORD = 42;
     
     //Circle indicator de la séquence de bienvenue
@@ -89,7 +94,8 @@ public class MainActivity extends AppCompatActivity {
         intentEnregistrer = new Intent(MainActivity.this, EnregistrerActivity.class);
         intentSettings = new Intent(MainActivity.this, SettingsActivity.class);
         conteneur=(FrameLayout)findViewById(R.id.conteneur_boutons);
-        welcomeConteneur=(FrameLayout)findViewById(R.id.conteneur_du_premier_lancement);
+        welcomeConteneur=(RelativeLayout)findViewById(R.id.conteneur_du_premier_lancement);
+        circlesConteneur=(LinearLayout)findViewById(R.id.circles_id);
         // couleur de la barre de statuts pour Lolipo et +
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
@@ -114,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
  
         for (int i = 0; i < 5 ; i++) {
             circleTab[i] = new ImageView(this);
-            circleTab[i].setImageDrawable(getResources().getDrawable(R.drawable.nonselecteditem_dot));
+            circleTab[i].setImageDrawable(getResources().getDrawable(R.drawable.non_selected_circle));
  
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -123,10 +129,10 @@ public class MainActivity extends AppCompatActivity {
  
             params.setMargins(4, 0, 4, 0);
  
-            pager_indicator.addView(dots[i], params);
+            circlesConteneur.addView(circleTab[i], params);
         }
  
-        circleIndicator[0].setImageDrawable(getResources().getDrawable(R.drawable.selecteditem_dot));
+        circleTab[0].setImageDrawable(getResources().getDrawable(R.drawable.selected_circle));
     
 
 
@@ -265,7 +271,7 @@ public class MainActivity extends AppCompatActivity {
 
                 FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
 
-                fragTrans.add(R.id.conteneur_du_premier_lancement, welcomeFrag, welcomeFrag.getTag());
+                fragTrans.add(R.id.welcome_fragment_id, welcomeFrag, welcomeFrag.getTag());
                 fragTrans.commit();
 
                 Log.i(ACT_NAME, "welcome fragment affiché");

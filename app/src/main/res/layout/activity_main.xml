@@ -8,13 +8,58 @@
     android:background="@color/white"
     android:backgroundTintMode="src_over">
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/conteneur_du_premier_lancement"
         android:visibility="gone">
 
-    </FrameLayout>
+        <android.support.v4.app.FragmentTabHost
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/welcome_fragment_id"
+            android:layout_above="@+id/circle_indicator_id">
+
+        </android.support.v4.app.FragmentTabHost>
+
+        <RelativeLayout
+            android:id="@+id/circle_indicator_id"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="5dp"
+            android:gravity="center">
+
+            <LinearLayout
+                android:id="@+id/circles_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:orientation="horizontal" />
+
+            <TextView
+                android:id="@+id/btn_next"
+                android:layout_width="wrap_content"
+                android:layout_height="42dip"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="15dip"
+                android:clickable="true"
+                android:text="@string/continuer" />
+
+            <TextView
+                android:id="@+id/btn_retour"
+                android:layout_width="42dip"
+                android:layout_height="42dip"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="15dip"
+                android:text="@string/retour"
+                android:visibility="gone"
+                />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
 
 
 <RelativeLayout
