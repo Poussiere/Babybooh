@@ -18,10 +18,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/welcome_fragment_id"
-            android:layout_above="@+id/circle_indicator_id">
+            android:layout_above="@+id/welcome_separator"
+            >
 
         </android.support.v4.app.FragmentTabHost>
-
+<View
+      android:id="@id/welcome_separator"
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:background="@color/primary_color_dark"
+      android:layout_above="@+id/circle_indicator_id"
+      />
         <RelativeLayout
             android:id="@+id/circle_indicator_id"
             android:layout_width="match_parent"
