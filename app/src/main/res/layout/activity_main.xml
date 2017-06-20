@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/conteneur_du_premier_lancement"
+        android:background="@color/primary_color"
         android:visibility="gone">
 
         <FrameLayout
@@ -25,7 +26,7 @@
 <View
       android:id="@id/welcome_separator"
       android:layout_width="match_parent"
-      android:layout_height="1dp"
+      android:layout_height="4dp"
       android:background="@color/primary_color_light"
       android:layout_above="@+id/circle_indicator_id"
       />
@@ -34,8 +35,8 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="5dp"
-            android:gravity="center">
+            android:gravity="center"
+            android:background="@color/primary_color_dark">
 
             <LinearLayout
                 android:id="@+id/circles_id"
@@ -52,7 +53,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginEnd="15dip"
                 android:gravity="center"
-                android:textColor="@color/primary_color"
+                android:textColor="@android:color/white"
                 android:clickable="true"
                 android:onClick="onWelcomeSuivantClick"
 
@@ -66,6 +67,7 @@
                 android:layout_marginStart="15dip"
                 android:text="@string/retour"
                 android:visibility="gone"
+                android:textColor="@android:color/white"
                 />
 
         </RelativeLayout>
