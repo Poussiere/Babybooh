@@ -143,8 +143,8 @@
     <string name="first_time2">A chaque fois que votre bébé se réveillera, un message apaisant que vous allez lui enregistrer sera diffusé jusqu\'à ce qu\'il se rendorme.</string>
     <string name="first_time3">Nos experts analyseront alors les cris qui ont été émis par votre bébé ainsi que son environnement pour vous dire quel type de monstre l\'a réveillé! </string>
 
-    <string name="continuer">Continuer</string>
-    <string name="retour">Retour</string>
+    <string name="continuer">SUIVANT</string>
+    <string name="retour">RETOUR</string>
     <string name="ask_genre1">Avant de commencer, nous aimerions en savoir un peu plus sur votre bout de chou. Est-ce...</string>
     <string name="ask_genre2">Est-ce…</string>
     <string name="fille">une fille ? (et c\'est la plus jolie!)</string>
