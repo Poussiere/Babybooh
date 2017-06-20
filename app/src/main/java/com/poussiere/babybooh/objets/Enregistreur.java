@@ -59,7 +59,7 @@ public class Enregistreur {
             mediaRecorder.setOutputFile(fichierVoix);
             
             //définit la durée maximale de l'enregistrement (3 minutes)
-            recorder.setMaxDuration(180000); 
+            mediaRecorder.setMaxDuration(180000);
 
             try {
                 mediaRecorder.prepare();

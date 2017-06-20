@@ -27,6 +27,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.InputFilter;
@@ -51,6 +52,9 @@ import com.poussiere.babybooh.annexes.SettingsActivity;
 import com.poussiere.babybooh.bdd.BddDAO;
 import com.poussiere.babybooh.mainFragment3.mainFragment3;
 import com.poussiere.babybooh.welcomeFragments.WelcomeFragment1;
+import com.poussiere.babybooh.welcomeFragments.WelcomeFragment2;
+import com.poussiere.babybooh.welcomeFragments.WelcomeFragment3;
+import com.poussiere.babybooh.welcomeFragments.WelcomeFragment4;
 
 import java.io.File;
 
@@ -64,9 +68,10 @@ public class MainActivity extends AppCompatActivity {
     private FrameLayout conteneur;
     private RelativeLayout welcomeConteneur;
     private LinearLayout circlesConteneur;
-    private android.support.v4.app.Fragment welcomeFragment;
+    private FrameLayout welcomeFragment;
     public static final int MY_PERMISSIONS_REQUEST_AUDIO_RECORD = 42;
-    
+    private Fragment welcomeFrag;
+
     //Circle indicator de la séquence de bienvenue
     private ImageView [] circleTab;
 
@@ -96,11 +101,12 @@ public class MainActivity extends AppCompatActivity {
         conteneur=(FrameLayout)findViewById(R.id.conteneur_boutons);
         welcomeConteneur=(RelativeLayout)findViewById(R.id.conteneur_du_premier_lancement);
         circlesConteneur=(LinearLayout)findViewById(R.id.circles_id);
+        welcomeFragment=(FrameLayout) findViewById(R.id.welcome_fragment_id);
         // couleur de la barre de statuts pour Lolipo et +
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(ContextCompat.getColor(this, R.color.gris_material_700));
+            window.setStatusBarColor(ContextCompat.getColor(this, R.color.primary_color_dark));
         }
         //////////////////////////////////////////////////////////////
 
@@ -260,25 +266,23 @@ public class MainActivity extends AppCompatActivity {
             ///////////////////////////////////////////////////////////////
             //Lancement du welcome fragment
 
-            Fragment welcomeFrag = WelcomeFragment1.newInstance();
+            welcomeFrag = WelcomeFragment1.newInstance();
 
 
             welcomeConteneur.setVisibility(View.VISIBLE);
 
-            Log.i(ACT_NAME, "welcome fragment crée");
             if (welcomeFrag != null) {
 
-
+                welcomeFragment.removeAllViews();
                 FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
 
                 fragTrans.add(R.id.welcome_fragment_id, welcomeFrag, welcomeFrag.getTag());
                 fragTrans.commit();
 
-                Log.i(ACT_NAME, "welcome fragment affiché");
 
             }
 
-
+/*
             //////////////////////////////////////////////////////////
             //Construction des modalités de la question du sexe
             fille=getString(com.poussiere.babybooh.R.string.fille);
@@ -573,12 +577,14 @@ public class MainActivity extends AppCompatActivity {
 
             veryFirstTime.show();
             prefs.edit().putBoolean("firstrun", false).apply();
-        }
+
 
         // fin de la séquence du premier lancement
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+*/
 
+        }
 
 
 
@@ -772,5 +778,57 @@ public class MainActivity extends AppCompatActivity {
       
     }
 
+    public void onWelcomeSuivantClick(View v) {
+        Fragment f = getFragmentManager().findFragmentById(R.id.welcome_fragment_id);
+        if (f instanceof WelcomeFragment1) {
+            welcomeFrag = WelcomeFragment2.newInstance();
 
+
+            if (welcomeFrag != null) {
+
+                welcomeFragment.removeAllViews();
+                FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
+
+                fragTrans.add(R.id.welcome_fragment_id, welcomeFrag, welcomeFrag.getTag());
+                fragTrans.commit();
+
+                //Mise à jour du circle indicator
+                circleTab[0].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.non_selected_circle, null));
+                circleTab[1].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.selected_circle, null));
+            }
+
+        } else if (f instanceof WelcomeFragment2) {
+            welcomeFrag = WelcomeFragment3.newInstance();
+
+
+            if (welcomeFrag != null) {
+
+                welcomeFragment.removeAllViews();
+                FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
+
+                fragTrans.add(R.id.welcome_fragment_id, welcomeFrag, welcomeFrag.getTag());
+                fragTrans.commit();
+
+                //Mise à jour du circle indicator
+                circleTab[1].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.non_selected_circle, null));
+                circleTab[2].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.selected_circle, null));
+            }
+        } else if (f instanceof WelcomeFragment3) {
+            welcomeFrag = WelcomeFragment4.newInstance();
+
+
+            if (welcomeFrag != null) {
+
+                welcomeFragment.removeAllViews();
+                FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
+
+                fragTrans.add(R.id.welcome_fragment_id, welcomeFrag, welcomeFrag.getTag());
+                fragTrans.commit();
+
+                //Mise à jour du circle indicator
+                circleTab[2].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.non_selected_circle, null));
+                circleTab[3].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.selected_circle, null));
+            }
+        }
+    }
 }

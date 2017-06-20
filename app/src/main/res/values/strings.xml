@@ -138,10 +138,9 @@
     <string name="pref_eteint_ecran_title">Autoriser l\'ecran à s\'éteindre</string>
     <string name="pref_eteint_ecran_summary">L\'écran s\'éteindra pendant la veille. Recommandé si vous souhaitez que votre bébé soit dans le noir complet ou si vous souhaitez économiser votre batterie</string>
 
-    <string name="first_time_tittle">Bienvenue dans babyboOH !</string>
-    <string name="first_time1">Notre équipe de chasseurs de monstres va veiller sur votre bébé pendant qu\'il dort. </string>
-    <string name="first_time2">A chaque fois que votre bébé se réveillera, un message apaisant que vous allez lui enregistrer sera diffusé jusqu\'à ce qu\'il se rendorme.</string>
-    <string name="first_time3">Nos experts analyseront alors les cris qui ont été émis par votre bébé ainsi que son environnement pour vous dire quel type de monstre l\'a réveillé! </string>
+    <string name="first_time_tittle">Bienvenue dans babyboOH ! \n\n Notre équipe de chasseurs de monstres va veiller sur votre bébé pendant qu\'il dort.</string>
+    <string name="first_time1">A chaque fois que votre bébé se réveillera, un message apaisant que vous allez lui enregistrer sera diffusé jusqu\'à ce qu\'il se rendorme.</string>
+    <string name="first_time2">Nos experts analyseront alors les cris qui ont été émis par votre bébé ainsi que son environnement pour vous dire quel type de monstre l\'a réveillé! </string>
 
     <string name="continuer">SUIVANT</string>
     <string name="retour">RETOUR</string>
