@@ -120,8 +120,7 @@ public class MainActivity extends AppCompatActivity {
  
         for (int i = 0; i < 5 ; i++) {
             circleTab[i] = new ImageView(this);
-            circleTab[i].setImageDrawable(getResources().getDrawable(R.drawable.non_selected_circle));
- 
+            circleTab[i].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.non_selected_circle, null));
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
@@ -132,7 +131,8 @@ public class MainActivity extends AppCompatActivity {
             circlesConteneur.addView(circleTab[i], params);
         }
  
-        circleTab[0].setImageDrawable(getResources().getDrawable(R.drawable.selected_circle));
+        circleTab[0].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.selected_circle, null));
+       
     
 
 
