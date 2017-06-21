@@ -803,15 +803,7 @@ public class MainActivity extends AppCompatActivity {
 
             if (welcomeFrag != null) {
 
-                welcomeFragment.removeAllViews();
-                FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
-
-                fragTrans.add(R.id.welcome_fragment_id, welcomeFrag, welcomeFrag.getTag());
-                fragTrans.commit();
-
-                //Mise à jour du circle indicator
-                circleTab[1].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.non_selected_circle, null));
-                circleTab[2].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.selected_circle, null));
+                updateNextFragment(2);
             }
         } else if (f instanceof WelcomeFragment3) {
             welcomeFrag = WelcomeFragment4.newInstance();
@@ -819,6 +811,13 @@ public class MainActivity extends AppCompatActivity {
 
             if (welcomeFrag != null) {
 
+              updateNextFragment(3);
+            }
+        }
+    }
+    
+    //Methode pour afficher le fragment suivant après appui sur suivant dans la séquence d'introduction
+    public void updateNextFragment(int displayedFragment){
                 welcomeFragment.removeAllViews();
                 FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
 
@@ -826,9 +825,7 @@ public class MainActivity extends AppCompatActivity {
                 fragTrans.commit();
 
                 //Mise à jour du circle indicator
-                circleTab[2].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.non_selected_circle, null));
-                circleTab[3].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.selected_circle, null));
-            }
-        }
+                circleTab[displayFragment-1].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.non_selected_circle, null));
+                circleTab[displayFragmet].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.selected_circle, null));
     }
 }
