@@ -756,6 +756,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.gallerie_btn:
                 frag = mainFragment3.newInstance();
                 break;
+
         }
 
         // update selected item
