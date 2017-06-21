@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/pager_introduction"
+        android:id="@+id/welcome_fragment_4_text_1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
@@ -19,6 +19,45 @@
         android:textColor="@android:color/white"
         />
 
+    <RadioGroup
+        android:id="@+id/radioSex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/welcome_fragment_4_text_1">
+
+        <RadioButton
+            android:id="@+id/radioFille"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fille"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/radioGarcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/garcon" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/welcome_fragment_4_text_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/radioSex"
+        android:fitsSystemWindows="true"
+        android:text="@string/ask_nom"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:layout_marginBottom="60dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/white"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/welcome_bebe_nom_edit_text"
+        android:hint="@string/bebe_nom"/>
 
 
 </RelativeLayout>

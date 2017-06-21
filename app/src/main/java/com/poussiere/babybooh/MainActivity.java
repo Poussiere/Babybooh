@@ -16,6 +16,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.preference.PreferenceManager;
@@ -43,6 +44,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 
 import com.poussiere.babybooh.mainFragment1.main_fragment1;
@@ -55,6 +57,8 @@ import com.poussiere.babybooh.welcomeFragments.WelcomeFragment1;
 import com.poussiere.babybooh.welcomeFragments.WelcomeFragment2;
 import com.poussiere.babybooh.welcomeFragments.WelcomeFragment3;
 import com.poussiere.babybooh.welcomeFragments.WelcomeFragment4;
+import com.poussiere.babybooh.welcomeFragments.WelcomeFragment5;
+import com.poussiere.babybooh.welcomeFragments.WelcomeFragment6;
 
 import java.io.File;
 
@@ -786,15 +790,7 @@ public class MainActivity extends AppCompatActivity {
 
             if (welcomeFrag != null) {
 
-                welcomeFragment.removeAllViews();
-                FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
-
-                fragTrans.add(R.id.welcome_fragment_id, welcomeFrag, welcomeFrag.getTag());
-                fragTrans.commit();
-
-                //Mise à jour du circle indicator
-                circleTab[0].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.non_selected_circle, null));
-                circleTab[1].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.selected_circle, null));
+                updateNextFragment(1);
             }
 
         } else if (f instanceof WelcomeFragment2) {
@@ -811,11 +807,30 @@ public class MainActivity extends AppCompatActivity {
 
             if (welcomeFrag != null) {
 
-              updateNextFragment(3);
+                updateNextFragment(3);
+            }
+        } else if (f instanceof WelcomeFragment4) {
+
+            RadioGroup sexe = (RadioGroup)f.getView().findViewById(R.id.radioSex);
+            EditText bebeNom = (EditText)f.getView().findViewById(R.id.welcome_bebe_nom_edit_text);
+
+            welcomeFrag = WelcomeFragment5.newInstance();
+
+            if (welcomeFrag != null) {
+
+                updateNextFragment(4);
+            }
+        }
+        else if (f instanceof WelcomeFragment5) {
+            welcomeFrag = WelcomeFragment6.newInstance();
+
+
+            if (welcomeFrag != null) {
+
+                updateNextFragment(5);
             }
         }
     }
-    
     //Methode pour afficher le fragment suivant après appui sur suivant dans la séquence d'introduction
     public void updateNextFragment(int displayedFragment){
                 welcomeFragment.removeAllViews();
@@ -825,7 +840,8 @@ public class MainActivity extends AppCompatActivity {
                 fragTrans.commit();
 
                 //Mise à jour du circle indicator
-                circleTab[displayFragment-1].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.non_selected_circle, null));
-                circleTab[displayFragmet].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.selected_circle, null));
+                circleTab[displayedFragment-1].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.non_selected_circle, null));
+                circleTab[displayedFragment].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.selected_circle, null));
     }
+
 }
