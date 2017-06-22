@@ -67,6 +67,7 @@
                 android:layout_marginStart="15dip"
                 android:text="@string/retour"
                 android:visibility="gone"
+                android:onClick="onWelcomeRetourClick"
                 android:textColor="@android:color/white"
                 />
 
