@@ -812,7 +812,21 @@ public class MainActivity extends AppCompatActivity {
             }
         } else if (f instanceof WelcomeFragment4) {
 
+            //On récupère le sexe qui a été coché et on l'enregistre dans un sharedpreference
             RadioGroup sexe = (RadioGroup)f.getView().findViewById(R.id.radioSex);
+            int itemCheckedIndex = sexe.getCheckedRadioButtonId();
+                switch (itemCheckedIndex){
+                    case 0:
+                            prefs.edit().putBoolean("fille", true).apply();
+                            break;
+                    case 1:
+                            prefs.edit().putBoolean("fille", false).apply();
+                            break;
+                    default :
+                            Toast.makeText(R.string.choix_sexe_toast, Toast.lenth.LONG).show;
+            
+            
+            
             EditText bebeNom = (EditText)f.getView().findViewById(R.id.welcome_bebe_nom_edit_text);
 
             welcomeFrag = WelcomeFragment5.newInstance();
