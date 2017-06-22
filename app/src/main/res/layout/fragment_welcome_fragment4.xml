@@ -62,7 +62,7 @@
         android:singleLine="true"
         android:imeOptions="actionDone"
         android:hint="@string/bebe_nom"
-        android:inputType="text"/>
+        android:inputType="textPersonName"/>
 
 
 </RelativeLayout>
