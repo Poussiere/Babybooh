@@ -933,7 +933,7 @@ public class MainActivity extends AppCompatActivity {
                 circleTab[displayedFragment].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.selected_circle, null));
     }
     //Méthode pour afficher le fragment précédent dans la séquence d'introduction
-                public void updatePreviousFragment(){
+                public void updatePreviousFragment(int displayedFragment){
                     welcomeFragment.removeAllViews();
                 FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
                 fragTrans.add(R.id.welcome_fragment_id, welcomeFrag, welcomeFrag.getTag());
