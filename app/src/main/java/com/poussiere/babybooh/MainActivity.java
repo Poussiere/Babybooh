@@ -814,27 +814,42 @@ public class MainActivity extends AppCompatActivity {
 
             //On récupère le sexe qui a été coché et on l'enregistre dans un sharedpreference
             RadioGroup sexe = (RadioGroup)f.getView().findViewById(R.id.radioSex);
+            boolean sexeOk = false;
+            boolean nameOk = false;
             int itemCheckedIndex = sexe.getCheckedRadioButtonId();
                 switch (itemCheckedIndex){
                     case 0:
                             prefs.edit().putBoolean("fille", true).apply();
+                            sexeOk=true;
                             break;
                     case 1:
                             prefs.edit().putBoolean("fille", false).apply();
+                            sexeOk=true;
                             break;
                     default :
-                            Toast.makeText(R.string.choix_sexe_toast, Toast.lenth.LONG).show;
+                            Toast.makeText(R.string.choix_sexe_toast, Toast.length().LONG).show();
+                            sexeOk=false;
             
             
             
             EditText bebeNom = (EditText)f.getView().findViewById(R.id.welcome_bebe_nom_edit_text);
+                        String nom= bebeNomb.getText().toString();
+                        
+                        if (!nom.equals("")){
+                             prefs.edit().putString("nom", nom).apply();
+                             nameOk=true;}
+                        else {
+                            nameOk=false;
+                            Toast.makeText(R.string.entrerNom, Toast.length().LONG).show();
 
+                            if (sexeOk && nameOk){
             welcomeFrag = WelcomeFragment5.newInstance();
 
             if (welcomeFrag != null) {
 
                 updateNextFragment(4);
-            }
+            }}
+                            
         }
         else if (f instanceof WelcomeFragment5) {
             welcomeFrag = WelcomeFragment6.newInstance();
