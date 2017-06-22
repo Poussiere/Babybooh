@@ -830,7 +830,7 @@ public class MainActivity extends AppCompatActivity {
                             sexeOk=true;
                             break;
                     default :
-                            Toast.makeText(R.string.choix_sexe_toast, Toast.length().LONG).show();
+                            Toast.makeText(this, R.string.choix_sexe_toast, Toast.LENGHT_LONG).show();
                             sexeOk=false;
             
             
@@ -843,7 +843,7 @@ public class MainActivity extends AppCompatActivity {
                              nameOk=true;}
                         else {
                             nameOk=false;
-                            Toast.makeText(R.string.entrerNom, Toast.length().LONG).show();
+                            Toast.makeText(this, R.string.entrerNom, Toast.LENGHT_LONG).show();
 
                             if (sexeOk && nameOk){
             welcomeFrag = WelcomeFragment5.newInstance();
