@@ -61,12 +61,13 @@
 
             <TextView
                 android:id="@+id/btn_retour"
-                android:layout_width="42dip"
+                android:layout_width="wrap_content"
                 android:layout_height="42dip"
                 android:layout_alignParentLeft="true"
                 android:layout_marginStart="15dip"
                 android:text="@string/retour"
                 android:visibility="gone"
+                android:gravity="center"
                 android:onClick="onWelcomeRetourClick"
                 android:textColor="@android:color/white"
                 />

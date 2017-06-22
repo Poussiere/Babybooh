@@ -1,12 +1,15 @@
 package com.poussiere.babybooh.welcomeFragments;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.poussiere.babybooh.R;
 
@@ -39,32 +42,33 @@ public class WelcomeFragment5 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_welcome_fragment5, container, false);
-        tv1=(TextView)findViewById(R.id.welcome_fragment_5_text1);
-        tv2=(TextView)findViewById(R.id.welcome_fragment_5_text2);
+        View layoutView = inflater.inflate(R.layout.fragment_welcome_fragment5, container, false);
+
+        tv1=(TextView)layoutView.findViewById(R.id.welcome_fragment_5_text1);
+        tv2=(TextView)layoutView.findViewById(R.id.welcome_fragment_5_text2);
         
-         pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+         prefs= PreferenceManager.getDefaultSharedPreferences(getActivity());
         String nom=prefs.getString("nom","Rose");
         int nbNom=nom.length();
         
         // Si fille et nombre de lettres du nom est pair :
                             if (prefs.getBoolean("fille",true) && (nbNom%2)==0)
-                            {   tv1.setText(R.string.caractere_fille)
+                            {   tv1.setText(R.string.caractere_fille);
                                 tv2.setText(getString(com.poussiere.babybooh.R.string.caractere_fille1, nom));}
                             // Si Fille et nombre de lettres du nom est impair :
                             else if (prefs.getBoolean("fille",true) && (nbNom%2)!=0)
-                            {tv1.setText(R.string.caractere_fille)
+                            {tv1.setText(R.string.caractere_fille);
                                 tv2.setText(getString(com.poussiere.babybooh.R.string.caractere_fille2, nom));}
                             // Si Garcon et nombre de lettres du nom est pair :
                             else if (!prefs.getBoolean("fille",true) && (nbNom%2)==0)
-                            {tv1.setText(R.string.caractere_garcon)
-                                tv2.setText(getString(com.poussiere.babybooh.R.string.caractere_garcon1, nom));}
+                            {tv1.setText(R.string.caractere_garcon);
+                                tv2.setText(getString(R.string.caractere_garçon1, nom));}
                             // Si garcon et nombre de lettres du nom est impair :
                             else if (!prefs.getBoolean("fille",true) && (nbNom%2)!=0)
-                            {tv1.setText(R.string.caractere_garcon)
-                                tv2.setText(getString(com.poussiere.babybooh.R.string.caractere_garcon2, nom));}
+                            {tv1.setText(R.string.caractere_garcon);
+                                tv2.setText(getString(R.string.caractere_garçon2, nom));}
                           
-        
+        return layoutView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

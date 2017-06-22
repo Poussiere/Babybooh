@@ -46,6 +46,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.poussiere.babybooh.mainFragment1.main_fragment1;
 import com.poussiere.babybooh.mainFragment2.mainFragment2;
@@ -62,6 +64,9 @@ import com.poussiere.babybooh.welcomeFragments.WelcomeFragment6;
 
 import java.io.File;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -75,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
     private FrameLayout welcomeFragment;
     public static final int MY_PERMISSIONS_REQUEST_AUDIO_RECORD = 42;
     private Fragment welcomeFrag;
-    private textView welcomeReturnButton;
+    private TextView welcomeReturnButton;
+
 
     //Circle indicator de la séquence de bienvenue
     private ImageView [] circleTab;
@@ -128,11 +134,10 @@ public class MainActivity extends AppCompatActivity {
       
  
      
-        circleTab = new ImageView[6]; // Il y a 7 fragents dans la séquence d'accueil, donc 7 cercles
+        circleTab = new ImageView[6]; // Il y a 6 fragents dans la séquence d'accueil, donc 7 cercles
  
         for (int i = 0; i < 6 ; i++) {
             circleTab[i] = new ImageView(this);
-            circleTab[i].setMargins (2,0,2,0);
             circleTab[i].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.non_selected_circle, null));
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -166,17 +171,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
       MenuItem selectedItem;
-     /*  if (savedInstanceState != null) {
+
+        //I have a doubt on it
+      if (savedInstanceState != null) {
             mSelectedItem = savedInstanceState.getInt(SELECTED_ITEM, 0);
             selectedItem = mBottomNav.getMenu().findItem(mSelectedItem);
-        } else { selectedItem = mBottomNav.getMenu().getItem(0);
+        } else { selectedItem = mBottomNav.getMenu().getItem(0);}
 
 
-        }
 
-
-        */
-        selectedItem = mBottomNav.getMenu().getItem(0);
         selectFragment(selectedItem);
 
 
@@ -186,8 +189,27 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        ///////////////////////////////////////////////////////////////
+        //Lancement du welcome fragment
+
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if (prefs.getBoolean("firstrun", true)) {
+            welcomeFrag = WelcomeFragment1.newInstance();
 
 
+            welcomeConteneur.setVisibility(VISIBLE);
+
+            if (welcomeFrag != null) {
+
+                welcomeFragment.removeAllViews();
+                FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
+
+                fragTrans.add(R.id.welcome_fragment_id, welcomeFrag, welcomeFrag.getTag());
+                fragTrans.commit();
+
+
+            }
+        }
 
 
 
@@ -208,6 +230,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume()
     {
         //Il faut mettre toutes les shared preferences à false des le onResume sinon un message concernant les réveils s'affiche au premier lancement
+
+
+
+
 
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         if (prefs.getBoolean("firstrun", true)) {
@@ -270,24 +296,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
-            ///////////////////////////////////////////////////////////////
-            //Lancement du welcome fragment
 
-            welcomeFrag = WelcomeFragment1.newInstance();
-
-
-            welcomeConteneur.setVisibility(View.VISIBLE);
-
-            if (welcomeFrag != null) {
-
-                welcomeFragment.removeAllViews();
-                FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
-
-                fragTrans.add(R.id.welcome_fragment_id, welcomeFrag, welcomeFrag.getTag());
-                fragTrans.commit();
-
-
-            }
 
 /*
             //////////////////////////////////////////////////////////
@@ -727,6 +736,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putInt(SELECTED_ITEM, mSelectedItem);
+
         super.onSaveInstanceState(outState);
     }
 
@@ -789,158 +799,175 @@ public class MainActivity extends AppCompatActivity {
     public void onWelcomeSuivantClick(View v) {
         Fragment f = getFragmentManager().findFragmentById(R.id.welcome_fragment_id);
         if (f instanceof WelcomeFragment1) {
-            welcomeFrag = WelcomeFragment2.newInstance();
+            diplayWelcomeFragment(2);
+            welcomeReturnButton.setVisibility(VISIBLE);
 
-
-            if (welcomeFrag != null) {
-
-                updateNextFragment(1);
-                welcomeReturnButton.setVisibility(VISIBLE);
-            }
 
         } else if (f instanceof WelcomeFragment2) {
-            welcomeFrag = WelcomeFragment3.newInstance();
+            diplayWelcomeFragment(3);
 
-
-            if (welcomeFrag != null) {
-
-                updateNextFragment(2);
-            }
         } else if (f instanceof WelcomeFragment3) {
-            welcomeFrag = WelcomeFragment4.newInstance();
-            //Checker s'il y a déjà un sharedpreference pour le sexe et le nom. Si c'est le cas remplir les cases avec
+            diplayWelcomeFragment(4);
 
-            if (welcomeFrag != null) {
-
-                updateNextFragment(3);
-            }
         } else if (f instanceof WelcomeFragment4) {
 
             //On récupère le sexe qui a été coché et on l'enregistre dans un sharedpreference
-            RadioGroup sexe = (RadioGroup)f.getView().findViewById(R.id.radioSex);
+            RadioGroup sexe = (RadioGroup) f.getView().findViewById(R.id.radioSex);
             boolean sexeOk = false;
             boolean nameOk = false;
-            int itemCheckedIndex = sexe.getCheckedRadioButtonId();
-                switch (itemCheckedIndex){
-                    case 0:
-                            prefs.edit().putBoolean("fille", true).apply();
-                            sexeOk=true;
-                            break;
-                    case 1:
-                            prefs.edit().putBoolean("fille", false).apply();
-                            sexeOk=true;
-                            break;
-                    default :
-                            Toast.makeText(this, R.string.choix_sexe_toast, Toast.LENGHT_LONG).show();
-                            sexeOk=false;
-            
-            
-            
-            EditText bebeNom = (EditText)f.getView().findViewById(R.id.welcome_bebe_nom_edit_text);
-                        String nom= bebeNomb.getText().toString();
-                        
-                        if (!nom.equals("")){
-                             prefs.edit().putString("nom", nom).apply();
-                             nameOk=true;}
-                        else {
-                            nameOk=false;
-                            Toast.makeText(this, R.string.entrerNom, Toast.LENGHT_LONG).show();
 
-                            if (sexeOk && nameOk){
-            welcomeFrag = WelcomeFragment5.newInstance();
-
-            if (welcomeFrag != null) {
-
-                updateNextFragment(4);
-            }}
-                            
-        }
-        else if (f instanceof WelcomeFragment5) {
-            welcomeFrag = WelcomeFragment6.newInstance();
-
-
-            if (welcomeFrag != null) {
-
-                updateNextFragment(5);
+            int itemCheckedIndex = sexe.indexOfChild(findViewById(sexe.getCheckedRadioButtonId()));
+            switch (itemCheckedIndex) {
+                case 0:
+                    prefs.edit().putBoolean("fille", true).apply();
+                    sexeOk = true;
+                    break;
+                case 1:
+                    prefs.edit().putBoolean("fille", false).apply();
+                    sexeOk = true;
+                    break;
+                default:
+                    Toast.makeText(this, R.string.choix_sexe_toast, Toast.LENGTH_LONG).show();
+                    sexeOk = false;
+                    break;
             }
+
+
+            EditText bebeNom = (EditText) f.getView().findViewById(R.id.welcome_bebe_nom_edit_text);
+            String nom = bebeNom.getText().toString();
+
+            if (!nom.equals("")) {
+                prefs.edit().putString("nom", nom).apply();
+                nameOk = true;
+            } else {
+                nameOk = false;
+                Toast.makeText(this, R.string.entrerNom, Toast.LENGTH_LONG).show();
+            }
+            if (sexeOk && nameOk) {
+
+                diplayWelcomeFragment(5);
+            }
+        } else if (f instanceof WelcomeFragment5) {
+            diplayWelcomeFragment(6);
         }
     }
             
             //Listener du bouton retour de la séquence d'accueil
-            public void onWelcomeRetourClick(){
+            public void onWelcomeRetourClick(View view){
                  Fragment f = getFragmentManager().findFragmentById(R.id.welcome_fragment_id);
         if (f instanceof WelcomeFragment2) {
-            welcomeFrag = WelcomeFragment1.newInstance();
-
-
-            if (welcomeFrag != null) {
-
-                updatePreviousFragment(2);
+          diplayWelcomeFragment(1);
                 welcomeReturnButton.setVisibility(GONE);
-            }
+
 
         } else if (f instanceof WelcomeFragment3) {
-            welcomeFrag = WelcomeFragment2.newInstance();
-
-
-            if (welcomeFrag != null) {
-
-                updatePreviousFragment(3);}
+            diplayWelcomeFragment(2);
             
             }
                 else if (f instanceof WelcomeFragment4) {
-            welcomeFrag = WelcomeFragment3.newInstance();
-
-
-            if (welcomeFrag != null) {
-
-                updatePreviousFragment(4);}
+            diplayWelcomeFragment(3);
             
             }
-            }
+
             else if (f instanceof WelcomeFragment5) {
-            welcomeFrag = WelcomeFragment4.newInstance();
-
-
-            if (welcomeFrag != null) {
-
-                updatePreviousFragment(4);}
+           diplayWelcomeFragment(4);
             // Checker s'il y a déjà un sharedpreference pour le sexe et le nom et remplir les cases le cas échéant
             }
-            }
+
          else if (f instanceof WelcomeFragment6) {
-            welcomeFrag = WelcomeFragment4.newInstance();
-
-
-            if (welcomeFrag != null) {
-
-                updatePreviousFragment(5);}
-            // Checker s'il y a déjà un sharedpreference pour le sexe et le nom et remplir les cases le cas échéant
+           diplayWelcomeFragment(5);
             }
-            }
-        }
 
-    //Methode pour afficher le fragment suivant après appui sur suivant dans la séquence d'introduction
-    public void updateNextFragment(int displayedFragment){
-                welcomeFragment.removeAllViews();
-                FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
 
-                fragTrans.add(R.id.welcome_fragment_id, welcomeFrag, welcomeFrag.getTag());
-                fragTrans.commit();
-
-                //Mise à jour du circle indicator
-                circleTab[displayedFragment-1].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.non_selected_circle, null));
-                circleTab[displayedFragment].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.selected_circle, null));
     }
-    //Méthode pour afficher le fragment précédent dans la séquence d'introduction
-                public void updatePreviousFragment(int displayedFragment){
-                    welcomeFragment.removeAllViews();
-                FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
-                fragTrans.add(R.id.welcome_fragment_id, welcomeFrag, welcomeFrag.getTag());
-                fragTrans.commit();
+                //Methode qui affiche le welcome fragment à l'index indiqué
+                public void diplayWelcomeFragment (int index)
+                { switch (index){
+                    case 1 :
+                        welcomeFrag = WelcomeFragment1.newInstance();
+                        if (welcomeFrag!=null){
+                        welcomeFragment.removeAllViews();
+                        FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
+                        fragTrans.add(R.id.welcome_fragment_id, welcomeFrag, welcomeFrag.getTag());
+                        fragTrans.commit();
+                            for (int i = 0; i < 6 ; i++) {
+                                circleTab[i].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.non_selected_circle, null));
+                            }
 
-                //Mise à jour du circle indicator
-                circleTab[displayedFragment-1].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.non_selected_circle, null));
-                circleTab[displayedFragment-2].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.selected_circle, null));
+                            circleTab[0].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.selected_circle, null));
+                        }
+                        break;
+                    case 2 :
+                        welcomeFrag = WelcomeFragment2.newInstance();
+                        if (welcomeFrag!=null){
+                            welcomeFragment.removeAllViews();
+                            FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
+                            fragTrans.add(R.id.welcome_fragment_id, welcomeFrag, welcomeFrag.getTag());
+                            fragTrans.commit();
+                            for (int i = 0; i < 6 ; i++) {
+                                circleTab[i].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.non_selected_circle, null));
+                            }
+
+                            circleTab[1].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.selected_circle, null));
+                        }
+                        break;
+                    case 3 :
+                        welcomeFrag = WelcomeFragment3.newInstance();
+                        if (welcomeFrag!=null){
+                            welcomeFragment.removeAllViews();
+                            FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
+                            fragTrans.add(R.id.welcome_fragment_id, welcomeFrag, welcomeFrag.getTag());
+                            fragTrans.commit();
+                            for (int i = 0; i < 6 ; i++) {
+                                circleTab[i].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.non_selected_circle, null));
+                            }
+
+                            circleTab[2].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.selected_circle, null));
+                        }
+                        break;
+                    case 4:
+                        welcomeFrag = WelcomeFragment4.newInstance();
+                        if (welcomeFrag!=null){
+                            welcomeFragment.removeAllViews();
+                            FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
+                            fragTrans.add(R.id.welcome_fragment_id, welcomeFrag, welcomeFrag.getTag());
+                            fragTrans.commit();
+                            for (int i = 0; i < 6 ; i++) {
+                                circleTab[i].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.non_selected_circle, null));
+                            }
+
+                            circleTab[3].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.selected_circle, null));
+                        }
+                        break;
+                    case 5:
+                        welcomeFrag = WelcomeFragment5.newInstance();
+                        if (welcomeFrag!=null){
+                            welcomeFragment.removeAllViews();
+                            FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
+                            fragTrans.add(R.id.welcome_fragment_id, welcomeFrag, welcomeFrag.getTag());
+                            fragTrans.commit();
+                            for (int i = 0; i < 6 ; i++) {
+                                circleTab[i].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.non_selected_circle, null));
+                            }
+
+                            circleTab[4].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.selected_circle, null));
+                        }
+                        break;
+                    case 6:
+                        welcomeFrag = WelcomeFragment6.newInstance();
+                        if (welcomeFrag!=null){
+                            welcomeFragment.removeAllViews();
+                            FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
+                            fragTrans.add(R.id.welcome_fragment_id, welcomeFrag, welcomeFrag.getTag());
+                            fragTrans.commit();
+                            for (int i = 0; i < 6 ; i++) {
+                                circleTab[i].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.non_selected_circle, null));
+                            }
+
+                            circleTab[5].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.selected_circle, null));
+                        }
+                        break;
+
+                }
                 }
 }

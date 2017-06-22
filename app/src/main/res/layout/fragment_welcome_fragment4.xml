@@ -23,27 +23,36 @@
         android:id="@+id/radioSex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/welcome_fragment_4_text_1">
+        android:layout_below="@id/welcome_fragment_4_text_1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/white">
 
         <RadioButton
             android:id="@+id/radioFille"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/fille"
-            android:checked="true" />
+            android:checked="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@android:color/white"
+            android:buttonTint="@color/primary_color_dark"/>
 
         <RadioButton
             android:id="@+id/radioGarcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/garcon" />
+            android:text="@string/garcon"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@android:color/white"
+            android:buttonTint="@color/primary_color_dark"/>
 
     </RadioGroup>
+
 
     <TextView
         android:id="@+id/welcome_fragment_4_text_2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/radioSex"
         android:fitsSystemWindows="true"
         android:text="@string/ask_nom"
@@ -57,12 +66,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/welcome_bebe_nom_edit_text"
-        android:layout_below="@id/radioSex"
-        android:layout_center_horizontal="true"
-        android:singleLine="true"
+        android:layout_below="@id/welcome_fragment_4_text_2"
+        android:layout_centerHorizontal="true"
+        android:maxLines="1"
         android:imeOptions="actionDone"
         android:hint="@string/bebe_nom"
-        android:inputType="textPersonName"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/white"
+        android:inputType="textCapWords"/>
 
 
 </RelativeLayout>
