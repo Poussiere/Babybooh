@@ -10,38 +10,18 @@ import android.view.ViewGroup;
 
 import com.poussiere.babybooh.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link WelcomeFragment5.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link WelcomeFragment5#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class WelcomeFragment5 extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+public class WelcomeFragment5 extends Fragment {
+   private TextView tv1;
+    private TextView tv2;
+    private SharedPreferences prefs;
 
 
     public WelcomeFragment5() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment WelcomeFragment5.
-     */
-    // TODO: Rename and change types and number of parameters
+   
     public static WelcomeFragment5 newInstance() {
         WelcomeFragment5 fragment = new WelcomeFragment5();
         Bundle args = new Bundle();
@@ -59,8 +39,32 @@ public class WelcomeFragment5 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_welcome_fragment5, container, false);
+        tv1=(TextView)findViewById(R.id.welcome_fragment_5_text1);
+        tv2=(TextView)findViewById(R.id.welcome_fragment_5_text2);
+        
+         pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String nom=prefs.getString("nom","Rose");
+        int nbNom=nom.length();
+        
+        // Si fille et nombre de lettres du nom est pair :
+                            if (prefs.getBoolean("fille",true) && (nbNom%2)==0)
+                            {   tv1.setText(R.string.caractere_fille)
+                                tv2.setText(getString(com.poussiere.babybooh.R.string.caractere_fille1, nom));}
+                            // Si Fille et nombre de lettres du nom est impair :
+                            else if (prefs.getBoolean("fille",true) && (nbNom%2)!=0)
+                            {tv1.setText(R.string.caractere_fille)
+                                tv2.setText(getString(com.poussiere.babybooh.R.string.caractere_fille2, nom));}
+                            // Si Garcon et nombre de lettres du nom est pair :
+                            else if (!prefs.getBoolean("fille",true) && (nbNom%2)==0)
+                            {tv1.setText(R.string.caractere_garcon)
+                                tv2.setText(getString(com.poussiere.babybooh.R.string.caractere_garcon1, nom));}
+                            // Si garcon et nombre de lettres du nom est impair :
+                            else if (!prefs.getBoolean("fille",true) && (nbNom%2)!=0)
+                            {tv1.setText(R.string.caractere_garcon)
+                                tv2.setText(getString(com.poussiere.babybooh.R.string.caractere_garcon2, nom));}
+                          
+        
     }
 
     // TODO: Rename method, update argument and hook method into UI event
