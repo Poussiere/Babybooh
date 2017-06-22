@@ -163,6 +163,9 @@
     <string name="lui">lui</string>
     <string name="elle">elle</string>
     <string name="bebe_nom">nom</string>
+    
+    <string name="choix_sexe_toast">Veuillez indiquer le sexe de votre bébé pour continuer</string>
+    <string name="entrerNom">Veuiller entrer le nom de votre bébé pour continuer</string>
 
     <string name="salle_enregistrement">Salle d\'enregistrement</string>
 
@@ -196,6 +199,4 @@
     <string name="content_description_carnet_de_bord">Carnet de bord</string>
     <string name="content_description_accueil">Accueil</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
