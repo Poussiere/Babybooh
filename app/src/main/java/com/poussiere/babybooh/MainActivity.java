@@ -128,10 +128,11 @@ public class MainActivity extends AppCompatActivity {
       
  
      
-        circleTab = new ImageView[7]; // Il y a 7 fragents dans la séquence d'accueil, donc 7 cercles
+        circleTab = new ImageView[6]; // Il y a 7 fragents dans la séquence d'accueil, donc 7 cercles
  
-        for (int i = 0; i < 7 ; i++) {
+        for (int i = 0; i < 6 ; i++) {
             circleTab[i] = new ImageView(this);
+            circleTab[i].setMargins (2,0,2,0);
             circleTab[i].setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.non_selected_circle, null));
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,
