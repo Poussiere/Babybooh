@@ -54,10 +54,13 @@
         android:textColor="@android:color/white"
         />
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/welcome_bebe_nom_edit_text"
         android:layout_below="@id/radioSex"
+        android:layout_center_horizontal="true"
+        android:singleLine="true"
+        android:imeOptions="actionDone"
         android:hint="@string/bebe_nom"/>
 
 
