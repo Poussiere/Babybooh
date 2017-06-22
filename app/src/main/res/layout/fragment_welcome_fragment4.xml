@@ -9,10 +9,10 @@
     <TextView
         android:id="@+id/welcome_fragment_4_text_1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
         android:text="@string/ask_genre1"
-        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
         android:gravity="center"
         android:layout_marginBottom="60dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -57,6 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/welcome_bebe_nom_edit_text"
+        android:layout_below="@id/radioSex"
         android:hint="@string/bebe_nom"/>
 
 
