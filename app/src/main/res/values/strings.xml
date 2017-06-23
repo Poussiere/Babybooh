@@ -144,10 +144,11 @@
 
     <string name="continuer">SUIVANT</string>
     <string name="retour">RETOUR</string>
+    <string name="terminer">TERMINER</string>
     <string name="ask_genre1">Avant de commencer, nous aimerions en savoir un peu plus sur votre bout de chou. Est-ce...</string>
     <string name="ask_genre2">Est-ce…</string>
-    <string name="fille">une fille ? (et c\'est la plus jolie!)</string>
-    <string name="garcon">un garçon ? (et il est trop mignon!)</string>
+    <string name="fille">une fille ?</string>
+    <string name="garcon">un garçon ?</string>
     <string name="ask_nom">Et quel est son petit nom?</string>
     <string name="caractere_fille">En voilà un bien joli prénom pour une petite fille!  </string>
     <string name="caractere_fille1"> Après analyse de notre équipe d\'experts il semblerait que les %1$s soient de grandes aventurières. Avec notre aide, elle devrait pouvoir venir à bout de n\'importe quelle créature de la nuit!</string>

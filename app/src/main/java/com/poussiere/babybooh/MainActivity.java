@@ -80,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
     private FrameLayout welcomeFragment;
     public static final int MY_PERMISSIONS_REQUEST_AUDIO_RECORD = 42;
     private Fragment welcomeFrag;
+
+    private TextView welcomeNextButton;
     private TextView welcomeReturnButton;
 
 
@@ -113,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
         welcomeConteneur=(RelativeLayout)findViewById(R.id.conteneur_du_premier_lancement);
         circlesConteneur=(LinearLayout)findViewById(R.id.circles_id);
         welcomeFragment=(FrameLayout) findViewById(R.id.welcome_fragment_id);
+        welcomeNextButton=(TextView) findViewById(R.id.btn_next);
         welcomeReturnButton = (TextView) findViewById(R.id.btn_retour);
         // couleur de la barre de statuts pour Lolipo et +
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -848,6 +851,8 @@ public class MainActivity extends AppCompatActivity {
                 diplayWelcomeFragment(5);
             }
         } else if (f instanceof WelcomeFragment5) {
+
+            welcomeNextButton.setText(R.string.terminer);
             diplayWelcomeFragment(6);
         }
     }
@@ -875,6 +880,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
          else if (f instanceof WelcomeFragment6) {
+            welcomeNextButton.setText(R.string.continuer);
            diplayWelcomeFragment(5);
             }
 
