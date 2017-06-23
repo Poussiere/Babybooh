@@ -22,18 +22,15 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/my_toolbar"
         android:backgroundTintMode="src_over"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp">
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp">
 
     <TextView
         android:id="@+id/tvMerci"
         android:text="@string/consigneRecord"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:layout_marginTop="30dp"
-        android:layout_marginRight="10dp"
-        android:layout_toStartOf="@+id/boutonFlottantEnregistrer"
         android:elegantTextHeight="false"
         android:enabled="true"
         android:gravity="center_horizontal" />
@@ -51,13 +48,12 @@
 
 
 <SeekBar
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_below="@id/tvMerci"
     android:id="@+id/seek_volume"
-    android:layout_alignEnd="@+id/boutonFlottantEnregistrer"
     android:layout_toRightOf="@id/tvVol"
-    android:layout_marginTop="30dp"
+    android:layout_marginTop="35dp"
     android:progressTint="@color/ripple_material_light"
     android:thumbTint="@color/ripple_material_light"
     />
@@ -73,6 +69,9 @@
         android:scrollbars="vertical"
         android:layout_marginTop="20dp"/>
 
+
+
+    </RelativeLayout>
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -85,12 +84,10 @@
         android:onClick="onClick3"
         app:pressedTranslationZ="12dp"
         android:tint="@color/background_floating_material_light"
-        android:layout_alignTop="@+id/tvMerci"
-        android:layout_alignEnd="@id/recycler_view_enregistrer"
-        android:layout_marginTop="-5dp"
-        android:layout_marginRight="3dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:contentDescription="@string/content_description_demarrer_enregistreent"
-       />
-
-    </RelativeLayout>
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="22dp"
+        />
 </RelativeLayout>

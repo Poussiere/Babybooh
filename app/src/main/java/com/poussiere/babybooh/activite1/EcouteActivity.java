@@ -1,9 +1,11 @@
 package com.poussiere.babybooh.activite1;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -14,6 +16,8 @@ import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -42,6 +46,8 @@ public class EcouteActivity extends Activity {
 /*
 Modification à prévoir: insérer l'heure de début dans la base de données + le nombre de fois où l'enfant s'est réveillé.
  */
+
+    public static final int MY_PERMISSIONS_REQUEST_AUDIO_RECORD = 42;
 
     String monstreSexy=null; // Car en String = clé pour les sharedpreference
 
@@ -87,6 +93,8 @@ Modification à prévoir: insérer l'heure de début dans la base de données + 
     private long dateDebut;
     private long difference;
 
+
+
     //creation d'un int pour enregistrer le nb de fois où l'enfant s'est réveillé
     int xt;
 
@@ -112,6 +120,37 @@ Modification à prévoir: insérer l'heure de début dans la base de données + 
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_ecoute);
+
+        //On va demander la permission d'acceder au micro
+        int permissionCheckAudio = ContextCompat.checkSelfPermission(this,
+                Manifest.permission.RECORD_AUDIO);
+
+
+        if (permissionCheckAudio != PackageManager.PERMISSION_GRANTED) {
+
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.RECORD_AUDIO)) {
+
+                //Lancer un alertDialog ici
+                // Show an explanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+
+            } else {
+
+                // No explanation needed, we can request the permission.
+
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.RECORD_AUDIO},
+                        MY_PERMISSIONS_REQUEST_AUDIO_RECORD);
+
+
+            }
+        }
+
+
+
 
         //Instanciation de la base de données
         maBase = new BddDAO(this);

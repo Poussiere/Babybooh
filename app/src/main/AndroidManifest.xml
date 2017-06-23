@@ -12,8 +12,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/SplashTheme"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +23,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activite1.EcouteActivity"
             android:label="@string/title_activity_ecoute"
@@ -58,7 +58,7 @@
             android:label="@string/title_activity_tableau_de_chasse"
             android:theme="@style/AppTheme" />
         <activity android:name=".annexes.EnregistrerRecyclerViewAdapter" />
-
+        <activity android:name=".annexes.EnregistrerActivity2"></activity>
     </application>
 
 </manifest>

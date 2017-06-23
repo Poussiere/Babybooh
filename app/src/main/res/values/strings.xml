@@ -29,7 +29,7 @@
     <string name="sonSelection">a été sélectionné.</string>
 
     <string name="alerte1">Souhaitez vous écouter votre message?</string>
-    <string name="alerte2">Pour la sécurité de votre bébé, la veille ne peut pas etre lancée si votre smartphone n\'est pas en mode avion. Souhaitez-vous accéder maintenant au menu vous permettant d\'activer le mode avion.</string>
+    <string name="alerte2">Pour la sécurité de votre bébé, la veille ne peut pas etre lancée si votre smartphone n\'est pas en mode avion. Souhaitez-vous accéder maintenant au menu vous permettant d\'activer le mode avion?</string>
     <string name="alerte3">Vous quittez le mode veille et éloignez le téléphone de votre bébé. Vous pouvez si vous le souhaitez désactiver le mode avion. Appuyez sur oui pour aller au menu du mode avion.</string>
     <string name="alerte4">Attention, toutes les données de l\'application vont etre supprimées, y compris les monstres et l\'historique des évènements. Souhaitez vous vraiment continuer?</string>
     <string name="alerte5">Veuillez donner un nom à votre message (par exemple maman)</string>
@@ -164,7 +164,7 @@
     <string name="lui">lui</string>
     <string name="elle">elle</string>
     <string name="bebe_nom">nom</string>
-    
+
     <string name="choix_sexe_toast">Veuillez indiquer le sexe de votre bébé pour continuer</string>
     <string name="entrerNom">Veuiller entrer le nom de votre bébé pour continuer</string>
 
@@ -188,6 +188,8 @@
     <string name="retour_de_ecoute2">%1$s s\'est révéillé plusieurs fois lors de la dernière veille. Au moins un monstre a été détécté! Rendez-vous dans le carnet de bord pour en savoir plus.</string>
 
     <string name="inconnu_description">Utilisez encore BabyboOH avec votre bébé. Ce monstre apparaitra peut-etre pendant la prochaine sièste!</string>
+    <string name="lancer_enregistrement">Appuyez sur le micro pour démarrer l\'enregistrement</string>
+    <string name="stop_enregistrement">Appuyez à nouveau pour arrêter l\'enregistrement</string>
 
     <!-- Content descriptions -->
     <string name="content_description_veille_bouton">Démarrer la veille</string>

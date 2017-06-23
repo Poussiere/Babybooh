@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.poussiere.babybooh.annexes.EnregistrerActivity2">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar_enr2"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.MyApp.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        style="@style/Widget.MyApp.Toolbar.Solid"
+        android:layout_alignParentEnd="true"
+        app:elevation="4dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/my_toolbar_enr2"
+        android:layout_centerVertical="true">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_lancer_enregistrement"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:text="@string/lancer_enregistrement"
+        android:gravity="center"
+        />
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_lancer_enregistrement"
+        android:id="@+id/boutonFlottantEnregistrer2"
+        app:backgroundTint="#e12525"
+        android:src="@android:drawable/ic_btn_speak_now"
+        app:elevation="12dp"
+        app:borderWidth="0dp"
+        android:clickable="true"
+        android:onClick="onClick"
+        app:pressedTranslationZ="12dp"
+        android:tint="@color/background_floating_material_light"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/content_description_demarrer_enregistreent"
+        />
+    </RelativeLayout>
+</RelativeLayout>
