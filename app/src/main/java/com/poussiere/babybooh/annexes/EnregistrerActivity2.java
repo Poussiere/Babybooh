@@ -3,8 +3,11 @@ package com.poussiere.babybooh.annexes;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
+import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -15,6 +18,8 @@ import android.text.InputFilter;
 import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
@@ -35,11 +40,21 @@ public class EnregistrerActivity2 extends AppCompatActivity {
    private Thread background1, background2 ;
     private TextView tv1;
    private FloatingActionButton fb;
+    private SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enregistrer2);
+
+        // couleur de la barre de statuts pour Lolipo et +
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(ContextCompat.getColor(this, R.color.primary_color_dark));
+        }
+
+
         tv1=(TextView)findViewById(R.id.tv_lancer_enregistrement);
         fb=(FloatingActionButton) findViewById(R.id.boutonFlottantEnregistrer2);
         Toolbar mToolbar = (Toolbar) findViewById(R.id.my_toolbar_enr2);
@@ -170,9 +185,10 @@ public class EnregistrerActivity2 extends AppCompatActivity {
                             from.renameTo(to);
 
 
-                            // Apres il faut mettre à jour la vue. Il y a surement un moyen plus optimal que de recreer une instance de l'adapter commee ci dessous
-                           // rcAdapter = new EnregistrerRecyclerViewAdapter(EnregistrerActivity.this);
-                            //rView.setAdapter(rcAdapter);
+                            prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                            prefs.edit().putString("nomDuSon", nom+".mp4").apply();
+                            finish();
+
                         }
                     });
             ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -229,6 +245,7 @@ public class EnregistrerActivity2 extends AppCompatActivity {
                         }
                     });
             alerteReecoute.show();
+
 
 
         }

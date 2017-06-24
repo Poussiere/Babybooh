@@ -33,6 +33,7 @@
         android:layout_marginTop="30dp"
         android:elegantTextHeight="false"
         android:enabled="true"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
         android:gravity="center_horizontal" />
 
     <TextView
@@ -44,6 +45,7 @@
         android:gravity="center_vertical"
         android:layout_below="@id/tvMerci"
         android:layout_alignParentStart="true"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
         android:layout_marginTop="34dp"/>
 
 
@@ -53,7 +55,7 @@
     android:layout_below="@id/tvMerci"
     android:id="@+id/seek_volume"
     android:layout_toRightOf="@id/tvVol"
-    android:layout_marginTop="35dp"
+    android:layout_marginTop="44dp"
     android:progressTint="@color/ripple_material_light"
     android:thumbTint="@color/ripple_material_light"
     />
@@ -77,7 +79,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/boutonFlottantEnregistrer"
         app:backgroundTint="#e12525"
-        android:src="@android:drawable/ic_btn_speak_now"
+        android:src="@android:drawable/ic_input_add"
         app:elevation="12dp"
         app:borderWidth="0dp"
         android:clickable="true"
@@ -88,6 +90,7 @@
         android:layout_alignParentEnd="true"
         android:contentDescription="@string/content_description_demarrer_enregistreent"
         android:layout_marginEnd="16dp"
+        android:layout_marginTop="22dp"
         android:layout_marginBottom="22dp"
         />
 </RelativeLayout>

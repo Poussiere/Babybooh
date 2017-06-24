@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.os.Environment;
 import android.preference.PreferenceManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
@@ -65,6 +66,9 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
         File mCurentFile = new File(cheminFichier);
         File[] fichiersSons = mCurentFile.listFiles();
 
+        int white = ContextCompat.getColor(context, R.color.white);
+        int black = ContextCompat.getColor(context, R.color.black);
+
         nomDuSon = fichiersSons[position].getName();
         holder.sonNomTx.setText(nomDuSon);
 
@@ -74,8 +78,13 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
 
         if (nomDuSon.equals(nomDuSonSelectionne)) {
             holder.conteneur.setSelected(true);
+
+            holder.sonNomTx.setTextColor(white);
             holder.getAdapterPosition();
-        } else holder.conteneur.setSelected(false);
+        } else {
+            holder.conteneur.setSelected(false);
+            holder.sonNomTx.setTextColor(black);
+        }
 
 
 

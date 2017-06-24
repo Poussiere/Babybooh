@@ -58,7 +58,10 @@
             android:label="@string/title_activity_tableau_de_chasse"
             android:theme="@style/AppTheme" />
         <activity android:name=".annexes.EnregistrerRecyclerViewAdapter" />
-        <activity android:name=".annexes.EnregistrerActivity2"></activity>
+        <activity android:name=".annexes.EnregistrerActivity2"
+            android:label="@string/title_activity_enregistrer"
+            android:parentActivityName=".annexes.EnregistrerActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

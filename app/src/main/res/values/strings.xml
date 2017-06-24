@@ -9,7 +9,7 @@
     <string name="titre_activite2">Carnet de bord</string>
     <string name="titre_activite3">Gallerie</string>
     <string name="merci">Votre bébé est maintenant en parfaite sécurité</string>
-    <string name="consigneRecord">Veuillez sélectionner le son qui sera joué à votre bébé lorsqu\'il se réveillera ou bien en enregistrer un nouveau en appuyant sur le micro.</string>
+    <string name="consigneRecord">Veuillez sélectionner le son qui sera joué à votre bébé lorsqu\'il se réveillera ou bien en enregistrer un nouveau.</string>
     <string name="consigneRecord2">Enregistrement en cours! Appuyez à nouveau sur le micro pour le stopper.</string>
     <string name="record">Démarrer l\'enregistrement</string>
     <string name="stopRecord">Arrêter l\'enregistrement</string>
@@ -189,7 +189,7 @@
 
     <string name="inconnu_description">Utilisez encore BabyboOH avec votre bébé. Ce monstre apparaitra peut-etre pendant la prochaine sièste!</string>
     <string name="lancer_enregistrement">Appuyez sur le micro pour démarrer l\'enregistrement</string>
-    <string name="stop_enregistrement">Appuyez à nouveau pour arrêter l\'enregistrement</string>
+    <string name="stop_enregistrement">Enregistrement en cours. Appuyez à nouveau pour arrêter l\'enregistrement</string>
 
     <!-- Content descriptions -->
     <string name="content_description_veille_bouton">Démarrer la veille</string>

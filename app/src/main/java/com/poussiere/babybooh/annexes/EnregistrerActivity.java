@@ -243,7 +243,7 @@ public class EnregistrerActivity extends AppCompatActivity {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
     protected void onResume() {
-
+    rcAdapter.notifyDataSetChanged();
         super.onResume();
     }
 
