@@ -50,21 +50,21 @@ public class WelcomeFragment5 extends Fragment {
          prefs= PreferenceManager.getDefaultSharedPreferences(getActivity());
         String nom=prefs.getString("nom","Rose");
         int nbNom=nom.length();
-        
+        String sexe = prefs.getString("sexe", "fille");
         // Si fille et nombre de lettres du nom est pair :
-                            if (prefs.getBoolean("fille",true) && (nbNom%2)==0)
+                            if (sexe.equals("fille") && (nbNom%2)==0)
                             {   tv1.setText(R.string.caractere_fille);
                                 tv2.setText(getString(com.poussiere.babybooh.R.string.caractere_fille1, nom));}
                             // Si Fille et nombre de lettres du nom est impair :
-                            else if (prefs.getBoolean("fille",true) && (nbNom%2)!=0)
+                            else if (sexe.equals("fille") && (nbNom%2)!=0)
                             {tv1.setText(R.string.caractere_fille);
                                 tv2.setText(getString(com.poussiere.babybooh.R.string.caractere_fille2, nom));}
                             // Si Garcon et nombre de lettres du nom est pair :
-                            else if (!prefs.getBoolean("fille",true) && (nbNom%2)==0)
+                            else if (sexe.equals("garcon") && (nbNom%2)==0)
                             {tv1.setText(R.string.caractere_garcon);
                                 tv2.setText(getString(R.string.caractere_garçon1, nom));}
                             // Si garcon et nombre de lettres du nom est impair :
-                            else if (!prefs.getBoolean("fille",true) && (nbNom%2)!=0)
+                            else if (sexe.equals("garcon") && (nbNom%2)!=0)
                             {tv1.setText(R.string.caractere_garcon);
                                 tv2.setText(getString(R.string.caractere_garçon2, nom));}
                           
