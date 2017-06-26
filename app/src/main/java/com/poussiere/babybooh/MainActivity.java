@@ -285,7 +285,15 @@ public class MainActivity extends AppCompatActivity {
                     MainActivity.this);
             alertReveil1.setCancelable(false);
             nom=prefs.getString("nom","bebe");
-            String alRev1=getString(com.poussiere.babybooh.R.string.retour_de_ecoute1, nom );
+            String sexe=prefs.getString("sexe","fille");
+            String alRev1;
+            
+            if (sexe.equals("garcon"){
+            alRev1=getString(com.poussiere.babybooh.R.string.retour_de_ecoute1_garcon, nom );}
+                            
+            else if (sexe.equals("fille"){
+            alRev1=getString(com.poussiere.babybooh.R.string.retour_de_ecoute1_fille, nom );}               
+                            
             alertReveil1.setMessage(alRev1);
 
             alertReveil1.setPositiveButton(com.poussiere.babybooh.R.string.continuer,
@@ -303,7 +311,15 @@ public class MainActivity extends AppCompatActivity {
             final AlertDialog.Builder alertReveil2 = new AlertDialog.Builder(MainActivity.this);
             alertReveil2.setCancelable(false);
             nom=prefs.getString("nom","bebe");
-            String alRev2=getString(com.poussiere.babybooh.R.string.retour_de_ecoute2, nom);
+            String sexe=prefs.getString("sexe","fille");
+            String alRev2;
+                
+            if (sexe.equals("garcon"){
+            alRev2=getString(com.poussiere.babybooh.R.string.retour_de_ecoute2_garcon, nom);}
+                
+             else if (sexe.equals("fille"){
+             alRev2=getString(com.poussiere.babybooh.R.string.retour_de_ecoute2_fille, nom);
+                }
 
             alertReveil2.setMessage(alRev2);
             alertReveil2.setPositiveButton(com.poussiere.babybooh.R.string.continuer,
