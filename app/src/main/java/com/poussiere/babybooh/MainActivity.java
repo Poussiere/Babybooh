@@ -256,7 +256,7 @@ public class MainActivity extends AppCompatActivity {
             prefs.edit().putBoolean("plusieursReveil",false).apply();
 
            //Effacement du nom si celui ci avait déjà été suivi et mise du sexe à la valeur par défaut
-            prefs.edit().putBoolean("fille",true);
+            prefs.edit().putString("sexe","fille");
             prefs.edit().putString("nom", "").apply();
 
 
@@ -494,11 +494,11 @@ public class MainActivity extends AppCompatActivity {
             int itemCheckedIndex = sexe.indexOfChild(findViewById(sexe.getCheckedRadioButtonId()));
             switch (itemCheckedIndex) {
                 case 0:
-                    prefs.edit().putBoolean("fille", true).apply();
+                    prefs.edit().putString("sexe", "fille").apply();
                     sexeOk = true;
                     break;
                 case 1:
-                    prefs.edit().putBoolean("fille", false).apply();
+                    prefs.edit().putString("sexe", "garcon").apply();
                     sexeOk = true;
                     break;
                 default:
