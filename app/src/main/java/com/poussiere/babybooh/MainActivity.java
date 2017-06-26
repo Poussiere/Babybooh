@@ -369,6 +369,11 @@ public class MainActivity extends AppCompatActivity {
                                 maBase.delete();
                                 maBase.close();
 
+                                
+                                // Les fichiers sons sont effacés
+                                File file = new File (getExternalFilesDir(null).getAbsolutePath()+"/babyboohSongs/");
+                                file.delete(); 
+                                
                                 //L'application sera lancée comme si c'était la première fois
                                 prefs.edit().putBoolean("firstrun", true).apply();
                                 finish();
