@@ -194,9 +194,11 @@
     <string name="title_activity_chasse_full_screen">ChasseFullScreenActivity</string>
     <string name="title_activity_tableau_de_chasse">TableauDeChasseActivity</string>
 
-    <string name="retour_de_ecoute1">%1$s s\'est réveillé une fois lors de la dernière veille. Un monstre a été détécté! Rendez-vous dans le carnet de bord pour en savoir plus!</string>
-    <string name="retour_de_ecoute2">%1$s s\'est révéillé plusieurs fois lors de la dernière veille. Au moins un monstre a été détécté! Rendez-vous dans le carnet de bord pour en savoir plus.</string>
-
+    <string name="retour_de_ecoute1_garcon">%1$s s\'est réveillé une fois lors de la dernière veille. Un monstre a été détécté! Rendez-vous dans le carnet de bord pour en savoir plus!</string>
+    <string name="retour_de_ecoute1_fille">%1$s s\'est réveillée une fois lors de la dernière veille. Un monstre a été détécté! Rendez-vous dans le carnet de bord pour en savoir plus!</string>
+    <string name="retour_de_ecoute2_garcon">%1$s s\'est révéillé plusieurs fois lors de la dernière veille. Au moins un monstre a été détécté! Rendez-vous dans le carnet de bord pour en savoir plus!</string>
+    <string name="retour_de_ecoute2_fille">%1$s s\'est révéillée plusieurs fois lors de la dernière veille. Au moins un monstre a été détécté! Rendez-vous dans le carnet de bord pour en savoir plus!</string>
+    
     <string name="inconnu_description">Utilisez encore BabyboOH avec votre bébé. Ce monstre apparaitra peut-etre pendant la prochaine sièste!</string>
     <string name="lancer_enregistrement">Appuyez sur le micro pour démarrer l\'enregistrement</string>
     <string name="stop_enregistrement">Enregistrement en cours. Appuyez à nouveau pour arrêter l\'enregistrement</string>
