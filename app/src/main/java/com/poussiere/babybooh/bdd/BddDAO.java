@@ -11,9 +11,11 @@ import java.util.List;
 /**
  * Created by poussiere on 11/10/15.
  */
+/*
+
 public class BddDAO {
 
-    public static final int NUM_VERSION=2;
+   public static final int NUM_VERSION=2;
     public static final String NOM_FICHIER="evenements.db";
 
 
@@ -107,3 +109,4 @@ public class BddDAO {
 
 
 }
+*/

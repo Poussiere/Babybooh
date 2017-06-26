@@ -49,11 +49,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.poussiere.babybooh.bdd.Contract;
 import com.poussiere.babybooh.mainFragment1.main_fragment1;
 import com.poussiere.babybooh.mainFragment2.mainFragment2;
 import com.poussiere.babybooh.annexes.EnregistrerActivity;
 import com.poussiere.babybooh.annexes.SettingsActivity;
-import com.poussiere.babybooh.bdd.BddDAO;
 import com.poussiere.babybooh.mainFragment3.mainFragment3;
 import com.poussiere.babybooh.welcomeFragments.WelcomeFragment1;
 import com.poussiere.babybooh.welcomeFragments.WelcomeFragment2;
@@ -90,14 +90,9 @@ public class MainActivity extends AppCompatActivity {
     private ImageView [] circleTab;
 
     //Déclrations des variables servant dans les alertDialog du premier lancement
-    String fille, garcon;
-    String nom;
-    String alertDiag5;
-    String alertDiag6;
-    String lui, elle;
-    int nbNom;
 
-    private BddDAO maBase;
+    String nom;
+
 
     private BottomNavigationView mBottomNav;
     private MenuItem selectedItem;
@@ -110,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(com.poussiere.babybooh.R.layout.activity_main);
-        maBase = new BddDAO(this);
         intentEnregistrer = new Intent(MainActivity.this, EnregistrerActivity.class);
         intentSettings = new Intent(MainActivity.this, SettingsActivity.class);
         conteneur=(FrameLayout)findViewById(R.id.conteneur_boutons);
@@ -286,12 +280,12 @@ public class MainActivity extends AppCompatActivity {
             alertReveil1.setCancelable(false);
             nom=prefs.getString("nom","bebe");
             String sexe=prefs.getString("sexe","fille");
-            String alRev1;
+            String alRev1="";
             
-            if (sexe.equals("garcon"){
+            if (sexe.equals("garcon")){
             alRev1=getString(com.poussiere.babybooh.R.string.retour_de_ecoute1_garcon, nom );}
                             
-            else if (sexe.equals("fille"){
+            else if (sexe.equals("fille")){
             alRev1=getString(com.poussiere.babybooh.R.string.retour_de_ecoute1_fille, nom );}               
                             
             alertReveil1.setMessage(alRev1);
@@ -312,12 +306,12 @@ public class MainActivity extends AppCompatActivity {
             alertReveil2.setCancelable(false);
             nom=prefs.getString("nom","bebe");
             String sexe=prefs.getString("sexe","fille");
-            String alRev2;
+            String alRev2="";
                 
-            if (sexe.equals("garcon"){
+            if (sexe.equals("garcon")){
             alRev2=getString(com.poussiere.babybooh.R.string.retour_de_ecoute2_garcon, nom);}
                 
-             else if (sexe.equals("fille"){
+             else if (sexe.equals("fille")){
              alRev2=getString(com.poussiere.babybooh.R.string.retour_de_ecoute2_fille, nom);
                 }
 
@@ -381,9 +375,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
 
                                 //Remise à zero de la base de données
-                                maBase.open();
-                                maBase.delete();
-                                maBase.close();
+                                getContentResolver().delete(Contract.Evenements.URI, null, null );
 
                                 
                                 // Les fichiers sons sont effacés
@@ -499,7 +491,10 @@ public class MainActivity extends AppCompatActivity {
 
         } else if (f instanceof WelcomeFragment3) {
             diplayWelcomeFragment(4);
-
+String alertDiag5;
+    String alertDiag6;
+    String lui, elle;
+    int nbNom;
         } else if (f instanceof WelcomeFragment4) {
 
             //On récupère le sexe qui a été coché et on l'enregistre dans un sharedpreference

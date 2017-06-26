@@ -2,22 +2,25 @@ package com.poussiere.babybooh;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
-//Splashscreen avec un temps défini. Il semble que ce soit considéré comme une mauvaise pratique bien que assez répandu
-rivate static int SPLASH_TIME_OUT = 2000;     
 
+public class SplashActivity extends AppCompatActivity {
+//Splashscreen avec un temps défini. Il semble que ce soit considéré comme une mauvaise pratique bien que assez répandu
+private static int SPLASH_TIME_OUT = 2000;
+private Intent i;
 @Override
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_splash_screen);
 
+    i = new Intent (this, MainActivity.class);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 
-                Intent i = new Intent (this, MainActivity.class);
+
                 startActivity(i);
  
                 finish();

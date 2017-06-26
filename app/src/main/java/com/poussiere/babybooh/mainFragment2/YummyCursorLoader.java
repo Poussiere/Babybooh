@@ -3,24 +3,25 @@ package com.poussiere.babybooh.mainFragment2;
 import android.content.Context;
 import android.content.CursorLoader;
 import android.database.Cursor;
-
-import com.poussiere.babybooh.bdd.BddDAO;
+import com.poussiere.babybooh.bdd.Contract;
 
 /**
  * Created by poussiere on 2/16/16.
  */
 public class YummyCursorLoader extends CursorLoader {
-BddDAO maBase;
 
-    public YummyCursorLoader(Context context, BddDAO mb) {
+Context c;
+
+    public YummyCursorLoader(Context context) {
         super(context);
-        maBase=mb;
+        c=context;
+
 
     }
 
     @Override
     public Cursor loadInBackground() {
-        Cursor c = maBase.getCursor();
+        Cursor c = getContext().getContentResolver().query(Contract.Evenements.URI, null, null, null, null);
         return c;
 
 

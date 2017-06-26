@@ -10,12 +10,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class BddTableEvenement extends SQLiteOpenHelper {
     public static final String NOM_DE_LA_TABLE="Evenements";
 
-
+    public static final String DATABASE_NAME="evenementsDb.db";
     public static final String COL1="_id";
     public static final String COL2="decibels";
     public static final String COL3="date";
     public static final String COL4="lumiere";
     public static final String COL5="monstre";
+    private static final int VERSION = 2;
 
     public static final String TEXTE_DE_CREATION = "CREATE TABLE "+ NOM_DE_LA_TABLE+
             " ( "+COL1+" INTEGER PRIMARY KEY AUTOINCREMENT, "+COL2+" INTEGER, "+COL3+
@@ -23,8 +24,10 @@ public class BddTableEvenement extends SQLiteOpenHelper {
 
     public static final String CHECK_VERSION="DROP TABLE IF EXISTS "+NOM_DE_LA_TABLE;
 
-    public BddTableEvenement(Context context, String name, SQLiteDatabase.CursorFactory factory, int version)
-    {super(context,name,factory,version);}
+
+
+    public BddTableEvenement(Context context) {
+        super(context, DATABASE_NAME, null, VERSION);}
 
     @Override
     public void onCreate(SQLiteDatabase db)

@@ -3,6 +3,7 @@ package com.poussiere.babybooh.activite1;
 import android.Manifest;
 import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -12,6 +13,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
@@ -29,7 +31,7 @@ import android.view.animation.LinearInterpolator;
 
 import com.poussiere.babybooh.MainActivity;
 import com.poussiere.babybooh.R;
-import com.poussiere.babybooh.bdd.BddDAO;
+import com.poussiere.babybooh.bdd.Contract;
 import com.poussiere.babybooh.objets.Ecoute;
 import com.poussiere.babybooh.objets.Lecture;
 import com.poussiere.babybooh.objets.Monstre;
@@ -79,8 +81,6 @@ Modification à prévoir: insérer l'heure de début dans la base de données + 
     //Création d'un boléen pour savoir si la bdd est active
     boolean isBddRunning=false;
 
-    //BAse de données
-    private BddDAO maBase;
 
     // Cr�er un ContentResolver sans l'instancier pour d�tecter le mode avion
     private ContentResolver contentResolver ;
@@ -150,10 +150,6 @@ Modification à prévoir: insérer l'heure de début dans la base de données + 
         }
 
 
-
-
-        //Instanciation de la base de données
-        maBase = new BddDAO(this);
         
         
         
@@ -186,14 +182,8 @@ Modification à prévoir: insérer l'heure de début dans la base de données + 
     {
         Log.i(ACT2, "activite 2 resum�e");
 
-
-
-        //Séquence d'activation de la base de données
-
         if (!isBddRunning)
-        {   maBase.open();
-            Log.i(ACT2, "Base de donnees ouverte dans le onResume");
-            isBddRunning=true;
+        {isBddRunning=true;
             Log.i(ACT2, "Boolean de Base de donnees activee mis sur true dans le onResume");
         }
 
@@ -291,8 +281,18 @@ Modification à prévoir: insérer l'heure de début dans la base de données + 
 
 
 
-                                maBase.creerEntree(decibels, timeInMillis, lum, monstre);
+                                //Insertion des données dans la base de données
+                                ContentValues contentValues = new ContentValues();
+                                contentValues.put(Contract.Evenements.COLUMN_COL2, decibels);
+                                contentValues.put(Contract.Evenements.COLUMN_COL3, timeInMillis);
+                                contentValues.put(Contract.Evenements.COLUMN_COL4, lum);
+                                contentValues.put(Contract.Evenements.COLUMN_COL5, monstre);
                                 Log.i(ACT2, "nouvelle entree cree dans la base de données");
+
+                                // Insert the content values via a ContentResolver
+                                Uri uri = getContentResolver().insert(Contract.Evenements.URI, contentValues);
+
+
 
                                 // Cr�er une notification avec le monstre qui a r�veill� le b�b�.
                                 Log.i(ACT2, "Lecture a partir de la sequence ecoute");
@@ -420,11 +420,6 @@ Modification à prévoir: insérer l'heure de début dans la base de données + 
             if (lecture.isRunning()) lecture.stop();
         }
 
-
-        //Désactivation de la bdd
-
-        maBase.close();
-        Log.i(ACT2, "Base de données fermee dans le onPause");
         isBddRunning = false;
         Log.i(ACT2, "Boolean de Base de donnees activee mis sur false dans le onPause");
        super.onPause();

@@ -1,5 +1,6 @@
 package com.poussiere.babybooh.mainFragment2;
 
+/*
 import android.app.LoaderManager;
 import android.content.Intent;
 import android.content.Loader;
@@ -120,3 +121,4 @@ public class StatsActivity extends AppCompatActivity implements LoaderManager.Lo
     }
 
 }
+*/

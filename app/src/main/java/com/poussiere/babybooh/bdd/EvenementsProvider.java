@@ -1,5 +1,15 @@
 package com.poussiere.babybooh.bdd;
 
+import android.content.ContentProvider;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.UriMatcher;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 /**
  * Created by poussiere on 26/06/17.
  */
@@ -8,7 +18,7 @@ package com.poussiere.babybooh.bdd;
 public class EvenementsProvider extends ContentProvider {
 
     private static final int EVENEMENTS = 100;
-    private static final int ENVENEMENTS_FOR_ID = 101;
+    private static final int EVENEMENTS_FOR_ID = 101;
 
     private static final UriMatcher uriMatcher = buildUriMatcher();
 
@@ -17,14 +27,15 @@ public class EvenementsProvider extends ContentProvider {
     private static UriMatcher buildUriMatcher() {
         UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
         matcher.addURI(Contract.AUTHORITY, Contract.PATH_EVENEMENTS, EVENEMENTS);
-        matcher.addURI(Contract.AUTHORITY, Contract.PATH_EVENEMENTS_WITH_ID, ENVENEMENTS_FOR_ID ;
+        matcher.addURI(Contract.AUTHORITY, Contract.PATH_EVENEMENTS_WITH_ID, EVENEMENTS_FOR_ID) ;
         return matcher;
     }
 
 
     @Override
     public boolean onCreate() {
-        dbHelper = new DbHelper(getContext());
+        Context context = getContext();
+        dbHelper = new BddTableEvenement(context);
         return true;
     }
 
@@ -49,10 +60,10 @@ public class EvenementsProvider extends ContentProvider {
 
             case EVENEMENTS_FOR_ID:
                 returnCursor = db.query(
-                        Contract.Evenements.TABLE_NAME,
+                        Contract.Evenements.NOM_DE_LA_TABLE,
                         projection,
                         Contract.Evenements._ID+ " = ?",
-                        new int[]{Contract.Evenements.getIdFromUri(uri)},
+                        new String []{Contract.Evenements.getIdFromUri(uri)},
                         null,
                         null,
                         sortOrder

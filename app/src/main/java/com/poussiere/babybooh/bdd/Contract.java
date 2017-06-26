@@ -1,5 +1,8 @@
 package com.poussiere.babybooh.bdd;
 
+import android.net.Uri;
+import android.provider.BaseColumns;
+
 /**
  * Created by poussiere on 26/06/17.
  */
@@ -27,20 +30,23 @@ public final class Contract {
         public static final int POSITION_COL4 = 3;
         public static final int POSITION_COL5 = 4;
        
-        public static final ImmutableList<String> EVENEMENT_COLUMNS = ImmutableList.of(
+       /* public static final ImmutableList<String> EVENEMENT_COLUMNS = ImmutableList.of(
                 _ID,
                 COLUMN_COL2,
                 COLUMN_COL3,
                 COLUMN_COL4,
                 COLUMN_COL5
         );
+        */
+
         static final String NOM_DE_LA_TABLE="Evenements";
 
         public static Uri makeUriForSingleEvenement(int id) {
-            return URI.buildUpon().appendPath(id).build();
+            return URI.buildUpon().appendPath(String.valueOf(id)).build();
         }
 
         static String getIdFromUri(Uri queryUri) {
+
             return queryUri.getLastPathSegment();
         }
 
