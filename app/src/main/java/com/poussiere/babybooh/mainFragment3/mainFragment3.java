@@ -16,7 +16,6 @@ import com.poussiere.babybooh.R;
 public class mainFragment3 extends Fragment {
 
 
-    private GridLayoutManager lLayout;
 
     public mainFragment3() {
         // Required empty public constructor
@@ -43,7 +42,8 @@ public class mainFragment3 extends Fragment {
         // Inflate the layout for this fragment
         View layoutView= inflater.inflate(R.layout.fragment_main_3, container, false);
 
-        lLayout = new GridLayoutManager(getActivity(), 3);
+       // GridLayoutManager lLayout = new GridLayoutManager(getActivity(), 3);
+        GridLayoutManager  gridLayoutManager = new GridLayoutManager(getActivity, calculateNoOfColumns(getBaseContext())); // 2 = number of items on each row
 
         RecyclerView rView = (RecyclerView)layoutView.findViewById(R.id.recycler_view_tableau);
         rView.setHasFixedSize(true);
@@ -68,5 +68,18 @@ public class mainFragment3 extends Fragment {
         super.onDetach();
     }
 
-
+    //Une méthode pour ajuster directement la taille vignette avec 2 vignettes par ligne
+     public static int calculateNoOfColumns(Context context) {
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+        float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
+       
+         int noOfColumns;
+        // If we are on tablet, the posters we'll appeaR bigger
+        if (dpWidth>=600)
+        { noOfColumns = (int) (dpWidth / 375);}
+      
+         else 
+         {noOfColumns = (int) (dpWidth / 180);}
+        return noOfColumns;
+    }
 }
