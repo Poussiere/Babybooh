@@ -212,7 +212,7 @@ public class EnregistrerActivity2 extends AppCompatActivity {
 
                             background2 = new Thread(new Runnable() {
 
-                                public void run() {
+                                public void run() { 
 
                                     enregistreur.lireSon();
 
@@ -254,13 +254,15 @@ public class EnregistrerActivity2 extends AppCompatActivity {
     protected void onPause()  {
 
 
-        if (enregistrementEnCours)
-        {enregistrementEnCours=false;}
+        if (enregistrementEnCours) {
+            enregistrementEnCours = false;
 
-        enregistreur.arreterEnregistrement();
-        enregistreur.arreterLecture();
+            enregistreur.arreterEnregistrement();
+            enregistreur.arreterLecture();
+            prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            prefs.edit().putString("nomDuSon", "MessagePourBebe.mp4").apply();
 
-
+        }
 
         super.onPause();}
 }
