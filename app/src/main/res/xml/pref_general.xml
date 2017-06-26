@@ -1,6 +1,15 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
 
+     <ListPreference
+        android:defaultValue="fille"
+        android:entries="@array/pref_sexe_titles"
+        android:entryValues="@array/pref_sexe_values"
+        android:key="sexe"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/pref_sexe" />
+    
     <EditTextPreference
         android:capitalize="words"
         android:defaultValue="@string/pref_default_display_name"
