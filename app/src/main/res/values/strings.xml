@@ -122,6 +122,7 @@
     <string name="pref_default_display_name">Bébé</string>
 
     <string name="pref_sensibilite_micro">Sensibilité du micro</string>
+    <string name="pref_sexe">Sexe du bébé</string>
 
     <string-array name="pref_sensibilite_titles">
         <item>forte</item>
