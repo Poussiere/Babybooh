@@ -134,6 +134,15 @@
         <item>600</item>
     </string-array>
 
+       <string-array name="pref_sexe_titles">
+        <item>Fille</item>
+        <item>Garçon</item>
+        
+    </string-array>
+    <string-array name="pref_sexe_values">
+        <item>fille</item>
+        <item>garcon</item>
+    </string-array>
 
     <string name="pref_eteint_ecran_title">Autoriser l\'ecran à s\'éteindre</string>
     <string name="pref_eteint_ecran_summary">L\'écran s\'éteindra pendant la veille. Recommandé si vous souhaitez que votre bébé soit dans le noir complet ou si vous souhaitez économiser votre batterie</string>
