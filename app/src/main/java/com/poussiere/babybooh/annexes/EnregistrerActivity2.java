@@ -212,7 +212,7 @@ public class EnregistrerActivity2 extends AppCompatActivity {
 
                             background2 = new Thread(new Runnable() {
 
-                                public void run() { 
+                                public void run() {
 
                                     enregistreur.lireSon();
 

@@ -255,6 +255,10 @@ public class MainActivity extends AppCompatActivity {
             prefs.edit().putBoolean("unReveil",false).apply();
             prefs.edit().putBoolean("plusieursReveil",false).apply();
 
+           //Effacement du nom si celui ci avait déjà été suivi et mise du sexe à la valeur par défaut
+            prefs.edit().putBoolean("fille",true);
+            prefs.edit().putString("nom", "").apply();
+
 
             /////////////////////////////////////////////////////////////
             //Création du folder dans lequel sertont enregistrés les sons
