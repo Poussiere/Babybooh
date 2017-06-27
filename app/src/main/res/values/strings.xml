@@ -135,10 +135,10 @@
         <item>600</item>
     </string-array>
 
-       <string-array name="pref_sexe_titles">
+    <string-array name="pref_sexe_titles">
         <item>Fille</item>
         <item>Garçon</item>
-        
+
     </string-array>
     <string-array name="pref_sexe_values">
         <item>fille</item>
@@ -198,7 +198,7 @@
     <string name="retour_de_ecoute1_fille">%1$s s\'est réveillée une fois lors de la dernière veille. Un monstre a été détécté! Rendez-vous dans le carnet de bord pour en savoir plus!</string>
     <string name="retour_de_ecoute2_garcon">%1$s s\'est révéillé plusieurs fois lors de la dernière veille. Au moins un monstre a été détécté! Rendez-vous dans le carnet de bord pour en savoir plus!</string>
     <string name="retour_de_ecoute2_fille">%1$s s\'est révéillée plusieurs fois lors de la dernière veille. Au moins un monstre a été détécté! Rendez-vous dans le carnet de bord pour en savoir plus!</string>
-    
+
     <string name="inconnu_description">Utilisez encore BabyboOH avec votre bébé. Ce monstre apparaitra peut-etre pendant la prochaine sièste!</string>
     <string name="lancer_enregistrement">Appuyez sur le micro pour démarrer l\'enregistrement</string>
     <string name="stop_enregistrement">Enregistrement en cours. Appuyez à nouveau pour arrêter l\'enregistrement</string>
@@ -213,5 +213,8 @@
     <string name="content_description_gallerie">Gallerie</string>
     <string name="content_description_carnet_de_bord">Carnet de bord</string>
     <string name="content_description_accueil">Accueil</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

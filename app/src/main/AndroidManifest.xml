@@ -43,7 +43,8 @@
         <activity
             android:name=".annexes.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".mainFragment3.IdMonstreActivity"
             android:label="@string/title_activity_id_monstre"
