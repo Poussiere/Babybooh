@@ -62,6 +62,10 @@
             android:label="@string/title_activity_enregistrer"
             android:parentActivityName=".annexes.EnregistrerActivity"
             android:screenOrientation="portrait"></activity>
+        <provider
+            android:name=".bdd.EvenementsProvider"
+            android:authorities="com.poussiere.babybooh"
+            android:exported="false" />
     </application>
 
 </manifest>
