@@ -105,12 +105,10 @@
     <string name="monstre12_alias">La lanterne</string>
     <string name="monstre12_desc">Il brille dans la nuit. Sa lumière fascine les enfants et c\'est certainement ce qui le rend le plus redoutable.</string>
     <string name="monstre12_conditions">Il apparait dans l\'obscurité totale, quelle que soit l\'heure du jour ou de la nuit. Vous regrettez d\'avoir fermé les volets n\'est-ce pas? </string>
-    :
-    <string name="title_activity_settings">Settings</string>
 
-    <!-- Strings related to Settings -->
+    <string name="title_activity_settings">Paramètres</string>
 
-    <!-- Example General settings -->
+
     <string name="pref_header_general">General</string>
 
     <string name="pref_title_social_recommendations">Enable social recommendations</string>

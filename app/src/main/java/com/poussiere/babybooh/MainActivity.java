@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(com.poussiere.babybooh.R.layout.activity_main);
         intentEnregistrer = new Intent(MainActivity.this, EnregistrerActivity.class);
-        intentSettings = new Intent(MainActivity.this, SettingsActivity.class);
+        intentSettings = new Intent(MainActivity.this, AppCompatPreferenceActivity.class);
         conteneur=(FrameLayout)findViewById(R.id.conteneur_boutons);
         welcomeConteneur=(RelativeLayout)findViewById(R.id.conteneur_du_premier_lancement);
         circlesConteneur=(LinearLayout)findViewById(R.id.circles_id);

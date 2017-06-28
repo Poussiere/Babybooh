@@ -41,7 +41,7 @@
             android:label="@string/title_activity_stats"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".annexes.SettingsActivity"
+            android:name=".AppCompatPreferenceActivity"
             android:label="@string/title_activity_settings"
             android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"/>
