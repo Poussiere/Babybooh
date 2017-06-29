@@ -86,7 +86,7 @@ public class CarnetRecyclerView extends RecyclerView.Adapter< CarnetRecyclerView
 
         // Récupération de la date et de l'heure
         date=cursor.getLong(2);
-        cal=Calendar.getInstance();
+      /*  cal=Calendar.getInstance();
         cal.setTimeInMillis(date);
         annee = cal.get(Calendar.YEAR);
         mois = cal.get(Calendar.MONTH)+1;
@@ -94,13 +94,21 @@ public class CarnetRecyclerView extends RecyclerView.Adapter< CarnetRecyclerView
         heure = cal.get (Calendar.HOUR_OF_DAY);
         minutes = cal.get (Calendar.MINUTE);
 
+       
+        
         dateText=""+jour+"/"+mois+"/"+annee;
 
         if (minutes==0) heureText=""+heure+":00";
         else heureText=""+heure+":"+minutes;
         holder.dateTv.setText(dateText);
         holder.heureTv.setText(heureText);
-
+*/
+         String formattedDate = String.valueOf(DateUtils.getRelativeTimeSpanString(date));
+        holder.dateTv.setText(formattedDate);
+        
+        String internationalHour = DateUtils.formatDateTime(this, date, DateUtils.FORMAT_SHOW_TIME);
+        holder.heureTv.setText(internationalHour);
+        
         //Récupération des lux
         lum=cursor.getInt(3);
         l = context.getString(R.string.lux);
