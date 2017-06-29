@@ -98,7 +98,8 @@
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" 
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_height="100dip">
 
@@ -154,7 +155,7 @@
     <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
         android:layout_weight="1" >
 
        
@@ -163,8 +164,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/luxView"
-        android:text_size="20sp"
-        android:text_color="@color/primary_color
+        android:textSize="20sp"
+        android:textColor="@color/primary_color"
         android:layout_weight="1"
         tools:text="10 lux"
         android:gravity="center"
@@ -178,8 +179,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/decibelsView"
-        android:text_size="20sp"
-        android:text_color="@color/primary_color                              
+        android:textSize="20sp"
+        android:textColor="@color/primary_color"
         tools:text="30 decibels"
         android:layout_weight="1"
         android:gravity="center"
@@ -188,4 +189,5 @@
 
 
     
+</LinearLayout>
 </LinearLayout>

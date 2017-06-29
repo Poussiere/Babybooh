@@ -3,6 +3,7 @@ package com.poussiere.babybooh.mainFragment2;
 import android.content.Context;
 import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -106,7 +107,7 @@ public class CarnetRecyclerView extends RecyclerView.Adapter< CarnetRecyclerView
          String formattedDate = String.valueOf(DateUtils.getRelativeTimeSpanString(date));
         holder.dateTv.setText(formattedDate);
         
-        String internationalHour = DateUtils.formatDateTime(this, date, DateUtils.FORMAT_SHOW_TIME);
+        String internationalHour = DateUtils.formatDateTime(context, date, DateUtils.FORMAT_SHOW_TIME);
         holder.heureTv.setText(internationalHour);
         
         //Récupération des lux
