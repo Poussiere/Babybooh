@@ -215,6 +215,6 @@
     <string name="pref_sexe">Sexe</string>
     <string name="sexe_pref_subtitle">Selectionner le sexe du bébé</string>
     <string name="nom_pref_subtitle">Indiquer le nom du bébé</string>
-    <string name="micro_pref_subtitle">Ajuster la sensibilité du micro pendant la veille. Eviter les déclenchements trop fréquents ou trop rares</string>
+    <string name="micro_pref_subtitle">Ajuster la sensibilité du micro pendant la veille pour éviter les déclenchements trop fréquents ou trop rares</string>
 
 </resources>

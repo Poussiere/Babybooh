@@ -9,7 +9,8 @@
         android:key="sexe"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
-        android:title="@string/pref_sexe" />
+        android:title="@string/pref_sexe"
+         android:summary="@string/sexe_pref_subtitle"/>
     
     <EditTextPreference
         android:capitalize="words"
@@ -20,7 +21,9 @@
         android:maxLength="20"
         android:selectAllOnFocus="true"
         android:singleLine="true"
-        android:title="@string/pref_title_display_name" />
+        android:title="@string/pref_title_display_name"
+        android:summary="@string/nom_pref_subtitle"
+        />
 
 
     <ListPreference
@@ -30,6 +33,7 @@
         android:key="sensibilite_micro"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
-        android:title="@string/pref_sensibilite_micro" />
+        android:title="@string/pref_sensibilite_micro"
+        android:summary="@string/micro_pref_subtitle"/>
 
 </PreferenceScreen>
