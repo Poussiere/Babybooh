@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<!--
 <android.support.v7.widget.GridLayout
 
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -95,8 +95,8 @@
 
 </android.support.v7.widget.GridLayout>
 
+-->
 
-<!--
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" 
     android:orientation="horizontal"
@@ -157,63 +157,35 @@
     android:orientation="vertical"
         android:layout_weight="1" >
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_weight="1.2" />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_weight="1.5"
-            android:src="@drawable/miniampoule" />
+       
 
         <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/luxView"
+        android:text_size="20sp"
+        android:text_color="@color/primary_color
         android:layout_weight="1"
-        android:text="10 lux"
-        android:gravity="center_horizontal"
-            android:paddingTop="5dp"
+        tools:text="10 lux"
+        android:gravity="center"
+           
       />
 
-    </LinearLayout>
+    
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="1" >
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_weight="1.2" />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/minicry"
-            android:layout_gravity="center"
-            android:layout_weight="1.6"
-            />
-
+ 
         <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/decibelsView"
-        android:text="30 decibels"
-        android:layout_alignParentEnd="true"
+        android:text_size="20sp"
+        android:text_color="@color/primary_color                              
+        tools:text="30 decibels"
         android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:paddingTop="5dp"
+        android:gravity="center"
+       
         />
 
 
-    </LinearLayout>
+    
 </LinearLayout>
--->
