@@ -116,12 +116,6 @@
         based on your message history
     </string>
 
-    <string name="pref_title_display_name">Nom de Bébé</string>
-    <string name="pref_default_display_name">Bébé</string>
-
-    <string name="pref_sensibilite_micro">Sensibilité du micro</string>
-    <string name="pref_sexe">Sexe du bébé</string>
-
     <string-array name="pref_sensibilite_titles">
         <item>forte</item>
         <item>normale</item>
@@ -212,7 +206,15 @@
     <string name="content_description_carnet_de_bord">Carnet de bord</string>
     <string name="content_description_accueil">Accueil</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- strings de la settings activity
+-->
+    <string name="pref_title_display_name">Nom</string>
+    <string name="pref_default_display_name">Bébé</string>
+
+    <string name="pref_sensibilite_micro">Sensibilité du micro</string>
+    <string name="pref_sexe">Sexe</string>
+    <string name="sexe_pref_subtitle">Selectionner le sexe du bébé</string>
+    <string name="nom_pref_subtitle">Indiquer le nom du bébé</string>
+    <string name="micro_pref_subtitle">Ajuster la sensibilité du micro pendant la veille. Eviter les déclenchements trop fréquents ou trop rares</string>
 
 </resources>
