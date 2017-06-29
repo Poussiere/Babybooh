@@ -52,8 +52,8 @@ public class mainFragment2 extends Fragment implements android.app.LoaderManager
         // Inflate the layout for this fragment
         View layoutView= inflater.inflate(R.layout.fragment_main2, container, false);
         rc=(RecyclerView)layoutView.findViewById(R.id.lvEvenements);
-        GridLayoutManager lLayout = new GridLayoutManager(getActivity(), 1);
-
+        LinearLayoutManager lLayout = new LinearLayoutManager(getActivity());
+        lLayout.setReverseLayout(true);
         rc.setHasFixedSize(true);
         rc.setLayoutManager(lLayout);
         adapter = new CarnetRecyclerView(getActivity(), this);
