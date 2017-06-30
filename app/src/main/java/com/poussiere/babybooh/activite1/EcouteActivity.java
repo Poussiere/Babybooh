@@ -364,7 +364,9 @@ Modification à prévoir: insérer l'heure de début dans la base de données + 
                     } else {
                         Log.i(ACT2, "Il n'y plus de bruit, on ne relance pas la lecture et on relance l'écoute");
                         //le thread d'écoute principal est relancé
+                        lectureActive=false;
                         ecouteActive = true;
+                        
                     }
 
 
