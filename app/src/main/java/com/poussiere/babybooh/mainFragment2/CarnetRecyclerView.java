@@ -126,11 +126,17 @@ public class CarnetRecyclerView extends RecyclerView.Adapter< CarnetRecyclerView
     }
 
 
-    // Return the size of the posters links array
+    // Retourne la taille du cursor ou 0 s'il est null + Affiche le message correspondant s'il n'y a pas de données
     @Override
     public int getItemCount() {
-        if (cursor==null) return 0;
-        return cursor.getCount();
+       
+        int cursorCount;
+        if (cursor==null) cursorCount=0;
+        else cursorCount=cursor.getCount;
+
+        textViewNoData.setVisibility(cursorCount > 0 ? View.GONE : View.VISIBLE);
+        
+        return cursorCount;
     }
 
 
