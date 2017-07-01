@@ -15,6 +15,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
 import com.poussiere.babybooh.R;
 import com.poussiere.babybooh.annexes.EnregistrerActivity;
 import com.poussiere.babybooh.bdd.Contract;
@@ -25,6 +27,7 @@ public class mainFragment2 extends Fragment implements android.app.LoaderManager
     private RecyclerView rc;
     private Cursor cursor;
     private CarnetRecyclerView adapter;
+    private TextView noData;
 
     public mainFragment2() {
         // Required empty public constructor
@@ -52,7 +55,9 @@ public class mainFragment2 extends Fragment implements android.app.LoaderManager
         // Inflate the layout for this fragment
         View layoutView= inflater.inflate(R.layout.fragment_main2, container, false);
         rc=(RecyclerView)layoutView.findViewById(R.id.lvEvenements);
-        LinearLayoutManager lLayout = new LinearLayoutManager(getActivity());
+        noData=(TextView)layoutView.findViewById(R.id.textViewNoData);
+       // LinearLayoutManager lLayout = new LinearLayoutManager(getActivity());
+        GridLayoutManager lLayout=new GridLayoutManager(getActivity(), 1);
         lLayout.setReverseLayout(true);
         rc.setHasFixedSize(true);
         rc.setLayoutManager(lLayout);
@@ -103,10 +108,17 @@ public class mainFragment2 extends Fragment implements android.app.LoaderManager
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        if (data != null){
+
+        int cursorCount;
+        if (data==null)cursorCount=0;
+
+        else{
             cursor=data;
             adapter.setEventsCursor(cursor);
-    }}
+            cursorCount=cursor.getCount();}
+
+            noData.setVisibility(cursorCount > 0 ? View.GONE : View.VISIBLE);
+    }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {

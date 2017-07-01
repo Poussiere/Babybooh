@@ -15,6 +15,7 @@ import com.poussiere.babybooh.R;
 
 import java.util.Calendar;
 
+import static android.view.View.GONE;
 import static java.security.AccessController.getContext;
 
 /**
@@ -79,6 +80,7 @@ public class CarnetRecyclerView extends RecyclerView.Adapter< CarnetRecyclerView
     @Override
     public void onBindViewHolder(CarnetViewHolder holder, int position) {
 
+
     cursor.moveToPosition(position);
         quelMonstre=cursor.getInt(4);
 
@@ -104,7 +106,8 @@ public class CarnetRecyclerView extends RecyclerView.Adapter< CarnetRecyclerView
         holder.dateTv.setText(dateText);
         holder.heureTv.setText(heureText);
 */
-         String formattedDate = String.valueOf(DateUtils.getRelativeTimeSpanString(date));
+        // String formattedDate = String.valueOf(DateUtils.getRelativeTimeSpanString(date));
+        String formattedDate=DateUtils.formatDateTime(context, date, DateUtils.FORMAT_SHOW_YEAR);
         holder.dateTv.setText(formattedDate);
         
         String internationalHour = DateUtils.formatDateTime(context, date, DateUtils.FORMAT_SHOW_TIME);
@@ -118,8 +121,12 @@ public class CarnetRecyclerView extends RecyclerView.Adapter< CarnetRecyclerView
 
         // Récupération des décibels et transformation en String
         db=String.valueOf(Math.round(cursor.getDouble(1)));
-        d = context.getString(R.string.decibels);
+        d = context.getString(R.string.db);
         holder.decTv.setText(db+" "+d);
+
+        if (position==0){
+            holder.separator.setVisibility(GONE);
+        }
 
 
 
@@ -129,14 +136,10 @@ public class CarnetRecyclerView extends RecyclerView.Adapter< CarnetRecyclerView
     // Retourne la taille du cursor ou 0 s'il est null + Affiche le message correspondant s'il n'y a pas de données
     @Override
     public int getItemCount() {
-       
-        int cursorCount;
-        if (cursor==null) cursorCount=0;
-        else cursorCount=cursor.getCount;
 
-        textViewNoData.setVisibility(cursorCount > 0 ? View.GONE : View.VISIBLE);
-        
-        return cursorCount;
+        if (cursor==null) return 0;
+        else return cursor.getCount();
+
     }
 
 
@@ -160,6 +163,8 @@ public class CarnetRecyclerView extends RecyclerView.Adapter< CarnetRecyclerView
         private TextView heureTv;
         private TextView luxTv;
         private TextView decTv;
+        private View separator;
+
 
         public CarnetViewHolder(View itemView) {
             super(itemView);
@@ -168,6 +173,8 @@ public class CarnetRecyclerView extends RecyclerView.Adapter< CarnetRecyclerView
             heureTv = (TextView) itemView.findViewById(R.id.heureView);
             luxTv = (TextView) itemView.findViewById(R.id.luxView);
             decTv = (TextView) itemView.findViewById(R.id.decibelsView);
+            separator = (View) itemView.findViewById(R.id.main2_recycler_separator);
+
             itemView.setOnClickListener(this);
 
         }

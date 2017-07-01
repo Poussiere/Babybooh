@@ -7,7 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 
 
 public class SplashActivity extends AppCompatActivity {
-//Splashscreen avec un temps défini. Il semble que ce soit considéré comme une mauvaise pratique bien que assez répandu
+
+    /*
+    //Splashscreen avec un temps défini. Il semble que ce soit considéré comme une mauvaise pratique bien que assez répandu
 private static int SPLASH_TIME_OUT = 2000;
 private Intent i;
 @Override
@@ -27,12 +29,12 @@ protected void onCreate(Bundle savedInstanceState) {
             }
         }, SPLASH_TIME_OUT);
     }
-}
+    */
 
 
-/*
+
+
 //SplashCreen sans durée définie (juste affiché pendant le temps de chargement qui peut être très court. C'est une bonne pratique
-public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,4 +45,4 @@ public class SplashActivity extends AppCompatActivity {
         finish();
     }
 }
-*/
+

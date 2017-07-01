@@ -40,6 +40,7 @@
     <string name="title_activity_enregistrer">EnregistrerActivity</string>
     <string name="title_activity_stats">StatsActivity</string>
     <string name="decibels">décibels</string>
+    <string name="db">db</string>
     <string name="lux">lux</string>
 
     <string name="monstre1_nom">Dédé</string>
