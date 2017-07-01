@@ -352,7 +352,6 @@ Modification à prévoir: insérer l'heure de début dans la base de données + 
                     Log.i(ACT2, "Test des decibels 3");
                     resultEcoute = ecoute.obtenirDecibels();
 
-
                     // Si le nombre de d�cibels est inf�rieur au seuil (si le b�b� ne crie plus
                     // la lecture du son ne sera pas relanc�e
                     // Sinon la lecture est relancée

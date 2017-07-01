@@ -58,7 +58,6 @@ public class mainFragment2 extends Fragment implements android.app.LoaderManager
         noData=(TextView)layoutView.findViewById(R.id.textViewNoData);
        // LinearLayoutManager lLayout = new LinearLayoutManager(getActivity());
         GridLayoutManager lLayout=new GridLayoutManager(getActivity(), 1);
-        lLayout.setReverseLayout(true);
         rc.setHasFixedSize(true);
         rc.setLayoutManager(lLayout);
         adapter = new CarnetRecyclerView(getActivity(), this);
@@ -99,7 +98,7 @@ public class mainFragment2 extends Fragment implements android.app.LoaderManager
 
                 Uri getAllEvents = Contract.Evenements.URI;
 
-                return new android.content.CursorLoader(getActivity(), getAllEvents, null, null, null, null);
+                return new android.content.CursorLoader(getActivity(), getAllEvents, null, null, null, Contract.Evenements.COLUMN_COL3+" DESC");
 
             default:
                 throw new RuntimeException("Loader Not Implemented: " + id);

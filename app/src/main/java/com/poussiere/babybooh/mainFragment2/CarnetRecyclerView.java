@@ -124,7 +124,9 @@ public class CarnetRecyclerView extends RecyclerView.Adapter< CarnetRecyclerView
         d = context.getString(R.string.db);
         holder.decTv.setText(db+" "+d);
 
-        if (position==0){
+        int cursorSize=0;
+        cursorSize =getItemCount();
+        if (position==cursorSize-1){
             holder.separator.setVisibility(GONE);
         }
 
