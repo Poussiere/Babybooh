@@ -84,6 +84,7 @@ public class EnregistrerActivity2 extends AppCompatActivity {
                 animation.setRepeatCount(Animation.INFINITE); // Repeat animation infinitely
                 animation.setRepeatMode(Animation.REVERSE); // Reverse animation at the end so the button will fade back in
 
+
                 fb.startAnimation(animation);
                 tv1.setText(R.string.stop_enregistrement);
                 fb.setContentDescription(getString(R.string.content_description_arreter_enregistreent));

@@ -156,6 +156,7 @@ Modification à prévoir: insérer l'heure de début dans la base de données + 
         //Récuperation du seuilDécibel dans le sharedPreference (transformation du string en double)
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         seuil= prefs.getString("sensibilite_micro", "400");
+        seuil="400";
         seuilDecibels =Double.parseDouble(seuil);
         
         //Récupération du nom du son à lire lorsque la veille est déclenchée
@@ -221,6 +222,7 @@ Modification à prévoir: insérer l'heure de début dans la base de données + 
                     if (ecouteActive) {
                         resultEcoute = ecoute.obtenirDecibels();  //on r�cup�re le niveau sonore en d�cibels
                         Log.i(ACT2, "test des décibels1");
+                        Log.i(ACT2, resultEcoute+" ");
                         if (resultEcoute > seuilDecibels)                 // Si le r�sultat de l'�coute est sup�rieur au seuil fix� en d�cibels, alors on enverra un message � l'UI thread
                         {
                             Log.i(ACT2, "le seuil des décibels est dépassé (essai 1");
@@ -235,6 +237,7 @@ Modification à prévoir: insérer l'heure de début dans la base de données + 
                             Log.i(ACT2, "test des décibels1");
                             if (resultEcoute > seuilDecibels) { // recuperation des decibels
                                 Log.i(ACT2, "le seuil des décibels est dépassé (essai 2");
+                                Log.i(ACT2, resultEcoute+" ");
                                 // On fait en sorte de ne pas relancer la phase d'écoute tout de suite
                                 ecouteActive = false;
 
@@ -344,29 +347,35 @@ Modification à prévoir: insérer l'heure de début dans la base de données + 
 
                     // On fait une petite pause sinon l'echo du son lu déclenche à nouveau le capteur
                     try {
-                        background.sleep(1000);//le thread background sera relanc� toutes les 300 millisecondes tant que la valeur seuil n'aura pas �t� d�pass�e.
+                        background.sleep(3000);//le thread background sera relanc� toutes les 300 millisecondes tant que la valeur seuil n'aura pas �t� d�pass�e.
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
 
                     Log.i(ACT2, "Test des decibels 3");
                     resultEcoute = ecoute.obtenirDecibels();
+                    Log.i(ACT2, resultEcoute+" réécoute");
 
                     // Si le nombre de d�cibels est inf�rieur au seuil (si le b�b� ne crie plus
                     // la lecture du son ne sera pas relanc�e
                     // Sinon la lecture est relancée
 
                     if (resultEcoute > seuilDecibels) {
-                        Log.i(ACT2, "Le seuil est toujours dépassé 3, la lecture du son est relancée");
-                        lecture.resume();
 
-                    } else {
+                        resultEcoute=ecoute.obtenirDecibels();
+                        if (resultEcoute>seuilDecibels)
+                        {
+                        Log.i(ACT2, "Le seuil est toujours dépassé 3, la lecture du son est relancée");
+                            Log.i(ACT2, resultEcoute+" réécoute");
+                        lecture.resume();}
+
+                     else {
                         Log.i(ACT2, "Il n'y plus de bruit, on ne relance pas la lecture et on relance l'écoute");
                         //le thread d'écoute principal est relancé
                         lectureActive=false;
                         ecouteActive = true;
                         
-                    }
+                    }}
 
 
                 }
