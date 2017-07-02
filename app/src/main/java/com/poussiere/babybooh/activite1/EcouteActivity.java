@@ -49,6 +49,15 @@ public class EcouteActivity extends Activity {
 Modification à prévoir: insérer l'heure de début dans la base de données + le nombre de fois où l'enfant s'est réveillé.
  */
 
+/*
+Tant qu'il n'y a pas eu au moins 5 min (ou 3 minutes) de silence, on est toujours sur le même évenement. On reste donc dans la boucle lecture active et on enregistre l'ensemble des variables en sortant de cette boucle.
+Il faudra ajouter dans la base de données des colonnes pour le temps pendant lequel le bébé a été réveillé, + pour le décibel le plus élevé + moyenne des décibels sur la période, ect.
+Préciser si le bébé s'est rendormi ou si la veille a été interrompue par quelqu'un.
+Faire des textview en conséquence dans la détail acitivity.
+Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jamais la veille est interrompue pendant la lectureActive.
+ + Proposer au user de selectionner le laps de temps entre 2 répétions du message qu'il souhaite (Dès que le bébé se réveille, 5s, 10s, 15s, 30s, 1 minute, 2 minute, 3 minute
+
+ */
     public static final int MY_PERMISSIONS_REQUEST_AUDIO_RECORD = 42;
 
     String monstreSexy=null; // Car en String = clé pour les sharedpreference
