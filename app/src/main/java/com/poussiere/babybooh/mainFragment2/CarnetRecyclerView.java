@@ -16,6 +16,7 @@ import com.poussiere.babybooh.R;
 import java.util.Calendar;
 
 import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 import static java.security.AccessController.getContext;
 
 /**
@@ -128,6 +129,9 @@ public class CarnetRecyclerView extends RecyclerView.Adapter< CarnetRecyclerView
         cursorSize =getItemCount();
         if (position==cursorSize-1){
             holder.separator.setVisibility(GONE);
+        }
+        else{
+            holder.separator.setVisibility(VISIBLE);
         }
 
 
