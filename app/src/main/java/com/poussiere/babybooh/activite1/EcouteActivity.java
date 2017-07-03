@@ -399,6 +399,8 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                         
                          Log.i(ACT2, "Il n'y a plus de bruit depuis 3 minutes, on ne relance pas la lecture et on relance l'écoute");
                         //L'évenenement réveil est terminé, le thread d'écoute principal est relancé
+                         //C'est ici qu'on va insérer les nouvelles variables dans la base de données : Durée du réveil
+                         // Cri le plus fort, Evenement interrompu ou non, etc... Il faudra en faire de même dans le onPause en lancant un nouveau thread.  
                         lectureActive=false;
                         ecouteActive = true;
                         
