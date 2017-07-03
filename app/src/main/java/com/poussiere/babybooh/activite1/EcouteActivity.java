@@ -76,6 +76,10 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
     // Variable qui r�cup�re le niveau sonore en d�cibels
     private double resultEcoute, decibels; // le resultcoute arrive en amplitude et se sera converti en décibels dans decibels
+    
+    // Variables qui determinent l'heure à laquelle le son s'est déclenché la dernière foiset qui stocke temporairement l'heure du lancement du son précédent
+    long heureReDetection ; 
+    long heureReDetectionPrecedente ;
 
     //Seuil d'alerte en d�cibels (MAJ il s'agit d'une amplitude finalement pour plus de sensibilité).
     private double seuilDecibels  ;
@@ -206,7 +210,13 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                 Log.i(ACT2, "debut de l'execution du thread");
 
                 while (isThreadRunning) {
+                    
+                        //On determine ici l'heure de début de l'écoute
+                        cal=Calendar.getInstance();
+                        dateDebut = cal.getTimeInMillis();
 
+                        //Et on instancie ici le compteur d'éveil
+                        xt=0;
                     if (!ecoute.isRunning())                   // Si le mediarecorder n'est pas encore actif,
                     {
                         try {
@@ -218,12 +228,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                             e.printStackTrace();
                         }
 
-                        //On determine ici l'heure de début de l'écoute
-                        cal=Calendar.getInstance();
-                        dateDebut = cal.getTimeInMillis();
-
-                        //Et on instancie ici le compteur d'éveil
-                        xt=0;
+                        
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -363,28 +368,48 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                     Log.i(ACT2, "Test des decibels 3");
                     resultEcoute = ecoute.obtenirDecibels();
+                    
                     Log.i(ACT2, resultEcoute+" réécoute");
 
                     // Si le nombre de d�cibels est inf�rieur au seuil (si le b�b� ne crie plus
                     // la lecture du son ne sera pas relanc�e
                     // Sinon la lecture est relancée
-
+                    
                     if (resultEcoute > seuilDecibels) {
-
+                        
+                        
                         resultEcoute=ecoute.obtenirDecibels();
-                        if (resultEcoute>seuilDecibels)
+                       
+                        }
+                     
+                      
+                        if (resultEcoute>seuilDecibels) // Double vérification pour voir si le bruit est persistant
                         {
+                            
+                             heureDetection = cal.getTimeInMillis();
+                        if (heureDetectionPrecedente == null){
+                         heureDetectionPrecedente = heureDetection;   
                         Log.i(ACT2, "Le seuil est toujours dépassé 3, la lecture du son est relancée");
                             Log.i(ACT2, resultEcoute+" réécoute");
                         lecture.resume();}
-
-                     else {
-                        Log.i(ACT2, "Il n'y plus de bruit, on ne relance pas la lecture et on relance l'écoute");
-                        //le thread d'écoute principal est relancé
+                        
+                            
+                     else if ((resultEcoute<= seuilDecibels) && ((heureDetection-heureDetectionPrecedente)>180000))
+                               {
+                        
+                         Log.i(ACT2, "Il n'y a plus de bruit depuis 3 minutes, on ne relance pas la lecture et on relance l'écoute");
+                        //L'évenenement réveil est terminé, le thread d'écoute principal est relancé
                         lectureActive=false;
                         ecouteActive = true;
                         
-                    }}
+                    }
+                            else {
+                                Log.i(ACT2, "Moins de 3 minutes de silence, l'évenement n'est pas terminé");
+                                //Le seuil de détection n'est pas franchi mais cela ne fait pas 3 minutes qu'il n'y a plus de bruit. 
+                                // On ne relance pas la lecture pour ne pas gêner bébé mais reste dans la lecture active jusqu'à la fin de l'évenement
+                            }
+                       
+                        }
 
 
                 }
