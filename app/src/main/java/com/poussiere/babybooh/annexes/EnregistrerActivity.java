@@ -257,12 +257,14 @@ public class EnregistrerActivity extends AppCompatActivity {
 
             // Return to mainactivity when home button is clicked
             case android.R.id.home:
-                Intent upIntent = NavUtils.getParentActivityIntent(this);
+              /*  Intent upIntent = NavUtils.getParentActivityIntent(this);
                 if (NavUtils.shouldUpRecreateTask(this, upIntent)) {
                     TaskStackBuilder.create(this).addNextIntentWithParentStack(upIntent).startActivities();
                 } else {
                     NavUtils.navigateUpTo(this, upIntent);
                 }
+                */
+                onBackPressed();
                 return true;
         }
         return super.onOptionsItemSelected(item);
