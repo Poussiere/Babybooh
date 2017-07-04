@@ -74,8 +74,11 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
     private Ecoute ecoute;
     private Lecture lecture;
 
-    // Variable qui r�cup�re le niveau sonore en d�cibels
+    // Variable qui r�cup�re le niveau sonore en d�cibels du cri initial qui a déclenché le détecteur
     private double resultEcoute, decibels; // le resultcoute arrive en amplitude et se sera converti en décibels dans decibels
+    
+    //Variable permettant de stocker la décibels la plus haute de l'évenement
+    private double highestDecibel, decibelTemp ;
     
     // Variables qui determinent l'heure à laquelle le son s'est déclenché la dernière foiset qui stocke temporairement l'heure du lancement du son précédent
     long heureReDetection ; 
@@ -247,9 +250,43 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                 Log.i(ACT2, resultEcoute+" ");
                                 // On fait en sorte de ne pas relancer la phase d'écoute tout de suite
                                 ecouteActive = false;
+                                
+                                
+                                Log.i(ACT2, "instantiation du cal");
+                    // Obtenir un objet calendar
+                    cal = Calendar.getInstance();
+                    int heure = cal.get(Calendar.HOUR_OF_DAY); // On isole l'heure pour déterminer quel monstre est apparu
 
+                    // Pour la date au Handler on va transformer l'objet Calendar en long (ou directement ins�rer cet objet long dans la base de donn�es quand celle-ci aura �t� cr�e)
+                    long timeInMillis = cal.getTimeInMillis();
 
-                                // Cr�er une notification avec le monstre qui a r�veill� le b�b�.
+                    //On calcule la différence entre l'heure de l'evenement et l'heure du debut
+                    difference=timeInMillis-dateDebut;
+
+                    //on ajoute 1 au compteur d'évènements et on met dans un shared preference le fait que le bebe ait été réveillé une ou plusieurs fois
+                    xt++;
+
+                    if (xt==1) prefs.edit().putBoolean("unReveil",true).apply();
+                    else if (xt>1)
+                    {
+                        prefs.edit().putBoolean("unReveil",false).apply();
+                        prefs.edit().putBoolean("plusieursReveil",true).apply();
+                    }
+                                // Onrécupère le niveau en décibels de cet évenement déclencheur
+                                 Log.i(ACT2, "captation des paramettres de l'évènement");
+                                 decibels = 20 * Math.log10(resultEcoute / 10);
+                                
+                               //On donne sa première valeur au highestDecibels
+                                highestDecibel = decibels;
+                                
+                                // On observe la lumière ambiante au réveil
+                                sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+                                Sensor lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+                                if (lightSensor != null) {
+
+                                sensorManager.registerListener(lightSensorListener, lightSensor, SensorManager.SENSOR_DELAY_NORMAL);
+                                  }
+
                                 Log.i(ACT2, "Lecture a partir de la sequence ecoute");
 
 
@@ -292,7 +329,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                     //On fait en sorte de ne pas relancer la phase de lecture avant le moment voulu
 
-                    Log.i(ACT2, "SOn terminé, on réécoute pour voir si bébé pleure toujours");
+                    Log.i(ACT2, "Son terminé, on réécoute pour voir si bébé pleure toujours");
 
 
                     lectureActive = false;
@@ -318,17 +355,21 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                         resultEcoute = ecoute.obtenirDecibels();
 
-
-                        if (resultEcoute > seuilDecibels) // Double vérification pour voir si le bruit est persistant
-                        {
                             heureReDetection = cal.getTimeInMillis();
                             if (heureReDetectionPrecedente == 0) {
                                 heureReDetectionPrecedente = heureReDetection;
+                                
+                                
+                        if (resultEcoute > seuilDecibels) // Double vérification pour voir si le bruit est persistant
+                        {
+                          
                                 Log.i(ACT2, "Le seuil est toujours dépassé 3, la lecture du son est relancée");
                                 Log.i(ACT2, resultEcoute + " réécoute");
-                                lecture.resume();
+                          
+                                heureReDetectionPrecedente = heureReDetection;
+                                
 
-
+                                      lecture.resume();
                             }
 
                         }
@@ -341,40 +382,17 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                     //C'est ici qu'on va insérer les nouvelles variables dans la base de données : Durée du réveil
                     // Cri le plus fort, Evenement interrompu ou non, etc... Il faudra en faire de même dans le onPause en lancant un nouveau thread.
                     Log.i(ACT2, "captation des paramettres de l'évènement");
-                    decibels = 20 * Math.log10(resultEcoute / 10);
-
-                    Log.i(ACT2, "instantiation du cal");
-                    // Obtenir un objet calendar
-                    cal = Calendar.getInstance();
-                    int heure = cal.get(Calendar.HOUR_OF_DAY); // On isole l'heure pour déterminer quel monstre est apparu
-
-                    // Pour la date au Handler on va transformer l'objet Calendar en long (ou directement ins�rer cet objet long dans la base de donn�es quand celle-ci aura �t� cr�e)
-                    long timeInMillis = cal.getTimeInMillis();
-
-                    //On calcule la différence entre l'heure de l'evenement et l'heure du debut
-                    difference=timeInMillis-dateDebut;
-
-                    //on ajoute 1 au compteur d'évènements et on met dans un shared preference le fait que le bebe ait été réveillé une ou plusieurs fois
-                    xt++;
-
-                    if (xt==1) prefs.edit().putBoolean("unReveil",true).apply();
-                    else if (xt>1)
-                    {
-                        prefs.edit().putBoolean("unReveil",false).apply();
-                        prefs.edit().putBoolean("plusieursReveil",true).apply();
+                    
+                    //On récupère en decibels le niveau sonor de ce dernier cri déclencheur et on check pour voir si c'est le cri le plus puissant
+                    decibelTemp = 20 * Math.log10(resultEcoute / 10);
+                    if (decibelTemp > highestDecibel){
+                     highestDecibel=decibelTemps;   
                     }
 
-
-                    // Et maintenant pour la lumiere :
-                    sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-                    Sensor lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
-                    if (lightSensor != null) {
-
-                        sensorManager.registerListener(lightSensorListener, lightSensor, SensorManager.SENSOR_DELAY_NORMAL);
-                    }
+                    
 
 
-                    // Cr�er une nouvelle entr�e dans la base de donn�es avec timeInMillis, resultEcoute et lum.
+                 // Cr�er une nouvelle entr�e dans la base de donn�es avec timeInMillis, resultEcoute et lum.
                     monstre = Monstre.quelMonstre(lum, heure, decibels, difference, xt);
 
                     // Débloquer le monstre dans la sharedpreference
