@@ -26,7 +26,7 @@ public final class Contract {
         public static final String COLUMN_COL5 = "monstre";
         public static final String COLUMN_COL6 = "highestDecibels"; //valeur du cri le plus fort de l'évenement
         public static final String COLUMN_COL7 = "evenementInterrompu"; // 1 si l'évenement a été interrompu par l'utilisateur, 0 sinon
-        publci static final String COMUMN_COL8 = "duree"; //indique la durée totale du réveil avant rendormissement ou arrêt utilisateur
+        public static final String COMUMN_COL8 = "duree"; //indique la durée totale du réveil avant rendormissement ou arrêt utilisateur
         
         public static final int POSITION_ID = 0;
         public static final int POSITION_COL2 = 1;

@@ -11,16 +11,12 @@ public class BddTableEvenement extends SQLiteOpenHelper {
     public static final String NOM_DE_LA_TABLE="Evenements";
 
     public static final String DATABASE_NAME="evenementsDb.db";
-    public static final String COL1="_id";
-    public static final String COL2="decibels";
-    public static final String COL3="date";
-    public static final String COL4="lumiere";
-    public static final String COL5="monstre";
-    private static final int VERSION = 2;
+    private static final int VERSION = 3;
 
-    public static final String TEXTE_DE_CREATION = "CREATE TABLE "+ NOM_DE_LA_TABLE+
-            " ( "+COL1+" INTEGER PRIMARY KEY AUTOINCREMENT, "+COL2+" INTEGER, "+COL3+
-            " INTEGER, "+COL4+" INTEGER, "+ COL5+" INTEGER);";
+    public static final String TEXTE_DE_CREATION = "CREATE TABLE "+ Contract.Evenements.NOM_DE_LA_TABLE+
+            " ( "+Contract.Evenements._ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+Contract.Evenements.COLUMN_COL2+" INTEGER, "+Contract.Evenements.COLUMN_COL3+
+            " INTEGER, "+Contract.Evenements.COLUMN_COL4+" INTEGER, "+ Contract.Evenements.COLUMN_COL5+" INTEGER, "+Contract.Evenements.COLUMN_COL6+" INTEGER, "+
+            Contract.Evenements.COLUMN_COL7+" INTEGER, "+Contract.Evenements.COMUMN_COL8+" INTEGER);";
 
     public static final String CHECK_VERSION="DROP TABLE IF EXISTS "+NOM_DE_LA_TABLE;
 
