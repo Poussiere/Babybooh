@@ -367,7 +367,13 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                 Log.i(ACT2, resultEcoute + " réécoute");
                           
                                 heureReDetectionPrecedente = heureReDetection;
-                                
+                                  //on ajoute 1 au compteur d'évènements et on met dans un shared preference le fait que le bebe ait été réveillé une ou plusieurs fois
+                          xt++;
+
+                         if (xt == 1) prefs.edit().putBoolean("unReveil", true).apply();
+                           else if (xt > 1) {
+                          prefs.edit().putBoolean("unReveil", false).apply();
+                          prefs.edit().putBoolean("plusieursReveil", true).apply();
 
                                       lecture.resume();
                             }
@@ -480,13 +486,7 @@ if (lectureActive) {
     //On calcule la différence entre l'heure de l'evenement et l'heure du debut
     difference = timeInMillis - dateDebut;
 
-    //on ajoute 1 au compteur d'évènements et on met dans un shared preference le fait que le bebe ait été réveillé une ou plusieurs fois
-    xt++;
-
-    if (xt == 1) prefs.edit().putBoolean("unReveil", true).apply();
-    else if (xt > 1) {
-        prefs.edit().putBoolean("unReveil", false).apply();
-        prefs.edit().putBoolean("plusieursReveil", true).apply();
+  
     }
 
 
@@ -500,6 +500,8 @@ if (lectureActive) {
 
 
     // Cr�er une nouvelle entr�e dans la base de donn�es avec timeInMillis, resultEcoute et lum.
+    
+    //Detectetion du monstre à partir des parametre collectés
     monstre = Monstre.quelMonstre(lum, heure, decibels, difference, xt);
 
     // Débloquer le monstre dans la sharedpreference
