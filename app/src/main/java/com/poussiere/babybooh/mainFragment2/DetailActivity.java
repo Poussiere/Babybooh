@@ -13,5 +13,15 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         // Ici on va faire une synthèse de l"évenement sur une période donnée : combien de cris en 5 minutes; decibels les plus élevés...
+
+        /*
+
+        String.format("%02d min, %02d sec",
+    TimeUnit.MILLISECONDS.toMinutes(millis),
+    TimeUnit.MILLISECONDS.toSeconds(millis) -
+    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis))
+);
+
+         */
     }
 }

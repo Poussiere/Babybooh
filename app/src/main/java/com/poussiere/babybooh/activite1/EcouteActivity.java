@@ -65,7 +65,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
     String monstreSexy=null; // Car en String = clé pour les sharedpreference
 
     // Cr�ation d'un thread dans laquelle l'�coute du b�b� sera lanc�e
-    Thread background ;
+    private Thread background, backgroundSave ;
 
     //Creation d'un objet SharedPreference pour récupérer le seuil de décibels et le son à lire
     SharedPreferences prefs = null ;
@@ -192,19 +192,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
         fab= (FloatingActionButton) findViewById(R.id.boutonFlottant);
         fab.startAnimation(animation);
 
-
-
-    }
-
-
-    @Override
-    protected void onResume()
-    {
-        Log.i(ACT2, "activite 2 resum�e");
-
-
-//Séquence d'activation du thread d'écoute
-
+        //Thread d'écoute qui sera lancé dans le onResume :
         background = new Thread (new Runnable() {
 
 
@@ -212,13 +200,13 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                 Log.i(ACT2, "debut de l'execution du thread");
 
                 while (isThreadRunning) {
-                    
-                        //On determine ici l'heure de début de l'écoute
-                        cal=Calendar.getInstance();
-                        dateDebut = cal.getTimeInMillis();
 
-                        //Et on instancie ici le compteur d'éveil
-                        xt=0;
+                    //On determine ici l'heure de début de l'écoute
+                    cal=Calendar.getInstance();
+                    dateDebut = cal.getTimeInMillis();
+
+                    //Et on instancie ici le compteur d'éveil
+                    xt=0;
                     if (!ecoute.isRunning())                   // Si le mediarecorder n'est pas encore actif,
                     {
                         try {
@@ -230,7 +218,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                             e.printStackTrace();
                         }
 
-                        
+
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -256,42 +244,42 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                 Log.i(ACT2, resultEcoute+" ");
                                 // On fait en sorte de ne pas relancer la phase d'écoute tout de suite
                                 ecouteActive = false;
-                                
-                                
+
+
                                 Log.i(ACT2, "instantiation du cal");
-                    // Obtenir un objet calendar
-                    cal = Calendar.getInstance();
-                    heure = cal.get(Calendar.HOUR_OF_DAY); // On isole l'heure pour déterminer quel monstre est apparu
+                                // Obtenir un objet calendar
+                                cal = Calendar.getInstance();
+                                heure = cal.get(Calendar.HOUR_OF_DAY); // On isole l'heure pour déterminer quel monstre est apparu
 
-                    // Pour la date au Handler on va transformer l'objet Calendar en long (ou directement ins�rer cet objet long dans la base de donn�es quand celle-ci aura �t� cr�e)
-                    long timeInMillis = cal.getTimeInMillis();
+                                // Pour la date au Handler on va transformer l'objet Calendar en long (ou directement ins�rer cet objet long dans la base de donn�es quand celle-ci aura �t� cr�e)
+                                long timeInMillis = cal.getTimeInMillis();
 
-                    //On calcule la différence entre l'heure de l'evenement et l'heure du debut
-                    difference=timeInMillis-dateDebut;
+                                //On calcule la différence entre l'heure de l'evenement et l'heure du debut
+                                difference=timeInMillis-dateDebut;
 
-                    //on ajoute 1 au compteur d'évènements et on met dans un shared preference le fait que le bebe ait été réveillé une ou plusieurs fois
-                    xt++;
+                                //on ajoute 1 au compteur d'évènements et on met dans un shared preference le fait que le bebe ait été réveillé une ou plusieurs fois
+                                xt++;
 
-                    if (xt==1) prefs.edit().putBoolean("unReveil",true).apply();
-                    else if (xt>1)
-                    {
-                        prefs.edit().putBoolean("unReveil",false).apply();
-                        prefs.edit().putBoolean("plusieursReveil",true).apply();
-                    }
+                                if (xt==1) prefs.edit().putBoolean("unReveil",true).apply();
+                                else if (xt>1)
+                                {
+                                    prefs.edit().putBoolean("unReveil",false).apply();
+                                    prefs.edit().putBoolean("plusieursReveil",true).apply();
+                                }
                                 // Onrécupère le niveau en décibels de cet évenement déclencheur
-                                 Log.i(ACT2, "captation des paramettres de l'évènement");
-                                 decibels = 20 * Math.log10(resultEcoute / 10);
-                                
-                               //On donne sa première valeur au highestDecibels
+                                Log.i(ACT2, "captation des paramettres de l'évènement");
+                                decibels = 20 * Math.log10(resultEcoute / 10);
+
+                                //On donne sa première valeur au highestDecibels
                                 highestDecibel = decibels;
-                                
+
                                 // On observe la lumière ambiante au réveil
                                 sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
                                 Sensor lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
                                 if (lightSensor != null) {
 
-                                sensorManager.registerListener(lightSensorListener, lightSensor, SensorManager.SENSOR_DELAY_NORMAL);
-                                  }
+                                    sensorManager.registerListener(lightSensorListener, lightSensor, SensorManager.SENSOR_DELAY_NORMAL);
+                                }
 
                                 Log.i(ACT2, "Lecture a partir de la sequence ecoute");
 
@@ -311,7 +299,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                     public void onCompletion(MediaPlayer mp) {
                                         Log.i(ACT2, "declenchement du listener");
 
-                                       Log.i(ACT2, "Lecture du son terminée");
+                                        Log.i(ACT2, "Lecture du son terminée");
                                         lectureActive = true;
 
                                     }
@@ -324,133 +312,133 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                 Log.i(ACT2, "fin de la sequence ecoute");
                             }
                         }
-                }
-
-
-                //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-                if (lectureActive) {
-                    // quand le son est terminé,  on ecoute le nombre de d�cibels ambiants
-
-                    //On fait en sorte de ne pas relancer la phase de lecture avant le moment voulu
-
-                    Log.i(ACT2, "Son terminé, on réécoute pour voir si bébé pleure toujours");
-
-
-                    lectureActive = false;
-
-                    // On fait une petite pause sinon l'echo du son lu déclenche à nouveau le capteur
-                    try {
-                        background.sleep(3000);//le thread background sera relanc� toutes les 300 millisecondes tant que la valeur seuil n'aura pas �t� d�pass�e.
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
                     }
 
-                    Log.i(ACT2, "Test des decibels 3");
-                    resultEcoute = ecoute.obtenirDecibels();
 
-                    Log.i(ACT2, resultEcoute + " réécoute");
-
-                    // Si le nombre de d�cibels est inf�rieur au seuil (si le b�b� ne crie plus
-                    // la lecture du son ne sera pas relanc�e
-                    // Sinon la lecture est relancée
-
-                    if (resultEcoute > seuilDecibels) {
+                    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-                        resultEcoute = ecoute.obtenirDecibels();
+                    if (lectureActive) {
+                        // quand le son est terminé,  on ecoute le nombre de d�cibels ambiants
 
-                        heureReDetection = cal.getTimeInMillis();
-                        if (heureReDetectionPrecedente == 0) {
-                            heureReDetectionPrecedente = heureReDetection;
+                        //On fait en sorte de ne pas relancer la phase de lecture avant le moment voulu
 
+                        Log.i(ACT2, "Son terminé, on réécoute pour voir si bébé pleure toujours");
 
-                            if (resultEcoute > seuilDecibels) // Double vérification pour voir si le bruit est persistant
-                            {
-
-                                Log.i(ACT2, "Le seuil est toujours dépassé 3, la lecture du son est relancée");
-                                Log.i(ACT2, resultEcoute + " réécoute");
-
-                                heureReDetectionPrecedente = heureReDetection;
-                                //on ajoute 1 au compteur d'évènements et on met dans un shared preference le fait que le bebe ait été réveillé une ou plusieurs fois
-                                xt++;
-
-                                if (xt == 1) prefs.edit().putBoolean("unReveil", true).apply();
-                                else if (xt > 1) {
-                                    prefs.edit().putBoolean("unReveil", false).apply();
-                                    prefs.edit().putBoolean("plusieursReveil", true).apply();
-
-                                    lecture.resume();
-                                }
-
-                            }
-                        }
-
-                    } else if ((resultEcoute <= seuilDecibels) && ((heureReDetection - heureReDetectionPrecedente) > 180000)) {
-
-                        Log.i(ACT2, "Il n'y a plus de bruit depuis 3 minutes, on ne relance pas la lecture et on relance l'écoute");
-                        //L'évenenement réveil est terminé, le thread d'écoute principal est relancé
-                        //C'est ici qu'on va insérer les nouvelles variables dans la base de données : Durée du réveil
-                        // Cri le plus fort, Evenement interrompu ou non, etc... Il faudra en faire de même dans le onPause en lancant un nouveau thread.
-                        Log.i(ACT2, "captation des paramettres de l'évènement");
-
-                        //On récupère en decibels le niveau sonore de ce dernier cri déclencheur et on check pour voir si c'est le cri le plus puissant
-                        decibelTemp = 20 * Math.log10(resultEcoute / 10);
-                        if (decibelTemp > highestDecibel) {
-                            highestDecibel = decibelTemp;
-                        }
-
-
-
-                        //Calcul de la durée totale de l'évenement
-                        duree=heureReDetection-heure;
-
-                        // Cr�er une nouvelle entr�e dans la base de donn�es avec timeInMillis, resultEcoute et lum.
-
-                        //savoir quel monstre a réveillé bébé
-                        monstre = Monstre.quelMonstre(lum, heure, highestDecibel, difference, xt);
-
-                        // Débloquer le monstre dans la sharedpreference
-                        monstreSexy = Monstre.quelMonstreString(monstre);
-                        prefs.edit().putBoolean(monstreSexy, true).apply();
-
-
-                        //Insertion des données dans la base de données
-                        ContentValues contentValues = new ContentValues();
-                        contentValues.put(Contract.Evenements.COLUMN_COL2, decibels);
-                        contentValues.put(Contract.Evenements.COLUMN_COL3, timeInMillis);
-                        contentValues.put(Contract.Evenements.COLUMN_COL4, lum);
-                        contentValues.put(Contract.Evenements.COLUMN_COL5, monstre);
-                        contentValues.put(Contract.Evenements.COLUMN_COL6, highestDecibel);
-                        contentValues.put(Contract.Evenements.COLUMN_COL7, EVENEMENT_TERMINE);
-                        contentValues.put(Contract.Evenements.COMUMN_COL8, duree );
-
-                        Log.i(ACT2, "nouvelle entree cree dans la base de données");
-
-                        // Insert the content values via a ContentResolver
-                        Uri uri = getContentResolver().insert(Contract.Evenements.URI, contentValues);
 
                         lectureActive = false;
-                        ecouteActive = true;
 
-
-                    }
-
-
-                    if (isThreadRunning) {
-                        Log.i(ACT2, "relance du thread a venir");
+                        // On fait une petite pause sinon l'echo du son lu déclenche à nouveau le capteur
                         try {
-                            background.sleep(300);//le thread background sera relanc� toutes les 300 millisecondes tant que la valeur seuil n'aura pas �t� d�pass�e ou que le silence n'aura pas duré plus de 3 minutes
+                            background.sleep(3000);//le thread background sera relanc� toutes les 300 millisecondes tant que la valeur seuil n'aura pas �t� d�pass�e.
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
 
+                        Log.i(ACT2, "Test des decibels 3");
+                        resultEcoute = ecoute.obtenirDecibels();
+
+                        Log.i(ACT2, resultEcoute + " réécoute");
+
+                        // Si le nombre de d�cibels est inf�rieur au seuil (si le b�b� ne crie plus
+                        // la lecture du son ne sera pas relanc�e
+                        // Sinon la lecture est relancée
+
+                        if (resultEcoute > seuilDecibels) {
+
+
+                            resultEcoute = ecoute.obtenirDecibels();
+
+                            heureReDetection = cal.getTimeInMillis();
+                            if (heureReDetectionPrecedente == 0) {
+                                heureReDetectionPrecedente = heureReDetection;
+
+
+                                if (resultEcoute > seuilDecibels) // Double vérification pour voir si le bruit est persistant
+                                {
+
+                                    Log.i(ACT2, "Le seuil est toujours dépassé 3, la lecture du son est relancée");
+                                    Log.i(ACT2, resultEcoute + " réécoute");
+
+                                    heureReDetectionPrecedente = heureReDetection;
+                                    //on ajoute 1 au compteur d'évènements et on met dans un shared preference le fait que le bebe ait été réveillé une ou plusieurs fois
+                                    xt++;
+
+                                    if (xt == 1) prefs.edit().putBoolean("unReveil", true).apply();
+                                    else if (xt > 1) {
+                                        prefs.edit().putBoolean("unReveil", false).apply();
+                                        prefs.edit().putBoolean("plusieursReveil", true).apply();
+
+                                        lecture.resume();
+                                    }
+
+                                }
+                            }
+
+                        } else if ((resultEcoute <= seuilDecibels) && ((heureReDetection - heureReDetectionPrecedente) > 180000)) {
+
+                            Log.i(ACT2, "Il n'y a plus de bruit depuis 3 minutes, on ne relance pas la lecture et on relance l'écoute");
+                            //L'évenenement réveil est terminé, le thread d'écoute principal est relancé
+                            //C'est ici qu'on va insérer les nouvelles variables dans la base de données : Durée du réveil
+                            // Cri le plus fort, Evenement interrompu ou non, etc... Il faudra en faire de même dans le onPause en lancant un nouveau thread.
+                            Log.i(ACT2, "captation des paramettres de l'évènement");
+
+                            //On récupère en decibels le niveau sonore de ce dernier cri déclencheur et on check pour voir si c'est le cri le plus puissant
+                            decibelTemp = 20 * Math.log10(resultEcoute / 10);
+                            if (decibelTemp > highestDecibel) {
+                                highestDecibel = decibelTemp;
+                            }
+
+
+
+                            //Calcul de la durée totale de l'évenement
+                            duree=heureReDetectionPrecedente-heure;
+
+                            // Cr�er une nouvelle entr�e dans la base de donn�es avec timeInMillis, resultEcoute et lum.
+
+                            //savoir quel monstre a réveillé bébé
+                            monstre = Monstre.quelMonstre(lum, heure, highestDecibel, difference, xt);
+
+                            // Débloquer le monstre dans la sharedpreference
+                            monstreSexy = Monstre.quelMonstreString(monstre);
+                            prefs.edit().putBoolean(monstreSexy, true).apply();
+
+
+                            //Insertion des données dans la base de données
+                            ContentValues contentValues = new ContentValues();
+                            contentValues.put(Contract.Evenements.COLUMN_COL2, decibels);
+                            contentValues.put(Contract.Evenements.COLUMN_COL3, timeInMillis);
+                            contentValues.put(Contract.Evenements.COLUMN_COL4, lum);
+                            contentValues.put(Contract.Evenements.COLUMN_COL5, monstre);
+                            contentValues.put(Contract.Evenements.COLUMN_COL6, highestDecibel);
+                            contentValues.put(Contract.Evenements.COLUMN_COL7, EVENEMENT_TERMINE);
+                            contentValues.put(Contract.Evenements.COMUMN_COL8, duree );
+
+                            Log.i(ACT2, "nouvelle entree cree dans la base de données");
+
+                            // Insert the content values via a ContentResolver
+                            Uri uri = getContentResolver().insert(Contract.Evenements.URI, contentValues);
+
+                            lectureActive = false;
+                            ecouteActive = true;
+
+
+                        }
+
+
+                        if (isThreadRunning) {
+                            Log.i(ACT2, "relance du thread a venir");
+                            try {
+                                background.sleep(300);//le thread background sera relanc� toutes les 300 millisecondes tant que la valeur seuil n'aura pas �t� d�pass�e ou que le silence n'aura pas duré plus de 3 minutes
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+
+
+                        }
+
 
                     }
-
-
-                }
                 }// fin de la parenthèse du if (isThreadRunning)
 
             } // fin de la parenthèse du run
@@ -460,7 +448,67 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
         }); // fin de la parenthèse du thread
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Thread d'enregistrement de l'évenement dans la bdd lancé dans le onPause lorsque l'utilisateur quitte la veille pendant un évenement
 
+
+        backgroundSave = new Thread (new Runnable() {
+
+
+            public void run() {
+
+                //mettre ça dans un new thread
+
+
+
+                    //Calcul de la durée totale de l'évenement
+                    duree = cal.getTimeInMillis() - heure;
+
+                    //savoir quel monstre a réveillé bébé
+                    monstre = Monstre.quelMonstre(lum, heure, highestDecibel, difference, xt);
+
+
+                    //Insertion des données dans la base de données
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put(Contract.Evenements.COLUMN_COL2, decibels);
+                    contentValues.put(Contract.Evenements.COLUMN_COL3, timeInMillis);
+                    contentValues.put(Contract.Evenements.COLUMN_COL4, lum);
+                    contentValues.put(Contract.Evenements.COLUMN_COL5, monstre);
+                    contentValues.put(Contract.Evenements.COLUMN_COL6, highestDecibel);
+                    contentValues.put(Contract.Evenements.COLUMN_COL7, EVENEMENT_INTERROMPU);
+                    contentValues.put(Contract.Evenements.COMUMN_COL8, duree);
+
+                    Log.i(ACT2, "nouvelle entree cree dans la base de données");
+
+
+                    // Insert the content values via a ContentResolver
+                    Uri uri = getContentResolver().insert(Contract.Evenements.URI, contentValues);
+
+                    // Débloquer le monstre dans la sharedpreference
+                    monstreSexy = Monstre.quelMonstreString(monstre);
+                    prefs.edit().putBoolean(monstreSexy, true).apply();
+
+                //////////////////////////////////////////////////
+
+
+
+
+            } // fin de la parenthèse du run
+
+
+
+
+        }); // fin de la parenthèse du thread
+    }
+
+
+    @Override
+    protected void onResume()
+    {
+        Log.i(ACT2, "activite 2 resum�e");
+
+
+//Séquence d'activation du thread d'écoute
 
 
 
@@ -480,40 +528,11 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
         @Override
             protected void onPause()
         {
+            if (lectureActive) {
+                backgroundSave.start();
+            }
 
 
-        //mettre ça dans un new thread
-
-        if (lectureActive) {
-
-            //Calcul de la durée totale de l'évenement
-            duree = cal.getTimeInMillis() - heure;
-
-            //savoir quel monstre a réveillé bébé
-            monstre = Monstre.quelMonstre(lum, heure, highestDecibel, difference, xt);
-
-
-            //Insertion des données dans la base de données
-            ContentValues contentValues = new ContentValues();
-            contentValues.put(Contract.Evenements.COLUMN_COL2, decibels);
-            contentValues.put(Contract.Evenements.COLUMN_COL3, timeInMillis);
-            contentValues.put(Contract.Evenements.COLUMN_COL4, lum);
-            contentValues.put(Contract.Evenements.COLUMN_COL5, monstre);
-            contentValues.put(Contract.Evenements.COLUMN_COL6, highestDecibel);
-            contentValues.put(Contract.Evenements.COLUMN_COL7, EVENEMENT_INTERROMPU);
-            contentValues.put(Contract.Evenements.COMUMN_COL8, duree);
-
-            Log.i(ACT2, "nouvelle entree cree dans la base de données");
-
-
-            // Insert the content values via a ContentResolver
-            Uri uri = getContentResolver().insert(Contract.Evenements.URI, contentValues);
-
-            // Débloquer le monstre dans la sharedpreference
-            monstreSexy = Monstre.quelMonstreString(monstre);
-            prefs.edit().putBoolean(monstreSexy, true).apply();
-        }
-        //////////////////////////////////////////////////
 
         // Arret du thread d'écoute
 
