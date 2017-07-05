@@ -21,89 +21,52 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/activity_detail_contenair"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white"
-            tools:context="com.example.poussiere.popularmoviesstage1.DetailActivity">
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/image_contenair"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginStart="16dp">
-
-                <ImageView
-                    android:layout_width="175dp"
-                    android:layout_height="250dp"
-                    app:srcCompat="@drawable/monstre5"
-                    android:id="@+id/iv_detail_image"
-                    android:scaleType="fitXY"
-                    ></ImageView>
-
-            </FrameLayout>
-
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/tv_title"
-                android:textSize="25sp"
-                android:layout_marginRight="16dp"
-                android:textAlignment="center"
-                tools:text="Le grand Budapest Hotel"
-                app:layout_constraintTop_toBottomOf="@id/image_contenair"
-                android:layout_marginTop="90dp"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintLeft_toRightOf="@+id/image_contenair"
-                android:layout_marginEnd="16dp" />
-
-            <TextView
-                tools:text="26 02 1983"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:id="@+id/tv_release_date"
-                android:layout_marginStart="8dp"
-                app:layout_constraintLeft_toRightOf="@+id/image_contenair"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintHorizontal_bias="0.25"
-                android:layout_marginTop="16dp"
-                app:layout_constraintTop_toBottomOf="@+id/tv_title"></TextView>
+        
+        <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+                        
+                        
+ <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@drawable/bordure_pola"
+        android:src="@drawable/monstre10"
+        android:id="@+id/detail_photoId"
+        android:layout_alignParentStart="true"/>
+            
+ <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/date_evenement_conteneur"
+            android:layout_below="@id/detail_description_view_id">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tv_note"
-                tools:text="5,6"
-                android:layout_marginTop="23dp"
-                app:layout_constraintTop_toBottomOf="@+id/image_contenair"
-                android:layout_marginStart="32dp"
-                app:layout_constraintLeft_toLeftOf="parent" />
-
-
+                android:textAppearance="?android:textAppearanceMedium"
+            
+                      
+                />
             <TextView
-                android:layout_width="304dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tv_overview"
-                android:layout_marginStart="16dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintRight_toRightOf="parent"
-                android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@id/tv_note" />
+                android:text="@string/ponctuation"
+                android:paddingStart="@dimen/space_between_close_textviews"
+                android:paddingEnd="@dimen/space_between_close_textviews"
+                />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/detail_date_view"
+            android:textAppearance="?android:textAppearanceMedium"
+            tools:text="12 février 2018"/>
 
-            />
-
-        </android.support.constraint.ConstraintLayout>
-
+        </LinearLayout>
+        
+        
+        </RelativeLayout> 
     </ScrollView>
 
 </LinearLayout>
