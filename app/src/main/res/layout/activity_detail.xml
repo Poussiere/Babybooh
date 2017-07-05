@@ -28,8 +28,8 @@
                         
                         
  <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
         android:background="@drawable/bordure_pola"
         android:src="@drawable/monstre10"
         android:id="@+id/detail_photo_id"
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:id="@+id/nom_monstre_evenement_conteneur"
-            android:layout_toRightOf="@id/detail_photo_id>
+            android:layout_toRightOf="@id/detail_photo_id">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:id="@+id/date_evenement_conteneur"
-            android:layout_below="@id/detail_photo_id>
+            android:layout_below="@id/detail_photo_id">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -95,7 +95,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:id="@+id/heure_evenement_conteneur"
-            android:layout_below="@id/date_evenement_conteneur>
+            android:layout_below="@id/date_evenement_conteneur">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -125,7 +125,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:id="@+id/duree_evenement_conteneur"
-            android:layout_below="@id/heure_evenement_conteneur>
+            android:layout_below="@id/heure_evenement_conteneur">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -157,13 +157,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:id="@+id/luminosite_evenement_conteneur"
-            android:layout_below="@id/duree_evenement_conteneur>
+            android:layout_below="@id/duree_evenement_conteneur">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
-                android:text="detail_luminosite"
+                android:text="@string/detail_luminosite"
             
                       
                 />
@@ -203,7 +203,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
-                android:text="detail_decibels"
+                android:text="@string/detail_decibels"
             
                       
                 />
@@ -234,7 +234,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
-                android:text="detail_highest_decibels"
+                android:text="@string/detail_highest_decibels"
             
                       
                 />
@@ -264,7 +264,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
-                android:text="@string/detail/interrompu"
+                android:text="@string/detail_interrompu"
             
                       
                 />

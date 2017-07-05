@@ -228,4 +228,5 @@
     <string name="detail_decibels">Volume sonore du cri au réveil</string>
     <string name="detail_highest_decibels">Volume sonore du cri le plus fort</string>
     <string name="detail_interrompu">Veille interrompue avant rendormissement</string>
+    <string name="ponctuation"> : </string>
 </resources>
