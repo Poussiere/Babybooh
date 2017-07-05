@@ -220,7 +220,7 @@
 
     <!-- strings de la detail activity
 -->
-    <string name="detail_monstre">Monstre</string>
+    <string name="detail_monstre">Monstre :</string>
     <string name="detail_date">Date</string>
     <string name="detail_heure">Heure</string>
     <string name="detail_duree">Duree du réveil</string>
