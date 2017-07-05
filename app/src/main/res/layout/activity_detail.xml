@@ -46,16 +46,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
-            
-                      
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/ponctuation"
-                android:paddingStart="@dimen/space_between_close_textviews"
-                android:paddingEnd="@dimen/space_between_close_textviews"
-                />
+                android:text="@string/detail_monstre"
+          />
+         
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,6 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
+                      android:text="@string/detail_date"
             
                       
                 />
@@ -107,9 +101,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
-            
-                      
-                />
+                android:text="@string/detail_heure"                                                      
+            />
+                                                   
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -137,6 +131,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
+                android:text="@string/detail_duree"
             
                       
                 />
@@ -168,6 +163,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
+                android:text="detail_luminosite"
             
                       
                 />
@@ -207,6 +203,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
+                android:text="detail_decibels"
             
                       
                 />
@@ -237,6 +234,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
+                android:text="detail_highest_decibels"
             
                       
                 />
@@ -266,6 +264,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
+                android:text="@string/detail/interrompu"
             
                       
                 />
