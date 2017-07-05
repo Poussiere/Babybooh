@@ -218,4 +218,14 @@
     <string name="nom_pref_subtitle">Indiquer le nom du bébé</string>
     <string name="micro_pref_subtitle">Ajuster la sensibilité du micro pendant la veille pour éviter les déclenchements trop fréquents ou trop rares</string>
 
+    <!-- strings de la detail activity
+-->
+    <string name="detail_monstre">Monstre</string>
+    <string name="detail_date">Date</string>
+    <string name="detail_heure">Heure</string>
+    <string name="detail_duree">Duree du réveil</string>
+    <string name="detail_luminosite">Luminosité</string>
+    <string name="detail_decibels">Volume sonore du cri au réveil</string>
+    <string name="detail_highest_decibels">Volume sonore du cri le plus fort</string>
+    <string name="detail_interrompu">Veille interrompue avant rendormissement</string>
 </resources>
