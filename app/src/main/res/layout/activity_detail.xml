@@ -35,97 +35,39 @@
         android:id="@+id/detail_photo_id"
         android:layout_alignParentStart="true"/>
             
-          <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/nom_monstre_evenement_conteneur"
-            android:layout_toRightOf="@id/detail_photo_id">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:text="@string/detail_monstre"
-          />
-         
-        <TextView
+          
+ <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/detail_nom_monstre_view"
             android:textAppearance="?android:textAppearanceMedium"
-            tools:text="Pouponator"/>
+            tools:text="Pouponator"
+                  android:layout_toRightOf="@id/detail_photo_id"/>
 
-        </LinearLayout>   
-            
- <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/date_evenement_conteneur"
-            android:layout_below="@id/detail_photo_id">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:textAppearanceMedium"
-                      android:text="@string/detail_date"
-            
-                      
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/ponctuation"
-                android:paddingStart="@dimen/space_between_close_textviews"
-                android:paddingEnd="@dimen/space_between_close_textviews"
-                />
+ 
+ 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/detail_date_view"
             android:textAppearance="?android:textAppearanceMedium"
-            tools:text="12 février 2018"/>
-
-        </LinearLayout>
-                         
-                                        
-            <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/heure_evenement_conteneur"
-            android:layout_below="@id/date_evenement_conteneur">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:text="@string/detail_heure"                                                      
-            />
-                                                   
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/ponctuation"
-                android:paddingStart="@dimen/space_between_close_textviews"
-                android:paddingEnd="@dimen/space_between_close_textviews"
-                />
+            tools:text="12 février 2018"
+           android:layout_below="@id/"detail_nom_monstre_view"/>
+                                                                            
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/detail_heure_view"
             android:textAppearance="?android:textAppearanceMedium"
-            tools:text="00h58"/>
-
-        </LinearLayout>                            
-                                        
+            tools:text="00h58"
+            android:layout_below="@id/"detail_date_view"/>
+                             
           <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:id="@+id/duree_evenement_conteneur"
-            android:layout_below="@id/heure_evenement_conteneur">
+            android:layout_below="@id/detail_photo_id">
 
             <TextView
                 android:layout_width="wrap_content"
