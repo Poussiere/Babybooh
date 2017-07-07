@@ -15,7 +15,7 @@ public abstract class Monstre {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Méthode pour savoir quel monstre à réveillé l'enfant à partir de tous les parametres rentrant en compte
-    public static int quelMonstre(int lumireDebut, int heureDebut, double highestDecibel, long differenceDebutVeille, int nbReveils) {
+    public static int quelMonstre(int lum, int heure, double decibels, long difference, int nbReveils) {
 
         int monstre=0;
         Random rand = new Random();

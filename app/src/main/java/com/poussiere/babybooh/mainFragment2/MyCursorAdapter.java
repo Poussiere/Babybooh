@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.poussiere.babybooh.R;
+import com.poussiere.babybooh.bdd.Contract;
 
 import java.util.Calendar;
 
@@ -68,13 +69,13 @@ public class MyCursorAdapter extends CursorAdapter {
         //Pour faire plus simple (??) il y a également la possibilité d'utiliser la méthode cursorToEvenement de BddDAO
 
         //Récupération du monstre pour l'image
-        quelMonstre=cursor.getInt(4);
+        quelMonstre=cursor.getInt(Contract.Evenements.POSITION_COL5);
 
         ic.setImageResource(tabIcones[quelMonstre-1]);
 
 
        // Récupération de la date et de l'heure
-        date=cursor.getLong(2);
+        date=cursor.getLong(Contract.Evenements.POSITION_COL3);
         cal=Calendar.getInstance();
         cal.setTimeInMillis(date);
         annee = cal.get(Calendar.YEAR);
@@ -91,7 +92,7 @@ public class MyCursorAdapter extends CursorAdapter {
         heureTv.setText(heureText);
 
         //Récupération des lux
-        lum=cursor.getInt(3);
+        lum=cursor.getInt(Contract.Evenements.POSITION_COL4);
         l = context.getString(R.string.lux);
         luxTv.setText(String.valueOf(lum)+" "+ l);
 

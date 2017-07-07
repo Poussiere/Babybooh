@@ -40,7 +40,7 @@
     <string name="title_activity_enregistrer">EnregistrerActivity</string>
     <string name="title_activity_stats">StatsActivity</string>
     <string name="decibels">décibels</string>
-    <string name="db">db</string>
+    <string name="db">dB</string>
     <string name="lux">lux</string>
 
     <string name="monstre1_nom">Dédé</string>
@@ -225,9 +225,20 @@
     <string name="detail_heure">Heure</string>
     <string name="detail_duree">Duree du réveil</string>
     <string name="detail_luminosite">Luminosité</string>
-    <string name="detail_decibels">Volume sonore du cri au réveil</string>
-    <string name="detail_highest_decibels">Volume sonore du cri le plus fort</string>
+    <string name="detail_decibels">Cri au réveil</string>
+    <string name="detail_highest_decibels">Cri le plus fort</string>
     <string name="detail_interrompu">Veille interrompue avant rendormissement</string>
     <string name="ponctuation"> : </string>
     <string name="detail">Détail du réveil</string>
+
+
+    <!-- strings de la luminosité
+-->
+    <string name="noir">Obscurité totale</string>
+    <string name="obscurite">Pénombre</string>
+    <string name="lumière_faible">Lumière faible</string>
+    <string name="lumière_forte">Lumière normale</string>
+    <string name="jour">Plein jour</string>
+
+
 </resources>

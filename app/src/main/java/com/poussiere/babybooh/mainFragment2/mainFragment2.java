@@ -3,6 +3,7 @@ package com.poussiere.babybooh.mainFragment2;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
@@ -143,7 +144,12 @@ public class mainFragment2 extends Fragment implements android.app.LoaderManager
 
     @Override
     public void onEventClick(int index) {
-
+        cursor.moveToPosition(index);
+        int id = cursor.getInt(Contract.Evenements.POSITION_ID);
+        Uri simpleTaskRequestUri = Contract.Evenements.makeUriForSingleEvenement(id);
+        Intent i = new Intent(getActivity(), DetailActivity.class);
+        i.setData(simpleTaskRequestUri);
+        startActivity(i);
     }
 }
 /*

@@ -13,7 +13,8 @@
         android:layout_height="match_parent"
         android:id="@+id/conteneur_du_premier_lancement"
         android:background="@color/primary_color"
-        android:visibility="gone">
+        android:visibility="gone"
+        android:layout_margin="@dimen/activity_horizontal_margin">
 
         <FrameLayout
             android:layout_width="match_parent"

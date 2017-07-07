@@ -18,33 +18,49 @@
         style="@style/Widget.MyApp.Toolbar.Solid"
         />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
         
-        <RelativeLayout
+        <LinearLayout
           android:layout_width="match_parent"
-          android:layout_height="wrap_content">
-                        
-                        
+          android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/activity_horizontal_margin">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/top_conteneur"
+                android:layout_weight="1">
  <ImageView
-        android:layout_width="200dp"
-        android:layout_height="300dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@drawable/bordure_pola"
         android:src="@drawable/monstre10"
         android:id="@+id/detail_photo_id"
-        android:layout_alignParentStart="true"/>
+     android:layout_weight="1"
+     android:onClick="onImageClick"/>
             
-          
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center">
  <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/detail_nom_monstre_view"
             android:textAppearance="?android:textAppearanceMedium"
             tools:text="Pouponator"
-                  android:layout_toRightOf="@id/detail_photo_id"/>
+            android:textStyle="bold"
+            android:textSize="25sp"
+                  />
 
- 
+ <View
+     android:layout_width="match_parent"
+     android:layout_height="15dp"/>
  
         <TextView
             android:layout_width="wrap_content"
@@ -52,7 +68,7 @@
             android:id="@+id/detail_date_view"
             android:textAppearance="?android:textAppearanceMedium"
             tools:text="12 février 2018"
-           android:layout_below="@id/"detail_nom_monstre_view"/>
+           />
                                                                             
         <TextView
             android:layout_width="wrap_content"
@@ -60,14 +76,28 @@
             android:id="@+id/detail_heure_view"
             android:textAppearance="?android:textAppearanceMedium"
             tools:text="00h58"
-            android:layout_below="@id/"detail_date_view"/>
-                             
-          <LinearLayout
+            />
+
+            </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/bottom_conteneur"
+                android:layout_weight="1"
+                android:gravity="center">
+
+<LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:id="@+id/duree_evenement_conteneur"
-            android:layout_below="@id/detail_photo_id">
+            android:layout_marginTop="@dimen/vertical_margins_between_detail_textviews"
+            android:layout_marginBottom="@dimen/vertical_margins_between_detail_textviews"
+
+            >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -98,8 +128,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:id="@+id/luminosite_evenement_conteneur"
-            android:layout_below="@id/duree_evenement_conteneur">
+            android:layout_marginTop="@dimen/vertical_margins_between_detail_textviews"
+            android:layout_marginBottom="@dimen/vertical_margins_between_detail_textviews"
+            android:id="@+id/luminosite_evenement_conteneur">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -138,8 +169,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:id="@+id/decibels_reveil_evenement_conteneur"
-            android:layout_below="@id/luminosite_evenement_conteneur">
+             android:layout_marginTop="@dimen/vertical_margins_between_detail_textviews"
+             android:layout_marginBottom="@dimen/vertical_margins_between_detail_textviews"
+            android:id="@+id/decibels_reveil_evenement_conteneur">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -169,8 +201,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:id="@+id/decibels_highest_evenement_conteneur"
-            android:layout_below="@id/decibels_reveil_evenement_conteneur">
+             android:layout_marginTop="@dimen/vertical_margins_between_detail_textviews"
+             android:layout_marginBottom="@dimen/vertical_margins_between_detail_textviews"
+            android:id="@+id/decibels_highest_evenement_conteneur">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -199,34 +232,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:id="@+id/interrompu_evenement_conteneur"
-            android:layout_below="@id/decibels_highest_evenement_conteneur">
+                 android:layout_marginTop="@dimen/vertical_margins_between_detail_textviews"
+                 android:layout_marginBottom="@dimen/vertical_margins_between_detail_textviews"
+            android:id="@+id/interrompu_evenement_conteneur">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:text="@string/detail_interrompu"
+                android:visibility="invisible"
+                android:id="@+id/detail_interrompu_evenement_view"
             
                       
                 />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/ponctuation"
-                android:paddingStart="@dimen/space_between_close_textviews"
-                android:paddingEnd="@dimen/space_between_close_textviews"
-                />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/detail_interrompu_evenement_view"
-            android:textAppearance="?android:textAppearanceMedium"
-            tools:text="Non"/>
+
                   
-        </LinearLayout>                 
-            
-        </RelativeLayout> 
-    </ScrollView>
+        </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
 
 </LinearLayout>
