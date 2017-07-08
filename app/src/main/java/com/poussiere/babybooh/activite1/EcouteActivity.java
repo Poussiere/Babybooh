@@ -115,7 +115,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
 
     //creation d'un int pour enregistrer le nb de fois où l'enfant s'est réveillé
-    int xt;
+   private int xt = 0;
 
     //
     private  SensorManager sensorManager;
@@ -201,29 +201,33 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                 while (isThreadRunning) {
 
-                    //On determine ici l'heure de début de l'écoute
-                    cal=Calendar.getInstance();
-                    dateDebut = cal.getTimeInMillis();
-
-                    //Et on instancie ici le compteur d'éveil
-                    xt=0;
-                    if (!ecoute.isRunning())                   // Si le mediarecorder n'est pas encore actif,
-                    {
-                        try {
-
-                            ecoute.demarrerEcoute();                            //alors il sera lanc�
-                            Log.i(ACT2, "ecoute démarrée");
-
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-
-
+                //On determine ici l'heure de début de l'écoute
+                    if (xt==0){
+                        cal=Calendar.getInstance();
+                        dateDebut = cal.getTimeInMillis();
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
                     if (ecouteActive) {
+
+
+
+
+                        if (!ecoute.isRunning())                   // Si le mediarecorder n'est pas encore actif,
+                        {
+                            try {
+
+                                ecoute.demarrerEcoute();                            //alors il sera lanc�
+                                Log.i(ACT2, "ecoute démarrée");
+
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+
+                        }
+
                         resultEcoute = ecoute.obtenirDecibels();  //on r�cup�re le niveau sonore en d�cibels
                         Log.i(ACT2, "test des décibels1");
                         Log.i(ACT2, resultEcoute+" ");
@@ -248,11 +252,11 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                                 Log.i(ACT2, "instantiation du cal");
                                 // Obtenir un objet calendar
-                                cal = Calendar.getInstance();
+
                                 heure = cal.get(Calendar.HOUR_OF_DAY); // On isole l'heure pour déterminer quel monstre est apparu
 
                                 // Pour la date au Handler on va transformer l'objet Calendar en long (ou directement ins�rer cet objet long dans la base de donn�es quand celle-ci aura �t� cr�e)
-                                long timeInMillis = cal.getTimeInMillis();
+                                timeInMillis = cal.getTimeInMillis();
 
                                 //On calcule la différence entre l'heure de l'evenement et l'heure du debut
                                 difference=timeInMillis-dateDebut;
@@ -326,11 +330,10 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                         Log.i(ACT2, "Son terminé, on réécoute pour voir si bébé pleure toujours");
 
 
-                        lectureActive = false;
 
                         // On fait une petite pause sinon l'echo du son lu déclenche à nouveau le capteur
                         try {
-                            background.sleep(3000);//le thread background sera relanc� toutes les 300 millisecondes tant que la valeur seuil n'aura pas �t� d�pass�e.
+                            background.sleep(1000);//le thread background sera relanc� toutes les 300 millisecondes tant que la valeur seuil n'aura pas �t� d�pass�e.
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -346,12 +349,17 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                         if (resultEcoute > seuilDecibels) {
 
-
+                            // On fait une petite pause sinon l'echo du son lu déclenche à nouveau le capteur
+                            try {
+                                background.sleep(1000);//le thread background sera relanc� toutes les 300 millisecondes tant que la valeur seuil n'aura pas �t� d�pass�e.
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
                             resultEcoute = ecoute.obtenirDecibels();
 
                             heureReDetection = cal.getTimeInMillis();
                             if (heureReDetectionPrecedente == 0) {
-                                heureReDetectionPrecedente = heureReDetection;
+                                heureReDetectionPrecedente = heureReDetection;}
 
 
                                 if (resultEcoute > seuilDecibels) // Double vérification pour voir si le bruit est persistant
@@ -372,8 +380,8 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                         lecture.resume();
                                     }
 
-                                }
-                            }
+
+
 
                         } else if ((resultEcoute <= seuilDecibels) && ((heureReDetection - heureReDetectionPrecedente) > 180000)) {
 
@@ -424,6 +432,9 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
 
                         }
+                        else {
+                            lectureActive=true; // pour relancer la phase de lectureactive
+                        }
 
 
                         if (isThreadRunning) {
@@ -435,7 +446,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                             }
 
 
-                        }
+                        }}
 
 
                     }

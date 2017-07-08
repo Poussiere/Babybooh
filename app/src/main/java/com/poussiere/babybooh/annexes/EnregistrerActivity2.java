@@ -220,7 +220,8 @@ public class EnregistrerActivity2 extends AppCompatActivity {
                                     enregistreur.getMediaPlayer().setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                                         public void onCompletion(MediaPlayer mp) {
                                             enregistreur.arreterLecture();
-                                            alerteReecoute.show();
+                                          //  alerteReecoute.show();
+                                            alerteNom.show();
 
                                         }
 
@@ -245,7 +246,7 @@ public class EnregistrerActivity2 extends AppCompatActivity {
                             alerteNom.show();
                         }
                     });
-            alerteReecoute.show();
+          alerteReecoute.show();
 
 
 

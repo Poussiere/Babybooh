@@ -200,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
             if (welcomeFrag != null) {
 
                 welcomeFragment.removeAllViews();
-                FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
+                FragmentTransaction fragTrans = getFragmentManager().beginTransaction().addToBackStack(null);
 
                 fragTrans.add(R.id.welcome_fragment_id, welcomeFrag, welcomeFrag.getTag());
                 fragTrans.commit();
@@ -423,7 +423,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @Override
+  /*  @Override
     public void onBackPressed() {
         MenuItem homeItem = mBottomNav.getMenu().getItem(0);
         if (mSelectedItem != homeItem.getItemId()) {
@@ -432,7 +432,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             finish();
         }
-    }
+    }*/
 
 
     private void selectFragment(MenuItem item) {
@@ -666,4 +666,15 @@ String alertDiag5;
 
                 }
                 }
+
+    @Override
+    public void onBackPressed(){
+
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0 ){
+            getFragmentManager().popBackStack();
+        } else {
+            super.onBackPressed();
+        }
+
+    }
 }

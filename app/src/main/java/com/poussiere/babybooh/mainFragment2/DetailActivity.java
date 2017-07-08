@@ -94,6 +94,8 @@ public class DetailActivity extends AppCompatActivity implements android.app.Loa
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        getLoaderManager().initLoader(CURSOR_LOADER_SIMPLE_EVENEMENT, null, this);
+
         // Ici on va faire une synthèse de l"évenement sur une période donnée : combien de cris en 5 minutes; decibels les plus élevés...
 
         /*
@@ -144,6 +146,7 @@ public class DetailActivity extends AppCompatActivity implements android.app.Loa
 
           //  nom, mDate, mHeure, mDuree, mDecibels, mHighestDecibels, mLuminosite, mLux;
             if (cursor != null){
+                cursor.moveToFirst();
             numMonstre = cursor.getInt(Contract.Evenements.POSITION_COL5);
                 photoMonstre.setImageResource(tabImages[numMonstre-1]);
                 nomMonstre.setText(tabNoms[numMonstre-1]);
