@@ -3,6 +3,6 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
-    <dimen name="space_between_close_textviews">1dp</dimen>
+    <dimen name="space_between_close_textviews">2dp</dimen>
     <dimen name="vertical_margins_between_detail_textviews">3dp</dimen>
 </resources>
