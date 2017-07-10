@@ -180,7 +180,7 @@ public class DetailActivity extends AppCompatActivity implements android.app.Loa
                 mLux=lLux+getString(R.string.lux);
                 mLuminosite=getmLuminosite(lLux);
                 luminosite.setText(mLuminosite);
-                lux.setText(mLux);
+                lux.setText(" ("+mLux+")");
 
                 int lInterrompu=cursor.getInt(Contract.Evenements.POSITION_COL7);
                 if (lInterrompu==1){
