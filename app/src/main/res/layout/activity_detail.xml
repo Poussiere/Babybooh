@@ -38,7 +38,7 @@
         android:background="@drawable/bordure_pola"
         android:src="@drawable/monstre10"
         android:id="@+id/detail_photo_id"
-     android:layout_weight="1"
+     android:layout_weight="0.8"
      android:onClick="onImageClick"/>
             
 
