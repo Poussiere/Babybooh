@@ -170,6 +170,7 @@ public class EnregistrerActivity2 extends AppCompatActivity {
 
             alerteNom.setMessage(R.string.alerte5);
             alerteNom.setView(sonNom);
+            alerteNom.setCancelable(false);
             alerteNom.setPositiveButton(R.string.continuer,
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
@@ -246,7 +247,8 @@ public class EnregistrerActivity2 extends AppCompatActivity {
                             alerteNom.show();
                         }
                     });
-          alerteReecoute.show();
+        //  alerteReecoute.show();
+            alerteNom.show();
 
 
 
