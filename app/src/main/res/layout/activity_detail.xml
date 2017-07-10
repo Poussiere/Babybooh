@@ -236,12 +236,16 @@
                  android:layout_marginBottom="@dimen/vertical_margins_between_detail_textviews"
             android:id="@+id/interrompu_evenement_conteneur">
 
+                 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:text="@string/detail_interrompu"
                 android:visibility="invisible"
+                android:mayout_marginTop="5dp"
+                      android:textStyle="bold"
+                      android:textColor="@android:color/red"
                 android:id="@+id/detail_interrompu_evenement_view"
             
                       
