@@ -400,7 +400,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
 
                             //Calcul de la durée totale de l'évenement
-                            duree=heureReDetectionPrecedente-heure;
+                            duree=heureReDetectionPrecedente-timeInMillis;
 
                             // Cr�er une nouvelle entr�e dans la base de donn�es avec timeInMillis, resultEcoute et lum.
 
