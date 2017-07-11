@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity"
-    android:background="@color/white"
-    android:backgroundTintMode="src_over">
+    android:background="@color/default_font">
 
     <RelativeLayout
         android:layout_width="match_parent"
