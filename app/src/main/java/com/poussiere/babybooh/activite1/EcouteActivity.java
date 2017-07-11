@@ -92,6 +92,9 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
     //Seuil d'alerte en d�cibels (MAJ il s'agit d'une amplitude finalement pour plus de sensibilité).
     private double seuilDecibels  ;
+    //Délais de réveil au bout duquel le message peut-être déclenché. Par défaut c'est immédiatement
+    private int delaisDeclenchement ; 
+    
 
     // Cr�ation d'un bol�en pour d�terminer si la thread est lanc�e ou non
     boolean isThreadRunning=false;
@@ -175,11 +178,12 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
         //Récuperation du seuilDécibel dans le sharedPreference (transformation du string en double)
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         seuil= prefs.getString("sensibilite_micro", "400");
-        seuil="400";
         seuilDecibels =Double.parseDouble(seuil);
         
+        delaisDeclenchement=prefs.getString("delais_declenchement", "0");
+        
         //Récupération du nom du son à lire lorsque la veille est déclenchée
-        sonNom=prefs.getString("nomDuSon","MessagePourBebe.mp4");
+        sonNom=prefs.getString("nomDuSon","AniKuni.mp4");
         
         ecoute=new Ecoute();
         lecture=new Lecture(this);
@@ -286,7 +290,10 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                 }
 
                                 Log.i(ACT2, "Lecture a partir de la sequence ecoute");
-
+                                
+                                heureRedetection=cal.getTimeInMillis();
+                                //Si le temps écoulé depuis le premier cri du bébé est supérieur au délais défini par l'utilisateur, on lance la lecture du son
+                                if ((heureRedetection-dateDebut)>=delaisDeclenchement){
 
                                 if (lecture.isRunning())
                                 {   Log.i(ACT2, "Lecture du son résumée");
@@ -309,8 +316,11 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                     }
 
                                 });
-
-                                // On cree un listener pour surveiller la fin du morceau
+                                }// fin de la condtion si le temps écoulé depuis le premier cri du bébé est supérieur au délais défini par l'utilisateur...
+                            
+                                //si le temps écoulé est inférieur au délais choisi par l'utilisateur, on entre dans la phase de lectureActive, mais sans déclencher le son pour le moment
+                                else{
+                                    lectureActive = true;}
 
 
                                 Log.i(ACT2, "fin de la sequence ecoute");
@@ -377,7 +387,33 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                         prefs.edit().putBoolean("unReveil", false).apply();
                                         prefs.edit().putBoolean("plusieursReveil", true).apply();
 
-                                        lecture.resume();
+                                       // lecture.resume();
+                                         
+                                //Si le temps écoulé depuis le premier cri du bébé est supérieur au délais défini par l'utilisateur, on lance la lecture du son
+                                if ((heureRedetection-dateDebut)>=delaisDeclenchement){
+
+                                if (lecture.isRunning())
+                                {   Log.i(ACT2, "Lecture du son résumée");
+
+                                    lecture.resume();
+                                } else {
+                                    Log.i(ACT2, "Lecture du son pour la premiere fois");
+                                    lecture.lire(sonNom);
+
+                                }
+
+
+                                lecture.getMediaPlayer().setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                                    public void onCompletion(MediaPlayer mp) {
+                                        Log.i(ACT2, "declenchement du listener");
+
+                                        Log.i(ACT2, "Lecture du son terminée");
+                                        lectureActive = true;
+
+                                    }
+
+                                });
+                                }
                                     }
 
 
