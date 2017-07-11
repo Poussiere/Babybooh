@@ -17,7 +17,7 @@
         <ImageView
             android:id="@+id/petite_photo_noeuxpap"
             android:layout_width="match_parent"
-            android:layout_height="240dp"
+            android:layout_height="180dp"
             android:scaleType="fitXY"
             android:contentDescription="@string/content_description_photo_monstre"
             />
@@ -26,7 +26,7 @@
             android:id="@+id/nom_gallerie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="13sp"
+            android:textSize="18sp"
             android:gravity="center"
             android:layout_below="@+id/petite_photo_noeuxpap"
             android:paddingBottom="8dp"
