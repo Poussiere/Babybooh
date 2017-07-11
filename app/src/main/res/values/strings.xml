@@ -233,7 +233,10 @@
     <string name="sexe_pref_subtitle">Selectionner le sexe du bébé</string>
     <string name="nom_pref_subtitle">Indiquer le nom du bébé</string>
     <string name="micro_pref_subtitle">Ajuster la sensibilité du micro pendant la veille pour éviter les déclenchements trop fréquents ou trop rares</string>
-
+    <string name="declenchement_pref">Délais de déclenchement du message</string>
+    <string name="declenchement_pref_subtitle">Indiquez au bout de quelle durée de réveil vous souhaitez que votre message soit lu</string>
+    
+    
     <!-- strings de la detail activity
 -->
     <string name="detail_monstre">Monstre :</string>
