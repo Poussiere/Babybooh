@@ -78,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/boutonFlottantEnregistrer"
-        app:backgroundTint="#e12525"
+        app:backgroundTint="@color/color_accent"
         android:src="@android:drawable/ic_input_add"
         app:elevation="12dp"
         app:borderWidth="0dp"
