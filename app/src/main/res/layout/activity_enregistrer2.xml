@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_lancer_enregistrement"
         android:id="@+id/boutonFlottantEnregistrer2"
-        app:backgroundTint="#e12525"
+        app:backgroundTint="@color/color_accent"
         android:src="@android:drawable/ic_btn_speak_now"
         app:elevation="12dp"
         app:borderWidth="0dp"
