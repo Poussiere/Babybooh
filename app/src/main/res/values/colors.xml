@@ -36,8 +36,8 @@
     <color name="violet_material_700">#512DA8</color>
     <color name="violet_material_a400">#651FFF</color>
 
-    <color name="primary_color">#607D8B</color>
-    <color name="primary_color_light">#90A4AE</color>
-    <color name="primary_color_dark">#455A64</color>
+    <color name="primary_color">#673AB7</color>
+    <color name="primary_color_light">#9575CD</color>
+    <color name="primary_color_dark">#512DA8</color>
 
 </resources>
