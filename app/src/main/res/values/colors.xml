@@ -23,19 +23,39 @@
     <color name="ocre_700">#FFA000</color>
     <color name="ocre_800">#FF8F00</color>
 
-    <color name="jaune_material_a200">#FFFF00</color>
+    
     <color name="jaune_boutondor">#F6DC12</color>
     <color name="jaune_de_mars">#EED153</color>
     <color name="ocre_rouge">#DD985C</color>
 
 
+    <color name="jaune_material_500">#FFEB3B</color>
+    <color name="jaune_material_50">#FFFDE7</color>
+    <color name="jaune_material_100">#FFF9C4</color>
+    <color name="jaune_material_200">#FFF59D</color>
+    <color name="jaune_material_300">#FFF176</color>
+    <color name="jaune_material_400">#FFEE58</color>
+    <color name="jaune_material_500">#FFEB3B</color>
+    <color name="jaune_material_600">#FDD835</color>
+    <color name="jaune_material_700">#FBC02D</color>
+    
+    <color name="jaune_material_a200">#FFFF00</color>
+    
+   
+    
     <color name="violet_material_500">#673AB7</color>
+    
+    <color name="violet_material_50">#EDE7F6</color>
+    <color name="violet_material_100">#D1C4E9</color>
+    <color name="violet_material_200">#B39DDB</color>
     <color name="violet_material_400">#7E57C2</color>
     <color name="violet_material_600">#5E35B1</color>
     <color name="violet_material_300">#9575CD</color>
     <color name="violet_material_700">#512DA8</color>
     <color name="violet_material_a400">#651FFF</color>
 
+
+    <color name="default_font">#EDE7F6</color>
     <color name="primary_color">#673AB7</color>
     <color name="primary_color_light">#9575CD</color>
     <color name="primary_color_dark">#512DA8</color>
