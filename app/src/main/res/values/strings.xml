@@ -53,8 +53,8 @@
 
     <string name="monstre2_nom">Bobo</string>
     <string name="monstre2_alias">La terreur... des bacs à sables</string>
-    <string name="monstre2_desc">Il aime jouer les durs à cuir mais sa tete de pain d\'épices ne joue pas en sa faveur. Plus d\'un enfant l\'a déjà confondu avec son doudou!</string>
-    <string name="monstre2_conditions">Il est suseptible d\'apparaitre à toute heure de la journée mais rarement la nuit. Il provoque des cris d\'enfants très modérés (et parfois meme des rires!)</string>
+    <string name="monstre2_desc">Il aime jouer les durs à cuir mais sa tête de pain d\'épices ne joue pas en sa faveur. Plus d\'un enfant l\'a déjà confondu avec son doudou!</string>
+    <string name="monstre2_conditions">Il est suseptible d\'apparaître à toute heure de la journée mais rarement la nuit. Il provoque des cris d\'enfants très modérés (et parfois meme des rires!)</string>
 
     <string name="monstre3_nom">Arbracadabra</string>
     <string name="monstre3_alias">Les vieilles branches</string>
@@ -63,44 +63,44 @@
 
     <string name="monstre4_nom">Kipic</string>
     <string name="monstre4_alias">Le dévoreur de reves</string>
-    <string name="monstre4_desc">Il se nourrit des reves des enfants. Leurs cauchemards sont ses friandises. Si vous le croisez dans la chambre de bébé, n\'essayez surtout pas de le toucher!</string>
-    <string name="monstre4_conditions">Il apparait la nuit lorsque votre enfant dort profondément. Une fois que bébé est réveillé il s\'en va rapidement</string>
+    <string name="monstre4_desc">Il se nourrit des rêves des enfants. Leurs cauchemards sont ses friandises. Si vous le croisez dans la chambre de bébé, n\'essayez surtout pas de le toucher!</string>
+    <string name="monstre4_conditions">Il apparaît la nuit lorsque votre enfant dort profondément. Une fois que bébé est réveillé il s\'en va rapidement</string>
 
     <string name="monstre5_nom">Miam Miam</string>
     <string name="monstre5_alias">L\'insatiable</string>
     <string name="monstre5_desc">Attention prudence! Malgré son apparence ce monstre n\'est pas un tendre. Toujours affamé, il mange tout ce qu\'il trouve. </string>
-    <string name="monstre5_conditions">Il apparait souvent à l\'heure du repas, pendant la journée. Méfiez-vous de la sièste digestive!</string>
+    <string name="monstre5_conditions">Il apparaît souvent à l\'heure du repas, pendant la journée. Méfiez-vous de la sièste digestive!</string>
 
     <string name="monstre6_nom">Grozeuils</string>
     <string name="monstre6_alias">La longue vue</string>
     <string name="monstre6_desc">Très curieux, il fourre ses yeux partout. Il est difficile de s\'en débarasser!</string>
-    <string name="monstre6_conditions">Il apparait à toute heure de la journée et de la nuit, pourvu qu\'il y ait de la lumière. Généralement les enfants n\'en ont pas très peur.</string>
+    <string name="monstre6_conditions">Il apparaît à toute heure de la journée et de la nuit, pourvu qu\'il y ait de la lumière. Généralement les enfants n\'en ont pas très peur.</string>
 
     <string name="monstre7_nom">Freluquet</string>
     <string name="monstre7_alias">L\'infiltré</string>
-    <string name="monstre7_desc">Il est passé maitre dans l\'art du camouflage. Depuis combien de temps n\'avez vous pas regardé sous le lit?</string>
+    <string name="monstre7_desc">Il est passé maître dans l\'art du camouflage. Depuis combien de temps n\'avez vous pas regardé sous le lit?</string>
     <string name="monstre7_conditions">Il est là, tout le temps et partout, tant est si bien que les enfants ont fini par s\'y habituer. Les pleurs provoqués sont de faible intensité.</string>
 
     <string name="monstre8_nom">Bouledoeil</string>
     <string name="monstre8_alias">Bouboule</string>
-    <string name="monstre8_desc">Il reste tapis dans l\'ombre à regarder les enfants pendant des heures. Au fond, il les aime bien. Il lui arrive meme de rever qu\'il est une grosse peluche serrée dans leurs bras.</string>
+    <string name="monstre8_desc">Il reste tapis dans l\'ombre à regarder les enfants pendant des heures. Au fond, il les aime bien. Il lui arrive même de rêver qu\'il est une grosse peluche serrée dans leurs bras.</string>
     <string name="monstre8_conditions">Plutot timide, il vit dans la pénombre et sort surtout la nuit. </string>
 
     <string name="monstre9_nom">Skeletic</string>
     <string name="monstre9_alias">Bel os</string>
     <string name="monstre9_desc">Ce monstre terrifiant est gigantesque. Il arrive toutefois à passer innaperçu grace à sa faculté à s\'accrocher aux murs, tel un lézard.
-    Avez-vous regardé au plafond avant de fermer la porte de la chambre de bébé?</string>
-    <string name="monstre9_conditions">Il apparait à toute heure de la journée, meme en pleine lumière! Les cris qu\'il provoque peuvent etre très intenses.</string>
+    Avez-vous regardé au plafond avant de fermer la porte de la chambre ?</string>
+    <string name="monstre9_conditions">Il apparait à toute heure de la journée, meme en pleine lumière! Les cris qu\'il provoque peuvent etre très intenses. Il se déplace souvent avec son blob globuleux. Attention, si vous le surprenez il vous lancera des yeux!</string>
 
     <string name="monstre10_nom">Pleurnichard</string>
     <string name="monstre10_alias">La guimauve</string>
     <string name="monstre10_desc">Sans doute le plus attachant des monstres! Il a tellement peur des enfants que lorsqu\'il en apperçoit un il se met à pleurer. Ne soyez pas trop méchant avec lui si vous le croisez. Il est innofensif.</string>
-    <string name="monstre10_conditions">Il sort le plus souvent à des heures où tout le monde dort. Il est attiré par la lumière des veilleuses car elle le rassurent. S\'il réveille bébé dites-vous bien qu\'il ne l\'a surement pas fait exprès!</string>
+    <string name="monstre10_conditions">Il sort le plus souvent à des heures où tout le monde dort. Il est attiré par la lumière des veilleuses car elle le rassurent. S\'il a réveillé bébé dites-vous bien qu\'il ne l\'a sûrement pas fait exprès!</string>
 
     <string name="monstre11_nom">Pouponnator</string>
     <string name="monstre11_alias">Le sombre calin</string>
     <string name="monstre11_desc">Attention, ce monstre essaie de se faire passer pour vous! Son passe temps favoris : pouponner, dorloter, caliner. Mais lorsque bébé réalise la supercherie, il se met souvent dans une colère monstre.</string>
-    <string name="monstre11_conditions">Il aime sortir avant la sièste ou en début de soirée car il croit qu\'il peut aider les enfants à s\'endormir. Il aime passer aussi passer derrière les autres monstres dans l\'espoir de consoler les bébés appeurés.</string>
+    <string name="monstre11_conditions">Il aime sortir avant la sièste ou en début de soirée car il croit qu\'il peut aider les enfants à s\'endormir. Il aime aussi passer derrière les autres monstres dans l\'espoir de consoler les bébés appeurés.</string>
 
     <string name="monstre12_nom">Flameche</string>
     <string name="monstre12_alias">La lanterne</string>
