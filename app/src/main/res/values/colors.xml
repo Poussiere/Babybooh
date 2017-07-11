@@ -9,13 +9,13 @@
     <color name="indigo_material_a400">#3D5AFE</color>
     <color name="rouge_material_a400">#FF1744</color>
 
-    <color name="gris_material_500">#607D8B</color>
-    <color name="gris_material_400">#78909C</color>
-    <color name="gris_material_600">#546E7A</color>
-    <color name="gris_material_300">#90A4AE</color>
-    <color name="gris_material_700">#455A64</color>
-    <color name="gris_material_200">#B0BEC5</color>
-    <color name="gris_material_100">#CFD8DC</color>
+    <color name="blue_grey_500">#607D8B</color>
+    <color name="blue_grey_400">#78909C</color>
+    <color name="blue_grey_600">#546E7A</color>
+    <color name="blue_grey_300">#90A4AE</color>
+    <color name="blue_grey_700">#455A64</color>
+    <color name="blue_grey_200">#B0BEC5</color>
+    <color name="blue_grey_100">#CFD8DC</color>
 
     <color name="ocre_500">#FFC107</color>
     <color name="ocre_200">#FFE082</color>
