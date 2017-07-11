@@ -133,6 +133,7 @@
         <item>au bout de 15 secondes</item>
         <item>au bout de 30 secondes</item>
         <item>au bout de 1 minute</item>
+        <item>au bout de 2 minutes</item>
     </string-array>
     
     <string-array name="pref_declenchement_values">
@@ -140,7 +141,7 @@
         <item>15000</item>
         <item>30000</item>
         <item>60000</item>
-        
+        <item>120000</item>
     </string-array>
     
 
