@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/boutonLancerVeille"
-        app:backgroundTint="@color/rouge_material_a400"
+        app:backgroundTint="@color/color_accent"
         android:src="@android:drawable/ic_btn_speak_now"
         app:elevation="12dp"
         android:clickable="true"
