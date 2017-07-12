@@ -2,6 +2,7 @@ package com.poussiere.babybooh.welcomeFragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -47,10 +48,10 @@ public class WelcomeFragment5 extends Fragment {
         tv1=(TextView)layoutView.findViewById(R.id.welcome_fragment_5_text1);
         tv2=(TextView)layoutView.findViewById(R.id.welcome_fragment_5_text2);
        
-       Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/Bangers.ttf");
+      // Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/Bangers.ttf");
 
-        tv1.setTypeface(custom_font);
-        tv2.setTypeface(custom_font);
+      //  tv1.setTypeface(custom_font);
+       // tv2.setTypeface(custom_font);
         
          prefs= PreferenceManager.getDefaultSharedPreferences(getActivity());
         String nom=prefs.getString("nom","Rose");

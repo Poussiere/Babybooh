@@ -208,7 +208,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/gris_material_100"
+        android:background="@color/violet_material_100"
         android:layout_below="@id/conteneur_ligne"
         android:id="@+id/main2_recycler_separator"
         />

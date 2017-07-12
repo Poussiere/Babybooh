@@ -180,7 +180,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
         seuil= prefs.getString("sensibilite_micro", "400");
         seuilDecibels =Double.parseDouble(seuil);
         
-        delaisDeclenchement=prefs.getString("delais_declenchement", "0");
+        delaisDeclenchement=Integer.parseInt(prefs.getString("delais_declenchement", "0"));
         
         //Récupération du nom du son à lire lorsque la veille est déclenchée
         sonNom=prefs.getString("nomDuSon","AniKuni.mp4");
@@ -291,9 +291,9 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                                 Log.i(ACT2, "Lecture a partir de la sequence ecoute");
                                 
-                                heureRedetection=cal.getTimeInMillis();
+                                heureReDetection=cal.getTimeInMillis();
                                 //Si le temps écoulé depuis le premier cri du bébé est supérieur au délais défini par l'utilisateur, on lance la lecture du son
-                                if ((heureRedetection-dateDebut)>=delaisDeclenchement){
+                                if ((heureReDetection-dateDebut)>=delaisDeclenchement){
 
                                 if (lecture.isRunning())
                                 {   Log.i(ACT2, "Lecture du son résumée");
@@ -390,7 +390,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                        // lecture.resume();
                                          
                                 //Si le temps écoulé depuis le premier cri du bébé est supérieur au délais défini par l'utilisateur, on lance la lecture du son
-                                if ((heureRedetection-dateDebut)>=delaisDeclenchement){
+                                if ((heureReDetection-dateDebut)>=delaisDeclenchement){
 
                                 if (lecture.isRunning())
                                 {   Log.i(ACT2, "Lecture du son résumée");
