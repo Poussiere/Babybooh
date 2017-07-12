@@ -379,14 +379,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                     Log.i(ACT2, resultEcoute + " réécoute");
 
                                     heureReDetectionPrecedente = heureReDetection;
-                                    //on ajoute 1 au compteur d'évènements et on met dans un shared preference le fait que le bebe ait été réveillé une ou plusieurs fois
-                                    xt++;
-
-                                    if (xt == 1) prefs.edit().putBoolean("unReveil", true).apply();
-                                    else if (xt > 1) {
-                                        prefs.edit().putBoolean("unReveil", false).apply();
-                                        prefs.edit().putBoolean("plusieursReveil", true).apply();
-
+                                  
                                        // lecture.resume();
                                          
                                 //Si le temps écoulé depuis le premier cri du bébé est supérieur au délais défini par l'utilisateur, on lance la lecture du son
