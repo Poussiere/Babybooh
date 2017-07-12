@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-   android:background="@color/default_font">
+    android:paddingRight="10dp">
 
 
     <RelativeLayout

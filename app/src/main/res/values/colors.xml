@@ -53,11 +53,20 @@
     <color name="violet_material_700">#512DA8</color>
     <color name="violet_material_a400">#651FFF</color>
 
+    <color name="green_A100">#B9F6CA</color>
+    <color name="green_A200">#69F0AE</color>
+    <color name="green_A400">#00E676</color>
+    <color name="green_A700">#00C853</color>
+
+
+    <color name="grey_50">#FAFAFA</color>
+    <color name="grey_100">#F5F5F5</color>
+    <color name="grey_300">#E0E0E0</color>
 
     <color name="default_font">#EDE7F6</color>
     <color name="primary_color">#673AB7</color>
     <color name="primary_color_light">#9575CD</color>
     <color name="primary_color_dark">#512DA8</color>
-    <color name="color_accent">#FFFF00</color>
+    <color name="color_accent">#00C853</color>
 
 </resources>

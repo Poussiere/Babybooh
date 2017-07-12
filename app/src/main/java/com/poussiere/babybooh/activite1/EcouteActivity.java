@@ -475,7 +475,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                             }
 
 
-                        }}
+                        }
 
 
                     }

@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/default_font"
+
    >
 
     <android.support.v7.widget.Toolbar
@@ -18,11 +18,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/my_toolbar"
         android:backgroundTintMode="src_over"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp">
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
+        android:paddingBottom="30dp"
+        android:id="@+id/enregistrer_up_conteneur"
+        android:background="@color/primary_color_light">
 
     <TextView
         android:id="@+id/tvMerci"
@@ -32,19 +35,20 @@
         android:layout_marginTop="30dp"
         android:elegantTextHeight="false"
         android:enabled="true"
-        android:textAppearance="@android:style/TextAppearance.Material.Large"
-        android:gravity="center_horizontal" />
+        android:textColor="@color/white"
+        android:gravity="center_horizontal"
+        />
 
     <TextView
         android:id="@+id/tvVol"
         android:text="@string/vol"
+        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:enabled="true"
         android:gravity="center_vertical"
         android:layout_below="@id/tvMerci"
         android:layout_alignParentStart="true"
-        android:textAppearance="@android:style/TextAppearance.Material.Large"
         android:layout_marginTop="34dp"/>
 
 
@@ -54,21 +58,28 @@
     android:layout_below="@id/tvMerci"
     android:id="@+id/seek_volume"
     android:layout_toRightOf="@id/tvVol"
-    android:layout_marginTop="44dp"
-    android:progressTint="@color/ripple_material_light"
-    android:thumbTint="@color/ripple_material_light"
+    android:layout_marginTop="34dp"
+    android:progressTint="@color/color_accent"
+    android:thumbTint="@color/color_accent"
     />
+</RelativeLayout>
 
 
+          <RelativeLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:layout_marginStart="@dimen/activity_horizontal_margin"
+              android:layout_marginEnd="@dimen/activity_horizontal_margin"
+              android:layout_below="@id/enregistrer_up_conteneur">
 
-            >
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_enregistrer"
-        android:layout_below="@id/seek_volume"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:scrollbars="vertical"
-        android:layout_marginTop="20dp"/>
+        android:paddingTop="20dp"
+        ></android.support.v7.widget.RecyclerView>
 
 
 
@@ -84,7 +95,7 @@
         android:clickable="true"
         android:onClick="onClick3"
         app:pressedTranslationZ="12dp"
-        android:tint="@color/background_floating_material_light"
+        android:tint="@color/background_floating_material_dark"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:contentDescription="@string/content_description_demarrer_enregistreent"

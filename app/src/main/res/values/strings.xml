@@ -21,7 +21,7 @@
     <string name="inconnu">Inconnu</string>
     <string name="salleEnregistrement">Salle d\'enregistrement</string>
 
-    <string name="empty_view_alert">Aucun monstre détecté! Lancer la veille lors de la prochaine sièste de bébé!</string>
+    <string name="empty_view_alert">Aucun monstre détecté pour le moment! Lancez la veille lors de la prochaine sièste de bébé!</string>
 
     <string name="oui">OUI</string>
     <string name="non">NON</string>

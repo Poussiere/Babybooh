@@ -6,6 +6,20 @@
     android:fitsSystemWindows="true"
     android:layout_height="match_parent">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/welcome_logo_conteneurr"
+        android:layout_marginTop="10dp">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="fitXY"
+        android:id="@+id/welcome_logo"
+        android:src="@drawable/logo2"/>
+    </FrameLayout>
+
     <TextView
         android:id="@+id/welcome_fragment_1_text"
         android:layout_width="match_parent"
@@ -17,6 +31,7 @@
         android:layout_marginBottom="60dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@android:color/white"
+        android:layout_below="@id/welcome_logo_conteneurr"
         />
 
 
