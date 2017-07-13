@@ -64,14 +64,40 @@
     />
 </RelativeLayout>
 
+     <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_below="@id/enregistrer_up_conteneur"
+        android:layout_marginTop="-36dp"
+        android:id="@+id/fab_conteneur">
 
+         <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/boutonFlottantEnregistrer"
+        app:backgroundTint="@color/color_accent"
+        android:src="@android:drawable/ic_input_add"
+        app:elevation="12dp"
+        app:borderWidth="0dp"
+        android:clickable="true"
+        android:onClick="onClick3"
+        app:pressedTranslationZ="12dp"
+        android:tint="@color/background_floating_material_dark"
+        android:layout_alignParentEnd="true"
+        android:contentDescription="@string/content_description_demarrer_enregistreent"
+          android:layout_gravity="end"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+        />
+    </RelativeLayout>
           <RelativeLayout
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:background="@color/white"
-              android:layout_marginStart="@dimen/activity_horizontal_margin"
-              android:layout_marginEnd="@dimen/activity_horizontal_margin"
-              android:layout_below="@id/enregistrer_up_conteneur">
+              android:paddingStart="@dimen/activity_horizontal_margin"
+              android:paddingEnd="@dimen/activity_horizontal_margin"
+                          android:layout_below="@id/id/fab_conteneur"
+              >
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_enregistrer"
@@ -84,23 +110,5 @@
 
 
     </RelativeLayout>
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/boutonFlottantEnregistrer"
-        app:backgroundTint="@color/color_accent"
-        android:src="@android:drawable/ic_input_add"
-        app:elevation="12dp"
-        app:borderWidth="0dp"
-        android:clickable="true"
-        android:onClick="onClick3"
-        app:pressedTranslationZ="12dp"
-        android:tint="@color/background_floating_material_dark"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:contentDescription="@string/content_description_demarrer_enregistreent"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginBottom="22dp"
-        />
+    
 </RelativeLayout>
