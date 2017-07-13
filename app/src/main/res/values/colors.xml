@@ -67,6 +67,9 @@
     <color name="primary_color">#673AB7</color>
     <color name="primary_color_light">#9575CD</color>
     <color name="primary_color_dark">#512DA8</color>
+    <color name="primary_color_very_light">#B39DDB</color>
+    <color name="primary_color_very_very_light">#D1C4E9</color>
+    
     <color name="color_accent">#00C853</color>
 
 </resources>
