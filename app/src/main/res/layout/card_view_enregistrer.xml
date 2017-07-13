@@ -23,7 +23,6 @@
             android:id="@+id/son_nom_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@android:style/TextAppearance.Material.Large"
             android:layout_marginStart="10dp"
             android:layout_weight="1"
 
@@ -35,7 +34,7 @@
             android:src="@android:drawable/ic_media_play"
             android:id="@+id/play_image"
             android:layout_weight="6"
-            android:backgroundTint="@color/primary_color_light"
+            android:backgroundTint="@color/primary_color_very_very_light"
             />
 
 
