@@ -68,7 +68,8 @@
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:layout_below="@id/enregistrer_up_conteneur"
-        android:layout_marginTop="-36dp"
+        android:layout_marginTop="-29dp"
+         android:paddingEnd="@dimen/activity_horizontal_margin"
         android:id="@+id/fab_conteneur">
 
          <android.support.design.widget.FloatingActionButton
@@ -82,12 +83,12 @@
         android:clickable="true"
         android:onClick="onClick3"
         app:pressedTranslationZ="12dp"
+
         android:tint="@color/background_floating_material_dark"
         android:layout_alignParentEnd="true"
         android:contentDescription="@string/content_description_demarrer_enregistreent"
           android:layout_gravity="end"
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
         />
     </RelativeLayout>
           <RelativeLayout
@@ -96,7 +97,7 @@
               android:background="@color/white"
               android:paddingStart="@dimen/activity_horizontal_margin"
               android:paddingEnd="@dimen/activity_horizontal_margin"
-                          android:layout_below="@id/id/fab_conteneur"
+              android:layout_below="@id/fab_conteneur"
               >
 
     <android.support.v7.widget.RecyclerView
