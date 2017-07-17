@@ -71,5 +71,6 @@
     <color name="primary_color_very_very_light">#D1C4E9</color>
     
     <color name="color_accent">#FFEB3B</color>
+    <color name="color_accent_light">#FFF176</color>
 
 </resources>

@@ -34,7 +34,7 @@
             android:src="@android:drawable/ic_media_play"
             android:id="@+id/play_image"
             android:layout_weight="6"
-            android:backgroundTint="@color/primary_color_very_very_light"
+            android:backgroundTint="@color/color_accent_light"
             />
 
 

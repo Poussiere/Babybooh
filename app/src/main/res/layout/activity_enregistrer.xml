@@ -59,6 +59,7 @@
     android:id="@+id/seek_volume"
     android:layout_toRightOf="@id/tvVol"
     android:layout_marginTop="34dp"
+    android:layout_marginEnd="60dp"
     android:progressTint="@color/color_accent"
     android:thumbTint="@color/color_accent"
     />
@@ -70,6 +71,7 @@
         android:layout_below="@id/enregistrer_up_conteneur"
         android:layout_marginTop="-29dp"
          android:paddingEnd="@dimen/activity_horizontal_margin"
+         android:background="@color/white"
         android:id="@+id/fab_conteneur">
 
          <android.support.design.widget.FloatingActionButton
