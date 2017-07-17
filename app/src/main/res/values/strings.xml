@@ -260,6 +260,6 @@
     <string name="lumière_forte">Lumière normale</string>
     <string name="jour">Plein jour</string>
 
-    <string name="lancer_veille">Appuyez sur le micro pour lancer la veille puis posez votre smartphone près de votre bébé endormi.</string>
+    <string name="lancer_veille">Appuyez pour lancer la veille</string>
 
 </resources>
