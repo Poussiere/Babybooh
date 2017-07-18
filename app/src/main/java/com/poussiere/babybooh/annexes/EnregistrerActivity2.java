@@ -182,13 +182,13 @@ public class EnregistrerActivity2 extends AppCompatActivity {
                             String cheminFichierTx = getExternalFilesDir(null).getAbsolutePath();
                             cheminFichierTx += "/babyboohSongs/";
                             File repertoire = new File(cheminFichierTx);
-                            File from = new File(repertoire, "MessagePourBebe.mp4");
-                            File to = new File(repertoire, nom.trim() + ".mp4");
+                            File from = new File(repertoire, "MessagePourBebe.3gpp");
+                            File to = new File(repertoire, nom.trim() + ".3gpp");
                             from.renameTo(to);
 
 
                             prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                            prefs.edit().putString("nomDuSon", nom+".mp4").apply();
+                            prefs.edit().putString("nomDuSon", nom+".3gpp").apply();
                             finish();
 
                         }
@@ -264,7 +264,7 @@ public class EnregistrerActivity2 extends AppCompatActivity {
             enregistreur.arreterEnregistrement();
             enregistreur.arreterLecture();
             prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-            prefs.edit().putString("nomDuSon", "MessagePourBebe.mp4").apply();
+            prefs.edit().putString("nomDuSon", "MessagePourBebe.3gpp").apply();
 
         }
 
