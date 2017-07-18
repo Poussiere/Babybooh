@@ -290,6 +290,40 @@ public class MainActivity extends AppCompatActivity {
                 f.mkdirs();
             }
 
+            ////////////////////////////////////////////////////////////////
+            //Cope de ani couni sur la mémoire interne
+            
+            try {
+            
+            if (f.mkdirs() || f.isDirectory()) {
+                String str_song_name = "Ani Couni" + ".mp4";
+                String path = context.getExternalFilesDir(null).getAbsolutePath() ;
+                path += "/babyboohSongs";
+                //CopyRAWtoSDCard(R.raw.anicouni, path + File.separator + str_song_name);
+                 InputStream in = getResources().openRawResource(R.raw.anicouni);
+                  FileOutputStream out = new FileOutputStream(path);
+                 byte[] buff = new byte[1024];
+                  int read = 0;
+                try {
+                 while ((read = in.read(buff)) > 0) {
+                  out.write(buff, 0, read);
+                   }
+                } finally {
+                   in.close();
+                 out.close();}
+            }
+                } catch (IOException e) {
+            e.printStackTrace();
+               }
+        
+                
+
+                
+
+
+    
+    
+
 
         }
 
