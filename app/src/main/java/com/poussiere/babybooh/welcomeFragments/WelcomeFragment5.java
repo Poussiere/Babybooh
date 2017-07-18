@@ -16,10 +16,10 @@ import com.poussiere.babybooh.R;
 
 
 public class WelcomeFragment5 extends Fragment {
-   private TextView tv1;
+    private TextView tv1;
     private TextView tv2;
     private SharedPreferences prefs;
-
+    private ImageView welcomeLogo5;
 
     public WelcomeFragment5() {
         // Required empty public constructor
@@ -73,6 +73,17 @@ public class WelcomeFragment5 extends Fragment {
                             else if (sexe.equals("garcon") && (nbNom%2)!=0)
                             {tv1.setText(R.string.caractere_garcon);
                                 tv2.setText(getString(R.string.caractere_garçon2, nom));}
+       
+       
+        welcomeLogo5=(ImageView)layoutView.findViewById(R.id.welcome_logo5);
+        Display display = getActivity().getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        double heightD = width*0.65; // 0,56 est le ratio de l'image
+        int height=(int)heightD;
+        FrameLayout.LayoutParams parms = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,height);
+        welcomeLogo5.setLayoutParams(parms);
                           
         return layoutView;
     }
