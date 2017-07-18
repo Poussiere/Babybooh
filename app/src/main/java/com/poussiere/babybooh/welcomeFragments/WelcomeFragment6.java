@@ -21,6 +21,7 @@ public class WelcomeFragment6 extends Fragment {
 
     private TextView tv1;
     private SharedPreferences prefs;
+    private ImageView welcomeLogo6;
 
     public WelcomeFragment6() {
         // Required empty public constructor
@@ -60,6 +61,17 @@ public class WelcomeFragment6 extends Fragment {
             tv1.setText(getString(com.poussiere.babybooh.R.string.ask_record1, nom , lui));
         }
 
+        welcomeLogo6=(ImageView)layoutView.findViewById(R.id.welcome_logo6);
+        Display display = getActivity().getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        double heightD = width*0.65; // 0,56 est le ratio de l'image
+        int height=(int)heightD;
+        FrameLayout.LayoutParams parms = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,height);
+        welcomeLogo6.setLayoutParams(parms);
+
+        
         return layoutView;
     }
 
