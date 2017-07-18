@@ -39,7 +39,7 @@ public class Enregistreur {
 
         fichierVoix = context.getExternalFilesDir(null).getAbsolutePath() ;
       //  fichierVoix = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).getAbsolutePath();
-        fichierVoix += "/babyboohSongs/MessagePourBebe.mp4";
+        fichierVoix += "/babyboohSongs/MessagePourBebe.3gpp";
 
         if (mediaRecorder == null) {
             mediaRecorder = new MediaRecorder();
