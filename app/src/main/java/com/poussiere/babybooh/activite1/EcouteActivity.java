@@ -293,7 +293,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                 
                                 heureReDetection=cal.getTimeInMillis();
                                 //Si le temps écoulé depuis le premier cri du bébé est supérieur au délais défini par l'utilisateur, on lance la lecture du son
-                                if ((heureReDetection-dateDebut)>=delaisDeclenchement){
+                                if ((heureReDetection-timeInMillis)>=delaisDeclenchement){
 
                                 if (lecture.isRunning())
                                 {   Log.i(ACT2, "Lecture du son résumée");
@@ -383,7 +383,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                        // lecture.resume();
                                          
                                 //Si le temps écoulé depuis le premier cri du bébé est supérieur au délais défini par l'utilisateur, on lance la lecture du son
-                                if ((heureReDetection-dateDebut)>=delaisDeclenchement){
+                                if ((heureReDetection-timeInMillis)>=delaisDeclenchement){
 
                                 if (lecture.isRunning())
                                 {   Log.i(ACT2, "Lecture du son résumée");
@@ -430,6 +430,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                             //Calcul de la durée totale de l'évenement
                             duree=heureReDetectionPrecedente-timeInMillis;
+                            Log.i(ACT2, "duree en millis ="+duree);
 
                             // Cr�er une nouvelle entr�e dans la base de donn�es avec timeInMillis, resultEcoute et lum.
 
@@ -502,7 +503,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
 
                     //Calcul de la durée totale de l'évenement
-                    duree = cal.getTimeInMillis() - heure;
+                    duree = cal.getTimeInMillis() - dateInMillis;
 
                     //savoir quel monstre a réveillé bébé
                     monstre = Monstre.quelMonstre(lum, heure, highestDecibel, difference, xt);
