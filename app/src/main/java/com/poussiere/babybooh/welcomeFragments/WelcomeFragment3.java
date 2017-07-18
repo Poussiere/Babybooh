@@ -39,7 +39,7 @@ public class WelcomeFragment3 extends Fragment {
           View layoutView =  inflater.inflate(R.layout.fragment_welcome_fragment3, container, false);
    
         
-        welcomeLogo3=(ImageView)layoutView.findViewById(R.id.welcome_logo2);
+        welcomeLogo3=(ImageView)layoutView.findViewById(R.id.welcome_logo3);
         Display display = getActivity().getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
