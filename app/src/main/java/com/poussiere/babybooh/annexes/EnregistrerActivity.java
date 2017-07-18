@@ -187,7 +187,7 @@ public class EnregistrerActivity extends AppCompatActivity {
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
                 TextView nds= (TextView) viewHolder.itemView.findViewById(R.id.son_nom_tv);
                 sn = nds.getText().toString();
-
+                if (!sn.equals("Ani Couni")){
 
                 AlertDialog.Builder supConfirm = new AlertDialog.Builder(
                         EnregistrerActivity.this);
@@ -213,6 +213,7 @@ public class EnregistrerActivity extends AppCompatActivity {
                         });
 
                supConfirm.show();
+                }// fin du if (!sn.equals...)
             }
         };
 
