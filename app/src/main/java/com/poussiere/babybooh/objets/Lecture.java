@@ -82,7 +82,7 @@ public class Lecture {
             Log.i("ACT2", "mediaplayer stoppé");
         }}
 
-    //M�thode qui va permettre de sa voir si le MediaRecorder est actif ou non
+    //M�thode qui va permettre de savoir si le MediaRecorder est actif ou non
     public boolean isRunning()
     {if (mediaPlayer==null)
         return false;
