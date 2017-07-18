@@ -63,6 +63,9 @@ import com.poussiere.babybooh.welcomeFragments.WelcomeFragment5;
 import com.poussiere.babybooh.welcomeFragments.WelcomeFragment6;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -297,11 +300,11 @@ public class MainActivity extends AppCompatActivity {
             
             if (f.mkdirs() || f.isDirectory()) {
                 String str_song_name = "Ani Couni" + ".3gpp";
-                String path = context.getExternalFilesDir(null).getAbsolutePath() ;
+                String path = this.getExternalFilesDir(null).getAbsolutePath() ;
                 path += "/babyboohSongs";
                 //CopyRAWtoSDCard(R.raw.anicouni, path + File.separator + str_song_name);
                  InputStream in = getResources().openRawResource(R.raw.anicouni);
-                  FileOutputStream out = new FileOutputStream(path);
+                  FileOutputStream out = new FileOutputStream(path+File.separator+str_song_name);
                  byte[] buff = new byte[1024];
                   int read = 0;
                 try {
@@ -315,14 +318,6 @@ public class MainActivity extends AppCompatActivity {
                 } catch (IOException e) {
             e.printStackTrace();
                }
-        
-                
-
-                
-
-
-    
-    
 
 
         }

@@ -31,7 +31,7 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
 
 
 
-    String nomDuSon, nomDuSonSelectionne;
+    String nomDuSon, nomDuSonSelectionne,nomDuSonCourt;
     private Context context;
 
 
@@ -71,12 +71,12 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
 
         nomDuSon = fichiersSons[position].getName();
         // On supprime les 4 derniers caractères pour ne pas afficher l'extension des fichiers à l'écran
-        nomDuSon.substring(0, nomDuSon.length() - 4);
-        holder.sonNomTx.setText(nomDuSon);
+        nomDuSonCourt= nomDuSon.substring(0, nomDuSon.length() - 5);
+        holder.sonNomTx.setText(nomDuSonCourt);
 
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        nomDuSonSelectionne = prefs.getString("nomDuSon", "messagePourBebe.3gpp"); // Le son selectionné par défaut est messagePourBebe.mp4
+        nomDuSonSelectionne = prefs.getString("nomDuSon", "anicouni.3gpp"); // Le son selectionné par défaut est messagePourBebe.mp4
 
         if (nomDuSon.equals(nomDuSonSelectionne)) {
             holder.conteneur.setSelected(true);
@@ -126,14 +126,14 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
             sonNomTx.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    nomDuSon = sonNomTx.getText().toString()+"3gpp";
+                    nomDuSon = sonNomTx.getText().toString();
 
 
                     Context context = view.getContext();
                     Resources res = context.getResources();
 
                     prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    prefs.edit().putString("nomDuSon", nomDuSon).apply();
+                    prefs.edit().putString("nomDuSon", nomDuSon+".3gpp").apply();
 
 
 
@@ -162,7 +162,7 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
                         @Override
                         public void run() {
 
-                            nomDuSon = sonNomTx.getText().toString()+"3gpp";
+                            nomDuSon = sonNomTx.getText().toString()+".3gpp";
                             lecture.lire(nomDuSon);
                             lecture.getMediaPlayer().setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                                 public void onCompletion(MediaPlayer mp) {

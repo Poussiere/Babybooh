@@ -1,11 +1,15 @@
 package com.poussiere.babybooh.welcomeFragments;
 
 
+import android.graphics.Point;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import com.poussiere.babybooh.R;
 
@@ -30,7 +34,7 @@ public class WelcomeFragment3 extends Fragment {
         super.onCreate(savedInstanceState);
        
         }
-    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

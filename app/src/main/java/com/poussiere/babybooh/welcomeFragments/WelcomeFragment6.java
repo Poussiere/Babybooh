@@ -2,12 +2,16 @@ package com.poussiere.babybooh.welcomeFragments;
 
 
 import android.content.SharedPreferences;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.preference.PreferenceManager;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.poussiere.babybooh.R;

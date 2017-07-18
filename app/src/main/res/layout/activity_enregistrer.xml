@@ -2,8 +2,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
 
-   >
+
+    >
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -25,7 +27,8 @@
         android:paddingEnd="@dimen/activity_horizontal_margin"
         android:paddingBottom="30dp"
         android:id="@+id/enregistrer_up_conteneur"
-        android:background="@color/primary_color_light">
+        android:background="@color/primary_color_light"
+        >
 
     <TextView
         android:id="@+id/tvMerci"
@@ -64,15 +67,13 @@
     android:thumbTint="@color/color_accent"
     />
 </RelativeLayout>
-
      <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:layout_below="@id/enregistrer_up_conteneur"
         android:layout_marginTop="-29dp"
-         android:MargingEnd="@dimen/activity_horizontal_margin"
-         android:background="@color/white"
-        android:id="@+id/fab_conteneur">
+         android:clipChildren="false"
+         android:id="@+id/fab_conteneur">
 
          <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
@@ -85,8 +86,8 @@
         android:clickable="true"
         android:onClick="onClick3"
         app:pressedTranslationZ="12dp"
-
-        android:tint="@color/background_floating_material_dark"
+             android:layout_marginRight="@dimen/activity_horizontal_margin"
+             android:tint="@color/background_floating_material_dark"
         android:layout_alignParentEnd="true"
         android:contentDescription="@string/content_description_demarrer_enregistreent"
           android:layout_gravity="end"
@@ -96,7 +97,6 @@
           <RelativeLayout
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:background="@color/white"
               android:paddingStart="@dimen/activity_horizontal_margin"
               android:paddingEnd="@dimen/activity_horizontal_margin"
               android:layout_below="@id/fab_conteneur"
@@ -107,7 +107,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="vertical"
-        android:paddingTop="20dp"
+        android:paddingTop="15dp"
         ></android.support.v7.widget.RecyclerView>
 
 

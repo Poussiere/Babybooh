@@ -196,7 +196,7 @@ public class EnregistrerActivity extends AppCompatActivity {
                 supConfirm.setPositiveButton(R.string.confirmer,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                File file = new File (getExternalFilesDir(null).getAbsolutePath()+"/babyboohSongs/"+sn);
+                                File file = new File (getExternalFilesDir(null).getAbsolutePath()+"/babyboohSongs/"+sn+".3gpp");
                                 file.delete();
                                 rcAdapter = new EnregistrerRecyclerViewAdapter(EnregistrerActivity.this);
                                 rView.setAdapter(rcAdapter);

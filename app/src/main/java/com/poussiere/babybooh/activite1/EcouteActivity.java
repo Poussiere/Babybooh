@@ -27,6 +27,7 @@ import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
+import android.widget.Toast;
 
 
 import com.poussiere.babybooh.MainActivity;
@@ -503,7 +504,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
 
                     //Calcul de la durée totale de l'évenement
-                    duree = cal.getTimeInMillis() - dateInMillis;
+                    duree = cal.getTimeInMillis() - timeInMillis;
 
                     //savoir quel monstre a réveillé bébé
                     monstre = Monstre.quelMonstre(lum, heure, highestDecibel, difference, xt);
