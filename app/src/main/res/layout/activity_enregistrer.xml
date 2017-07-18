@@ -70,7 +70,7 @@
         android:layout_height="72dp"
         android:layout_below="@id/enregistrer_up_conteneur"
         android:layout_marginTop="-29dp"
-         android:paddingEnd="@dimen/activity_horizontal_margin"
+         android:MargingEnd="@dimen/activity_horizontal_margin"
          android:background="@color/white"
         android:id="@+id/fab_conteneur">
 
