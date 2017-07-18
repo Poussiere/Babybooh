@@ -5,6 +5,23 @@
         android:layout_width="match_parent"
         android:fitsSystemWindows="true"
         android:layout_height="match_parent">
+        
+        
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/welcome_logo_conteneurr6"
+        android:layout_marginTop="10dp">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="fitXY"
+        android:id="@+id/welcome_logo6"
+        android:src="@drawable/logo2"/>
+    </FrameLayout>
+        
+        
 
         <TextView
             android:id="@+id/welcome_fragment_6_text"
@@ -16,6 +33,7 @@
             tools:text="@string/ask_record1"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@android:color/white"
+            android:layout_below="@id/welcome_logo_conteneurr6"
             />
 
             />
