@@ -33,7 +33,8 @@
     <string name="alerte3">Vous quittez le mode veille et éloignez le téléphone de votre bébé. Vous pouvez si vous le souhaitez désactiver le mode avion. Appuyez sur oui pour aller au menu du mode avion.</string>
     <string name="alerte4">Attention, toutes les données de l\'application vont etre supprimées, y compris les monstres et l\'historique des évènements. Souhaitez vous vraiment continuer?</string>
     <string name="alerte5">Veuillez donner un nom à votre message (par exemple maman)</string>
-
+    <string name="quitte_veille_avion">Pensez à désactiver le mode avion pour recevoir les appels à nouveau"</string> 
+    
     <string name="title_activity_ecoute">EcouteActivity</string>
     <string name="statistiques_bouton">Carnet de bord</string>
     <string name="tableau_bouton">Tableau de chasse</string>
