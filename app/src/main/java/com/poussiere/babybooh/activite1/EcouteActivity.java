@@ -570,7 +570,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
         @Override
             protected void onPause()
         {
-                Toast.makeText(this, R.string.quitte_veille_avion, Toast.LENGTH_LONG).show();
+              //  Toast.makeText(this, R.string.quitte_veille_avion, Toast.LENGTH_LONG).show();
                 
             if (lectureActive) {
                 backgroundSave.start();
