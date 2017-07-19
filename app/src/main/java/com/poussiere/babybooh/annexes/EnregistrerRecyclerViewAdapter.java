@@ -125,7 +125,7 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
             lecture=new Lecture(context);
             
             //Pour remettre le bouton play une fois que la lecture d'un son est finie
-            handler = new Handler {
+            handler = new Handler (context.getMainLooper()) {
                 public void handleMessage(Message msg){
                 super.handleMessage(msg);
                 playImage.setImageResource(R.android.drawable.ic_media_stop);
