@@ -510,6 +510,9 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                     //Calcul de la durée totale de l'évenement
                     duree = cal.getTimeInMillis() - timeInMillis;
+                 Log.i(Act2, "heure actuelle : "+cal.getTimeInMillis);
+                 Log.i(Act2, "timeInMillis : "+timeInMillis);
+                 Log.i(Act2, "duree : "+duree);
 
                     //savoir quel monstre a réveillé bébé
                     monstre = Monstre.quelMonstre(lum, heure, highestDecibel, difference, xt);
