@@ -252,7 +252,8 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                 Log.i(ACT2, "le seuil des décibels est dépassé (essai 2");
                                 Log.i(ACT2, resultEcoute+" ");
                                 // On fait en sorte de ne pas relancer la phase d'écoute tout de suite
-                                ecouteActive = false;
+                                
+                                
 
 
                                 Log.i(ACT2, "instantiation du cal");
@@ -288,6 +289,10 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                 if (lightSensor != null) {
 
                                     sensorManager.registerListener(lightSensorListener, lightSensor, SensorManager.SENSOR_DELAY_NORMAL);
+                                   
+                                    ecouteActive = false;
+                                    lectureActive = true;
+                                    
                                 }
 
                                 Log.i(ACT2, "Lecture a partir de la sequence ecoute");
@@ -312,7 +317,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                         Log.i(ACT2, "declenchement du listener");
 
                                         Log.i(ACT2, "Lecture du son terminée");
-                                        lectureActive = true;
+                                       
 
                                     }
 
