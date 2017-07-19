@@ -111,9 +111,10 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
         public ImageView playImage;
         public String nomDuSon;
         private Lecture lecture ;
-        private Thread background;
-        SharedPreferences prefs = null;
-        String toasty;
+        private Thread background, background2;
+        private SharedPreferences prefs = null;
+        private String toasty;
+        private Handler handler;
 
 
         public EnrRecyclerViewHolders(View itemView) {
@@ -122,7 +123,15 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
             playImage=(ImageView)itemView.findViewById(R.id.play_image);
             conteneur=(View)itemView.findViewById(R.id.card_view_enr_cont);
             lecture=new Lecture(context);
-
+            
+            //Pour remettre le bouton play une fois que la lecture d'un son est finie
+            handler = new Handler {
+                public void handleMessage(Message msg){
+                super.handleMessage(msg);
+                playImage.setImageResource(R.android.drawable.ic_media_stop);
+                 }
+            };
+            
             sonNomTx.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -156,7 +165,8 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
                 @Override
                 public void onClick(View view) {
 
-
+                    
+                    if (!lecture.isRunning(){
 
                     background = new Thread(new Runnable() {
                         @Override
@@ -167,13 +177,29 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
                             lecture.getMediaPlayer().setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                                 public void onCompletion(MediaPlayer mp) {
                                     lecture.stop();
-
+                                    handler.sendEmptyMessage(0);
+                                    
                                 }
 
                             });
                         }
                     });
+                    playImage.setImageResource(R.android.drawable.ic_media_stop);
                     background.start();}
+                        }
+                        else{
+                              background2 = new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                         
+                            lecture.stop();
+                            
+                        }
+                    });
+                    playImage.setImageResource(R.android.drawable.ic_media_play);    
+                    background2.start();}
+                        }
 
 
 
