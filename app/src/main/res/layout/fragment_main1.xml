@@ -47,10 +47,10 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="fitEnd"
+        android:scaleType="fitXY"
         android:src="@drawable/icone3"
         android:contentDescription="bebe dort"
-        android:adjustViewBounds="false"
+        android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:layout_alignParentBottom="true"
         android:layout_below="@id/main1_fab_conteneur"
