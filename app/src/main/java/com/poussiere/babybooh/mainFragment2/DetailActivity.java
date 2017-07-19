@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -170,15 +171,15 @@ public class DetailActivity extends AppCompatActivity implements android.app.Loa
                 duree.setText(mDuree);
 
                 String dB=String.valueOf(Math.round(cursor.getDouble(Contract.Evenements.POSITION_COL2)));
-                mDecibels=dB+getString(R.string.db);
+                mDecibels=dB+" "+getString(R.string.db);
                 decibels.setText(mDecibels);
 
                 String dbMax=String.valueOf(Math.round(cursor.getDouble(Contract.Evenements.POSITION_COL6)));
-                mHighestDecibels=dbMax+getString(R.string.db);
+                mHighestDecibels=dbMax+" "+getString(R.string.db);
                 highestDecibels.setText(mHighestDecibels);
 
                 int lLux=cursor.getInt(Contract.Evenements.POSITION_COL4);
-                mLux=lLux+getString(R.string.lux);
+                mLux=lLux+" "+getString(R.string.lux);
                 mLuminosite=getmLuminosite(lLux);
                 luminosite.setText(mLuminosite);
                 lux.setText(" ("+mLux+")");

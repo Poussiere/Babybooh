@@ -15,9 +15,9 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:scaleType="fitXY"
+        android:scaleType="centerInside"
         android:id="@+id/welcome_logo3"
-        android:src="@drawable/logo2"/>
+        android:src="@drawable/welcomelogo3"/>
     </FrameLayout>
 
     <TextView

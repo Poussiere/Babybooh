@@ -6,7 +6,10 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.preference.PreferenceManager;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseBooleanArray;
@@ -128,7 +131,7 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
             handler = new Handler (context.getMainLooper()) {
                 public void handleMessage(Message msg){
                 super.handleMessage(msg);
-                playImage.setImageResource(R.android.drawable.ic_media_stop);
+                playImage.setImageResource(android.R.drawable.ic_media_pause);
                  }
             };
             
@@ -166,7 +169,7 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
                 public void onClick(View view) {
 
                     
-                    if (!lecture.isRunning(){
+                    if (!lecture.isRunning()){
 
                     background = new Thread(new Runnable() {
                         @Override
@@ -184,8 +187,8 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
                             });
                         }
                     });
-                    playImage.setImageResource(R.android.drawable.ic_media_stop);
-                    background.start();}
+                        playImage.setImageResource(android.R.drawable.ic_media_pause);
+                    background.start();
                         }
                         else{
                               background2 = new Thread(new Runnable() {
@@ -197,7 +200,7 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
                             
                         }
                     });
-                    playImage.setImageResource(R.android.drawable.ic_media_play);    
+                        playImage.setImageResource(android.R.drawable.ic_media_play);
                     background2.start();}
                         }
 

@@ -10,14 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/welcome_logo_conteneurr2"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="40dp"
+        >
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:scaleType="fitXY"
         android:id="@+id/welcome_logo2"
-        android:src="@drawable/logo2"/>
+        android:src="@drawable/welcomelogo2"/>
     </FrameLayout>
     
     <TextView
