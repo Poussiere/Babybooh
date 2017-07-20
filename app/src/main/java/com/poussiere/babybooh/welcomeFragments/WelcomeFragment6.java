@@ -58,7 +58,7 @@ public class WelcomeFragment6 extends Fragment {
        String elle=getString(com.poussiere.babybooh.R.string.elle);
         String nom=prefs.getString("nom", "Rose");
         String sexe=prefs.getString("sexe", "fille");
-        if (sexe.equals("fille") {
+        if (sexe.equals("fille")) {
             tv1.setText(getString(com.poussiere.babybooh.R.string.ask_record1,nom , elle));
         }
        else {

@@ -4,6 +4,7 @@ import android.content.ClipData;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Environment;
 import android.os.Handler;
@@ -66,7 +67,7 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
         // fichiersSons = mCurentFile.listFiles();
         
         
-        holder.playImage.setImageResource(android.R.drawable.ic_media_play)
+        holder.playImage.setImageResource(android.R.drawable.ic_media_play);
         String cheminFichier = context.getExternalFilesDir(null).getAbsolutePath() + "/babyboohSongs/";
         File mCurentFile = new File(cheminFichier);
         File[] fichiersSons = mCurentFile.listFiles();
@@ -134,7 +135,7 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
             handler = new Handler (context.getMainLooper()) {
                 public void handleMessage(Message msg){
                 super.handleMessage(msg);
-                playImage.setImageResource(android.R.drawable.ic_media_pause);
+                playImage.setImageResource(android.R.drawable.ic_media_play);
                  }
             };
             
@@ -172,34 +173,35 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
                 public void onClick(View view) {
 
                     
-                    if (!lecture.isRunning()){
+                    if (!lecture.isRunning()) {
 
-                  manager = (AudioManager)context.getSystemService(Context.AUDIO_SERVICE);
-            if(manager.isMusicActive())
-                {      
-                        
-                    background = new Thread(new Runnable() {
-                        @Override
-                        public void run() {
+                        manager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+                        if (!manager.isMusicActive()) {
 
-                            nomDuSon = sonNomTx.getText().toString()+".3gpp";
-                            lecture.lire(nomDuSon);
-                            lecture.getMediaPlayer().setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                                public void onCompletion(MediaPlayer mp) {
-                                    lecture.stop();
-                                    handler.sendEmptyMessage(0);
-                                    
+                            background = new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+
+                                    nomDuSon = sonNomTx.getText().toString() + ".3gpp";
+                                    lecture.lire(nomDuSon);
+                                    lecture.getMediaPlayer().setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                                        public void onCompletion(MediaPlayer mp) {
+                                            lecture.stop();
+                                            handler.sendEmptyMessage(0);
+
+                                        }
+
+                                    });
                                 }
-
                             });
+                            playImage.setImageResource(android.R.drawable.ic_media_pause);
+                            background.start();
+                        } // fin du if audiomanager...
+                        else {
+                            Toast.makeText(context, R.string.son_en_cours, Toast.LENGTH_LONG);
+
+
                         }
-                    });
-                        playImage.setImageResource(android.R.drawable.ic_media_pause);
-                    background.start();
-            } // fin du if audiomanger...
-                        else {Toast.makeText(context, R.string.son_en_cours, Toast.LENGTH_LONG);
-                    
-                    
                     }
                         else{
                               background2 = new Thread(new Runnable() {
