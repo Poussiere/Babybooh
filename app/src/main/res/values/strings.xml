@@ -263,4 +263,6 @@
 
     <string name="lancer_veille">Appuyez pour lancer la veille</string>
 
+    <string name="son_en_cours">Il y a déjà une lecture en cours</string>
+    
 </resources>
