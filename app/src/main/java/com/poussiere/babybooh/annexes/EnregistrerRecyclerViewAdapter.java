@@ -64,7 +64,9 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
         // cheminFichier += "/babyboohSongs/" ;
         //  mCurentFile =  new File(cheminFichier);
         // fichiersSons = mCurentFile.listFiles();
-
+        
+        
+        holder.playImage.setImageResource(android.R.drawable.ic_media_play)
         String cheminFichier = context.getExternalFilesDir(null).getAbsolutePath() + "/babyboohSongs/";
         File mCurentFile = new File(cheminFichier);
         File[] fichiersSons = mCurentFile.listFiles();
@@ -118,6 +120,7 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
         private SharedPreferences prefs = null;
         private String toasty;
         private Handler handler;
+        private AudioManager manager;
 
 
         public EnrRecyclerViewHolders(View itemView) {
@@ -171,6 +174,10 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
                     
                     if (!lecture.isRunning()){
 
+                  manager = (AudioManager)context.getSystemService(Context.AUDIO_SERVICE);
+            if(manager.isMusicActive())
+                {      
+                        
                     background = new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -189,7 +196,11 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
                     });
                         playImage.setImageResource(android.R.drawable.ic_media_pause);
                     background.start();
-                        }
+            } // fin du if audiomanger...
+                        else {Toast.makeText(context, R.string.son_en_cours, Toast.LENGTH_LONG);
+                    
+                    
+                    }
                         else{
                               background2 = new Thread(new Runnable() {
                         @Override
