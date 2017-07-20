@@ -13,7 +13,7 @@
         android:layout_height="120dp"
         android:layout_alignParentTop="true"
         android:id="@+id/main1_top_conteneur"
-        android:background="@color/primary_color_light"
+        android:background="@color/primary_color_very_very_light"
         >
 
         <TextView

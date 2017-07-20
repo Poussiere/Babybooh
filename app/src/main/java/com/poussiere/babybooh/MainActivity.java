@@ -434,9 +434,10 @@ public class MainActivity extends AppCompatActivity {
 
                                 
                                 // Les fichiers sons sont effacés
-                                File file = new File (getExternalFilesDir(null).getAbsolutePath()+"/babyboohSongs/");
-                                file.delete(); 
-                                
+                                String cheminFichierTx = getExternalFilesDir(null).getAbsolutePath();
+                                cheminFichierTx += "/babyboohSongs/";
+                                File repertoire = new File(cheminFichierTx);
+                                boolean del = repertoire.delete();
                                 //L'application sera lancée comme si c'était la première fois
                                 prefs.edit().putBoolean("firstrun", true).apply();
                                 finish();
