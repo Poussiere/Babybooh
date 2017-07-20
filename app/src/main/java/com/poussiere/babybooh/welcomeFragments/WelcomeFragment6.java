@@ -57,11 +57,11 @@ public class WelcomeFragment6 extends Fragment {
        String lui=getString(com.poussiere.babybooh.R.string.lui);
        String elle=getString(com.poussiere.babybooh.R.string.elle);
         String nom=prefs.getString("nom", "Rose");
-
-        if (prefs.getBoolean("fille",true)) {
+        String sexe=prefs.getString("sexe", "fille");
+        if (sexe.equals("fille") {
             tv1.setText(getString(com.poussiere.babybooh.R.string.ask_record1,nom , elle));
         }
-       else if (!prefs.getBoolean("fille",true)){
+       else {
             tv1.setText(getString(com.poussiere.babybooh.R.string.ask_record1, nom , lui));
         }
 
