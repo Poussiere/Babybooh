@@ -437,7 +437,15 @@ public class MainActivity extends AppCompatActivity {
                                 String cheminFichierTx = getExternalFilesDir(null).getAbsolutePath();
                                 cheminFichierTx += "/babyboohSongs/";
                                 File repertoire = new File(cheminFichierTx);
-                                boolean del = repertoire.delete();
+
+                                if (repertoire.isDirectory())
+                                {
+                                    String[] children = repertoire.list();
+                                    for (int i = 0; i < children.length; i++)
+                                    {
+                                        new File(repertoire, children[i]).delete();
+                                    }
+                                }
                                 //L'application sera lancée comme si c'était la première fois
                                 prefs.edit().putBoolean("firstrun", true).apply();
                                 finish();
