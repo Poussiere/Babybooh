@@ -381,6 +381,12 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                 if (resultEcoute > seuilDecibels) // Double vérification pour voir si le bruit est persistant
                                 {
 
+                                    // detetection pour voir si décibels plus importantes que précédemment
+                                    decibelTemp = 20 * Math.log10(resultEcoute / 10);
+                                    if (decibelTemp > highestDecibel) {
+                                        highestDecibel = decibelTemp;
+                                    }
+
                                     Log.i(ACT2, "Le seuil est toujours dépassé 3, la lecture du son est relancée");
                                     Log.i(ACT2, resultEcoute + " réécoute");
 

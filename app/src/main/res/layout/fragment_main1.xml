@@ -22,7 +22,6 @@
             android:text="@string/lancer_veille"
             android:gravity="center_horizontal"
             android:layout_centerInParent="true"
-            android:textColor="@color/white"
             android:layout_marginEnd="88dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:id="@+id/tv_main1">
@@ -54,18 +53,17 @@
         android:contentDescription="@string/content_description_veille_bouton"/> 
                                              
     </RelativeLayout>
-                                        
-                                        
+
+
     <ImageView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/icone3"
-        android:contentDescription="bebe dort"
+        android:layout_below="@id/main1_fab_conteneur"
         android:adjustViewBounds="true"
         android:cropToPadding="false"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@id/main1_fab_conteneur"
-                                                       
-      />
+        android:scaleType="fitEnd"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/icone3"
+
+        />
 </RelativeLayout>
