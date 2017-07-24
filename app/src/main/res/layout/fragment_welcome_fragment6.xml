@@ -17,7 +17,7 @@
         android:layout_height="250dp"
         android:scaleType="fitXY"
         android:id="@+id/welcome_logo6"
-        android:src="@drawable/logo2"/>
+        android:src="@drawable/welcomelogo6"/>
     </FrameLayout>
         
         
