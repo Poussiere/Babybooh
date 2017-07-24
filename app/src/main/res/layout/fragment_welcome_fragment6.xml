@@ -15,7 +15,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:scaleType="fitXY"
+        android:scaleType="fitCenter"
         android:id="@+id/welcome_logo6"
         android:src="@drawable/welcomelogo6"/>
     </FrameLayout>
