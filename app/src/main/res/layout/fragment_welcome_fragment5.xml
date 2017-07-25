@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
         android:gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@android:color/white"
 
         />
@@ -44,7 +44,7 @@
         android:layout_below="@id/welcome_fragment_5_text1"
         android:gravity="center"
         android:layout_marginBottom="60dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@android:color/white"
         />
 

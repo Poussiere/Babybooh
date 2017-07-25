@@ -30,10 +30,11 @@
             android:layout_centerInParent="true"
             android:gravity="center"
             tools:text="@string/ask_record1"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@android:color/white"
             android:layout_below="@id/welcome_logo_conteneurr6"
             android:layout_marginBottom="60dp"
+            android:layout_marginTop="10dp"
             />
 
             />
