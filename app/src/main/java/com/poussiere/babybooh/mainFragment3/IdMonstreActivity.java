@@ -84,7 +84,7 @@ public class IdMonstreActivity extends Activity implements ParallaxMonster.OnScr
 
         if (!monstreDebloque)
         {
-            photoId.setImageResource(R.drawable.interrogation);
+            photoId.setImageResource(R.drawable.interrogationbig);
             nomTx.setText(R.string.inconnu);
             aliasTx.setText(R.string.inconnu);
             descriptionTx.setText(R.string.inconnu_description);

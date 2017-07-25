@@ -43,7 +43,7 @@ public class ChasseFullScreenActivity extends Activity {
 
         }
 
-        else imageView.setImageResource(R.drawable.interrogation);
+        else imageView.setImageResource(R.drawable.interrogationbig);
     }
 
 

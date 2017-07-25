@@ -57,7 +57,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
 
         else
         {holder.petitNom.setText(context.getText(R.string.inconnu));
-            holder.petitePhoto.setImageResource(R.drawable.interrogation);
+            holder.petitePhoto.setImageResource(R.drawable.interrogationsmall);
 
         }
 
