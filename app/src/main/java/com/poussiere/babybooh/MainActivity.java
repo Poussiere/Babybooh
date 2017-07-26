@@ -611,7 +611,7 @@ String alertDiag5;
             getSupportFragmentManager().popBackStackImmediate();
             }
             Intent intent = new Intent(MainActivity.this, EnregistrerActivity.class);
-            //conteneurDuMain.setVisibility(VISIBLE);
+            conteneurDuMain.setVisibility(VISIBLE);
             startActivity(intent);
         }
 

@@ -32,5 +32,6 @@ public class RecyclerViewHolders extends RecyclerView.ViewHolder implements View
         Intent i = new Intent(context, IdMonstreActivity.class);
         i.putExtra("idMonstre", getAdapterPosition()+1);
         context.startActivity(i);
+
     }
 }

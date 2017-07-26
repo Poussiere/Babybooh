@@ -7,6 +7,7 @@
     android:id="@+id/scroll_view"
     tools:context="com.poussiere.babybooh.mainFragment3.IdMonstreActivity"
     android:scrollbars="none"
+
     >
 
 <RelativeLayout
