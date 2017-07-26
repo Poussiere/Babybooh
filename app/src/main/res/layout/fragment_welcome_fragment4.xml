@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:text="@string/fille"
             android:checked="true"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@android:color/white"
             android:buttonTint="@color/color_accent"/>
 
@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/garcon"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@android:color/white"
             android:buttonTint="@color/color_accent"/>
 
@@ -62,7 +62,7 @@
         android:layout_centerInParent="true"
         android:gravity="center"
         android:layout_marginTop="30dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@android:color/white"
         />
     <EditText
@@ -74,7 +74,7 @@
         android:maxLines="1"
         android:imeOptions="actionDone"
         android:hint="@string/bebe_nom"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@android:color/white"
         android:inputType="textCapWords"/>
 
