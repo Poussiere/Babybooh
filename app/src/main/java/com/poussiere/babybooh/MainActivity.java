@@ -603,9 +603,15 @@ String alertDiag5;
             diplayWelcomeFragment(6);
         }else if (f instanceof WelcomeFragment6){
             welcomeConteneur.setVisibility(GONE);
-            conteneurDuMain.setVisibility(VISIBLE);
+        
             prefs.edit().putBoolean("firstrun", false).apply();
+            
+            
+            while (getSupportFragmentManager().getBackStackEntryCount() > 0){
+            getSupportFragmentManager().popBackStackImmediate();
+            }
             Intent intent = new Intent(MainActivity.this, EnregistrerActivity.class);
+            //conteneurDuMain.setVisibility(VISIBLE);
             startActivity(intent);
         }
 
