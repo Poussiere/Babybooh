@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/welcome_logo_conteneurr2"
         android:layout_marginTop="40dp"
+              android:layout_marginBottom="20dp"
         >
 
     <ImageView
@@ -28,7 +29,6 @@
         android:text="@string/first_time1"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:layout_marginBottom="60dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@android:color/white"
                android:layout_below="@id/welcome_logo_conteneurr2"
