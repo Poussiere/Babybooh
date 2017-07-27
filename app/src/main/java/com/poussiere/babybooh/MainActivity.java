@@ -607,9 +607,6 @@ String alertDiag5;
             prefs.edit().putBoolean("firstrun", false).apply();
             
             
-            while (getSupportFragmentManager().getBackStackEntryCount() > 0){
-            getSupportFragmentManager().popBackStackImmediate();
-            }
             Intent intent = new Intent(MainActivity.this, EnregistrerActivity.class);
             conteneurDuMain.setVisibility(VISIBLE);
             startActivity(intent);
