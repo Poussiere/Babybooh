@@ -55,7 +55,7 @@
     </RelativeLayout>
 
 
-    <ImageView
+    <MyImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/main1_fab_conteneur"
