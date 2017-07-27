@@ -83,6 +83,12 @@ public class WelcomeFragment1 extends Fragment {
         super.onDetach();
 
     }
+    
+     @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+       welcomeLogo.setImageResource(0);
+    }
 
 
 }
