@@ -59,5 +59,11 @@ public class WelcomeFragment2 extends Fragment {
         return layoutView;
         
     }
+   
+        @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+       welcomeLogo2.setImageResource(0);
+    }
 
 }
