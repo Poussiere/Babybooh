@@ -94,7 +94,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
     //Seuil d'alerte en d�cibels (MAJ il s'agit d'une amplitude finalement pour plus de sensibilité).
     private double seuilDecibels  ;
     //Délais de réveil au bout duquel le message peut-être déclenché. Par défaut c'est immédiatement
-    private int delaisDeclenchement ; 
+    private long delaisDeclenchement ; 
     
 
     // Cr�ation d'un bol�en pour d�terminer si la thread est lanc�e ou non
@@ -181,7 +181,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
         seuil= prefs.getString("sensibilite_micro", "400");
         seuilDecibels =Double.parseDouble(seuil);
         
-        delaisDeclenchement=Integer.parseInt(prefs.getString("delais_declenchement", "0"));
+        delaisDeclenchement=Long.parseLong(prefs.getString("delais_declenchement", "0"));
         
         //Récupération du nom du son à lire lorsque la veille est déclenchée
         sonNom=prefs.getString("nomDuSon","Ani Couni.3gpp");
@@ -373,13 +373,14 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                             }
                             resultEcoute = ecoute.obtenirDecibels();
 
-                            heureReDetection = cal.getTimeInMillis();
-                            if (heureReDetectionPrecedente == 0) {
-                                heureReDetectionPrecedente = heureReDetection;}
-
+                          
 
                                 if (resultEcoute > seuilDecibels) // Double vérification pour voir si le bruit est persistant
                                 {
+
+                                      heureReDetection = cal.getTimeInMillis();
+                            if (heureReDetectionPrecedente == 0) {
+                                heureReDetectionPrecedente = heureReDetection;}
 
                                     // detetection pour voir si décibels plus importantes que précédemment
                                     decibelTemp = 20 * Math.log10(resultEcoute / 10);
