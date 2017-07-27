@@ -81,6 +81,6 @@ public class WelcomeFragment6 extends Fragment {
      @Override
     public void onDestroyView() {
         super.onDestroyView();
-       welcomeLogo6.setImageResource(null);
+       welcomeLogo6.setImageResource(0);
     }
 }

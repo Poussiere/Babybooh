@@ -1,14 +1,20 @@
 package com.poussiere.babybooh.objets;
 
+import android.content.Context;
+import android.graphics.Matrix;
+import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
+
 /**
  * Created by poussiere on 26/07/17.
  */
 
-public class MyImageView {
+public class MyImageView extends android.support.v7.widget.AppCompatImageView{
   
    public MyImageView (Context context) {
         super(context);
-        setScaleType(ScaleType.MATRIX);
+        setScaleType(ImageView.ScaleType.MATRIX);
     }
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
