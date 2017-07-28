@@ -17,7 +17,7 @@
         android:layout_height="250dp"
         android:scaleType="centerInside"
         android:id="@+id/welcome_logo5"
-        android:src="@drawable/welcomelogo5"/>
+      />
     </FrameLayout>
 
     <RelativeLayout
