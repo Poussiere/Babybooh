@@ -82,6 +82,9 @@ public class WelcomeFragment5 extends Fragment {
        
        
         welcomeLogo5=(ImageView)layoutView.findViewById(R.id.welcome_logo5);
+        
+        Glide.with(this).load(R.drawable.welcomelogo5).into(welcomeLogo5);
+        
         Display display = getActivity().getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
