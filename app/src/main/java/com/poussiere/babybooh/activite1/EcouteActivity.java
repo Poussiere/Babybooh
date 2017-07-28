@@ -259,6 +259,8 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                 Log.i(ACT2, "instantiation du cal");
                                 // Obtenir un objet calendar
 
+                                cal=Calendar.getInstance();
+                                
                                 heure = cal.get(Calendar.HOUR_OF_DAY); // On isole l'heure pour déterminer quel monstre est apparu
 
                                 // Pour la date au Handler on va transformer l'objet Calendar en long (ou directement ins�rer cet objet long dans la base de donn�es quand celle-ci aura �t� cr�e)
@@ -296,7 +298,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                 }
 
                                 Log.i(ACT2, "Lecture a partir de la sequence ecoute");
-                                
+                               cal=Calendar.getInstance();
                                 heureReDetection=cal.getTimeInMillis();
                                 //Si le temps écoulé depuis le premier cri du bébé est supérieur au délais défini par l'utilisateur, on lance la lecture du son
                                 if ((heureReDetection-timeInMillis)>=delaisDeclenchement){
@@ -377,7 +379,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                                 if (resultEcoute > seuilDecibels) // Double vérification pour voir si le bruit est persistant
                                 {
-
+                                        cal=Calendar.getInstance();
                                       heureReDetection = cal.getTimeInMillis();
                             if (heureReDetectionPrecedente == 0) {
                                 heureReDetectionPrecedente = heureReDetection;}
