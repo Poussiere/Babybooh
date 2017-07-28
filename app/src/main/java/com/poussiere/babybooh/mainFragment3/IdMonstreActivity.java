@@ -15,6 +15,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.poussiere.babybooh.R;
 import com.poussiere.babybooh.objets.Monstre;
 
@@ -90,7 +91,7 @@ public class IdMonstreActivity extends Activity implements ParallaxMonster.OnScr
             nomTx.setText(R.string.inconnu);
             aliasTx.setText(R.string.inconnu);
             descriptionTx.setText(R.string.inconnu_description);
-            Glide.with(this).load(photoResourceId).into(photoId);      
+            Glide.with(this).load(photoResourceId).into(photoId);
             }
 
         else {
