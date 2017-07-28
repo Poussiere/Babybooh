@@ -23,7 +23,7 @@ public class IdMonstreActivity extends Activity implements ParallaxMonster.OnScr
 
     private int idMonstre;
     private Intent i;
-
+    private int photoResourceId;
     private ParallaxMonster parallaxMonster;
     private View conteneur;
     private ImageView photoId;
@@ -85,101 +85,115 @@ public class IdMonstreActivity extends Activity implements ParallaxMonster.OnScr
 
         if (!monstreDebloque)
         {
-            photoId.setImageResource(R.drawable.interrogationbig);
+            photoResourceId=R.drawable.interrogationbig;
+            //photoId.setImageResource(R.drawable.interrogationbig);
             nomTx.setText(R.string.inconnu);
             aliasTx.setText(R.string.inconnu);
             descriptionTx.setText(R.string.inconnu_description);
-
+            Glide.with(this).load(photoResourceId).into(photoId);      
             }
 
         else {
 
             switch (idMonstre) {
                 case 1:
-                    photoId.setImageResource(R.drawable.monstre1);
+                    photoResourceId=R.drawable.monstre1;
+                 //   photoId.setImageResource(R.drawable.monstre1);
                     nomTx.setText(R.string.monstre1_nom);
                     aliasTx.setText(R.string.monstre1_alias);
                     descriptionTx.setText(R.string.monstre1_desc);
                     conditionsTx.setText(R.string.monstre1_conditions);
                     break;
                 case 2:
-                    photoId.setImageResource(R.drawable.monstre2);
+                    photoResourceId=R.drawable.monstre2;
+                 //   photoId.setImageResource(R.drawable.monstre2);
                     nomTx.setText(R.string.monstre2_nom);
                     aliasTx.setText(R.string.monstre2_alias);
                     descriptionTx.setText(R.string.monstre2_desc);
                     conditionsTx.setText(R.string.monstre2_conditions);
                     break;
                 case 3:
-                    photoId.setImageResource(R.drawable.monstre3);
+                    photoResourceId=R.drawable.monstre3;
+                  //  photoId.setImageResource(R.drawable.monstre3);
                     nomTx.setText(R.string.monstre3_nom);
                     aliasTx.setText(R.string.monstre3_alias);
                     descriptionTx.setText(R.string.monstre3_desc);
                     conditionsTx.setText(R.string.monstre3_conditions);
                     break;
                 case 4:
-                    photoId.setImageResource(R.drawable.monstre4);
+                    photoResourceId=R.drawable.monstre4;
+                  //  photoId.setImageResource(R.drawable.monstre4);
                     nomTx.setText(R.string.monstre4_nom);
                     aliasTx.setText(R.string.monstre4_alias);
                     descriptionTx.setText(R.string.monstre4_desc);
                     conditionsTx.setText(R.string.monstre4_conditions);
                     break;
                 case 5:
-                    photoId.setImageResource(R.drawable.monstre5);
+                    photoResourceId=R.drawable.monstre5;
+                  //  photoId.setImageResource(R.drawable.monstre5);
                     nomTx.setText(R.string.monstre5_nom);
                     aliasTx.setText(R.string.monstre5_alias);
                     descriptionTx.setText(R.string.monstre5_desc);
                     conditionsTx.setText(R.string.monstre5_conditions);
                     break;
                 case 6:
-                    photoId.setImageResource(R.drawable.monstre6);
+                    photoResourceId=R.drawable.monstre6;
+                  //  photoId.setImageResource(R.drawable.monstre6);
                     nomTx.setText(R.string.monstre6_nom);
                     aliasTx.setText(R.string.monstre6_alias);
                     descriptionTx.setText(R.string.monstre6_desc);
                     conditionsTx.setText(R.string.monstre6_conditions);
                     break;
                 case 7:
-                    photoId.setImageResource(R.drawable.monstre7);
+                    photoResourceId=R.drawable.monstre7;
+                 //   photoId.setImageResource(R.drawable.monstre7);
                     nomTx.setText(R.string.monstre7_nom);
                     aliasTx.setText(R.string.monstre7_alias);
                     descriptionTx.setText(R.string.monstre7_desc);
                     conditionsTx.setText(R.string.monstre7_conditions);
                     break;
                 case 8:
-                    photoId.setImageResource(R.drawable.monstre8);
+                    photoResourceId=R.drawable.monstre8;
+                  //  photoId.setImageResource(R.drawable.monstre8);
                     nomTx.setText(R.string.monstre8_nom);
                     aliasTx.setText(R.string.monstre8_alias);
                     descriptionTx.setText(R.string.monstre8_desc);
                     conditionsTx.setText(R.string.monstre8_conditions);
                     break;
                 case 9:
-                    photoId.setImageResource(R.drawable.monstre9);
+                    photoResourceId=R.drawable.monstre9;
+                   // photoId.setImageResource(R.drawable.monstre9);
                     nomTx.setText(R.string.monstre9_nom);
                     aliasTx.setText(R.string.monstre9_alias);
                     descriptionTx.setText(R.string.monstre9_desc);
                     conditionsTx.setText(R.string.monstre9_conditions);
                     break;
                 case 10:
-                    photoId.setImageResource(R.drawable.monstre10);
+                    photoResourceId=R.drawable.monstre10;
+                  //  photoId.setImageResource(R.drawable.monstre10);
                     nomTx.setText(R.string.monstre10_nom);
                     aliasTx.setText(R.string.monstre10_alias);
                     descriptionTx.setText(R.string.monstre10_desc);
                     conditionsTx.setText(R.string.monstre10_conditions);
                     break;
                 case 11:
-                    photoId.setImageResource(R.drawable.monstre11);
+                    photoResourceId=R.drawable.monstre11;
+                  //  photoId.setImageResource(R.drawable.monstre11);
                     nomTx.setText(R.string.monstre11_nom);
                     aliasTx.setText(R.string.monstre11_alias);
                     descriptionTx.setText(R.string.monstre11_desc);
                     conditionsTx.setText(R.string.monstre11_conditions);
                     break;
                 case 12:
-                    photoId.setImageResource(R.drawable.monstre12);
+                    photoResourceId=R.drawable.monstre12;
+                 //   photoId.setImageResource(R.drawable.monstre12);
                     nomTx.setText(R.string.monstre12_nom);
                     aliasTx.setText(R.string.monstre12_alias);
                     descriptionTx.setText(R.string.monstre12_desc);
                     conditionsTx.setText(R.string.monstre12_conditions);
                     break;
             }
+            Glide.with(this).load(photoResourceId).into(photoId);
         }
     }
 
