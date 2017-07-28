@@ -78,9 +78,5 @@ public class WelcomeFragment6 extends Fragment {
         
         return layoutView;
     }
-     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-       welcomeLogo6.setImageResource(0);
-    }
+ 
 }
