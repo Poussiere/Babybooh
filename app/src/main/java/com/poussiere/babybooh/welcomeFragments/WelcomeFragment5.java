@@ -94,27 +94,5 @@ public class WelcomeFragment5 extends Fragment {
         return layoutView;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-
-        }
-
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-
-    }
-
-     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-       welcomeLogo5.setImageResource(0);
-    }
+  
 }
