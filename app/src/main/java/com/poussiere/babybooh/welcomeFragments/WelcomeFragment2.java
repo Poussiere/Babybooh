@@ -60,10 +60,6 @@ public class WelcomeFragment2 extends Fragment {
         
     }
    
-        @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-       welcomeLogo2.setImageResource(0);
-    }
+      
 
 }
