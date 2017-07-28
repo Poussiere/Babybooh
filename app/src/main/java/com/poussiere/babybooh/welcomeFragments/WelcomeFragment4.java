@@ -63,17 +63,4 @@ public class WelcomeFragment4 extends Fragment {
         return layoutView;
     }
 
-
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-    }
-
-
 }
