@@ -66,6 +66,9 @@ public class WelcomeFragment6 extends Fragment {
         }
 
         welcomeLogo6=(ImageView)layoutView.findViewById(R.id.welcome_logo6);
+        
+        Glide.with(this).load(R.drawable.welcomelogo6).into(welcomeLogo6);
+        
         Display display = getActivity().getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
