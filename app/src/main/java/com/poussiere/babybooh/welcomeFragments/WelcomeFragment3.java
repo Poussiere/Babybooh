@@ -57,9 +57,5 @@ public class WelcomeFragment3 extends Fragment {
         
     }
 
-       @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-       welcomeLogo3.setImageResource(0);
-    }
+     
 }
