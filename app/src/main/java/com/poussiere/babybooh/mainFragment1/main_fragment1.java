@@ -5,14 +5,20 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.app.Fragment;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.poussiere.babybooh.MainActivity;
 import com.poussiere.babybooh.R;
@@ -24,10 +30,13 @@ public class main_fragment1 extends Fragment {
 
 
     private FloatingActionButton fabLancerVeille;
+    private View topContenair;
     private Intent intentLancerVeille;
     protected Intent avionIntent;
     // Cr�er un ContentResolver sans l'instancier pour d�tecter le mode avion
     private ContentResolver contentResolver ;
+    private ImageView monstreFont;
+    private View bebeMain;
 
     public main_fragment1() {
         // Required empty public constructor
@@ -51,6 +60,29 @@ public class main_fragment1 extends Fragment {
         // Inflate the layout for this fragment
         View layoutView  = inflater.inflate(R.layout.fragment_main1, container, false);
         fabLancerVeille=(FloatingActionButton)layoutView.findViewById(R.id.boutonLancerVeille);
+        topContenair=(View)layoutView.findViewById((R.id.main1_top_conteneur));
+        monstreFont=(ImageView)layoutView.findViewById(R.id.monstre_du_fond);
+        bebeMain=(View)layoutView.findViewById((R.id.bebe_main));
+
+        Display display = getActivity().getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        double heightD = width*0.3;
+        int height=(int)heightD;
+        RelativeLayout.LayoutParams parms = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,height);
+        topContenair.setLayoutParams(parms);
+
+        double bebeWidthD= width/2.3;
+        int bebeWidth=(int)bebeWidthD;
+        double bebeheightD=bebeWidth*1.1;
+        int bebeheight=(int) bebeheightD;
+        RelativeLayout.LayoutParams parms2 = new RelativeLayout.LayoutParams(bebeWidth,bebeheight);
+        parms2.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE);
+        parms2.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
+        parms2.setMarginEnd(30);
+        bebeMain.setLayoutParams(parms2);
+
 
         fabLancerVeille.setOnClickListener(new View.OnClickListener() {
             @Override

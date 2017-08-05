@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
+    /*
 
     //Splashscreen avec un temps défini. Il semble que ce soit considéré comme une mauvaise pratique bien que assez répandu
     private static int SPLASH_TIME_OUT = 2000;
@@ -31,9 +32,9 @@ public class SplashActivity extends AppCompatActivity {
         }, SPLASH_TIME_OUT);
     }
 }
+*/
 
 
-/*
 
 //SplashCreen sans durée définie (juste affiché pendant le temps de chargement qui peut être très court. C'est une bonne pratique
 
@@ -46,4 +47,4 @@ public class SplashActivity extends AppCompatActivity {
         finish();
     }
 }
-*/
+

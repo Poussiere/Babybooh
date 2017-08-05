@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">32dp</dimen>
+    <dimen name="activity_vertical_margin">32dp</dimen>
+    <dimen name="fab_margin">32dp</dimen>
+    <dimen name="space_between_close_textviews">2dp</dimen>
+    <dimen name="vertical_margins_between_detail_textviews">3dp</dimen>
+    <dimen name="my_basic_text_size">20sp</dimen>
+    <dimen name="detail_view_text_size">25sp</dimen>
+</resources>

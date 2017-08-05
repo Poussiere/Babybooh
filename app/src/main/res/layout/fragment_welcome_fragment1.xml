@@ -28,7 +28,8 @@
         android:text="@string/first_time_tittle"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+       android:textAppearance="@style/My.Medium.Text"
+
         android:textColor="@android:color/white"
         android:layout_below="@id/welcome_logo_conteneurr"
         />

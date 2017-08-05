@@ -299,11 +299,11 @@ public class MainActivity extends AppCompatActivity {
             try {
             
             if (f.mkdirs() || f.isDirectory()) {
-                String str_song_name = "Ani Couni" + ".3gpp";
+                String str_song_name = "Music box 1" + ".3gpp";
                 String path = this.getExternalFilesDir(null).getAbsolutePath() ;
                 path += "/babyboohSongs";
                 //CopyRAWtoSDCard(R.raw.anicouni, path + File.separator + str_song_name);
-                 InputStream in = getResources().openRawResource(R.raw.anicouni);
+                 InputStream in = getResources().openRawResource(R.raw.musicbox1);
                   FileOutputStream out = new FileOutputStream(path+File.separator+str_song_name);
                  byte[] buff = new byte[1024];
                   int read = 0;
@@ -319,7 +319,8 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
                }
 
-
+            prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            prefs.edit().putString("nomDuSon", "Music box 1"+".3gpp").apply();
         }
 
 

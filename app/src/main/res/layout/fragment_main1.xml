@@ -23,7 +23,7 @@
             android:gravity="center_horizontal"
             android:layout_centerInParent="true"
             android:layout_marginEnd="88dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textAppearance="@style/My.Medium.Text"
             android:id="@+id/tv_main1">
         </TextView>
         
@@ -55,15 +55,40 @@
     </RelativeLayout>
 
 
-    <ImageView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/main1_fab_conteneur"
+        android:layout_below="@id/main1_fab_conteneur">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:adjustViewBounds="true"
         android:cropToPadding="false"
-        android:scaleType="fitCenter"
+        android:scaleType="fitXY"
         android:layout_alignParentBottom="true"
-        android:src="@drawable/icone3"
+        android:src="@drawable/fondmonstre"
+        android:id="@+id/monstre_du_fond"
 
         />
+
+        <RelativeLayout
+            android:layout_width="140dp"
+            android:layout_height="150dp"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/bebe_main"
+            android:layout_centerHorizontal="true">
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:layout_alignParentBottom="true"
+            android:cropToPadding="false"
+            android:scaleType="fitXY"
+            android:src="@drawable/bebeone"
+            />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
 </RelativeLayout>

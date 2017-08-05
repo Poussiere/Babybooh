@@ -30,4 +30,8 @@
         <item name="android:textColorPrimary">@color/white</item>
     </style>
 
+    <style name="My.Medium.Text" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textSize">@dimen/my_basic_text_size</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
 </resources>

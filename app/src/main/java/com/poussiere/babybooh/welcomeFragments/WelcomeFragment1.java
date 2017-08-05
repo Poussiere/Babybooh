@@ -12,16 +12,10 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.poussiere.babybooh.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link WelcomeFragment1.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link WelcomeFragment1#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class WelcomeFragment1 extends Fragment {
 
     private ImageView welcomeLogo;

@@ -7,6 +7,7 @@
     android:id="@+id/scroll_view"
     tools:context="com.poussiere.babybooh.mainFragment3.IdMonstreActivity"
     android:scrollbars="none"
+    android:overScrollMode="never"
 
     >
 
@@ -26,7 +27,6 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:background="@drawable/bordure_pola"
         android:id="@+id/photoId"/>
 </FrameLayout>
 

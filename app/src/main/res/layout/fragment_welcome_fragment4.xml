@@ -18,7 +18,7 @@
         android:text="@string/ask_genre1"
         android:layout_alignParentTop="true"
         android:gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="@dimen/my_basic_text_size"
         android:textColor="@android:color/white"
         />
 
@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/welcome_fragment_4_text_1"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="@dimen/my_basic_text_size"
         android:textColor="@android:color/white">
 
         <RadioButton
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:text="@string/fille"
             android:checked="true"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="@dimen/my_basic_text_size"
             android:textColor="@android:color/white"
             android:buttonTint="@color/color_accent"/>
 
@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/garcon"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="@dimen/my_basic_text_size"
             android:textColor="@android:color/white"
             android:buttonTint="@color/color_accent"/>
 
@@ -62,7 +62,7 @@
         android:layout_centerInParent="true"
         android:gravity="center"
         android:layout_marginTop="30dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="@dimen/my_basic_text_size"
         android:textColor="@android:color/white"
         />
     <EditText
@@ -74,8 +74,8 @@
         android:maxLines="1"
         android:imeOptions="actionDone"
         android:hint="@string/bebe_nom"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/white"
+        android:textAppearance="@style/My.Medium.Text"
+        android:textColor="@color/color_accent"
         android:inputType="textCapWords"/>
 
     </RelativeLayout>

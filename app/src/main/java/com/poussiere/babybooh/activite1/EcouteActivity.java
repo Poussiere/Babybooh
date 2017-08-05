@@ -184,7 +184,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
         delaisDeclenchement=Long.parseLong(prefs.getString("delais_declenchement", "0"));
         
         //Récupération du nom du son à lire lorsque la veille est déclenchée
-        sonNom=prefs.getString("nomDuSon","Ani Couni.3gpp");
+        sonNom=prefs.getString("nomDuSon","Music box 1.3gpp");
         
         ecoute=new Ecoute();
         lecture=new Lecture(this);

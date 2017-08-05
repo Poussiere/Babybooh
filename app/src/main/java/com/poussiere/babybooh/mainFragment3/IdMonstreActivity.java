@@ -38,7 +38,7 @@ public class IdMonstreActivity extends Activity implements ParallaxMonster.OnScr
         int scrollY = parallaxMonster.getScrollY();
         // Add parallax effect
       //  conteneur.setTranslationY(scrollY * 0.6f);// regler ici entre 0 et 1 l'intensite de l'effet
-         conteneur.setTranslationY(scrollY * 1.0F);// regler ici entre 0 et 1 l'intensite de l'effet
+         conteneur.setTranslationY(scrollY * 0.6F);// regler ici entre 0 et 1 l'intensite de l'effet
     }
 
 
