@@ -2,15 +2,20 @@ package com.poussiere.babybooh.mainFragment2;
 
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
 import android.text.format.DateUtils;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -42,8 +47,10 @@ public class DetailActivity extends AppCompatActivity implements android.app.Loa
     private TextView interrompu;
     private Uri mUri;
     private int numMonstre=0;
+    private ShareActionProvider mShareActionProvider;
+    private Intent sendIntent;
 
-    private String mDate, mHeure, mDuree, mDecibels, mHighestDecibels, mLuminosite, mLux;
+    private String mDate, mHeure, mDuree, mDecibels, mHighestDecibels, mLuminosite, mLux, mNomDuMonstre;
 
 
     private int tabNoms [] = {R.string.monstre1_nom, R.string.monstre2_nom,
@@ -77,7 +84,10 @@ public class DetailActivity extends AppCompatActivity implements android.app.Loa
        lux = (TextView)findViewById(R.id.detail_lux_view);
        interrompu = (TextView)findViewById(R.id.detail_interrompu_evenement_view);
 
-        
+
+
+
+
         // couleur de la barre de statuts pour Lolipo et +
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
@@ -124,6 +134,9 @@ public class DetailActivity extends AppCompatActivity implements android.app.Loa
                 */
                 onBackPressed();
                 return true;
+            case R.id.menu_item_share:
+                startActivity(Intent.createChooser(sendIntent, getString(R.string.partager)));
+
         }
         return super.onOptionsItemSelected(item);
     }
@@ -150,7 +163,9 @@ public class DetailActivity extends AppCompatActivity implements android.app.Loa
                 cursor.moveToFirst();
             numMonstre = cursor.getInt(Contract.Evenements.POSITION_COL5);
                 photoMonstre.setImageResource(tabImages[numMonstre-1]);
-                nomMonstre.setText(tabNoms[numMonstre-1]);
+
+                mNomDuMonstre=getString(tabNoms[numMonstre-1]);
+                nomMonstre.setText(mNomDuMonstre);
 
                 long lDate=cursor.getLong(Contract.Evenements.POSITION_COL3);
                 mDate= DateUtils.formatDateTime(this, lDate, DateUtils.FORMAT_SHOW_YEAR);
@@ -190,6 +205,27 @@ public class DetailActivity extends AppCompatActivity implements android.app.Loa
                 }else interrompu.setVisibility(View.INVISIBLE);
 
                 }
+
+                sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+
+            // Garçon ou fille + nom du bébé + nom du monstre.
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            String sexe = prefs.getString("sexe", "fille");
+            String nomBebe =  prefs.getString("nom", "Rose");
+
+            String messageToTheWorld = null;
+
+            if (sexe.equals("garcon")){
+                messageToTheWorld=getString(R.string.message_to_the_world_garcon, nomBebe, mNomDuMonstre);
+
+            }else{
+                messageToTheWorld=getString(R.string.message_to_the_world_fille, nomBebe, mNomDuMonstre);
+            }
+
+            sendIntent.putExtra(Intent.EXTRA_TEXT, messageToTheWorld);
+            sendIntent.setType("text/plain" );
+           // setShareIntent(sendIntent);
         }
 
         @Override
@@ -226,5 +262,28 @@ public class DetailActivity extends AppCompatActivity implements android.app.Loa
 
 
         }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate menu resource file.
+        getMenuInflater().inflate(R.menu.menu_detail_activity, menu);
+
+        // Locate MenuItem with ShareActionProvider
+        MenuItem item = menu.findItem(R.id.menu_item_share);
+
+        // Fetch and store ShareActionProvider
+        mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(item);
+
+        // Return true to display menu
+        return true;
+    }
+
+    // Call to update the share intent
+  //  private void setShareIntent(Intent shareIntent) {
+    //    if (mShareActionProvider != null) {
+      //      mShareActionProvider.setShareIntent(shareIntent);
+        //}
+  //  }
+
 }
 

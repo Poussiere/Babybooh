@@ -260,9 +260,14 @@
     <string name="lumière_faible">Lumière faible</string>
     <string name="lumière_forte">Lumière normale</string>
     <string name="jour">Plein jour</string>
-
     <string name="lancer_veille">Appuyez pour lancer la veille</string>
-
     <string name="son_en_cours">Il y a déjà une lecture en cours</string>
+
+
+    <!-- Pas encore traduit
+-->
+    <string name="message_to_the_world_garcon">%1$s a été réveillé par un monstre terrifiant nommé %2$s! Merci BabyBoOH de m\'aider à veiller sur mon bébé!</string>
+    <string name="message_to_the_world_fille">%1$s a été réveillée par un monstre terrifiant nommé %2$s! Merci BabyBoOH de m\'aider à veiller sur mon bébé!</string>
+    <string name="partager">Partager</string>
     
 </resources>
