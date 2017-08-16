@@ -62,16 +62,18 @@ public class Ecoute {
 
     // Méthode qui permettre d'obtenir le niveau sonore du flux capturé en décibelles
 
-    public double obtenirDecibels()
+    public double obtenirDecibels(double amplitudeReference)
     {
         if (mediaRecorder != null)
 
         {//On récupère l'amplitude (niveau sonore) du flux capté
             double amplitude = mediaRecorder.getMaxAmplitude();
+            Log.i("objetc ecoute", "amplitude : "+amplitude);
 
             //On convertit l'amplitude en décibels grace à la formule
-            //double db = 20 * Math.log10(amplitude/ 2700);
-            return amplitude;
+            double db = 20 * Math.log10(amplitude/ amplitudeReference);
+
+            return db;
 
         }
 
@@ -81,7 +83,31 @@ public class Ecoute {
 
     }
 
-    //Méthode qui va permettre de sa voir si le MediaRecorder est actif ou non
+    //Méthode qui retourne l'amplitude max
+    public double obtenirAmplitude(){
+        if (mediaRecorder != null)
+
+        {//On récupère l'amplitude (niveau sonore) du flux capté
+            double amplitude = mediaRecorder.getMaxAmplitude();
+
+          /*  if (amplitude==0.0){
+                amplitude=0.7;
+            }
+            */
+            return amplitude;
+
+        }
+
+        else {
+            return 0;}
+
+    }
+
+
+
+
+
+    //Méthode qui va permettre de savoir si le MediaRecorder est actif ou non
     public boolean isRunning()
     {if (mediaRecorder==null)
         return false;

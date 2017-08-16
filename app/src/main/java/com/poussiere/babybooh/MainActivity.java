@@ -314,6 +314,36 @@ public class MainActivity extends AppCompatActivity {
                 } finally {
                    in.close();
                  out.close();}
+
+                //Music box 2
+                str_song_name = "Music box 2" + ".3gpp";
+                in = getResources().openRawResource(R.raw.musicbox2);
+                out = new FileOutputStream(path+File.separator+str_song_name);
+                buff = new byte[1024];
+                read = 0;
+                try {
+                    while ((read = in.read(buff)) > 0) {
+                        out.write(buff, 0, read);
+                    }
+                } finally {
+                    in.close();
+                    out.close();}
+
+                //Music box 3
+                str_song_name = "Music box 3" + ".3gpp";
+                in = getResources().openRawResource(R.raw.musicbox3);
+                out = new FileOutputStream(path+File.separator+str_song_name);
+                buff = new byte[1024];
+                read = 0;
+                try {
+                    while ((read = in.read(buff)) > 0) {
+                        out.write(buff, 0, read);
+                    }
+                } finally {
+                    in.close();
+                    out.close();}
+
+
             }
                 } catch (IOException e) {
             e.printStackTrace();
@@ -321,6 +351,8 @@ public class MainActivity extends AppCompatActivity {
 
             prefs = PreferenceManager.getDefaultSharedPreferences(this);
             prefs.edit().putString("nomDuSon", "Music box 1"+".3gpp").apply();
+
+
         }
 
 

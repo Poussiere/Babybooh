@@ -48,18 +48,18 @@
         <activity
             android:name=".mainFragment3.IdMonstreActivity"
             android:label="@string/title_activity_id_monstre"
-            android:theme="@style/AppTheme"
-                  android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".mainFragment3.ChasseFullScreenActivity"
             android:label="@string/title_activity_chasse_full_screen"
-            android:theme="@style/AppTheme"
-                  android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".mainFragment3.TableauDeChasseActivity"
             android:label="@string/title_activity_tableau_de_chasse"
-            android:theme="@style/AppTheme"
-                  android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <activity android:name=".annexes.EnregistrerRecyclerViewAdapter" />
         <activity
             android:name=".annexes.EnregistrerActivity2"
@@ -72,8 +72,10 @@
             android:authorities="com.poussiere.babybooh"
             android:exported="false" />
 
-        <activity android:name=".mainFragment2.DetailActivity"
-                  android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".mainFragment2.DetailActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".annexes.CalibreActivity"></activity>
     </application>
 
 </manifest>

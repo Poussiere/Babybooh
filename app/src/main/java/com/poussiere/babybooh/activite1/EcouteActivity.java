@@ -44,7 +44,6 @@ import java.util.Calendar;
 public class EcouteActivity extends Activity {
 
     public static final String ACT2 = "EcouteActivity";
-    public static final String APP_NAME = "Veille";
     public static final int EVENEMENT_INTERROMPU = 1; // l'utilisateur a arrêté la veille après le reveil de bébé
     public static final int EVENEMENT_TERMINE = 0; // Bebe s'est rendormi après l'évenement
 
@@ -82,8 +81,8 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
     private long duree; //duree de l'évenement
 
     // Variable qui r�cup�re le niveau sonore en d�cibels du cri initial qui a déclenché le détecteur
-    private double resultEcoute, decibels; // le resultcoute arrive en amplitude et se sera converti en décibels dans decibels
-    
+    private double resultEcoute, decibels, amplitudeRef; // le resultcoute arrive en amplitude et se sera converti en décibels dans decibels
+
     //Variable permettant de stocker la décibels la plus haute de l'évenement
     private double highestDecibel, decibelTemp ;
     
@@ -179,8 +178,14 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
         //Récuperation du seuilDécibel dans le sharedPreference (transformation du string en double)
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         seuil= prefs.getString("sensibilite_micro", "400");
+
         seuilDecibels =Double.parseDouble(seuil);
-        
+
+        seuilDecibels=25;
+
+        String ar = prefs.getString("amplitudeRef", "0.7");
+        amplitudeRef = Double.parseDouble(ar);
+
         delaisDeclenchement=Long.parseLong(prefs.getString("delais_declenchement", "0"));
         
         //Récupération du nom du son à lire lorsque la veille est déclenchée
@@ -223,34 +228,63 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                         {
                             try {
 
-                                ecoute.demarrerEcoute();                            //alors il sera lanc�
+                                ecoute.demarrerEcoute();//alors il sera lanc�
+
+
                                 Log.i(ACT2, "ecoute démarrée");
 
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
+                            ;
+
+                            resultEcoute = ecoute.obtenirDecibels(amplitudeRef);  //on r�cup�re le niveau sonore en d�cibels
+                            Log.i(ACT2, "test des décibels beta");
+                            Log.i(ACT2, "resultEcoute en dB : "+resultEcoute+" ");
 
 
-                        }
-
-                        resultEcoute = ecoute.obtenirDecibels();  //on r�cup�re le niveau sonore en d�cibels
-                        Log.i(ACT2, "test des décibels1");
-                        Log.i(ACT2, resultEcoute+" ");
-                        if (resultEcoute > seuilDecibels)                 // Si le r�sultat de l'�coute est sup�rieur au seuil fix� en d�cibels, alors on enverra un message � l'UI thread
-                        {
-                            Log.i(ACT2, "le seuil des décibels est dépassé (essai 1");
                             try {
-                                background.sleep(300);//lon fait une pause pour s'assurer qu'il ne s'agit pas seulement d'un bruit bref
+                                background.sleep(2000);//On laisse le temps de poser le téléphone
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
 
-                            resultEcoute = ecoute.obtenirDecibels();
+
+
+
+
+                        }
+
+
+
+                        try {
+                            background.sleep(300);//On laisse le temps de poser le téléphone
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        resultEcoute = ecoute.obtenirDecibels(amplitudeRef);  //on r�cup�re le niveau sonore en d�cibels
+                        Log.i(ACT2, "test des décibels1");
+
+                        Log.i(ACT2, "resultEcoute en dB : "+resultEcoute+" ");
+
+
+                       // if (resultEcoute > seuilDecibels)                 // Si le r�sultat de l'�coute est sup�rieur au seuil fix� en d�cibels, alors on enverra un message � l'UI thread
+
+
+                        {
+                            Log.i(ACT2, "le seuil des décibels est dépassé (essai 1");
+                            try {
+                                background.sleep(300);//on fait une pause pour s'assurer qu'il ne s'agit pas seulement d'un bruit bref
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+
+                            resultEcoute = ecoute.obtenirDecibels(amplitudeRef);
 
                             Log.i(ACT2, "test des décibels1");
                             if (resultEcoute > seuilDecibels) { // recuperation des decibels
                                 Log.i(ACT2, "le seuil des décibels est dépassé (essai 2");
-                                Log.i(ACT2, resultEcoute+" ");
+                                Log.i(ACT2, "resultEcoute en dB : "+resultEcoute+" ");
                                 // On fait en sorte de ne pas relancer la phase d'écoute tout de suite
                                 
                                 
@@ -280,8 +314,9 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                 }
                                 // Onrécupère le niveau en décibels de cet évenement déclencheur
                                 Log.i(ACT2, "captation des paramettres de l'évènement");
-                                decibels = 20 * Math.log10(resultEcoute / 10);
+                              //  decibels = 20 * Math.log10(resultEcoute / 10);
 
+                                decibels=resultEcoute;
                                 //On donne sa première valeur au highestDecibels
                                 highestDecibel = decibels;
 
@@ -357,7 +392,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                         }
 
                         Log.i(ACT2, "Test des decibels 3");
-                        resultEcoute = ecoute.obtenirDecibels();
+                        resultEcoute = ecoute.obtenirDecibels(amplitudeRef);
 
                         Log.i(ACT2, resultEcoute + " réécoute");
 
@@ -373,7 +408,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
-                            resultEcoute = ecoute.obtenirDecibels();
+                            resultEcoute = ecoute.obtenirDecibels(amplitudeRef);
 
                           
 
@@ -385,7 +420,8 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                 heureReDetectionPrecedente = heureReDetection;}
 
                                     // detetection pour voir si décibels plus importantes que précédemment
-                                    decibelTemp = 20 * Math.log10(resultEcoute / 10);
+                                   // decibelTemp = 20 * Math.log10(resultEcoute / 10);
+                                    decibelTemp=resultEcoute;
                                     if (decibelTemp > highestDecibel) {
                                         highestDecibel = decibelTemp;
                                     }
@@ -436,7 +472,8 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                             Log.i(ACT2, "captation des paramettres de l'évènement");
 
                             //On récupère en decibels le niveau sonore de ce dernier cri déclencheur et on check pour voir si c'est le cri le plus puissant
-                            decibelTemp = 20 * Math.log10(resultEcoute / 10);
+                          //  decibelTemp = 20 * Math.log10(resultEcoute / 10);
+                            decibelTemp=resultEcoute;
                             if (decibelTemp > highestDecibel) {
                                 highestDecibel = decibelTemp;
                             }
