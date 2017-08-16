@@ -55,16 +55,20 @@ public class WelcomeFragment6 extends Fragment {
        prefs= PreferenceManager.getDefaultSharedPreferences(getActivity());
         tv1=(TextView)layoutView.findViewById(R.id.welcome_fragment_6_text);
 
-       String lui=getString(com.poussiere.babybooh.R.string.lui);
-       String elle=getString(com.poussiere.babybooh.R.string.elle);
+    //   String lui=getString(com.poussiere.babybooh.R.string.lui);
+    //   String elle=getString(com.poussiere.babybooh.R.string.elle);
         String nom=prefs.getString("nom", "Rose");
-        String sexe=prefs.getString("sexe", "fille");
+      /*  String sexe=prefs.getString("sexe", "fille");
         if (sexe.equals("fille")) {
             tv1.setText(getString(com.poussiere.babybooh.R.string.ask_record1,nom , elle));
         }
        else {
             tv1.setText(getString(com.poussiere.babybooh.R.string.ask_record1, nom , lui));
         }
+        */
+
+        tv1.setText(getString(R.string.ask_calibre,nom));
+
 
         welcomeLogo6=(ImageView)layoutView.findViewById(R.id.welcome_logo6);
         

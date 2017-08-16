@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_color"
+
     tools:context="com.poussiere.babybooh.annexes.EnregistrerActivity2">
 
     <android.support.v7.widget.Toolbar
@@ -20,14 +22,16 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true">
+        android:layout_centerVertical="true"
+        >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_lancer_calibrage"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:text="@string/lancer_enregistrement"
+            android:text="@string/demarrer_calibrage"
+            android:textColor="@color/white"
             android:gravity="center"
             />
 

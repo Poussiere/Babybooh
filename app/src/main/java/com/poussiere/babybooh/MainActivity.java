@@ -49,6 +49,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.poussiere.babybooh.annexes.CalibreActivity;
 import com.poussiere.babybooh.bdd.Contract;
 import com.poussiere.babybooh.mainFragment1.main_fragment1;
 import com.poussiere.babybooh.mainFragment2.mainFragment2;
@@ -640,7 +641,7 @@ String alertDiag5;
             prefs.edit().putBoolean("firstrun", false).apply();
             
             
-            Intent intent = new Intent(MainActivity.this, EnregistrerActivity.class);
+            Intent intent = new Intent(MainActivity.this, CalibreActivity.class);
             conteneurDuMain.setVisibility(VISIBLE);
             startActivity(intent);
         }

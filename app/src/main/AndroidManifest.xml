@@ -50,16 +50,6 @@
             android:label="@string/title_activity_id_monstre"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        <activity
-            android:name=".mainFragment3.ChasseFullScreenActivity"
-            android:label="@string/title_activity_chasse_full_screen"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".mainFragment3.TableauDeChasseActivity"
-            android:label="@string/title_activity_tableau_de_chasse"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
         <activity android:name=".annexes.EnregistrerRecyclerViewAdapter" />
         <activity
             android:name=".annexes.EnregistrerActivity2"
