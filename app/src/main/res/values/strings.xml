@@ -160,7 +160,6 @@
     <string name="pref_eteint_ecran_summary">L\'écran s\'éteindra pendant la veille. Recommandé si vous souhaitez que votre bébé soit dans le noir complet ou si vous souhaitez économiser votre batterie</string>
 
     <string name="first_time_tittle">Bienvenue dans babyboOH ! \n\n Notre équipe de chasseurs de monstres va veiller sur votre bébé pendant qu\'il dort.</string>
-    <string name="first_time1">A chaque fois que votre bébé se réveillera, un message apaisant que vous allez lui enregistrer sera diffusé jusqu\'à ce qu\'il se rendorme.</string>
     <string name="first_time2">Nos experts analyseront alors les cris qui ont été émis par votre bébé ainsi que son environnement pour vous dire quel type de monstre l\'a réveillé! </string>
 
     <string name="continuer">SUIVANT</string>
@@ -275,4 +274,14 @@
     <string name="calibrage_en_cours">Calibrage en cours!</string>
     <string name="calibrage_terminé">Le calibrage est terminé. Vous pouvez désormais utiliser BabyBoOH avec votre bébé!</string>
     <string name="salle_de_calibrage">Calibrage du micro</string>
+
+    <string name="apropos">A propos</string>
+    <string name="a_propos1">BabyBoOH Android version 1.0</string>
+    <string name="a_propos2">BabyBoOh est une application vous permettant de surveiller le sommeil de votre bébé de manière ludique. En aucun cas elle ne peut se substituer à la surveillance active de la part d\'une personne adulte. Ne laissez pas votre bébé pleurer. Ne laissez pas votre bébé seul. </string>
+    <string name="remerciements">BabyBoOH a été développé par Nicolas Boutin. Merci à Blandine pour son soutien et ses précieux conseils et à Jerome Boutin pour son aide dans la conception des dessins. Remerciements spéciaux à Mahel Bazin pour les discussions enrichissantes et son soutien en territoire hostile. \n\nLa reproduction partielle ou totale du contenu de cette application est interdite.</string>
+
+
+    <!-- Reformulé
+-->
+    <string name="first_time1">A chaque fois que votre bébé se réveillera, une musique apaisante sera jouée jusqu\'à ce qu\'il se rendorme. Vous pourrez même enregistrer votre propre message en vous rendant dans la salle d\'enregistrement.</string>
 </resources>

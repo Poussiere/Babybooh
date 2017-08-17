@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar5"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.MyApp.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        style="@style/Widget.MyApp.Toolbar.Solid"
+        android:layout_alignParentEnd="true"
+        app:elevation="4dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/my_toolbar5">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/a_propos_titre"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="@string/a_propos1"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/a_propos_text2"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="@string/a_propos2"
+            android:gravity="center"
+            android:layout_below="@id/a_propos_titre"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/a_propos_remerciements"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="@string/remerciements"
+            android:gravity="center"
+            android:layout_below="@id/a_propos_text2"
+            />
+    </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

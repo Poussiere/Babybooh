@@ -8,23 +8,26 @@
         app:showAsAction="never" />
 
 
-
     <item android:id="@+id/enregistrer"
         android:title="@string/salleEnregistrement"
-        android:orderInCategory="1"
+        android:orderInCategory="2"
         app:showAsAction="never" />
 
     <item android:id="@+id/reinit"
         android:title="Réinitialiser l\'application"
-        android:orderInCategory="101"
+        android:orderInCategory="4"
         app:showAsAction="never" />
 
-
+    <item android:id="@+id/a_propos"
+        android:title="@string/apropos"
+        android:orderInCategory="5"
+        app:showAsAction="never" />
 
     <item android:id="@+id/action_settings"
         android:title="@string/action_settings"
-        android:orderInCategory="100"
+        android:orderInCategory="3"
         app:showAsAction="never" />
+
 
 
 </menu>

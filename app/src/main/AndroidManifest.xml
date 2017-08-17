@@ -65,7 +65,8 @@
         <activity
             android:name=".mainFragment2.DetailActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".annexes.CalibreActivity"></activity>
+        <activity android:name=".annexes.CalibreActivity" />
+        <activity android:name=".annexes.AProposActivity"></activity>
     </application>
 
 </manifest>

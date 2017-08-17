@@ -49,6 +49,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.poussiere.babybooh.annexes.AProposActivity;
 import com.poussiere.babybooh.annexes.CalibreActivity;
 import com.poussiere.babybooh.bdd.Contract;
 import com.poussiere.babybooh.mainFragment1.main_fragment1;
@@ -74,10 +75,11 @@ import static android.view.View.VISIBLE;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String ACT_NAME = "main_veille";
+
     private Intent intentEnregistrer;
     private Intent intentSettings;
     private Intent intentCalibrer;
+    private Intent intentAPropos;
     private SharedPreferences prefs = null;
     private FrameLayout conteneur;
     private RelativeLayout conteneurDuMain;
@@ -113,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
         intentEnregistrer = new Intent(MainActivity.this, EnregistrerActivity.class);
         intentSettings = new Intent(MainActivity.this, AppCompatPreferenceActivity.class);
         intentCalibrer = new Intent(MainActivity.this, CalibreActivity.class);
+        intentAPropos = new Intent(MainActivity.this, AProposActivity.class);
         conteneur=(FrameLayout)findViewById(R.id.conteneur_boutons);
         welcomeConteneur=(RelativeLayout)findViewById(R.id.conteneur_du_premier_lancement);
         circlesConteneur=(LinearLayout)findViewById(R.id.circles_id);
@@ -448,6 +451,10 @@ public class MainActivity extends AppCompatActivity {
 
             case com.poussiere.babybooh.R.id.enregistrer:
                 startActivity(intentEnregistrer);
+                return true;
+
+            case R.id.a_propos:
+                startActivity(intentAPropos);
                 return true;
 
             case com.poussiere.babybooh.R.id.reinit:

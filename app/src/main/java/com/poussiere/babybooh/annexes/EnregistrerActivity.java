@@ -47,17 +47,15 @@ import java.io.File;
 import java.io.IOException;
 
 
-// Faire apparataitre un dialogue proposant d'�couter l'enregistrement et de le modifier si n�cessaire
-//Enregistrer sonNom dans une sharepreference...
 
 
 
 public class EnregistrerActivity extends AppCompatActivity {
 
-    public static final String ACT3 = "activite 3";
+
     TextView tv1;
 
-    Button bouton3;
+
 
     GridLayoutManager lLayout;
     EnregistrerRecyclerViewAdapter rcAdapter;
