@@ -7,6 +7,8 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -14,6 +16,8 @@ import android.hardware.SensorManager;
 
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Handler;
+import android.os.Message;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
@@ -27,6 +31,7 @@ import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -39,6 +44,8 @@ import com.poussiere.babybooh.objets.Monstre;
 
 import java.io.IOException;
 import java.util.Calendar;
+
+import static com.poussiere.babybooh.R.color.rouge;
 
 
 public class EcouteActivity extends Activity {
@@ -61,6 +68,9 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
  */
     public static final int MY_PERMISSIONS_REQUEST_AUDIO_RECORD = 42;
+
+    private TextView introText;
+    private long dateDebutReveil;
 
     String monstreSexy=null; // Car en String = clé pour les sharedpreference
 
@@ -123,10 +133,11 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
     //
     private  SensorManager sensorManager;
 
-    int lum ;
-    long date ;
-    int monstre;
-    FloatingActionButton fab;
+    private int lum ;
+    private long date ;
+    private int monstre;
+    private FloatingActionButton fab;
+    private Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,6 +154,8 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
         setContentView(R.layout.activity_ecoute);
 
+
+        introText=(TextView)findViewById(R.id.text_ecoute);
         //On va demander la permission d'acceder au micro
         int permissionCheckAudio = ContextCompat.checkSelfPermission(this,
                 Manifest.permission.RECORD_AUDIO);
@@ -177,11 +190,10 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
         
         //Récuperation du seuilDécibel dans le sharedPreference (transformation du string en double)
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        seuil= prefs.getString("sensibilite_micro", "400");
+        seuil= prefs.getString("sensibilite_micro", "45");
 
         seuilDecibels =Double.parseDouble(seuil);
 
-        seuilDecibels=25;
 
         String ar = prefs.getString("amplitudeRef", "0.7");
         amplitudeRef = Double.parseDouble(ar);
@@ -190,7 +202,8 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
         
         //Récupération du nom du son à lire lorsque la veille est déclenchée
         sonNom=prefs.getString("nomDuSon","Music box 1.3gpp");
-        
+        final int rouge = ContextCompat.getColor(this, R.color.rouge);
+
         ecoute=new Ecoute();
         lecture=new Lecture(this);
 
@@ -201,6 +214,31 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
         animation.setRepeatMode(Animation.REVERSE); // Reverse animation at the end so the button will fade back in
         fab= (FloatingActionButton) findViewById(R.id.boutonFlottant);
         fab.startAnimation(animation);
+
+
+        handler=new Handler(){
+
+            public void handleMessage(Message msg){
+                super.handleMessage(msg);
+            int display = msg.what;
+
+                switch (display){
+
+
+
+                    case 1 :
+                        introText.setText(R.string.ecoute_active);
+                        break;
+                    case 2 :
+                        introText.setText(R.string.sortir);
+                        break;
+                    case 3 :
+                        introText.setText("");
+                        break;
+                }
+            }
+
+        };
 
         //Thread d'écoute qui sera lancé dans le onResume :
         background = new Thread (new Runnable() {
@@ -226,6 +264,13 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                         if (!ecoute.isRunning())                   // Si le mediarecorder n'est pas encore actif,
                         {
+                            //Phase d'introduction
+
+
+
+
+
+
                             try {
 
                                 ecoute.demarrerEcoute();//alors il sera lanc�
@@ -236,9 +281,13 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
-                            ;
 
-                            resultEcoute = ecoute.obtenirDecibels(amplitudeRef);  //on r�cup�re le niveau sonore en d�cibels
+                            handler.sendEmptyMessage(1);
+                            handler.sendEmptyMessageDelayed(2, 2000);
+                            handler.sendEmptyMessageDelayed(3, 5000); // Effacer le textView
+
+
+                            resultEcoute = ecoute.obtenirDecibels(amplitudeRef);  //on r�cup�re le niveau sonore en d�cibels beta
                             Log.i(ACT2, "test des décibels beta");
                             Log.i(ACT2, "resultEcoute en dB : "+resultEcoute+" ");
 
@@ -257,8 +306,10 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
 
 
+
+
                         try {
-                            background.sleep(300);//On laisse le temps de poser le téléphone
+                            background.sleep(300);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -268,8 +319,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                         Log.i(ACT2, "resultEcoute en dB : "+resultEcoute+" ");
 
 
-                       // if (resultEcoute > seuilDecibels)                 // Si le r�sultat de l'�coute est sup�rieur au seuil fix� en d�cibels, alors on enverra un message � l'UI thread
-
+                        if (resultEcoute > seuilDecibels)
 
                         {
                             Log.i(ACT2, "le seuil des décibels est dépassé (essai 1");
@@ -281,12 +331,25 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                             resultEcoute = ecoute.obtenirDecibels(amplitudeRef);
 
-                            Log.i(ACT2, "test des décibels1");
-                            if (resultEcoute > seuilDecibels) { // recuperation des decibels
+                            Log.i(ACT2, "test des décibels2");
+                            if (resultEcoute > seuilDecibels) {
                                 Log.i(ACT2, "le seuil des décibels est dépassé (essai 2");
                                 Log.i(ACT2, "resultEcoute en dB : "+resultEcoute+" ");
                                 // On fait en sorte de ne pas relancer la phase d'écoute tout de suite
-                                
+
+                                cal=Calendar.getInstance();
+                                dateDebutReveil=cal.getTimeInMillis();
+
+                                //on ajoute 1 au compteur d'évènements et on met dans un shared preference le fait que le bebe ait été réveillé une ou plusieurs fois
+
+
+                                if (xt==0) prefs.edit().putBoolean("unReveil",true).apply();
+                                else if (xt>0)
+                                {
+                                    prefs.edit().putBoolean("unReveil",false).apply();
+                                    prefs.edit().putBoolean("plusieursReveil",true).apply();
+                                }
+                                xt=xt+1;
                                 
 
 
@@ -303,15 +366,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                 //On calcule la différence entre l'heure de l'evenement et l'heure du debut
                                 difference=timeInMillis-dateDebut;
 
-                                //on ajoute 1 au compteur d'évènements et on met dans un shared preference le fait que le bebe ait été réveillé une ou plusieurs fois
-                                xt++;
 
-                                if (xt==1) prefs.edit().putBoolean("unReveil",true).apply();
-                                else if (xt>1)
-                                {
-                                    prefs.edit().putBoolean("unReveil",false).apply();
-                                    prefs.edit().putBoolean("plusieursReveil",true).apply();
-                                }
                                 // Onrécupère le niveau en décibels de cet évenement déclencheur
                                 Log.i(ACT2, "captation des paramettres de l'évènement");
                               //  decibels = 20 * Math.log10(resultEcoute / 10);
@@ -335,6 +390,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                 Log.i(ACT2, "Lecture a partir de la sequence ecoute");
                                cal=Calendar.getInstance();
                                 heureReDetection=cal.getTimeInMillis();
+                                heureReDetectionPrecedente=heureReDetection;
                                 //Si le temps écoulé depuis le premier cri du bébé est supérieur au délais défini par l'utilisateur, on lance la lecture du son
                                 if ((heureReDetection-timeInMillis)>=delaisDeclenchement){
 
@@ -383,17 +439,8 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                         Log.i(ACT2, "Son terminé, on réécoute pour voir si bébé pleure toujours");
 
 
-
-                        // On fait une petite pause sinon l'echo du son lu déclenche à nouveau le capteur
-                        try {
-                            background.sleep(1000);//le thread background sera relanc� toutes les 300 millisecondes tant que la valeur seuil n'aura pas �t� d�pass�e.
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-
                         Log.i(ACT2, "Test des decibels 3");
                         resultEcoute = ecoute.obtenirDecibels(amplitudeRef);
-
                         Log.i(ACT2, resultEcoute + " réécoute");
 
                         // Si le nombre de d�cibels est inf�rieur au seuil (si le b�b� ne crie plus
@@ -404,7 +451,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                             // On fait une petite pause sinon l'echo du son lu déclenche à nouveau le capteur
                             try {
-                                background.sleep(1000);//le thread background sera relanc� toutes les 300 millisecondes tant que la valeur seuil n'aura pas �t� d�pass�e.
+                                background.sleep(1000);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
@@ -414,10 +461,10 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                                 if (resultEcoute > seuilDecibels) // Double vérification pour voir si le bruit est persistant
                                 {
-                                        cal=Calendar.getInstance();
+                                    heureReDetectionPrecedente = heureReDetection;
+
+                                    cal=Calendar.getInstance();
                                       heureReDetection = cal.getTimeInMillis();
-                            if (heureReDetectionPrecedente == 0) {
-                                heureReDetectionPrecedente = heureReDetection;}
 
                                     // detetection pour voir si décibels plus importantes que précédemment
                                    // decibelTemp = 20 * Math.log10(resultEcoute / 10);
@@ -429,7 +476,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                     Log.i(ACT2, "Le seuil est toujours dépassé 3, la lecture du son est relancée");
                                     Log.i(ACT2, resultEcoute + " réécoute");
 
-                                    heureReDetectionPrecedente = heureReDetection;
+
                                   
                                        // lecture.resume();
                                          
@@ -463,7 +510,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
 
 
-                        } else if ((resultEcoute <= seuilDecibels) && ((heureReDetection - heureReDetectionPrecedente) > 180000)) {
+                        } else if ((resultEcoute <= seuilDecibels) && ((cal.getTimeInMillis() - heureReDetectionPrecedente) > 180000)) {
 
                             Log.i(ACT2, "Il n'y a plus de bruit depuis 3 minutes, on ne relance pas la lecture et on relance l'écoute");
                             //L'évenenement réveil est terminé, le thread d'écoute principal est relancé
@@ -481,7 +528,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
 
                             //Calcul de la durée totale de l'évenement
-                            duree=heureReDetectionPrecedente-timeInMillis;
+                            duree=heureReDetectionPrecedente-dateDebutReveil;
                             Log.i(ACT2, "duree en millis ="+duree);
 
                             // Cr�er une nouvelle entr�e dans la base de donn�es avec timeInMillis, resultEcoute et lum.
@@ -497,7 +544,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                             //Insertion des données dans la base de données
                             ContentValues contentValues = new ContentValues();
                             contentValues.put(Contract.Evenements.COLUMN_COL2, decibels);
-                            contentValues.put(Contract.Evenements.COLUMN_COL3, timeInMillis);
+                            contentValues.put(Contract.Evenements.COLUMN_COL3, dateDebutReveil);
                             contentValues.put(Contract.Evenements.COLUMN_COL4, lum);
                             contentValues.put(Contract.Evenements.COLUMN_COL5, monstre);
                             contentValues.put(Contract.Evenements.COLUMN_COL6, highestDecibel);
@@ -556,7 +603,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                     //Calcul de la durée totale de l'évenement
                     cal=Calendar.getInstance();
-                    duree = cal.getTimeInMillis() - timeInMillis;
+                    duree = cal.getTimeInMillis() - dateDebutReveil;
                  Log.i(ACT2, "heure actuelle : "+cal.getTimeInMillis());
                  Log.i(ACT2, "timeInMillis : "+timeInMillis);
                  Log.i(ACT2, "duree : "+duree);
@@ -568,7 +615,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                     //Insertion des données dans la base de données
                     ContentValues contentValues = new ContentValues();
                     contentValues.put(Contract.Evenements.COLUMN_COL2, decibels);
-                    contentValues.put(Contract.Evenements.COLUMN_COL3, timeInMillis);
+                    contentValues.put(Contract.Evenements.COLUMN_COL3, dateDebutReveil);
                     contentValues.put(Contract.Evenements.COLUMN_COL4, lum);
                     contentValues.put(Contract.Evenements.COLUMN_COL5, monstre);
                     contentValues.put(Contract.Evenements.COLUMN_COL6, highestDecibel);
@@ -629,6 +676,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                 
             if (lectureActive) {
                 backgroundSave.start();
+                lectureActive = false;
             }
 
 

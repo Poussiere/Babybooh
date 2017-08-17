@@ -9,6 +9,8 @@
     <color name="indigo_material_a400">#3D5AFE</color>
     <color name="rouge_material_a400">#FF1744</color>
 
+    <color name="rouge">#e12525</color>
+
     <color name="blue_grey_500">#607D8B</color>
     <color name="blue_grey_400">#78909C</color>
     <color name="blue_grey_600">#546E7A</color>

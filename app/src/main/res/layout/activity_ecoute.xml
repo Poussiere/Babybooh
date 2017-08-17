@@ -8,6 +8,15 @@
     android:background="@color/black">
 
 
+    <TextView
+        android:id="@+id/text_ecoute"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/boutonFlottant"
+        android:textColor="@color/rouge"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:layout_marginBottom="16dp"/>
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
@@ -16,9 +25,10 @@
         android:id="@+id/boutonFlottant"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        app:backgroundTint="#e12525"
+        app:backgroundTint="@color/rouge"
         android:clickable="true"
         android:onClick="onClick2"
-        android:contentDescription="@string/content_description_stop_veille_bouton" />
+        android:contentDescription="@string/content_description_stop_veille_bouton"
+        />
 
 </RelativeLayout>

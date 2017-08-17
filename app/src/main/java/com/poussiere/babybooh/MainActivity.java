@@ -238,6 +238,24 @@ public class MainActivity extends AppCompatActivity {
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         if (prefs.getBoolean("firstrun", true)) {
 
+            AlertDialog.Builder alertAvertissement = new AlertDialog.Builder(
+                    MainActivity.this);
+
+            alertAvertissement.setMessage(R.string.a_propos2);
+            alertAvertissement.setTitle(R.string.avertissement);
+
+            alertAvertissement.setPositiveButton(R.string.compris,
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+
+
+                            dialog.cancel();
+
+                        }
+                    });
+
+            alertAvertissement.show();
+
             /////////////////////////////////////////////////////////////////////////////////////////////////////
             ///////////////////////////////Demander autorisation d'acceder au micro
             int permissionCheckAudio = ContextCompat.checkSelfPermission(this,
