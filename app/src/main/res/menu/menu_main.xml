@@ -2,6 +2,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
 
+    <item android:id="@+id/calibrer"
+        android:title="@string/salle_de_calibrage"
+        android:orderInCategory="1"
+        app:showAsAction="never" />
+
+
+
     <item android:id="@+id/enregistrer"
         android:title="@string/salleEnregistrement"
         android:orderInCategory="1"

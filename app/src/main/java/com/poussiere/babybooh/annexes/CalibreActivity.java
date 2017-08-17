@@ -172,7 +172,7 @@ public class CalibreActivity extends AppCompatActivity {
         } else {
 
 
-            //mettre ça dans le handler
+            //do nothing
 
 
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary_color"
+    android:background="@color/primary_color_very_very_light"
 
     tools:context="com.poussiere.babybooh.annexes.EnregistrerActivity2">
 
@@ -31,26 +31,26 @@
             android:id="@+id/tv_lancer_calibrage"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:text="@string/demarrer_calibrage"
-            android:textColor="@color/white"
             android:gravity="center"
             />
 
 
         <android.support.design.widget.FloatingActionButton
+            android:id="@+id/bouton_flottant_calibrage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_lancer_calibrage"
-            android:id="@+id/bouton_flottant_calibrage"
-            app:backgroundTint="@color/color_accent"
-            app:elevation="12dp"
-            app:borderWidth="0dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="20dp"
             android:clickable="true"
             android:onClick="onClick"
+            android:tint="@color/black"
+            app:backgroundTint="@color/color_accent"
+            app:borderWidth="0dp"
+            app:elevation="12dp"
             app:pressedTranslationZ="12dp"
-            android:tint="@color/background_floating_material_dark"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="50dp"
-            />
+
+            app:srcCompat="@android:drawable/ic_menu_manage" />
     </RelativeLayout>
 </RelativeLayout>

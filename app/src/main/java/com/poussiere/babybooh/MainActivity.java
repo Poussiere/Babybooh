@@ -75,9 +75,10 @@ import static android.view.View.VISIBLE;
 public class MainActivity extends AppCompatActivity {
 
     public static final String ACT_NAME = "main_veille";
-    Intent intentEnregistrer;
-    Intent intentSettings;
-    SharedPreferences prefs = null;
+    private Intent intentEnregistrer;
+    private Intent intentSettings;
+    private Intent intentCalibrer;
+    private SharedPreferences prefs = null;
     private FrameLayout conteneur;
     private RelativeLayout conteneurDuMain;
     private RelativeLayout welcomeConteneur;
@@ -111,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(com.poussiere.babybooh.R.layout.activity_main);
         intentEnregistrer = new Intent(MainActivity.this, EnregistrerActivity.class);
         intentSettings = new Intent(MainActivity.this, AppCompatPreferenceActivity.class);
+        intentCalibrer = new Intent(MainActivity.this, CalibreActivity.class);
         conteneur=(FrameLayout)findViewById(R.id.conteneur_boutons);
         welcomeConteneur=(RelativeLayout)findViewById(R.id.conteneur_du_premier_lancement);
         circlesConteneur=(LinearLayout)findViewById(R.id.circles_id);
@@ -438,6 +440,10 @@ public class MainActivity extends AppCompatActivity {
 
             case com.poussiere.babybooh.R.id.action_settings:
                 startActivity(intentSettings);
+                return true;
+
+            case R.id.calibrer:
+                startActivity(intentCalibrer);
                 return true;
 
             case com.poussiere.babybooh.R.id.enregistrer:

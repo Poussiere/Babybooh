@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_color_very_very_light"
     tools:context="com.poussiere.babybooh.annexes.EnregistrerActivity2">
 
     <android.support.v7.widget.Toolbar
@@ -38,7 +39,7 @@
         android:layout_below="@id/tv_lancer_enregistrement"
         android:id="@+id/boutonFlottantEnregistrer2"
         app:backgroundTint="@color/color_accent"
-        android:src="@android:drawable/ic_btn_speak_now"
+        app:srcCompat="@android:drawable/ic_btn_speak_now"
         app:elevation="12dp"
         app:borderWidth="0dp"
         android:clickable="true"
