@@ -7,8 +7,6 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -32,7 +30,6 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import com.poussiere.babybooh.MainActivity;
@@ -44,8 +41,6 @@ import com.poussiere.babybooh.objets.Monstre;
 
 import java.io.IOException;
 import java.util.Calendar;
-
-import static com.poussiere.babybooh.R.color.rouge;
 
 
 public class EcouteActivity extends Activity {
@@ -97,8 +92,8 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
     private double highestDecibel, decibelTemp ;
     
     // Variables qui determinent l'heure à laquelle le son s'est déclenché la dernière foiset qui stocke temporairement l'heure du lancement du son précédent
-    long heureReDetection ; 
-    long heureReDetectionPrecedente =0 ;
+    long heureDernierDeclenchement;
+
 
     //Seuil d'alerte en d�cibels (MAJ il s'agit d'une amplitude finalement pour plus de sensibilité).
     private double seuilDecibels  ;
@@ -134,7 +129,6 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
     private  SensorManager sensorManager;
 
     private int lum ;
-    private long date ;
     private int monstre;
     private FloatingActionButton fab;
     private Handler handler;
@@ -202,7 +196,6 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
         
         //Récupération du nom du son à lire lorsque la veille est déclenchée
         sonNom=prefs.getString("nomDuSon","Music box 1.3gpp");
-        final int rouge = ContextCompat.getColor(this, R.color.rouge);
 
         ecoute=new Ecoute();
         lecture=new Lecture(this);
@@ -266,11 +259,6 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                         {
                             //Phase d'introduction
 
-
-
-
-
-
                             try {
 
                                 ecoute.demarrerEcoute();//alors il sera lanc�
@@ -293,26 +281,13 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
 
                             try {
-                                background.sleep(2000);//On laisse le temps de poser le téléphone
+                                background.sleep(5000);//On laisse le temps de poser le téléphone
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
 
-
-
-
-
                         }
 
-
-
-
-
-                        try {
-                            background.sleep(300);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
                         resultEcoute = ecoute.obtenirDecibels(amplitudeRef);  //on r�cup�re le niveau sonore en d�cibels
                         Log.i(ACT2, "test des décibels1");
 
@@ -335,13 +310,8 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                             if (resultEcoute > seuilDecibels) {
                                 Log.i(ACT2, "le seuil des décibels est dépassé (essai 2");
                                 Log.i(ACT2, "resultEcoute en dB : "+resultEcoute+" ");
-                                // On fait en sorte de ne pas relancer la phase d'écoute tout de suite
 
-                                cal=Calendar.getInstance();
-                                dateDebutReveil=cal.getTimeInMillis();
-
-                                //on ajoute 1 au compteur d'évènements et on met dans un shared preference le fait que le bebe ait été réveillé une ou plusieurs fois
-
+                                ecouteActive = false;
 
                                 if (xt==0) prefs.edit().putBoolean("unReveil",true).apply();
                                 else if (xt>0)
@@ -350,14 +320,9 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                     prefs.edit().putBoolean("plusieursReveil",true).apply();
                                 }
                                 xt=xt+1;
-                                
-
-
-                                Log.i(ACT2, "instantiation du cal");
-                                // Obtenir un objet calendar
 
                                 cal=Calendar.getInstance();
-                                
+                                dateDebutReveil=cal.getTimeInMillis();
                                 heure = cal.get(Calendar.HOUR_OF_DAY); // On isole l'heure pour déterminer quel monstre est apparu
 
                                 // Pour la date au Handler on va transformer l'objet Calendar en long (ou directement ins�rer cet objet long dans la base de donn�es quand celle-ci aura �t� cr�e)
@@ -365,6 +330,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                                 //On calcule la différence entre l'heure de l'evenement et l'heure du debut
                                 difference=timeInMillis-dateDebut;
+                                //on ajoute 1 au compteur d'évènements et on met dans un shared preference le fait que le bebe ait été réveillé une ou plusieurs fois
 
 
                                 // Onrécupère le niveau en décibels de cet évenement déclencheur
@@ -382,17 +348,15 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                                     sensorManager.registerListener(lightSensorListener, lightSensor, SensorManager.SENSOR_DELAY_NORMAL);
                                    
-                                    ecouteActive = false;
-                                    lectureActive = true;
+
                                     
                                 }
 
                                 Log.i(ACT2, "Lecture a partir de la sequence ecoute");
                                cal=Calendar.getInstance();
-                                heureReDetection=cal.getTimeInMillis();
-                                heureReDetectionPrecedente=heureReDetection;
+                                heureDernierDeclenchement =cal.getTimeInMillis();
                                 //Si le temps écoulé depuis le premier cri du bébé est supérieur au délais défini par l'utilisateur, on lance la lecture du son
-                                if ((heureReDetection-timeInMillis)>=delaisDeclenchement){
+                                if ((heureDernierDeclenchement -timeInMillis)>=delaisDeclenchement){
 
                                 if (lecture.isRunning())
                                 {   Log.i(ACT2, "Lecture du son résumée");
@@ -410,7 +374,8 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                         Log.i(ACT2, "declenchement du listener");
 
                                         Log.i(ACT2, "Lecture du son terminée");
-                                       
+
+                                        lectureActive = true;
 
                                     }
 
@@ -451,7 +416,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                             // On fait une petite pause sinon l'echo du son lu déclenche à nouveau le capteur
                             try {
-                                background.sleep(1000);
+                                background.sleep(500);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
@@ -461,10 +426,9 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                                 if (resultEcoute > seuilDecibels) // Double vérification pour voir si le bruit est persistant
                                 {
-                                    heureReDetectionPrecedente = heureReDetection;
-
+                                    lectureActive=false;
                                     cal=Calendar.getInstance();
-                                      heureReDetection = cal.getTimeInMillis();
+                                      heureDernierDeclenchement = cal.getTimeInMillis();
 
                                     // detetection pour voir si décibels plus importantes que précédemment
                                    // decibelTemp = 20 * Math.log10(resultEcoute / 10);
@@ -481,7 +445,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                        // lecture.resume();
                                          
                                 //Si le temps écoulé depuis le premier cri du bébé est supérieur au délais défini par l'utilisateur, on lance la lecture du son
-                                if ((heureReDetection-timeInMillis)>=delaisDeclenchement){
+                                if ((heureDernierDeclenchement -timeInMillis)>=delaisDeclenchement){
 
                                 if (lecture.isRunning())
                                 {   Log.i(ACT2, "Lecture du son résumée");
@@ -505,12 +469,15 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                                 });
                                 }
+                                else{
+                                    lectureActive=true;
+                                }
                                     }
 
 
 
 
-                        } else if ((resultEcoute <= seuilDecibels) && ((cal.getTimeInMillis() - heureReDetectionPrecedente) > 180000)) {
+                        } else if ((resultEcoute <= seuilDecibels) && ((cal.getTimeInMillis() - heureDernierDeclenchement) > 180000)) {
 
                             Log.i(ACT2, "Il n'y a plus de bruit depuis 3 minutes, on ne relance pas la lecture et on relance l'écoute");
                             //L'évenenement réveil est terminé, le thread d'écoute principal est relancé
@@ -528,7 +495,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
 
                             //Calcul de la durée totale de l'évenement
-                            duree=heureReDetectionPrecedente-dateDebutReveil;
+                            duree= heureDernierDeclenchement -dateDebutReveil;
                             Log.i(ACT2, "duree en millis ="+duree);
 
                             // Cr�er une nouvelle entr�e dans la base de donn�es avec timeInMillis, resultEcoute et lum.
@@ -556,7 +523,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                             // Insert the content values via a ContentResolver
                             Uri uri = getContentResolver().insert(Contract.Evenements.URI, contentValues);
 
-                            lectureActive = false;
+
                             ecouteActive = true;
 
 

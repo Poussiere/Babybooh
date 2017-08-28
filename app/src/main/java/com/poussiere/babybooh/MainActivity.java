@@ -386,6 +386,7 @@ public class MainActivity extends AppCompatActivity {
         //Vérification s'il y a des notifications à afficher
         if(prefs.getBoolean("unReveil", true))
         {
+            prefs.edit().putBoolean("unReveil",false).apply();
             //afficher alertDialog
             final AlertDialog.Builder alertReveil1 = new AlertDialog.Builder(
                     MainActivity.this);
@@ -405,7 +406,7 @@ public class MainActivity extends AppCompatActivity {
             alertReveil1.setPositiveButton(com.poussiere.babybooh.R.string.continuer,
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            prefs.edit().putBoolean("unReveil",false).apply();
+
                             dialog.dismiss();
 
                         }
@@ -414,6 +415,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else if(prefs.getBoolean("plusieursReveil", true))
         {
+            prefs.edit().putBoolean("plusieursReveil",false).apply();
             final AlertDialog.Builder alertReveil2 = new AlertDialog.Builder(MainActivity.this);
             alertReveil2.setCancelable(false);
             nom=prefs.getString("nom","bebe");
@@ -431,7 +433,7 @@ public class MainActivity extends AppCompatActivity {
             alertReveil2.setPositiveButton(com.poussiere.babybooh.R.string.continuer,
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            prefs.edit().putBoolean("plusieursReveil",false).apply();
+
                             dialog.dismiss();
 
                         }
