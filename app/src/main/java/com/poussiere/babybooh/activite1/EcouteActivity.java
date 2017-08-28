@@ -397,6 +397,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
 
                     if (lectureActive) {
+                        lectureActive=false;
                         // quand le son est terminé,  on ecoute le nombre de d�cibels ambiants
 
                         //On fait en sorte de ne pas relancer la phase de lecture avant le moment voulu
@@ -426,7 +427,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                                 if (resultEcoute > seuilDecibels) // Double vérification pour voir si le bruit est persistant
                                 {
-                                    lectureActive=false;
+
                                     cal=Calendar.getInstance();
                                       heureDernierDeclenchement = cal.getTimeInMillis();
 
@@ -533,6 +534,9 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                         }
 
 
+
+                    }// fin du iflectureactive
+
                         if (isThreadRunning) {
                             Log.i(ACT2, "relance du thread a venir");
                             try {
@@ -545,7 +549,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                         }
 
 
-                    }
+
                 }// fin de la parenthèse du if (isThreadRunning)
 
             } // fin de la parenthèse du run

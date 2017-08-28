@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary_color_very_very_light"
+    android:background="@color/primary_color_light"
     tools:context="com.poussiere.babybooh.annexes.EnregistrerActivity2">
 
     <android.support.v7.widget.Toolbar
@@ -30,6 +30,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:text="@string/lancer_enregistrement"
         android:gravity="center"
+        android:textColor="@color/white"
         />
 
 

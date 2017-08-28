@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary_color_very_very_light"
+    android:background="@color/primary_color_light"
     >
 
     <android.support.v7.widget.Toolbar
@@ -31,6 +31,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:text="@string/demarrer_calibrage"
             android:gravity="center"
+            android:textColor="@color/white"
             />
 
 
