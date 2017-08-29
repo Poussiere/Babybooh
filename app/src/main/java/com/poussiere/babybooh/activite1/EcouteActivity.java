@@ -66,6 +66,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
     private TextView introText;
     private long dateDebutReveil;
+    private boolean awakeBaby = false;
 
     String monstreSexy=null; // Car en String = clé pour les sharedpreference
 
@@ -310,7 +311,8 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                             if (resultEcoute > seuilDecibels) {
                                 Log.i(ACT2, "le seuil des décibels est dépassé (essai 2");
                                 Log.i(ACT2, "resultEcoute en dB : "+resultEcoute+" ");
-
+                                
+                                awakeBaby=true;
                                 ecouteActive = false;
 
                                 if (xt==0) prefs.edit().putBoolean("unReveil",true).apply();
@@ -485,7 +487,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                             //C'est ici qu'on va insérer les nouvelles variables dans la base de données : Durée du réveil
                             // Cri le plus fort, Evenement interrompu ou non, etc... Il faudra en faire de même dans le onPause en lancant un nouveau thread.
                             Log.i(ACT2, "captation des paramettres de l'évènement");
-
+                            awakeBaby=false;
                             //On récupère en decibels le niveau sonore de ce dernier cri déclencheur et on check pour voir si c'est le cri le plus puissant
                           //  decibelTemp = 20 * Math.log10(resultEcoute / 10);
                             decibelTemp=resultEcoute;
@@ -645,9 +647,10 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
         {
               //  Toast.makeText(this, R.string.quitte_veille_avion, Toast.LENGTH_LONG).show();
                 
-            if (lectureActive) {
+            if (awakeBaby) {
+                awakeBaby=false;
                 backgroundSave.start();
-                lectureActive = false;
+             
             }
 
 
@@ -660,6 +663,8 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
             isThreadRunning = false;
             if (ecoute.isRunning()) ecoute.arreterEcoute();
             if (lecture.isRunning()) lecture.stop();
+            lectureActive=false;
+            ecouteActive=true;
         }
 
        super.onPause();
