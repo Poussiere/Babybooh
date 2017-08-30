@@ -268,7 +268,7 @@
     <string name="message_to_the_world_garcon">%1$s a été réveillé par un monstre terrifiant nommé %2$s! Merci BabyBoOH de m\'aider à veiller sur mon bébé!</string>
     <string name="message_to_the_world_fille">%1$s a été réveillée par un monstre terrifiant nommé %2$s! Merci BabyBoOH de m\'aider à veiller sur mon bébé!</string>
     <string name="partager">Partager</string>
-    <string name="ask_calibre">Pour terminer nous devons vous demander de calibrer le micro afin que le son choisi soit joué uniquement lorsque %1$s fera vraiment du bruit. Pour cette étape, vous devez être dans un endroit silencieux. Pour pourrez recommencer le calibrage plus tard si nécessaire. </string>
+    <string name="ask_calibre">Pour terminer, nous devons calibrer votre microphone. Pour cette étape, vous devez être dans un endroit silencieux. Pour pourrez recommencer le calibrage plus tard si nécessaire. </string>
     <string name="demarrer_calibrage">Appuyez sur le bouton pour démarrer le calibrage du microphone</string>
     <string name="calibrage_en_cours">Chut...Calibrage du microphone en cours.</string>
     <string name="calibrage_terminé">Le calibrage est terminé. Vous pouvez désormais utiliser BabyBoOH avec votre bébé!</string>
@@ -276,12 +276,12 @@
 
     <string name="apropos">A propos</string>
     <string name="a_propos1">BabyBoOH Android version 1.0</string>
-    <string name="a_propos2">BabyBoOH est une application vous permettant de surveiller le sommeil de votre bébé de manière ludique. BabyBoOH ne peut en aucun cas se substituer à la surveillance active de la part d\'une personne adulte. Ne laissez pas votre bébé pleurer. Ne laissez pas votre bébé seul. </string>
-    <string name="remerciements">BabyBoOH a été développé par Nicolas Boutin. Merci à Blandine pour son soutien et ses précieux conseils, à ma soeur Geraldine pour la relecture et la traduction anglaise et à mon frère Jerome pour la conception des dessins de nombreux monstres. Remerciements spéciaux à Mahel Bazin pour les discussions enrichissantes et son soutien en territoire hostile. \n\nLa reproduction partielle ou totale du contenu de cette application est interdite.</string>
+    <string name="a_propos2">BabyBoOH est une application vous permettant de suivre le sommeil de votre bébé de manière ludique. BabyBoOH ne peut en aucun cas se substituer à la surveillance active de la part d\'une personne adulte. Ne laissez pas votre bébé pleurer. Ne laissez pas votre bébé seul. </string>
+    <string name="remerciements">BabyBoOH a été développé par Nicolas Boutin. Merci à Blandine pour son soutien et ses précieux conseils, à ma soeur Geraldine pour la relecture et la traduction anglaise et à mon frère Jerome pour la conception des dessins de nombreux monstres. Remerciements spéciaux à Mahel pour les discussions enrichissantes et son soutien en territoire hostile. \n\nLa reproduction partielle ou totale du contenu de cette application est interdite.</string>
     <string name="avertissement">Avertissement</string>
     <string name="compris">J\'ai compris</string>
     <string name="ecoute_active">L\'écoute est désormais active</string>
-    <string name="sortir">Appuyez sur le bouton pour quitter</string>
+    <string name="sortir">Appuyez sur l\'étoile pour quitter</string>
     <!-- Reformulé
 -->
     <string name="first_time1">A chaque fois que votre bébé se réveillera, une musique apaisante sera jouée jusqu\'à ce qu\'il se rendorme. Vous pourrez même enregistrer votre propre message en vous rendant dans la salle d\'enregistrement.</string>

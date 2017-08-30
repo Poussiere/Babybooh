@@ -29,6 +29,7 @@ import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -131,7 +132,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
     private int lum ;
     private int monstre;
-    private FloatingActionButton fab;
+    private Button fab;
     private Handler handler;
 
     @Override
@@ -202,11 +203,11 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
         lecture=new Lecture(this);
 
         final Animation animation = new AlphaAnimation(1, 0); // Change alpha from fully visible to invisible
-        animation.setDuration(1000); // duration - half a second
+        animation.setDuration(2000); // duration - half a second
         animation.setInterpolator(new LinearInterpolator()); // do not alter animation rate
         animation.setRepeatCount(Animation.INFINITE); // Repeat animation infinitely
         animation.setRepeatMode(Animation.REVERSE); // Reverse animation at the end so the button will fade back in
-        fab= (FloatingActionButton) findViewById(R.id.boutonFlottant);
+        fab= (Button) findViewById(R.id.boutonFlottant);
         fab.startAnimation(animation);
 
 
@@ -399,10 +400,10 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
 
                     if (lectureActive) {
-                        lectureActive=false;
                         // quand le son est terminé,  on ecoute le nombre de d�cibels ambiants
 
                         //On fait en sorte de ne pas relancer la phase de lecture avant le moment voulu
+
 
                         Log.i(ACT2, "Son terminé, on réécoute pour voir si bébé pleure toujours");
 
@@ -414,7 +415,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                         // Si le nombre de d�cibels est inf�rieur au seuil (si le b�b� ne crie plus
                         // la lecture du son ne sera pas relanc�e
                         // Sinon la lecture est relancée
-
+                        cal=Calendar.getInstance();
                         if (resultEcoute > seuilDecibels) {
 
                             // On fait une petite pause sinon l'echo du son lu déclenche à nouveau le capteur
@@ -429,6 +430,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                                 if (resultEcoute > seuilDecibels) // Double vérification pour voir si le bruit est persistant
                                 {
+                                    lectureActive = false;
 
                                     cal=Calendar.getInstance();
                                       heureDernierDeclenchement = cal.getTimeInMillis();
@@ -482,6 +484,8 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                         } else if ((resultEcoute <= seuilDecibels) && ((cal.getTimeInMillis() - heureDernierDeclenchement) > 180000)) {
 
+
+
                             Log.i(ACT2, "Il n'y a plus de bruit depuis 3 minutes, on ne relance pas la lecture et on relance l'écoute");
                             //L'évenenement réveil est terminé, le thread d'écoute principal est relancé
                             //C'est ici qu'on va insérer les nouvelles variables dans la base de données : Durée du réveil
@@ -526,8 +530,8 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                             // Insert the content values via a ContentResolver
                             Uri uri = getContentResolver().insert(Contract.Evenements.URI, contentValues);
 
-
-                            ecouteActive = true;
+                            lectureActive = false ;
+                            ecouteActive = true ;
 
 
                         }
