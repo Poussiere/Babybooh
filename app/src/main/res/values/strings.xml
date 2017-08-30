@@ -28,8 +28,8 @@
     <string name="sonSelection">was selected.</string>
 
     <string name="alerte1">Do you want to listen to your message?</string>
-    <string name="alerte2">For your baby safety, the watch can/'t be launched on your smartphone if it/'s not on Airplane mode. Do you want to access the airplane menu selection to activate it?</string>
-    <string name="alerte3">You/'re leaving the Watch mode, please do not leave your phone near your baby. Your can now de-activate the Airplane mode. Press Yes to access the Airplane menu selection.</string>
+    <string name="alerte2">For your baby safety, the watch can\'t be launched on your smartphone if it\'s not on Airplane mode. Do you want to access the airplane menu selection to activate it?</string>
+    <string name="alerte3">You\'re leaving the Watch mode, please do not leave your phone near your baby. Your can now de-activate the Airplane mode. Press Yes to access the Airplane menu selection.</string>
     <string name="alerte4">Watch out, all the app datas will be deleted, including monsters and events history. Do you really want to proceed?</string>
     <string name="alerte5">Please name your message (for example mom)</string>
     <string name="quitte_veille_avion">Do not forget to de-activate the Airplane mode to access your phone calls again"</string> 
@@ -46,23 +46,23 @@
     <string name="monstre1_nom">Deedee</string>
     <string name="monstre1_alias">Night Fright</string>
     <string name="monstre1_desc">This monster is a real deal. It has terrified so many children over the years that scientists gave its name to a panik attack symptom.
- If your child survive its encounter, You can be sure he won/'t be afraid of anything ever.</string>
-    <string name="monstre1_conditions">It always strikes where and when you don/'t expect it, with a deeply asleep victim, in total darkness. Some say that children who encountered it cried so loud that they were heard from many blocks away. </string>
+ If your child survive its encounter, You can be sure he won\'t be afraid of anything ever.</string>
+    <string name="monstre1_conditions">It always strikes where and when you don\'t expect it, with a deeply asleep victim, in total darkness. Some say that children who encountered it cried so loud that they were heard from many blocks away. </string>
 
 
     <string name="monstre2_nom">Booboo</string>
     <string name="monstre2_alias">The playground terror</string>
-    <string name="monstre2_desc">It likes to play it tough but its ginger bread head do not works in its favor. Most children think it/'s a wubby!</string>
+    <string name="monstre2_desc">It likes to play it tough but its ginger bread head do not works in its favor. Most children think it\'s a wubby!</string>
     <string name="monstre2_conditions">it may appear at every hour of the day but rarely at night. It provokes mild screaming from children, (they even sometimes laugh!)</string>
 
     <string name="monstre3_nom">Abracadabranch</string>
     <string name="monstre3_alias">The root beast</string>
-    <string name="monstre3_desc">Its multiple branches sing frightening songs. If you hear music coming from your baby/'s room, it might not be his mobile!</string>
+    <string name="monstre3_desc">Its multiple branches sing frightening songs. If you hear music coming from your baby\'s room, it might not be his mobile!</string>
     <string name="monstre3_conditions">The root beast lives during the night and is attracted by light. </string>
 
     <string name="monstre4_nom">Thorny</string>
     <string name="monstre4_alias">The dream eater</string>
-    <string name="monstre4_desc">It nourrishes from children/'s dreams. Their nightmares are its candies. If you encounter it in your baby/'s room, do not, under any circumstances, touch it!</string>
+    <string name="monstre4_desc">It nourrishes from children\'s dreams. Their nightmares are its candies. If you encounter it in your baby\'s room, do not, under any circumstances, touch it!</string>
     <string name="monstre4_conditions">It appears at night when your child is deeply asleep. Once your baby is awaken, it dashes off quickly.</string>
 
     <string name="monstre5_nom">Yum Yum</string>
@@ -72,7 +72,7 @@
 
     <string name="monstre6_nom">EyeSpy</string>
     <string name="monstre6_alias">The day watch</string>
-    <string name="monstre6_desc">As a very curious creature, it sticks its only eye everywhere. It/'s very hard to get rid of!</string>
+    <string name="monstre6_desc">As a very curious creature, it sticks its only eye everywhere. It\'s very hard to get rid of!</string>
     <string name="monstre6_conditions">It appears at every hour of the day or night, as long as light is on. Usually, children are not really scared of it.</string>
 
     <string name="monstre7_nom">Puny Sean</string>
@@ -82,29 +82,29 @@
 
     <string name="monstre8_nom">Dozen-Eye</string>
     <string name="monstre8_alias">Chubbo</string>
-    <string name="monstre8_desc">It stays lurking in the dark watching children for hours. Deep down, it likes them (in an affectionate way). It sometimes fantasizes it is a giant teddy bear cuddled by a child's loving arms.</string>
+    <string name="monstre8_desc">It stays lurking in the dark watching children for hours. Deep down, it likes them (in an affectionate way). It sometimes fantasizes it is a giant teddy bear cuddled by a child\'s loving arms.</string>
     <string name="monstre8_conditions">Mostly shy, it lives in the dark and only comes out at night. </string>
 
     <string name="monstre9_nom">Skeletic</string>
     <string name="monstre9_alias">BonyExpress</string>
     <string name="monstre9_desc">This terrifying monster is gigantic. It nevertheless usually stays unseen thanks to its ability to crawl on walls like lizards.
- Have you ever look up at the ceiling before leaving your baby/'s room ?</string>
+ Have you ever look up at the ceiling before leaving your baby\'s room ?</string>
     <string name="monstre9_conditions">It appears at every hour of the day, even in bright daylight! The screamings it provokes can be very intense. It usually walks in company of its eyeblob bush. Watch out if you stumble on it, it might attack you with eyeballs!</string>
 
     <string name="monstre10_nom">Marsmallow Jones</string>
     <string name="monstre10_alias">The weeper</string>
-    <string name="monstre10_desc">Undoubtedly the most lovable monster! It is so scared of children that, when it sees one, it bursts into tears. Don/'t be too harsh on it if you cross its path, it is harmless.</string>
-    <string name="monstre10_conditions">It usually gets out when everybody sleeps. It is attracted by nightlights for they comfort it. Keep in mind that if it woke your baby, it surely didn/'t do it on purpose!</string>
+    <string name="monstre10_desc">Undoubtedly the most lovable monster! It is so scared of children that, when it sees one, it bursts into tears. Don\'t be too harsh on it if you cross its path, it is harmless.</string>
+    <string name="monstre10_conditions">It usually gets out when everybody sleeps. It is attracted by nightlights for they comfort it. Keep in mind that if it woke your baby, it surely didn\'t do it on purpose!</string>
 
     <string name="monstre11_nom">Cuddlator</string>
     <string name="monstre11_alias">The dark embrace</string>
-    <string name="monstre11_desc">Beware, this monster tries to pass for you! Its favorite hobby : cuddling, hugging, petting. But when the baby realizes it/'s not you, he usually gets very angry.</string>
+    <string name="monstre11_desc">Beware, this monster tries to pass for you! Its favorite hobby : cuddling, hugging, petting. But when the baby realizes it\'s not you, he usually gets very angry.</string>
     <string name="monstre11_conditions">It likes to get out before naptime or during the evening for it fantasizes that it can help the baby to go to sleep. It also likes to take over from the other monsters in hope to comfort the weeping babies.</string>
 
     <string name="monstre12_nom">Lamp Ray</string>
     <string name="monstre12_alias">The Bulb</string>
     <string name="monstre12_desc">It shines in the night. The children are drawn to its light and this is probably the most fearful threat.</string>
-    <string name="monstre12_conditions">It appears in total darkness, day or night. You will probably want to open up the blinds quickly, won/'t you? </string>
+    <string name="monstre12_conditions">It appears in total darkness, day or night. You will probably want to open up the blinds quickly, won\'t you? </string>
 
     <string name="title_activity_settings">Set up</string>
 
@@ -158,26 +158,24 @@
     <string name="pref_eteint_ecran_summary">The screen will turn off during the Watch. Advisable if you want your baby to sleep in a dark room or if you want to save your battery</string>
 
     <string name="first_time_tittle">Welcome to babyboOH ! \n\n Our monster hunting team will watch over your baby during his sleep.</string>
-    <string name="first_time1">Each time your baby wakes up, a soothing message that you will have recorded beforehand will be played until he falls back asleep.</string>
-    <string name="first_time2"> Our experts will then analyse your baby cries and environment to diagnose which monster woke him up! </string>
 
     <string name="continuer">NEXT</string>
     <string name="retour">BACK</string>
     <string name="terminer">END</string>
-    <string name="ask_genre1">Before starting, we/'d like to know a little more about your little one. Is it...</string>
+    <string name="ask_genre1">Before starting, we\'d like to know a little more about your little one. Is it...</string>
     <string name="ask_genre2">Is it…</string>
     <string name="fille">a girl ?</string>
     <string name="garcon">a boy ?</string>
-    <string name="ask_nom">And what/'s her name?</string>
+    <string name="ask_nom">And what\'s her name?</string>
     <string name="caractere_fille">What a lovely name for a lovely girl!  </string>
     <string name="caractere_fille1"> According to our experts team analysis, it seems that %1$s are great adventurers. With our help, she should be able to come around any night creature!</string>
-    <string name="caractere_fille2"> According to our experts team analysis, it seems that %1$s are very pretty princesses. While waiting for prince charming, she/'ll need a little help from us to strike down the monters inhabiting her room!</string>
+    <string name="caractere_fille2"> According to our experts team analysis, it seems that %1$s are very pretty princesses. While waiting for prince charming, she\'ll need a little help from us to strike down the monters inhabiting her room!</string>
 
     <string name="caractere_garcon">What a lovely name for a lovely boy! </string>
     <string name="caractere_garçon1"> According to our experts team analysis, it seems that %1$s are great adventurers! With our help, he should be able to come around any night creature! </string>
-    <string name="caractere_garçon2"> According to our experts team analysis, it seems that %1$s are very bright and sensitive boys.  While waiting for him to create his own monster busting machine, he/'ll need a little help from us to strike down the monters hiding under his bed!</string>
+    <string name="caractere_garçon2"> According to our experts team analysis, it seems that %1$s are very bright and sensitive boys.  While waiting for him to create his own monster busting machine, he\'ll need a little help from us to strike down the monters hiding under his bed!</string>
 
-    <string name="ask_record1">You just have to record the message that will be played to %1$s and we/'ll have everything we need to watch over %2$s while he sleeps!</string>
+    <string name="ask_record1">You just have to record the message that will be played to %1$s and we\'ll have everything we need to watch over %2$s while he sleeps!</string>
     <string name="ask_record2">Press \"continue\" to record the message rightaway or press \"main menu\" to reach app homepage and record the message later.</string>
     <string name="menu_principal">main menu</string>
     <string name="lui">him</string>
@@ -185,7 +183,7 @@
     <string name="bebe_nom">name</string>
 
     <string name="choix_sexe_toast">Please enter your baby gender to continue</string>
-    <string name="entrerNom">Please enter your baby's name to continue</string>
+    <string name="entrerNom">Please enter your baby\'s name to continue</string>
 
     <string name="salle_enregistrement">Recording room</string>
 
@@ -229,7 +227,7 @@
     <string name="pref_sensibilite_micro">Mike sensitivity</string>
     <string name="pref_sexe">Gender</string>
     <string name="sexe_pref_subtitle">Select your baby gender</string>
-    <string name="nom_pref_subtitle">Enter your baby/'s name</string>
+    <string name="nom_pref_subtitle">Enter your baby\'s name</string>
     <string name="micro_pref_subtitle">Adjust the mike sensitivity during the watch to prevent too frequent or too seldom sets off</string>
     <string name="declenchement_pref">Message release time</string>
     <string name="declenchement_pref_subtitle">Enter the awaken lapse of time after which you want your message to be played </string>

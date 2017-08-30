@@ -29,7 +29,7 @@
 
     <string name="alerte1">Souhaitez vous écouter votre message?</string>
     <string name="alerte2">Pour la sécurité de votre bébé, la veille ne peut pas être lancée si votre smartphone n\'est pas en mode avion. Souhaitez-vous accéder maintenant au menu vous permettant d\'activer le mode avion?</string>
-    <string name="alerte3">Vous quittez le mode veille, merci d/'éloigner le téléphone de votre bébé. Vous pouvez si vous le souhaitez désactiver le mode avion. Appuyez sur oui pour accéder au menu du mode avion.</string>
+    <string name="alerte3">Vous quittez le mode veille, merci d\'éloigner le téléphone de votre bébé. Vous pouvez si vous le souhaitez désactiver le mode avion. Appuyez sur oui pour accéder au menu du mode avion.</string>
     <string name="alerte4">Attention, toutes les données de l\'application vont être supprimées, y compris les monstres et l\'historique des événements. Souhaitez-vous vraiment continuer?</string>
     <string name="alerte5">Veuillez donner un nom à votre message (par exemple maman)</string>
     <string name="quitte_veille_avion">Pensez à désactiver le mode avion pour recevoir les appels à nouveau"</string> 
@@ -159,9 +159,6 @@
     <string name="pref_eteint_ecran_summary">L\'écran s\'éteindra pendant la veille. Recommandé si vous souhaitez que votre bébé soit dans le noir complet ou si vous souhaitez économiser votre batterie</string>
 
     <string name="first_time_tittle">Bienvenue dans babyboOH ! \n\n Notre équipe de chasseurs de monstres va veiller sur votre bébé pendant qu\'il dort.</string>
-    <string name="first_time1">A chaque fois que votre bébé se réveillera, un message apaisant que vous allez lui enregistrer sera diffusé jusqu\'à ce qu\'il se rendorme.</string>
-    <string name="first_time2">Nos experts analyseront alors les cris qui ont été émis par votre bébé ainsi que son environnement pour vous dire quel type de monstre l\'a réveillé! </string>
-
     <string name="continuer">SUIVANT</string>
     <string name="retour">RETOUR</string>
     <string name="terminer">TERMINER</string>
