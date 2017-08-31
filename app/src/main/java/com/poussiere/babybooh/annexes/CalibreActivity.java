@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.poussiere.babybooh.MainActivity;
 import com.poussiere.babybooh.R;
 import com.poussiere.babybooh.objets.Ecoute;
 import com.poussiere.babybooh.objets.Enregistreur;
@@ -166,13 +168,14 @@ public class CalibreActivity extends AppCompatActivity {
 
                 background1.start();
             } else {
-
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.RECORD_AUDIO},
+                        MainActivity.MY_PERMISSIONS_REQUEST_AUDIO_RECORD);
             }
 
-        } else {
 
 
-            //do nothing
+
 
 
 

@@ -1,10 +1,12 @@
 package com.poussiere.babybooh.mainFragment1;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,6 +14,8 @@ import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.app.Fragment;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -90,47 +94,57 @@ public class main_fragment1 extends Fragment {
 
                 // Séquence du mode avion
 
-                if (!estEnModeAvion())
 
-                {   AlertDialog.Builder alerteOndes = new AlertDialog.Builder(
-                        getActivity());
+                int permissionCheckAudio = ContextCompat.checkSelfPermission(getActivity(),
+                        Manifest.permission.RECORD_AUDIO);
+                if (permissionCheckAudio == PackageManager.PERMISSION_GRANTED) {
+                    if (!estEnModeAvion())
 
-                    // Setting Dialog Message
-                    alerteOndes.setMessage(com.poussiere.babybooh.R.string.alerte2);
+                    {
+                        AlertDialog.Builder alerteOndes = new AlertDialog.Builder(
+                                getActivity());
 
-
-                    // D�finition du bouton oui
-                    alerteOndes.setPositiveButton(com.poussiere.babybooh.R.string.oui,
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    avionIntent=new Intent (Settings.ACTION_AIRPLANE_MODE_SETTINGS);
-                                    getActivity().runOnUiThread(new Runnable() {
-                                        @Override
-                                        public void run() {
-
-                                            startActivity(avionIntent);
-                                        }
-                                    } );}
+                        // Setting Dialog Message
+                        alerteOndes.setMessage(com.poussiere.babybooh.R.string.alerte2);
 
 
-                            });
+                        // D�finition du bouton oui
+                        alerteOndes.setPositiveButton(com.poussiere.babybooh.R.string.oui,
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        avionIntent = new Intent(Settings.ACTION_AIRPLANE_MODE_SETTINGS);
+                                        getActivity().runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
 
-                    // D�finition du bouton non
-                    alerteOndes.setNegativeButton(com.poussiere.babybooh.R.string.non,
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.cancel();
-                                }
-                            });
-                    alerteOndes.show();}
-
-
-                else
-
-                {Intent i = new Intent(getActivity(), EcouteActivity.class);
-                    startActivity(i);}
+                                                startActivity(avionIntent);
+                                            }
+                                        });
+                                    }
 
 
+                                });
+
+                        // D�finition du bouton non
+                        alerteOndes.setNegativeButton(com.poussiere.babybooh.R.string.non,
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                        alerteOndes.show();
+                    } else
+
+                    {
+                        Intent i = new Intent(getActivity(), EcouteActivity.class);
+                        startActivity(i);
+                    }
+
+                }else {
+                    ActivityCompat.requestPermissions(getActivity(),
+                            new String[]{Manifest.permission.RECORD_AUDIO},
+                            MainActivity.MY_PERMISSIONS_REQUEST_AUDIO_RECORD);
+                }
 
 
 

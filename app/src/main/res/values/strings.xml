@@ -230,7 +230,7 @@
     <string name="nom_pref_subtitle">Enter your baby\'s name</string>
     <string name="micro_pref_subtitle">Adjust the mike sensitivity during the watch to prevent too frequent or too seldom sets off</string>
     <string name="declenchement_pref">Message release time</string>
-    <string name="declenchement_pref_subtitle">Enter the awaken lapse of time after which you want your message to be played </string>
+    <string name="declenchement_pref_subtitle">Enter the awaken lapse of time after which you want the song to be played </string>
     
     
     <!-- strings de la detail activity

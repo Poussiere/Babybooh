@@ -27,6 +27,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.poussiere.babybooh.MainActivity;
 import com.poussiere.babybooh.R;
 import com.poussiere.babybooh.objets.Enregistreur;
 
@@ -107,6 +108,9 @@ public class EnregistrerActivity2 extends AppCompatActivity {
                 background1.start();
             } else {
 
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.RECORD_AUDIO},
+                        MainActivity.MY_PERMISSIONS_REQUEST_AUDIO_RECORD);
                 }
          /*   if (permissionChecWrite==PackageManager.PERMISSION_DENIED){
                 ActivityCompat.requestPermissions(this,
