@@ -38,6 +38,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.poussiere.babybooh.R;
@@ -185,7 +186,7 @@ public class EnregistrerActivity extends AppCompatActivity {
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
                 TextView nds= (TextView) viewHolder.itemView.findViewById(R.id.son_nom_tv);
                 sn = nds.getText().toString();
-                if (!sn.equals("Music box 1")){
+                if (!sn.equals("Music box 1") && !sn.equals("Music box 2") && !sn.equals("Music box 3")){
 
                 AlertDialog.Builder supConfirm = new AlertDialog.Builder(
                         EnregistrerActivity.this);
@@ -211,8 +212,12 @@ public class EnregistrerActivity extends AppCompatActivity {
                         });
 
                supConfirm.show();
-                    rcAdapter.notifyDataSetChanged();
+
                 }// fin du if (!sn.equals...)
+                else{
+                    Toast.makeText(getApplicationContext(), R.string.impossible_delete, Toast.LENGTH_LONG).show();
+                }
+                rcAdapter.notifyDataSetChanged();
             }
         };
 

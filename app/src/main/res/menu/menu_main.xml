@@ -14,7 +14,7 @@
         app:showAsAction="never" />
 
     <item android:id="@+id/reinit"
-        android:title="Réinitialiser l\'application"
+        android:title="@string/reinitialiser"
         android:orderInCategory="4"
         app:showAsAction="never" />
 

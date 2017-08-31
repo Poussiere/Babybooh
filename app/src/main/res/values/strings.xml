@@ -1,7 +1,7 @@
 ﻿<resources>
     <string name="app_name">BabyboOH</string>
 
-    <string name="action_settings">Paramètres</string>
+    <string name="action_settings">Settings</string>
     <string name="veille_bouton">Start Watch </string>
     <string name="stop_veille_bouton">Stop Watch</string>
     <string name="titre_fragment1">Home</string>
@@ -278,6 +278,8 @@
     <string name="compris">J\'ai compris</string>
     <string name="ecoute_active">L\'écoute est désormais active</string>
     <string name="sortir">Appuyez sur l\'étoile pour quitter</string>
+    <string name="reinitialiser">Réinitialiser l\'application</string>
+    <string name="impossible_delete">Vous ne pouvez pas effacer ce son.</string>
     <!-- Reformulé
 -->
     <string name="first_time1">A chaque fois que votre bébé se réveillera, une musique apaisante sera jouée jusqu\'à ce qu\'il se rendorme. Vous pourrez même enregistrer votre propre message en vous rendant dans la salle d\'enregistrement.</string>

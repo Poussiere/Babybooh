@@ -10,19 +10,13 @@ package com.poussiere.babybooh;
 
 import android.Manifest;
 import android.app.AlertDialog;
-import android.app.FragmentManager;
-import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Build;
-import android.os.Environment;
 import android.preference.PreferenceManager;
-import android.provider.Settings;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -31,10 +25,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.InputFilter;
-import android.text.InputType;
-import android.text.Spanned;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -55,7 +45,6 @@ import com.poussiere.babybooh.bdd.Contract;
 import com.poussiere.babybooh.mainFragment1.main_fragment1;
 import com.poussiere.babybooh.mainFragment2.mainFragment2;
 import com.poussiere.babybooh.annexes.EnregistrerActivity;
-import com.poussiere.babybooh.annexes.SettingsActivity;
 import com.poussiere.babybooh.mainFragment3.mainFragment3;
 import com.poussiere.babybooh.welcomeFragments.WelcomeFragment1;
 import com.poussiere.babybooh.welcomeFragments.WelcomeFragment2;
@@ -355,7 +344,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //Music box 3
                 str_song_name = "Music box 3" + ".3gpp";
-                in = getResources().openRawResource(R.raw.musicbox3);
+                in = getResources().openRawResource(R.raw.musicbox2);
                 out = new FileOutputStream(path+File.separator+str_song_name);
                 buff = new byte[1024];
                 read = 0;
@@ -369,7 +358,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //Music box 4
                 str_song_name = "Music box 4" + ".3gpp";
-                in = getResources().openRawResource(R.raw.musicbox4);
+                in = getResources().openRawResource(R.raw.musicbox3);
                 out = new FileOutputStream(path+File.separator+str_song_name);
                 buff = new byte[1024];
                 read = 0;

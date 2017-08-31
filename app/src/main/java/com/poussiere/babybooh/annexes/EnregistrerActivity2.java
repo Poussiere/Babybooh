@@ -179,6 +179,7 @@ public class EnregistrerActivity2 extends AppCompatActivity {
                             //On récupère le nom du bébé dans l'editText
                             String nom = sonNom.getText().toString();
 
+
                             String cheminFichierTx = getExternalFilesDir(null).getAbsolutePath();
                             cheminFichierTx += "/babyboohSongs/";
                             File repertoire = new File(cheminFichierTx);
@@ -190,6 +191,7 @@ public class EnregistrerActivity2 extends AppCompatActivity {
                             prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                             prefs.edit().putString("nomDuSon", nom+".3gpp").apply();
                             finish();
+
 
                         }
                     });
