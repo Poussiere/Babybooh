@@ -31,6 +31,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:text="@string/lancer_enregistrement"
         android:gravity="center"
+        android:layout_centerHorizontal="true"
         android:textColor="@color/white"
         />
 

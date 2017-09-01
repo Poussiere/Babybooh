@@ -344,20 +344,6 @@ public class MainActivity extends AppCompatActivity {
 
                 //Music box 3
                 str_song_name = "Music box 3" + ".3gpp";
-                in = getResources().openRawResource(R.raw.musicbox2);
-                out = new FileOutputStream(path+File.separator+str_song_name);
-                buff = new byte[1024];
-                read = 0;
-                try {
-                    while ((read = in.read(buff)) > 0) {
-                        out.write(buff, 0, read);
-                    }
-                } finally {
-                    in.close();
-                    out.close();}
-
-                //Music box 4
-                str_song_name = "Music box 4" + ".3gpp";
                 in = getResources().openRawResource(R.raw.musicbox3);
                 out = new FileOutputStream(path+File.separator+str_song_name);
                 buff = new byte[1024];
@@ -369,6 +355,7 @@ public class MainActivity extends AppCompatActivity {
                 } finally {
                     in.close();
                     out.close();}
+
 
             }
                 } catch (IOException e) {

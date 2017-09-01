@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+
+
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:id="@+id/conteneur_ligne"
+    android:paddingBottom="10dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/imageMonstre"
+            android:src="@drawable/ic_monstre10"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/content_description_apperçu_monstre"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/date_containeer"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="25dp"
+            android:layout_toEndOf="@id/imageMonstre">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/dateView"
+                tools:text="22/07/2018"
+                android:textSize="20sp"
+                android:gravity="bottom"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:layout_weight="1" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:src="@android:drawable/ic_lock_idle_alarm"
+                android:layout_weight="1.3" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/heureView"
+                android:text="heure"
+                android:textSize="20sp"
+                android:gravity="top"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@id/date_containeer"
+            android:layout_centerVertical="true"
+
+            android:orientation="horizontal">
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/luxView"
+                android:textSize="20sp"
+                android:textColor="@color/blue_grey_300"
+                android:layout_weight="1"
+                tools:text="10 lux"
+                android:textStyle="bold"
+                android:gravity="center"
+
+                />
+
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/decibelsView"
+                android:textSize="20sp"
+                android:textColor="@color/blue_grey_300"
+                tools:text="30 db"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+
+                />
+
+
+
+        </LinearLayout>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/blue_grey_100"
+        android:layout_below="@id/conteneur_ligne"
+        android:id="@+id/main2_recycler_separator"
+        />
+</RelativeLayout>

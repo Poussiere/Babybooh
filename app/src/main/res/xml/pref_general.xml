@@ -27,7 +27,7 @@
 
 
     <ListPreference
-        android:defaultValue="45"
+        android:defaultValue="40"
         android:entries="@array/pref_sensibilite_titles"
         android:entryValues="@array/pref_sensibilite_values"
         android:key="sensibilite_micro"
