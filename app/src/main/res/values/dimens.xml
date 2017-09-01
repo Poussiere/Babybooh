@@ -7,6 +7,6 @@
     <dimen name="vertical_margins_between_detail_textviews">3dp</dimen>
     <dimen name="my_basic_text_size">15sp</dimen>
     <dimen name="detail_view_text_size">23sp</dimen>
-    <dimen name="id_monstre_title_size">34sp</dimen>
-    <dimen name="id_monstre_text_size">22sp</dimen>
+    <dimen name="id_monstre_title_size">28sp</dimen>
+    <dimen name="id_monstre_text_size">18sp</dimen>
 </resources>

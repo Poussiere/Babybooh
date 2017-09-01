@@ -37,14 +37,20 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
 
     String nomDuSon, nomDuSonSelectionne,nomDuSonCourt;
     private Context context;
+    private final PlayOnlickHandler mClickHandler;
 
 
 
+    public interface PlayOnlickHandler {
 
-    public EnregistrerRecyclerViewAdapter(Context context)
+        void onPlayClick(String nomDuSon);
+    }
+
+    public EnregistrerRecyclerViewAdapter(Context context, PlayOnlickHandler p)
 
     {
         this.context = context;
+        mClickHandler=p;
 
     }
 
@@ -110,7 +116,7 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
         if (fichiersSons != null) return fichiersSons.length;
         else return 0;
     }
-    public class EnrRecyclerViewHolders extends RecyclerView.ViewHolder {
+    public class EnrRecyclerViewHolders extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         public TextView sonNomTx ;
         public View conteneur;
@@ -168,7 +174,8 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
                 }
             });
 
-            playImage.setOnClickListener(new View.OnClickListener() {
+            playImage.setOnClickListener(this);
+         /*   playImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
@@ -217,9 +224,8 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
                     background2.start();}
                         }
 
-
-
             });
+        */
 
 
         }
@@ -228,6 +234,14 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
 
         public void refresh()
         {notifyDataSetChanged();}
+
+        @Override
+        public void onClick(View v) {
+
+
+            nomDuSon = sonNomTx.getText().toString() + ".3gpp";
+            mClickHandler.onPlayClick(nomDuSon);
+        }
     }
 
 }

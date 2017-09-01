@@ -43,6 +43,7 @@ import android.widget.Toast;
 
 import com.poussiere.babybooh.R;
 import com.poussiere.babybooh.objets.Enregistreur;
+import com.poussiere.babybooh.objets.Lecture;
 
 import java.io.File;
 import java.io.IOException;
@@ -51,7 +52,7 @@ import java.io.IOException;
 
 
 
-public class EnregistrerActivity extends AppCompatActivity {
+public class EnregistrerActivity extends AppCompatActivity implements EnregistrerRecyclerViewAdapter.PlayOnlickHandler {
 
 
     TextView tv1;
@@ -67,6 +68,11 @@ public class EnregistrerActivity extends AppCompatActivity {
     private AudioManager audioManager = null;
     public static final int MY_PERMISSIONS_REQUEST_AUDIO_RECORD = 42;
 
+    private Lecture lecture ;
+    private Thread background, background2;
+    private AudioManager manager;
+    private Toast toasty;
+
 ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +80,8 @@ public class EnregistrerActivity extends AppCompatActivity {
 
         setVolumeControlStream(AudioManager.STREAM_MUSIC); // Pour la seekbar
         setContentView(R.layout.activity_enregistrer);
+
+        toasty = Toast.makeText(this, R.string.clickToStop, Toast.LENGTH_SHORT);
 
         //Demander autorisation d'acceder au micro
         int permissionCheckAudio = ContextCompat.checkSelfPermission(this,
@@ -119,6 +127,7 @@ public class EnregistrerActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle(R.string.salle_enregistrement);
 
+        lecture = new Lecture(this);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -197,16 +206,16 @@ public class EnregistrerActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 File file = new File (getExternalFilesDir(null).getAbsolutePath()+"/babyboohSongs/"+sn+".3gpp");
                                 file.delete();
-                                rcAdapter = new EnregistrerRecyclerViewAdapter(EnregistrerActivity.this);
-                                rView.setAdapter(rcAdapter);
+                              //  rcAdapter = new EnregistrerRecyclerViewAdapter(EnregistrerActivity.this);
+                             //   rView.setAdapter(rcAdapter);
                                 dialog.dismiss();
                             }
                         });
                 supConfirm.setNegativeButton(R.string.annuler,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                rcAdapter = new EnregistrerRecyclerViewAdapter(EnregistrerActivity.this);
-                                rView.setAdapter(rcAdapter);
+                            //    rcAdapter = new EnregistrerRecyclerViewAdapter(EnregistrerActivity.this);
+                             //   rView.setAdapter(rcAdapter);
                                 dialog.dismiss();
                             }
                         });
@@ -227,7 +236,7 @@ public class EnregistrerActivity extends AppCompatActivity {
         /////////////////////////////////////////////////////////////////////////////
 
 
-        rcAdapter = new EnregistrerRecyclerViewAdapter(EnregistrerActivity.this);
+        rcAdapter = new EnregistrerRecyclerViewAdapter(EnregistrerActivity.this, this);
         rView.setAdapter(rcAdapter);
 
 
@@ -276,4 +285,60 @@ public class EnregistrerActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onPlayClick(String son) {
+       final String nomDuSon = son ;
+        if (!lecture.isRunning()) {
+
+            manager = (AudioManager) getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
+            if (!manager.isMusicActive()) {
+
+                background = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        lecture.lire(nomDuSon);
+                        toasty.show();
+                        lecture.getMediaPlayer().setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                            public void onCompletion(MediaPlayer mp) {
+                                lecture.stop();
+
+
+                            }
+
+                        });
+                    }
+                });
+
+                background.start();
+            } // fin du if audiomanager...
+            else {
+
+
+
+            }
+        }
+        else{
+            background2 = new Thread(new Runnable() {
+                @Override
+                public void run() {
+
+
+                    lecture.stop();
+
+                }
+            });
+
+            background2.start();}
+    }
+
+
+
+@Override
+    protected void onPause(){
+    if (manager.isMusicActive()){
+        lecture.stop();
+    }
+    super.onPause();
+}
 }

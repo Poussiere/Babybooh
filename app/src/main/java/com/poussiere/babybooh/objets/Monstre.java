@@ -30,7 +30,7 @@ public abstract class Monstre {
             if (nbReveils>2) monstre=11; // Si reveillé 3 fois alors pouponnator (11)
             else if (decibels >=75) monstre=1; // Si cri très fort alors Dédé la terreur (1)
             else if (decibels>60 && decibels<70) {
-                if (lum < 5 && difference > 180000) {
+                if (lum < 5 && difference > 18000) {
                     nombreAleatoire = rand.nextInt(3 - 1 + 1) + 1;
                     switch (nombreAleatoire) {
                         case 1:
@@ -55,7 +55,7 @@ public abstract class Monstre {
                     }
                 } else monstre = 9;
             }
-            else if(lum>20) {
+            else if(lum>=15) {
                 if (difference > 180000) {
                     nombreAleatoire = rand.nextInt(4 - 1 + 1) + 1;
                     switch (nombreAleatoire) {
@@ -88,7 +88,7 @@ public abstract class Monstre {
                     }
                 }
             }
-            else if (lum>4 && lum<11 && decibels<50) {
+            else if (lum>4 && lum<15 && decibels<50) {
                 if (difference > 180000) {
                     nombreAleatoire = rand.nextInt(3 - 1 + 1) + 1;
                     switch (nombreAleatoire) {
@@ -166,7 +166,6 @@ public abstract class Monstre {
         {
 
             if (nbReveils>2) monstre=11;
-            else if (decibels >=75) monstre=1;
             else if (lum==0 && decibels >40) monstre=12;
             else if (decibels>60 && decibels<80)
             {
