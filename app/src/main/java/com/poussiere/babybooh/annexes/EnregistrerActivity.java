@@ -336,9 +336,9 @@ public class EnregistrerActivity extends AppCompatActivity implements Enregistre
 
 @Override
     protected void onPause(){
-    if (manager.isMusicActive()){
-        lecture.stop();
-    }
+    if (lecture.isRunning()){
+        lecture.stop();}
+
     super.onPause();
 }
 }

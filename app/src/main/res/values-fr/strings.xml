@@ -110,18 +110,12 @@
     <string name="title_activity_settings">Paramètres</string>
 
 
-    <string name="pref_header_general">Général</string>
-
-    <string name="pref_title_social_recommendations">Enable social recommendations</string>
-    <string name="pref_description_social_recommendations">Recommendations for people to contact
-        based on your message history
-    </string>
-
     <string-array name="pref_sensibilite_titles">
         <item>forte</item>
         <item>normale</item>
         <item>faible</item>
     </string-array>
+
     <string-array name="pref_sensibilite_values">
         <item>35</item>
         <item>40</item>
@@ -188,11 +182,6 @@
     <string name="salle_enregistrement">Salle d\'enregistrement</string>
 
     <color name="white">#FFFFFF</color>
-
-    <color name="lavande">#E6E6FA</color>
-
-    <color name="gris_material">#E0E0E0</color>
-    <string name="title_activity_id_monstre">IdMonstreActivity</string>
 
     <string name="nom">Nom : </string>
     <string name="alias">Alias : </string>

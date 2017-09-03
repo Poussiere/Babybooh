@@ -28,7 +28,7 @@ public abstract class Monstre {
 
         {
             if (nbReveils>2) monstre=11; // Si reveillé 3 fois alors pouponnator (11)
-            else if (decibels >=75) monstre=1; // Si cri très fort alors Dédé la terreur (1)
+            else if (lum == 0 && decibels >=75) monstre=1; // Si cri très fort et noir alors Dédé la terreur (1)
             else if (decibels>60 && decibels<70) {
                 if (lum < 5 && difference > 18000) {
                     nombreAleatoire = rand.nextInt(3 - 1 + 1) + 1;

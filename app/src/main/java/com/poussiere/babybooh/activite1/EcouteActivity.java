@@ -153,37 +153,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
         introText=(TextView)findViewById(R.id.text_ecoute);
         //On va demander la permission d'acceder au micro
-        int permissionCheckAudio = ContextCompat.checkSelfPermission(this,
-                Manifest.permission.RECORD_AUDIO);
 
-
-        if (permissionCheckAudio != PackageManager.PERMISSION_GRANTED) {
-
-
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                    Manifest.permission.RECORD_AUDIO)) {
-
-                //Lancer un alertDialog ici
-                // Show an explanation to the user *asynchronously* -- don't block
-                // this thread waiting for the user's response! After the user
-                // sees the explanation, try again to request the permission.
-
-            } else {
-
-                // No explanation needed, we can request the permission.
-
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.RECORD_AUDIO},
-                        MY_PERMISSIONS_REQUEST_AUDIO_RECORD);
-
-
-            }
-        }
-
-
-        
-        
-        
         //Récuperation du seuilDécibel dans le sharedPreference (transformation du string en double)
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         seuil= prefs.getString("sensibilite_micro", "45");
