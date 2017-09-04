@@ -28,9 +28,9 @@ public abstract class Monstre {
 
         {
             if (nbReveils>2) monstre=11; // Si reveillé 3 fois alors pouponnator (11)
-            else if (lum == 0 && decibels >=75) monstre=1; // Si cri très fort et noir alors Dédé la terreur (1)
-            else if (decibels>60 && decibels<70) {
-                if (lum < 5 && difference > 18000) {
+            else if (difference > 180000 && lum == 0 && decibels >=75) monstre=1; // Si cri très fort et noir alors Dédé la terreur (1)
+            else if (decibels>60) {
+                if (lum < 5 && difference > 180000) {
                     nombreAleatoire = rand.nextInt(3 - 1 + 1) + 1;
                     switch (nombreAleatoire) {
                         case 1:
@@ -88,9 +88,9 @@ public abstract class Monstre {
                     }
                 }
             }
-            else if (lum>4 && lum<15 && decibels<50) {
+            else if (lum>4  && decibels<50) {
                 if (difference > 180000) {
-                    nombreAleatoire = rand.nextInt(3 - 1 + 1) + 1;
+                    nombreAleatoire = rand.nextInt(4 - 1 + 1) + 1;
                     switch (nombreAleatoire) {
                         case 1:
                             monstre = 4;
@@ -100,6 +100,8 @@ public abstract class Monstre {
                             break;
                         case 3:
                             monstre = 10;
+                            break;
+                        case 4: monstre = 3;
                             break;
                     }
                 } else {
@@ -115,7 +117,7 @@ public abstract class Monstre {
 
                 }
             }
-            else if (lum>0 && lum<6 ) {
+            else if (lum<5 ) {
                 nombreAleatoire = rand.nextInt(2 - 1 + 1) + 1;
                 switch (nombreAleatoire) {
                     case 1:
@@ -166,8 +168,8 @@ public abstract class Monstre {
         {
 
             if (nbReveils>2) monstre=11;
-            else if (lum==0 && decibels >40) monstre=12;
-            else if (decibels>60 && decibels<80)
+            else if (lum==0 && decibels >55) monstre=12;
+            else if (decibels>60)
             {
                 if ((heure>=8 && heure<=9) || (heure>=12 && heure<=14) || (heure>=16 && heure<=17) || (heure>=20 && heure<=21))
                 {
