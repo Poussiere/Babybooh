@@ -68,7 +68,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
     private TextView introText;
     private long dateDebutReveil;
     private boolean awakeBaby = false;
-
+    
     String monstreSexy=null; // Car en String = clé pour les sharedpreference
 
     // Cr�ation d'un thread dans laquelle l'�coute du b�b� sera lanc�e
@@ -97,28 +97,28 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
     long heureDernierDeclenchement;
 
 
-    //Seuil d'alerte en d�cibels (MAJ il s'agit d'une amplitude finalement pour plus de sensibilité).
-    private double seuilDecibels  ;
+    //Seuil d'alerte en d�cibels
+    private double seuilDecibels ;
+    private double sensibilite ;
+    
     //Délais de réveil au bout duquel le message peut-être déclenché. Par défaut c'est immédiatement
     private long delaisDeclenchement ; 
     
 
     // Cr�ation d'un bol�en pour d�terminer si la thread est lanc�e ou non
-    boolean isThreadRunning=false;
+    boolean isThreadRunning=false ;
 
     //Creation de deux boolean pour determiner quelle séquence du thread est activée
     boolean ecouteActive = true ;
-    boolean lectureActive =false;
+    boolean lectureActive =false ;
 
 
     // Cr�er un ContentResolver sans l'instancier pour d�tecter le mode avion
     private ContentResolver contentResolver ;
 
 
-
-
     //Creation d'un object calendar pour le calendrier
-   private Calendar cal;
+    private Calendar cal;
     private long dateDebut;
     private long difference;
 
@@ -156,9 +156,11 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
         //Récuperation du seuilDécibel dans le sharedPreference (transformation du string en double)
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        seuil= prefs.getString("sensibilite_micro", "45");
-
-        seuilDecibels =Double.parseDouble(seuil);
+        seuil= prefs.getString("sensibilite_micro", "10");
+        
+        sensibilite = Double.parseDouble(seuil); //Il faudra ajouter ce chiffre aux décibels obtenus pour augmenter la sensibilité du micro
+        
+        seuilDecibels = 35 ; //Le détecteur se déclenchera à 35 décibels
 
 
         String ar = prefs.getString("amplitudeRef", "0.7");
@@ -247,7 +249,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                             handler.sendEmptyMessageDelayed(3, 5000); // Effacer le textView
 
 
-                            resultEcoute = ecoute.obtenirDecibels(amplitudeRef);  //on r�cup�re le niveau sonore en d�cibels beta
+                            resultEcoute = ecoute.obtenirDecibels(amplitudeRef)+sensibilite ;  //on r�cup�re le niveau sonore en d�cibels beta
                             Log.i(ACT2, "test des décibels beta");
                             Log.i(ACT2, "resultEcoute en dB : "+resultEcoute+" ");
 
@@ -260,7 +262,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                         }
 
-                        resultEcoute = ecoute.obtenirDecibels(amplitudeRef);  //on r�cup�re le niveau sonore en d�cibels
+                        resultEcoute = ecoute.obtenirDecibels(amplitudeRef)+sensibilite;  //on r�cup�re le niveau sonore en d�cibels
                         Log.i(ACT2, "test des décibels1");
 
                         Log.i(ACT2, "resultEcoute en dB : "+resultEcoute+" ");
@@ -276,7 +278,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                 e.printStackTrace();
                             }
 
-                            resultEcoute = ecoute.obtenirDecibels(amplitudeRef);
+                            resultEcoute = ecoute.obtenirDecibels(amplitudeRef)+sensibilite;
 
                             Log.i(ACT2, "test des décibels2");
                             if (resultEcoute > seuilDecibels) {
@@ -379,7 +381,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
 
                         Log.i(ACT2, "Test des decibels 3");
-                        resultEcoute = ecoute.obtenirDecibels(amplitudeRef);
+                        resultEcoute = ecoute.obtenirDecibels(amplitudeRef)+sensibilite;
                         Log.i(ACT2, resultEcoute + " réécoute");
 
                         // Si le nombre de d�cibels est inf�rieur au seuil (si le b�b� ne crie plus
@@ -394,7 +396,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
-                            resultEcoute = ecoute.obtenirDecibels(amplitudeRef);
+                            resultEcoute = ecoute.obtenirDecibels(amplitudeRef)+sensibilite;
 
                           
 
