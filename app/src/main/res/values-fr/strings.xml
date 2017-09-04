@@ -20,7 +20,7 @@
     <string name="inconnu">Inconnu</string>
     <string name="salleEnregistrement">Salle d\'enregistrement</string>
 
-    <string name="empty_view_alert">Aucun monstre détecté pour le moment! Lancez la veille lors de la prochaine sieste de bébé!</string>
+    <string name="empty_view_alert">Aucun monstre détecté pour le moment! Lancez la veille lors de la prochaine sieste!</string>
 
     <string name="oui">OUI</string>
     <string name="non">NON</string>
@@ -90,7 +90,7 @@
     <string name="monstre9_alias">Bel os</string>
     <string name="monstre9_desc">Ce monstre terrifiant est gigantesque. Il arrive toutefois à passer inaperçu grace à sa faculté à s\'accrocher aux murs, tel un lézard.
     Avez-vous regardé au plafond avant de fermer la porte de la chambre ?</string>
-    <string name="monstre9_conditions">Il apparaît à toute heure de la journée, même en pleine lumière! Les cris qu\'il provoque peuvent être très intenses. Il se déplace souvent avec son blob globuleux. Attention, si vous le surprenez il vous lancera des yeux!</string>
+    <string name="monstre9_conditions">Il apparaît à toute heure de la journée et de la nuit, même en pleine lumière! Les cris qu\'il provoque peuvent être très intenses. Il se déplace souvent avec son blob globuleux. Attention, si vous le surprenez il vous lancera des yeux!</string>
 
     <string name="monstre10_nom">Pleurnichard</string>
     <string name="monstre10_alias">La guimauve</string>
@@ -99,7 +99,7 @@
 
     <string name="monstre11_nom">Pouponnator</string>
     <string name="monstre11_alias">Le câlin-posteur</string>
-    <string name="monstre11_desc">Attention, ce monstre essaie de se faire passer pour vous! Son passe-temps favori : pouponner, dorloter, câliner. Mais lorsque bébé réalise la supercherie, il se met souvent dans une colère monstre.</string>
+    <string name="monstre11_desc">Attention, ce monstre essaie de se faire passer pour vous! Son passe-temps favori : pouponner, dorloter, câliner. Mais lorsque bébé réalise la supercherie, il se met souvent dans une colère noire.</string>
     <string name="monstre11_conditions">Il aime sortir avant la sieste ou en début de soirée car il croit qu\'il peut aider les enfants à s\'endormir. Il aime aussi passer derrière les autres monstres dans l\'espoir de consoler les bébés appeurés.</string>
 
     <string name="monstre12_nom">Flameche</string>
@@ -117,9 +117,9 @@
     </string-array>
 
     <string-array name="pref_sensibilite_values">
-        <item>35</item>
-        <item>40</item>
-        <item>45</item>
+        <item>15</item>
+        <item>10</item>
+        <item>5</item>
     </string-array>
     
     <string-array name="pref_declenchement_titles">
@@ -219,7 +219,7 @@
     <string name="nom_pref_subtitle">Indiquer le nom du bébé</string>
     <string name="micro_pref_subtitle">Ajuster la sensibilité du micro pendant la veille pour éviter les déclenchements trop fréquents ou trop rares</string>
     <string name="declenchement_pref">Délai de déclenchement du message</string>
-    <string name="declenchement_pref_subtitle">Indiquer au bout de quelle durée de réveil vous souhaitez que le son soit lu</string>
+    <string name="declenchement_pref_subtitle">Indiquez au bout de quelle durée de réveil vous souhaitez que le son soit déclenché</string>
     
     
     <!-- strings de la detail activity
