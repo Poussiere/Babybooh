@@ -170,35 +170,46 @@ public class EnregistrerActivity2 extends AppCompatActivity {
 
             sonNom.setLayoutParams(lp);
 
-            final AlertDialog.Builder alerteNom = new AlertDialog.Builder(EnregistrerActivity2.this);
 
-            alerteNom.setMessage(R.string.alerte5);
-            alerteNom.setView(sonNom);
-            alerteNom.setCancelable(false);
-            alerteNom.setPositiveButton(R.string.continuer,
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+
+          //  final AlertDialog.Builder alerteNom = new AlertDialog.Builder(EnregistrerActivity2.this);
+
+            builder.setMessage(R.string.alerte5);
+            builder.setView(sonNom);
+            builder.setCancelable(false);
+
+
+            builder.setPositiveButton(R.string.continuer,
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
 
                             //Ajouter une condition pour etre sur que le nom ait été rentré et que ce ne soit pas un caractere interdit pour nommer un fichier
                             //On récupère le nom du bébé dans l'editText
-                            String nom = sonNom.getText().toString();
+                        /*    String nom = sonNom.getText().toString();
+
+                            if (!nom.equals("")&& !nom.equals(" ")) {
+
+                                String cheminFichierTx = getExternalFilesDir(null).getAbsolutePath();
+                                cheminFichierTx += "/babyboohSongs/";
+                                File repertoire = new File(cheminFichierTx);
+                                File from = new File(repertoire, "MessagePourBebe.3gpp");
+                                File to = new File(repertoire, nom.trim() + ".3gpp");
+                                from.renameTo(to);
 
 
-                            String cheminFichierTx = getExternalFilesDir(null).getAbsolutePath();
-                            cheminFichierTx += "/babyboohSongs/";
-                            File repertoire = new File(cheminFichierTx);
-                            File from = new File(repertoire, "MessagePourBebe.3gpp");
-                            File to = new File(repertoire, nom.trim() + ".3gpp");
-                            from.renameTo(to);
+                                prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                prefs.edit().putString("nomDuSon", nom + ".3gpp").apply();
+                                finish();
 
+                            }
 
-                            prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                            prefs.edit().putString("nomDuSon", nom+".3gpp").apply();
-                            finish();
-
-
+                           */
                         }
                     });
+
+            final AlertDialog alerteNom = builder.create();
             ////////////////////////////////////////////////////////////////////////////////////////////////////
 
             // Affichage de la premi�re fenetre de dialogue
@@ -255,11 +266,37 @@ public class EnregistrerActivity2 extends AppCompatActivity {
                     });
         //  alerteReecoute.show();
             alerteNom.show();
+            alerteNom.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+
+                    //Do stuff, possibly set wantToCloseDialog to true then...
+                    String nom = sonNom.getText().toString();
+                    if (!nom.equals("")&& !nom.equals(" ")) {
+
+                        String cheminFichierTx = getExternalFilesDir(null).getAbsolutePath();
+                        cheminFichierTx += "/babyboohSongs/";
+                        File repertoire = new File(cheminFichierTx);
+                        File from = new File(repertoire, "MessagePourBebe.3gpp");
+                        File to = new File(repertoire, nom.trim() + ".3gpp");
+                        from.renameTo(to);
+
+
+                        prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                        prefs.edit().putString("nomDuSon", nom + ".3gpp").apply();
+                        alerteNom.dismiss();
+                        finish();
+
+                    //else dialog stays open. Make sure you have an obvious way to close the dialog especially if you set cancellable to false.
+                }
+            }
 
 
 
-        }
-    }
+            });
+    }}
 
     protected void onPause()  {
 

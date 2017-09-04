@@ -55,6 +55,8 @@ public abstract class Monstre {
                     }
                 } else monstre = 9;
             }
+
+
             else if(lum>=15) {
                 if (difference > 180000) {
                     nombreAleatoire = rand.nextInt(4 - 1 + 1) + 1;
