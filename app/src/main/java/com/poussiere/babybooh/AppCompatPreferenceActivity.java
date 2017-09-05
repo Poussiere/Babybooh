@@ -22,6 +22,7 @@ public class AppCompatPreferenceActivity extends AppCompatActivity {
         }
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar_settings);
 
+
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
