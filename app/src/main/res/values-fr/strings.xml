@@ -117,9 +117,9 @@
     </string-array>
 
     <string-array name="pref_sensibilite_values">
-        <item>15</item>
-        <item>10</item>
         <item>5</item>
+        <item>2</item>
+        <item>0</item>
     </string-array>
     
     <string-array name="pref_declenchement_titles">
