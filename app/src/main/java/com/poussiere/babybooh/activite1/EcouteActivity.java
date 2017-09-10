@@ -134,6 +134,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
     private int monstre;
     private Button fab;
     private Handler handler;
+    private View conteneur;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,10 +146,24 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
         // FOrce l'activité à etre en plein ecran
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+      //  getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+        //        WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+
 
         setContentView(R.layout.activity_ecoute);
+
+        conteneur= (View)findViewById(R.id.conteneur_ecoute);
+        conteneur.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+
+
+
+
 
 
         introText=(TextView)findViewById(R.id.text_ecoute);
@@ -157,9 +172,9 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
         //Récuperation du seuilDécibel dans le sharedPreference (transformation du string en double)
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         seuil= prefs.getString("sensibilite_micro", "10");
-        
+
         sensibilite = Double.parseDouble(seuil); //Il faudra ajouter ce chiffre aux décibels obtenus pour augmenter la sensibilité du micro
-        
+
         seuilDecibels = 35 ; //Le détecteur se déclenchera à 35 décibels
 
 
@@ -167,7 +182,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
         amplitudeRef = Double.parseDouble(ar);
 
         delaisDeclenchement=Long.parseLong(prefs.getString("delais_declenchement", "0"));
-        
+
         //Récupération du nom du son à lire lorsque la veille est déclenchée
         sonNom=prefs.getString("nomDuSon","Music box 1.3gpp");
 

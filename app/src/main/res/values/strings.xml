@@ -210,10 +210,10 @@
     <string name="stop_enregistrement">Recording in progress! Press the mike button again to stop</string>
 
     <!-- Content descriptions -->
-    <string name="content_description_veille_bouton">Start Watch</string>
+    <string name="content_description_veille_bouton">Start watch</string>
     <string name="content_description_apperçu_monstre">Pic of the Monster who woke your baby</string>
     <string name="content_description_photo_monstre">Released monster pic. Click to visualize its ID</string>
-    <string name="content_description_stop_veille_bouton">Stop Watch</string>
+    <string name="content_description_stop_veille_bouton">Stop watch</string>
     <string name="content_description_demarrer_enregistreent">Start recording</string>
     <string name="content_description_arreter_enregistreent">Stop recording</string>
     <string name="content_description_gallerie">Gallery</string>
@@ -256,7 +256,7 @@
     <string name="lumière_forte">Full light</string>
     <string name="jour">Daylight</string>
 
-    <string name="lancer_veille">Enter to launch the Watch</string>
+    <string name="lancer_veille">Enter to launch the watch</string>
 
     <string name="son_en_cours">A reading is already in progress</string>
     
