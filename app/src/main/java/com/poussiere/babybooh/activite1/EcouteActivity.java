@@ -150,7 +150,6 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
         //        WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
-
         setContentView(R.layout.activity_ecoute);
 
         conteneur= (View)findViewById(R.id.conteneur_ecoute);
