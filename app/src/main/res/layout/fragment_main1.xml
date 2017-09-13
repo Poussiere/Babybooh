@@ -50,7 +50,8 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         app:borderWidth="0dp"
-        android:contentDescription="@string/content_description_veille_bouton"/> 
+        android:contentDescription="@string/content_description_veille_bouton"
+        app:useCompatPadding="true" /> 
                                              
     </RelativeLayout>
 
