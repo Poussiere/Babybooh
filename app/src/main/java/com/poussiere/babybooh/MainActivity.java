@@ -1,10 +1,4 @@
-///////////////////////
-//Choses à faire
-//Pour l'heure des evemenents : lorsque cela tombe rond on a 17h0 et non 17h00 --> fait!
-//Le on backpressed du mainactivity doit quitter l'application (et non revenir sur la veille par exemple) --> fait!
-// Il faut faire en sorte de ne pas pouvoir revenir dans la veille autrement qu'en appuyant sur le bouton correspondant du mainactivity-->fait!
 
-/////////////////////////////////////////////////////////////////////////////////////
 
 package com.poussiere.babybooh;
 
