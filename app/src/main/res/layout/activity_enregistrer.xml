@@ -65,11 +65,11 @@
     android:thumbTint="@color/color_accent"
     />
 </RelativeLayout>
+
      <RelativeLayout
+         style="@style/fab_conteneur2"
         android:layout_width="match_parent"
-        android:layout_height="72dp"
         android:layout_below="@id/enregistrer_up_conteneur"
-        android:layout_marginTop="-29dp"
          android:clipChildren="false"
          android:id="@+id/fab_conteneur">
 

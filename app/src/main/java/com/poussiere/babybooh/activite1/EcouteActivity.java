@@ -22,6 +22,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -132,7 +133,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
     private int lum ;
     private int monstre;
-    private Button fab;
+    private AppCompatButton fab;
     private Handler handler;
     private View conteneur;
 
@@ -174,7 +175,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
         sensibilite = Double.parseDouble(seuil); //Il faudra ajouter ce chiffre aux décibels obtenus pour augmenter la sensibilité du micro
 
-        seuilDecibels = 35 ; //Le détecteur se déclenchera à 35 décibels
+        seuilDecibels = 38 ; //Le détecteur se déclenchera à 35 décibels
 
 
         String ar = prefs.getString("amplitudeRef", "0.7");
@@ -193,9 +194,15 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
         animation.setInterpolator(new LinearInterpolator()); // do not alter animation rate
         animation.setRepeatCount(Animation.INFINITE); // Repeat animation infinitely
         animation.setRepeatMode(Animation.REVERSE); // Reverse animation at the end so the button will fade back in
-        fab= (Button) findViewById(R.id.boutonFlottant);
+        fab= (AppCompatButton)findViewById(R.id.boutonFlottant);
         fab.startAnimation(animation);
 
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                retourActivitePrincipale();
+            }
+        });
 
         handler=new Handler(){
 
@@ -690,12 +697,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
         startActivity(i);
     }
 
-    // Lorsque l'utilisateur appuie sur le bouton, cela stope l'�coute et retourne � l'activit� principale
-    public void onClick2 (View v)
-    {
 
-        retourActivitePrincipale();
-    }
 
     //  Fonction qui détermine quel est le monstre qui est apparu
     //  Pour le moment on considère que l'heure est un entier etc. On ne cree pas d'objet date

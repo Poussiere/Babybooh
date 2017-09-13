@@ -129,7 +129,7 @@
     </string-array>
     
     <string-array name="pref_declenchement_titles">
-        <item>now</item>
+        <item>immediately</item>
         <item>after 15 seconds</item>
         <item>after 30 seconds</item>
         <item>after 1 minute</item>

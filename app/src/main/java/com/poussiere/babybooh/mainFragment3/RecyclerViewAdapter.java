@@ -9,6 +9,7 @@ package com.poussiere.babybooh.mainFragment3;
         import android.view.View;
         import android.view.ViewGroup;
 
+        import com.bumptech.glide.Glide;
         import com.poussiere.babybooh.R;
         import com.poussiere.babybooh.objets.Monstre;
 

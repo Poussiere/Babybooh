@@ -19,18 +19,17 @@
         android:textSize="25sp"
         android:layout_marginBottom="16dp"/>
 
-    <Button
+    <android.support.v7.widget.AppCompatButton
         android:id="@+id/boutonFlottant"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:background="@android:drawable/btn_star_big_off"
-        android:backgroundTint="@color/color_accent"
+        app:backgroundTint="@color/color_accent"
         android:clickable="true"
         android:contentDescription="@string/content_description_stop_veille_bouton"
         android:focusable="true"
-        android:onClick="onClick2"
         app:srcCompat="@android:drawable/btn_star" />
 
 </RelativeLayout>

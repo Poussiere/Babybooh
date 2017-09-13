@@ -34,4 +34,16 @@
         <item name="android:textSize">@dimen/my_basic_text_size</item>
         <item name="android:textColor">@color/black</item>
     </style>
+
+    <style name="fab_conteneur1">
+        <item name="android:layout_height">110dp</item>
+        <item name="android:layout_marginTop">-65dp</item>
+       </style>
+
+    <style name="fab_conteneur2">
+        <item name="android:layout_height">110dp</item>
+        <item name="android:layout_marginTop">-65dp</item>
+        <item name="android:layout_marginEnd">-28dp</item>
+
+    </style>
 </resources>

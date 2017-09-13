@@ -31,10 +31,10 @@
               
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="72dp"
+        style="@style/fab_conteneur1"
         android:id="@+id/main1_fab_conteneur"
         android:layout_below="@id/main1_top_conteneur"
-        android:layout_marginTop="-29dp">
+        >
         
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"

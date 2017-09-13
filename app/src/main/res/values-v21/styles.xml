@@ -7,6 +7,19 @@
         <item name="android:statusBarColor">@color/indigo_material_700</item>
     </style>
 
+    <style name="fab_conteneur1">
+        <item name="android:layout_height">72dp</item>
+        <item name="android:layout_marginTop">-29dp</item>
+
+    </style>
+
+    <style name="fab_conteneur2">
+        <item name="android:layout_height">72dp</item>
+        <item name="android:layout_marginTop">-29dp</item>
+
+    </style>
+
+
 
 </resources>
 
