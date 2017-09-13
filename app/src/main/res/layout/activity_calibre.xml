@@ -51,7 +51,6 @@
             app:borderWidth="0dp"
             app:elevation="12dp"
             app:pressedTranslationZ="12dp"
-            app:useCompatPadding="true"
             app:srcCompat="@android:drawable/ic_menu_manage" />
         
     </RelativeLayout>
