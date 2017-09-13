@@ -53,12 +53,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
 
         if (monstreDebloque)
         { holder.petitNom.setText(context.getText(tabNoms[position]));
-        holder.petitePhoto.setImageResource(tabImages[position]);}
+        //holder.petitePhoto.setImageResource(tabImages[position]);
+        Glide.with(context).load(tabImages[position]).into(holder.petitePhoto);}
 
         else
         {holder.petitNom.setText(context.getText(R.string.inconnu));
-            holder.petitePhoto.setImageResource(R.drawable.interrogationbig);
-
+          //  holder.petitePhoto.setImageResource(R.drawable.interrogationbig);
+               Glide.with(context).load(R.drawable.interrogationbig).into(holder.petitePhoto);
         }
 
     }
