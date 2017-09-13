@@ -205,31 +205,8 @@ public class MainActivity extends AppCompatActivity {
 
 
             }
-        }
-        else{
-            conteneurDuMain.setVisibility(VISIBLE);
-        }
-
-
-
-        
-    }// fin du onCreate
-
-
-    @Override
-    protected void onResume()
-    {
-        //Il faut mettre toutes les shared preferences à false des le onResume sinon un message concernant les réveils s'affiche au premier lancement
-
-
-
-
-        prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if (prefs.getBoolean("firstrun", true)) {
-
-
-
-            /////////////////////////////////////////////////////////////////////////////////////////////////////
+            
+             /////////////////////////////////////////////////////////////////////////////////////////////////////
             ///////////////////////////////Demander autorisation d'acceder au micro
             int permissionCheckAudio = ContextCompat.checkSelfPermission(this,
                     Manifest.permission.RECORD_AUDIO);
@@ -367,12 +344,25 @@ public class MainActivity extends AppCompatActivity {
                     });
 
             alertAvertissement.show();
+            
+            
+        }
+        else{
+            conteneurDuMain.setVisibility(VISIBLE);
         }
 
 
 
+        
+    }// fin du onCreate
 
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    protected void onResume()
+    {
+        //Il faut mettre toutes les shared preferences à false des le onResume sinon un message concernant les réveils s'affiche au premier lancement
+
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //Vérification s'il y a des notifications à afficher
         if(prefs.getBoolean("unReveil", true))
         {
