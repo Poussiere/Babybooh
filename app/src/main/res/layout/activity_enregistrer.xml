@@ -59,7 +59,7 @@
     android:layout_below="@id/tvMerci"
     android:id="@+id/seek_volume"
     android:layout_toRightOf="@id/tvVol"
-    android:layout_marginTop="34dp"
+    android:layout_marginTop="37dp"
     android:layout_marginEnd="60dp"
     android:progressTint="@color/color_accent"
     android:thumbTint="@color/color_accent"

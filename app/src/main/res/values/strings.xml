@@ -151,8 +151,8 @@
 
     </string-array>
     <string-array name="pref_sexe_values">
-        <item>girl</item>
-        <item>boy</item>
+        <item>fille</item>
+        <item>garcon</item>
     </string-array>
 
     <string name="pref_eteint_ecran_title">Authorize screen to turn off</string>
@@ -171,7 +171,6 @@
     <string name="caractere_fille">What a lovely name for a lovely girl!  </string>
     <string name="caractere_fille1"> According to our experts team analysis, it seems that %1$s are great adventurers. With our help, she should be able to come around any night creature!</string>
     <string name="caractere_fille2"> According to our experts team analysis, it seems that %1$s are very pretty princesses. While waiting for prince charming, she\'ll need a little help from us to strike down the monters inhabiting her room!</string>
-
     <string name="caractere_garcon">What a lovely name for a lovely boy! </string>
     <string name="caractere_garçon1"> According to our experts team analysis, it seems that %1$s are great adventurers! With our help, he should be able to come around any night creature! </string>
     <string name="caractere_garçon2"> According to our experts team analysis, it seems that %1$s are very bright and sensitive boys.  While waiting for him to create his own monster busting machine, he\'ll need a little help from us to strike down the monters hiding under his bed!</string>
