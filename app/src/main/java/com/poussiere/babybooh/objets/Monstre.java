@@ -27,11 +27,11 @@ public abstract class Monstre {
         if (heure>20 ||  heure<8)
 
         {
-            if (nbReveils>2) monstre=11; // Si reveillé 3 fois alors pouponnator (11)
-            else if (difference > 180000 && lum == 0 && decibels >=75) monstre=1; // Si cri très fort et noir alors Dédé la terreur (1)
-            else if (decibels>60) {
-                if (lum < 5 && difference > 180000) {
-                    nombreAleatoire = rand.nextInt(3 - 1 + 1) + 1;
+
+             if (difference > 180000 && lum == 0 && decibels >=85) monstre=1; // Si cri très fort et noir alors Dédé la terreur (1)
+            else if (decibels>70 && lum<=10) {
+                if (lum < 5 && difference > 180000 && (nbReveils>2)) {
+                    nombreAleatoire = rand.nextInt(4 - 1 + 1) + 1;
                     switch (nombreAleatoire) {
                         case 1:
                             monstre = 4;
@@ -42,8 +42,38 @@ public abstract class Monstre {
                         case 3:
                             monstre = 9;
                             break;
+                        case 4:
+                            monstre = 11;
+                    }}
+                    else if (lum < 5 && difference > 180000) {
+                        nombreAleatoire = rand.nextInt(3 - 1 + 1) + 1;
+                        switch (nombreAleatoire) {
+                            case 1:
+                                monstre = 4;
+                                break;
+                            case 2:
+                                monstre = 8;
+                                break;
+                            case 3:
+                                monstre = 9;
+                                break;
+                        }
+
+                } else if (lum < 5 && (nbReveils>2) ) {
+                    nombreAleatoire = rand.nextInt(3 - 1 + 1) + 1;
+                    switch (nombreAleatoire) {
+                        case 1:
+                            monstre = 8;
+                            break;
+                        case 2:
+                            monstre = 9;
+                            break;
+                        case 3:
+                            monstre=11;
                     }
-                } else if (lum < 5) {
+                }
+
+                else if (lum < 5) {
                     nombreAleatoire = rand.nextInt(2 - 1 + 1) + 1;
                     switch (nombreAleatoire) {
                         case 1:
@@ -53,13 +83,15 @@ public abstract class Monstre {
                             monstre = 9;
                             break;
                     }
-                } else monstre = 9;
+                }
+
+                else monstre = 9;
             }
 
 
-            else if(lum>=15) {
-                if (difference > 180000) {
-                    nombreAleatoire = rand.nextInt(4 - 1 + 1) + 1;
+            else if(lum>=10) {
+                if (difference > 180000 && nbReveils>2) {
+                    nombreAleatoire = rand.nextInt(6 - 1 + 1) + 1;
                     switch (nombreAleatoire) {
                         case 1:
                             monstre = 3;
@@ -73,9 +105,36 @@ public abstract class Monstre {
                         case 4:
                             monstre = 7;
                             break;
+                        case 5 :
+                            monstre = 10;
+                        case 6 :
+                            monstre=11;
                     }
-                } else {
-                    nombreAleatoire = rand.nextInt(3 - 1 + 1) + 1;
+                }
+
+                else if (difference > 180000) {
+                    nombreAleatoire = rand.nextInt(5 - 1 + 1) + 1;
+                    switch (nombreAleatoire) {
+                        case 1:
+                            monstre = 3;
+                            break;
+                        case 2:
+                            monstre = 4;
+                            break;
+                        case 3:
+                            monstre = 6;
+                            break;
+                        case 4:
+                            monstre = 7;
+                            break;
+                        case 5 :
+                            monstre = 10;
+                    }
+                }
+
+                else if (nbReveils>2)
+                {
+                    nombreAleatoire = rand.nextInt(5 - 1 + 1) + 1;
                     switch (nombreAleatoire) {
                         case 1:
                             monstre = 3;
@@ -86,6 +145,28 @@ public abstract class Monstre {
                         case 3:
                             monstre = 7;
                             break;
+                        case 4:
+                            monstre = 10;
+                        case 5:
+                            monstre=11;
+
+                    }
+                }
+
+                else {
+                    nombreAleatoire = rand.nextInt(4 - 1 + 1) + 1;
+                    switch (nombreAleatoire) {
+                        case 1:
+                            monstre = 3;
+                            break;
+                        case 2:
+                            monstre = 6;
+                            break;
+                        case 3:
+                            monstre = 7;
+                            break;
+                        case 4:
+                            monstre = 10;
 
                     }
                 }
@@ -119,8 +200,8 @@ public abstract class Monstre {
 
                 }
             }
-            else if (lum<5 ) {
-                nombreAleatoire = rand.nextInt(2 - 1 + 1) + 1;
+            else if (lum<5 && nbReveils>2) {
+                nombreAleatoire = rand.nextInt(3 - 1 + 1) + 1;
                 switch (nombreAleatoire) {
                     case 1:
                         monstre = 7;
@@ -128,11 +209,25 @@ public abstract class Monstre {
                     case 2:
                         monstre = 8;
                         break;
+                    case 3:
+                        monstre=11;
                 }
             }
 
-            else if (lum==0) {
-                nombreAleatoire = rand.nextInt(3 - 1 + 1) + 1;
+             else if (lum<5 ) {
+                 nombreAleatoire = rand.nextInt(2 - 1 + 1) + 1;
+                 switch (nombreAleatoire) {
+                     case 1:
+                         monstre = 7;
+                         break;
+                     case 2:
+                         monstre = 8;
+                         break;
+                 }
+             }
+
+            else if (lum==0&& nbReveils>2 ) {
+                nombreAleatoire = rand.nextInt(4 - 1 + 1) + 1;
                 switch (nombreAleatoire) {
                     case 1:
                         monstre = 7;
@@ -143,11 +238,28 @@ public abstract class Monstre {
                     case 3:
                         monstre = 12;
                         break;
+                    case 4:
+                        monstre = 11;
                 }
             }
 
-            else if (difference>180000) {
-                nombreAleatoire = rand.nextInt(2 - 1 + 1) + 1;
+             else if (lum==0 ) {
+                 nombreAleatoire = rand.nextInt(3 - 1 + 1) + 1;
+                 switch (nombreAleatoire) {
+                     case 1:
+                         monstre = 7;
+                         break;
+                     case 2:
+                         monstre = 8;
+                         break;
+                     case 3:
+                         monstre = 12;
+                         break;
+                 }
+             }
+
+            else if (difference>180000 && nbReveils>2) {
+                nombreAleatoire = rand.nextInt(3 - 1 + 1) + 1;
                 switch (nombreAleatoire) {
                     case 1:
                         monstre = 4;
@@ -155,9 +267,24 @@ public abstract class Monstre {
                     case 2:
                         monstre = 7;
                         break;
+                    case 3:
+                        monstre=11;
                 }
 
             }
+
+             else if (difference>180000) {
+                 nombreAleatoire = rand.nextInt(2 - 1 + 1) + 1;
+                 switch (nombreAleatoire) {
+                     case 1:
+                         monstre = 4;
+                         break;
+                     case 2:
+                         monstre = 7;
+                         break;
+                 }
+
+             }
 
             else monstre = 7;
 
@@ -169,9 +296,8 @@ public abstract class Monstre {
         if (heure>7 && heure<21)
         {
 
-            if (nbReveils>2) monstre=11;
-            else if (lum==0 && decibels >55) monstre=12;
-            else if (decibels>60)
+            if (lum==0 && decibels >65) monstre=12;
+            else if (decibels>70)
             {
                 if ((heure>=8 && heure<=9) || (heure>=12 && heure<=14) || (heure>=16 && heure<=17) || (heure>=20 && heure<=21))
                 {
@@ -190,7 +316,20 @@ public abstract class Monstre {
 
             }
             else if ((heure>=8 && heure<=9) || (heure>=12 && heure<=14) || (heure>=16 && heure<=17) || (heure>=20 && heure<=21)) {
-                if (lum > 5 && decibels > 40) {
+                if (lum > 5 && decibels > 60 && nbReveils>2) {
+                    nombreAleatoire = rand.nextInt(3 - 1 + 1) + 1;
+                    switch (nombreAleatoire) {
+                        case 1:
+                            monstre = 5;
+                            break;
+                        case 2:
+                            monstre = 6;
+                            break;
+                        case 3:
+                            monstre = 11;
+                    }
+                }
+                if (lum > 5 && decibels > 60 ) {
                     nombreAleatoire = rand.nextInt(2 - 1 + 1) + 1;
                     switch (nombreAleatoire) {
                         case 1:
@@ -200,7 +339,10 @@ public abstract class Monstre {
                             monstre = 6;
                             break;
                     }
-                } else {
+                }
+
+
+                else {
                     nombreAleatoire = rand.nextInt(3 - 1 + 1) + 1;
                     switch (nombreAleatoire) {
                         case 1:
@@ -215,6 +357,21 @@ public abstract class Monstre {
                 }
             }
 
+            else if (lum>5 && nbReveils>2) {
+                nombreAleatoire = rand.nextInt(4 - 1 + 1) + 1;
+                switch (nombreAleatoire) {
+                    case 1:
+                        monstre = 2;
+                        break;
+                    case 2:
+                        monstre = 6;
+                        break;
+                    case 3:
+                        monstre = 7;
+                    case 4 :
+                        monstre=11;
+                }
+            }
             else if (lum>5) {
                 nombreAleatoire = rand.nextInt(3 - 1 + 1) + 1;
                 switch (nombreAleatoire) {
@@ -227,6 +384,10 @@ public abstract class Monstre {
                     case 3:
                         monstre = 7;
                 }
+            }
+
+            else if (nbReveils>2){
+                monstre=11;
             }
 
             else {
