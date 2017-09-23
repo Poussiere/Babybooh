@@ -79,8 +79,12 @@ public class mainFragment3 extends Fragment {
         if (dpWidth>=600)
         { noOfColumns = (int) (dpWidth / 400);}
       
-         else 
+         else if (dpWidth>=380)
          {noOfColumns = (int) (dpWidth / 130);}
+
+        else{
+            noOfColumns=(int)(dpWidth/130);
+        }
         return noOfColumns;
     }
 }
