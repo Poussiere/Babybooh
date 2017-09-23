@@ -261,29 +261,29 @@
     
  <!-- Pas encore traduit
 -->
-    <string name="message_to_the_world_garcon">%1$s a été réveillé par un monstre terrifiant nommé %2$s! Merci BabyBoOH de m\'aider à veiller sur mon bébé!</string>
-    <string name="message_to_the_world_fille">%1$s a été réveillée par un monstre terrifiant nommé %2$s! Merci BabyBoOH de m\'aider à veiller sur mon bébé!</string>
-    <string name="partager">Partager</string>
-    <string name="ask_calibre">Pour terminer, nous devons calibrer votre microphone. Pour cette étape, vous devez être dans un endroit silencieux. Pour pourrez recommencer le calibrage plus tard si nécessaire. </string>
-    <string name="demarrer_calibrage">Appuyez sur le bouton pour démarrer le calibrage du microphone</string>
-    <string name="calibrage_en_cours">Chut...Calibrage du microphone en cours.</string>
-    <string name="calibrage_terminé">Le calibrage est terminé. Vous pouvez désormais utiliser BabyboOH avec votre bébé!</string>
-    <string name="salle_de_calibrage">Calibrage du micro</string>
+    <string name="message_to_the_world_garcon">%1$s has been awakened by a frightening monster named %2$s! Thank you BabyboOH for helping me looking after my baby !</string>
+    <string name="message_to_the_world_fille">%1$s has been awakened by a frightening monster named %2$s! Thank you BabyboOH for helping me looking after my baby !</string>
+    <string name="partager">Share</string>
+    <string name="ask_calibre">To finish we have to calibrate your mike. To do that you must necessary be in a quiet place.You will have the possibility of calibrating again your mike later.</string>
+    <string name="demarrer_calibrage">Press the button to start the mike calibrating</string>
+    <string name="calibrage_en_cours">Be silent... the calibrating is in progress</string>
+    <string name="calibrage_terminé">The calibrating is achieved. You can now use BabyboOH with your baby!</string>
+    <string name="salle_de_calibrage">Mike calibrating</string>
 
-    <string name="apropos">A propos</string>
+    <string name="apropos">About</string>
     <string name="a_propos1">BabyboOH Android version 1.0</string>
-    <string name="a_propos2">BabyboOH est une application vous permettant de suivre le sommeil de votre bébé de manière ludique. BabyBoOH ne peut en aucun cas se substituer à la surveillance active de la part d\'une personne adulte. Ne laissez pas votre bébé pleurer. Ne laissez pas votre bébé seul. </string>
-    <string name="remerciements">BabyboOH a été développé par Nicolas Boutin. Merci à Blandine pour son soutien et ses précieux conseils, à ma soeur Geraldine pour la relecture et la traduction anglaise et à mon frère Jerome pour la conception des dessins de nombreux monstres. Remerciements spéciaux à Mahel pour les discussions enrichissantes et son soutien en territoire hostile. \n\nLa reproduction partielle ou totale du contenu de cette application est interdite.</string>
-    <string name="avertissement">Avertissement</string>
-    <string name="compris">J\'ai compris</string>
-    <string name="ecoute_active">L\'écoute est désormais active</string>
-    <string name="sortir">Appuyez sur l\'étoile pour quitter</string>
-    <string name="reinitialiser">Réinitialiser l\'application</string>
-    <string name="impossible_delete">Vous ne pouvez pas effacer ce son</string>
-    <string name="clickToStop">Appuyez à nouveau pour stopper le son</string>
+    <string name="a_propos2">BabyboOH is an application that enables you to watch over your baby’s sleep in a most pleasant way. But it cannot  be used as a substitute to parental watch over. Don’t let your baby cry. Don’t let your baby alone.  </string>
+    <string name="remerciements">BabyboOH has been developed by Nicolas Boutin. Grateful thanks to Blandine for her support and her precious advices, to my sister Geraldine for her final read-through and for  the english  translation, to my brother Jérôme for the monster design. Particular thanks to Mahel for her fruitful discussions and her support in an hostile territory. \n\nThe full or partial duplication of this application is strictly forbidden.</string>
+    <string name="avertissement">Warning</string>
+    <string name="compris">I understand</string>
+    <string name="ecoute_active">Listening is now in progress.</string>
+    <string name="sortir">Press the star to leave.</string>
+    <string name="reinitialiser">Reset application</string>
+    <string name="impossible_delete">You can\'t delete this song!</string>
+    <string name="clickToStop">Press again to stop the song.</string>
     <!-- Reformulé
 -->
-    <string name="first_time1">A chaque fois que votre bébé se réveillera, une musique apaisante sera jouée jusqu\'à ce qu\'il se rendorme. Vous pourrez même enregistrer votre propre message en vous rendant dans la salle d\'enregistrement.</string>
-    <string name="first_time2">Pour chaque réveil, nos experts analyseront les cris qui ont été émis par votre bébé ainsi que son environnement pour vous dire quel type de monstre l\'a réveillé. </string>
+    <string name="first_time1">Each time your baby wakes up, a quiet melody will be played until he falls back asleep.. You will even be able to record your own soothing message in our private recording room!</string>
+    <string name="first_time2">For each event, our experts will analyse your baby cries and environment to diagnose which monster woke him up!</string>
 
     </resources>
