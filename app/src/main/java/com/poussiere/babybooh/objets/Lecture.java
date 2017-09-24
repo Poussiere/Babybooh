@@ -2,9 +2,6 @@ package com.poussiere.babybooh.objets;
 
 import android.content.Context;
 import android.media.MediaPlayer;
-import android.os.Environment;
-import android.util.Log;
-
 import java.io.IOException;
 
 /**
@@ -79,7 +76,6 @@ public class Lecture {
             mediaPlayer.reset();
             mediaPlayer.release();
             mediaPlayer = null;
-            Log.i("ACT2", "mediaplayer stoppé");
         }}
 
     //M�thode qui va permettre de savoir si le MediaRecorder est actif ou non

@@ -3,12 +3,9 @@ package com.poussiere.babybooh.objets;
 import android.content.Context;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
-import android.os.Environment;
-import android.util.Log;
 
 import java.io.IOException;
 
-import static java.security.AccessController.getContext;
 
 // Créer le repertoire dans lequel seront sauvegardées les sons lors du premier lancement
 
@@ -70,7 +67,7 @@ public class Enregistreur {
             }
 
             mediaRecorder.start();
-            Log.i(OBJ_NAME, "MediaRecorder lancé");
+
 
 
         }
@@ -84,7 +81,7 @@ public class Enregistreur {
             mediaRecorder.reset();
             mediaRecorder.release();
             mediaRecorder = null;
-            Log.i(OBJ_NAME, "MediaRecorder arreté");
+
         }
 
     }

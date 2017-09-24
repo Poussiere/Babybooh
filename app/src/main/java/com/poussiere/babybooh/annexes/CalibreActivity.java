@@ -3,7 +3,6 @@ package com.poussiere.babybooh.annexes;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -16,8 +15,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.InputFilter;
-import android.text.Spanned;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -25,22 +22,17 @@ import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.poussiere.babybooh.MainActivity;
 import com.poussiere.babybooh.R;
 import com.poussiere.babybooh.objets.Ecoute;
-import com.poussiere.babybooh.objets.Enregistreur;
-
-import java.io.File;
 import java.io.IOException;
 
 public class CalibreActivity extends AppCompatActivity {
 
     private boolean calibrageEnCours;
-    private Thread background1, background2;
+    private Thread background1;
     private TextView tv1;
     private FloatingActionButton fb;
     private SharedPreferences prefs;
@@ -209,13 +201,6 @@ public class CalibreActivity extends AppCompatActivity {
 
             // Return to mainactivity when home button is clicked
             case android.R.id.home:
-              /*  Intent upIntent = NavUtils.getParentActivityIntent(this);
-                if (NavUtils.shouldUpRecreateTask(this, upIntent)) {
-                    TaskStackBuilder.create(this).addNextIntentWithParentStack(upIntent).startActivities();
-                } else {
-                    NavUtils.navigateUpTo(this, upIntent);
-                }
-                */
                 onBackPressed();
                 return true;
         }

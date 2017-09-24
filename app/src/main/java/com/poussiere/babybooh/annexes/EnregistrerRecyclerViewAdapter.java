@@ -1,33 +1,25 @@
 package com.poussiere.babybooh.annexes;
 
-import android.content.ClipData;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.media.AudioManager;
-import android.media.MediaPlayer;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
-import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
-import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.poussiere.babybooh.R;
-import com.poussiere.babybooh.mainFragment3.RecyclerViewHolders;
 import com.poussiere.babybooh.objets.Lecture;
 
 import java.io.File;
 
-import static java.security.AccessController.getContext;
 
 public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<EnregistrerRecyclerViewAdapter.EnrRecyclerViewHolders> {
 

@@ -1,12 +1,11 @@
 package com.poussiere.babybooh.activite1;
 
-import android.Manifest;
+
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -18,19 +17,14 @@ import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
-import android.support.design.widget.FloatingActionButton;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatButton;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
-import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -233,7 +227,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
 
             public void run() {
-                Log.i(ACT2, "debut de l'execution du thread");
+
 
                 while (isThreadRunning) {
 
@@ -259,7 +253,6 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                 ecoute.demarrerEcoute();//alors il sera lanc�
 
 
-                                Log.i(ACT2, "ecoute démarrée");
 
                             } catch (IOException e) {
                                 e.printStackTrace();
@@ -271,8 +264,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
 
                             resultEcoute = ecoute.obtenirDecibels(amplitudeRef)+sensibilite ;  //on r�cup�re le niveau sonore en d�cibels beta
-                            Log.i(ACT2, "test des décibels beta");
-                            Log.i(ACT2, "resultEcoute en dB : "+resultEcoute+" ");
+
 
 
                             try {
@@ -284,15 +276,12 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                         }
 
                         resultEcoute = ecoute.obtenirDecibels(amplitudeRef)+sensibilite;  //on r�cup�re le niveau sonore en d�cibels
-                        Log.i(ACT2, "test des décibels1");
-
-                        Log.i(ACT2, "resultEcoute en dB : "+resultEcoute+" ");
 
 
                         if (resultEcoute > seuilDecibels)
 
                         {
-                            Log.i(ACT2, "le seuil des décibels est dépassé (essai 1");
+
                             try {
                                 background.sleep(300);//on fait une pause pour s'assurer qu'il ne s'agit pas seulement d'un bruit bref
                             } catch (InterruptedException e) {
@@ -301,10 +290,9 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                             resultEcoute = ecoute.obtenirDecibels(amplitudeRef)+sensibilite;
 
-                            Log.i(ACT2, "test des décibels2");
+
                             if (resultEcoute > seuilDecibels) {
-                                Log.i(ACT2, "le seuil des décibels est dépassé (essai 2");
-                                Log.i(ACT2, "resultEcoute en dB : "+resultEcoute+" ");
+
                                 
                                 awakeBaby=true;
                                 ecouteActive = false;
@@ -330,8 +318,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
 
                                 // Onrécupère le niveau en décibels de cet évenement déclencheur
-                                Log.i(ACT2, "captation des paramettres de l'évènement");
-                              //  decibels = 20 * Math.log10(resultEcoute / 10);
+
 
                                 decibels=resultEcoute;
                                 //On donne sa première valeur au highestDecibels
@@ -348,18 +335,16 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                     
                                 }
 
-                                Log.i(ACT2, "Lecture a partir de la sequence ecoute");
                                cal=Calendar.getInstance();
                                 heureDernierDeclenchement =cal.getTimeInMillis();
                                 //Si le temps écoulé depuis le premier cri du bébé est supérieur au délais défini par l'utilisateur, on lance la lecture du son
                                 if ((heureDernierDeclenchement -timeInMillis)>=delaisDeclenchement){
 
                                 if (lecture.isRunning())
-                                {   Log.i(ACT2, "Lecture du son résumée");
+                                {
 
                                     lecture.resume();
                                 } else {
-                                    Log.i(ACT2, "Lecture du son pour la premiere fois");
                                     lecture.lire(sonNom);
 
                                 }
@@ -367,9 +352,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                                 lecture.getMediaPlayer().setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                                     public void onCompletion(MediaPlayer mp) {
-                                        Log.i(ACT2, "declenchement du listener");
 
-                                        Log.i(ACT2, "Lecture du son terminée");
 
                                         lectureActive = true;
 
@@ -383,7 +366,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                     lectureActive = true;}
 
 
-                                Log.i(ACT2, "fin de la sequence ecoute");
+
                             }
                         }
                     }
@@ -398,12 +381,8 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                         //On fait en sorte de ne pas relancer la phase de lecture avant le moment voulu
 
 
-                        Log.i(ACT2, "Son terminé, on réécoute pour voir si bébé pleure toujours");
-
-
-                        Log.i(ACT2, "Test des decibels 3");
                         resultEcoute = ecoute.obtenirDecibels(amplitudeRef)+sensibilite;
-                        Log.i(ACT2, resultEcoute + " réécoute");
+
 
                         // Si le nombre de d�cibels est inf�rieur au seuil (si le b�b� ne crie plus
                         // la lecture du son ne sera pas relanc�e
@@ -435,9 +414,6 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                         highestDecibel = decibelTemp;
                                     }
 
-                                    Log.i(ACT2, "Le seuil est toujours dépassé 3, la lecture du son est relancée");
-                                    Log.i(ACT2, resultEcoute + " réécoute");
-
 
                                   
                                        // lecture.resume();
@@ -446,11 +422,11 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                                 if ((heureDernierDeclenchement -timeInMillis)>=delaisDeclenchement){
 
                                 if (lecture.isRunning())
-                                {   Log.i(ACT2, "Lecture du son résumée");
+                                {
 
                                     lecture.resume();
                                 } else {
-                                    Log.i(ACT2, "Lecture du son pour la premiere fois");
+
                                     lecture.lire(sonNom);
 
                                 }
@@ -458,9 +434,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
                                 lecture.getMediaPlayer().setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                                     public void onCompletion(MediaPlayer mp) {
-                                        Log.i(ACT2, "declenchement du listener");
 
-                                        Log.i(ACT2, "Lecture du son terminée");
                                         lectureActive = true;
 
                                     }
@@ -478,12 +452,10 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                         } else if ((resultEcoute <= seuilDecibels) && ((cal.getTimeInMillis() - heureDernierDeclenchement) > 180000)) {
 
 
-
-                            Log.i(ACT2, "Il n'y a plus de bruit depuis 3 minutes, on ne relance pas la lecture et on relance l'écoute");
                             //L'évenenement réveil est terminé, le thread d'écoute principal est relancé
                             //C'est ici qu'on va insérer les nouvelles variables dans la base de données : Durée du réveil
                             // Cri le plus fort, Evenement interrompu ou non, etc... Il faudra en faire de même dans le onPause en lancant un nouveau thread.
-                            Log.i(ACT2, "captation des paramettres de l'évènement");
+
                             awakeBaby=false;
                             //On récupère en decibels le niveau sonore de ce dernier cri déclencheur et on check pour voir si c'est le cri le plus puissant
                           //  decibelTemp = 20 * Math.log10(resultEcoute / 10);
@@ -504,7 +476,6 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                             }
 
 
-                            Log.i(ACT2, "duree en millis ="+duree);
 
                             // Cr�er une nouvelle entr�e dans la base de donn�es avec timeInMillis, resultEcoute et lum.
 
@@ -526,7 +497,6 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                             contentValues.put(Contract.Evenements.COLUMN_COL7, EVENEMENT_TERMINE);
                             contentValues.put(Contract.Evenements.COMUMN_COL8, duree );
 
-                            Log.i(ACT2, "nouvelle entree cree dans la base de données");
 
                             // Insert the content values via a ContentResolver
                             Uri uri = getContentResolver().insert(Contract.Evenements.URI, contentValues);
@@ -545,7 +515,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                     }// fin du iflectureactive
 
                         if (isThreadRunning) {
-                            Log.i(ACT2, "relance du thread a venir");
+
                             try {
                                 background.sleep(300);//le thread background sera relanc� toutes les 300 millisecondes tant que la valeur seuil n'aura pas �t� d�pass�e ou que le silence n'aura pas duré plus de 3 minutes
                             } catch (InterruptedException e) {
@@ -582,9 +552,6 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                     //Calcul de la durée totale de l'évenement
                     cal=Calendar.getInstance();
                     duree = cal.getTimeInMillis() - dateDebutReveil;
-                 Log.i(ACT2, "heure actuelle : "+cal.getTimeInMillis());
-                 Log.i(ACT2, "timeInMillis : "+timeInMillis);
-                 Log.i(ACT2, "duree : "+duree);
 
                     //savoir quel monstre a réveillé bébé
                     monstre = Monstre.quelMonstre(lum, heure, highestDecibel, difference, xt);
@@ -600,7 +567,6 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
                     contentValues.put(Contract.Evenements.COLUMN_COL7, EVENEMENT_INTERROMPU);
                     contentValues.put(Contract.Evenements.COMUMN_COL8, duree);
 
-                    Log.i(ACT2, "nouvelle entree cree dans la base de données");
 
 
                     // Insert the content values via a ContentResolver
@@ -627,7 +593,6 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
     @Override
     protected void onResume()
     {
-        Log.i(ACT2, "activite 2 resum�e");
 
 
 //Séquence d'activation du thread d'écoute
@@ -637,7 +602,6 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
         if (!isThreadRunning)
         { isThreadRunning=true ;
-            Log.i(ACT2, " boolean mis sur true");
             background.start();}
 
 
@@ -673,7 +637,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
         }
 
        super.onPause();
-        Log.i(ACT2, "onPause terminé");
+
 
         finish(); // force l'activity à se detruire pour que l home ne puisse pas y réaccéder
     }

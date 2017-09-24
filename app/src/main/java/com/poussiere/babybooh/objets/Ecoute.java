@@ -1,7 +1,6 @@
 package com.poussiere.babybooh.objets;
 
 import android.media.MediaRecorder;
-import android.util.Log;
 
 import java.io.IOException;
 
@@ -38,7 +37,7 @@ public class Ecoute {
             e.printStackTrace();
         }
         mediaRecorder.start();
-        Log.i(OBJ_NAME, "MediaRecorder lancé");
+
 
 
     }
@@ -55,7 +54,6 @@ public class Ecoute {
             mediaRecorder.reset();
             mediaRecorder.release();
             mediaRecorder=null;
-            Log.i(OBJ_NAME, "MediaRecorder arreté");
         }
 
     }
@@ -68,7 +66,6 @@ public class Ecoute {
 
         {//On récupère l'amplitude (niveau sonore) du flux capté
             double amplitude = mediaRecorder.getMaxAmplitude();
-            Log.i("objetc ecoute", "amplitude : "+amplitude);
 
             //On convertit l'amplitude en décibels grace à la formule
             double db = 20 * Math.log10(amplitude/ amplitudeReference);
@@ -78,7 +75,7 @@ public class Ecoute {
         }
 
         else
-        {Log.i(OBJ_NAME, "fin de obtenir decibel sans retour");
+        {
             return 0;}
 
     }

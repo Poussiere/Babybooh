@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.poussiere.babybooh.R;
@@ -17,7 +16,6 @@ import java.util.Calendar;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
-import static java.security.AccessController.getContext;
 
 /**
  * Created by poussiere on 28/06/17.

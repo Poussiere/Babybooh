@@ -14,7 +14,6 @@ import android.os.Bundle;
 import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
 import android.text.format.DateUtils;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,8 +27,6 @@ import com.poussiere.babybooh.bdd.Contract;
 import com.poussiere.babybooh.mainFragment3.IdMonstreActivity;
 
 import java.util.concurrent.TimeUnit;
-
-import static com.poussiere.babybooh.mainFragment2.mainFragment2.CURSOR_LOADER_ID;
 
 public class DetailActivity extends AppCompatActivity implements android.app.LoaderManager.LoaderCallbacks<Cursor>{
 
@@ -176,7 +173,6 @@ public class DetailActivity extends AppCompatActivity implements android.app.Loa
 
                 //Affichage de la duree : à voir s'il ne faut pas ajouter l'heure
                 long lDuree=cursor.getLong(Contract.Evenements.POSITION_COL8);
-                Log.i("detail act", "duree en millis : "+lDuree);
                 mDuree=String.format("%d min, %d sec",
                         TimeUnit.MILLISECONDS.toMinutes(lDuree),
                         TimeUnit.MILLISECONDS.toSeconds(lDuree) -
