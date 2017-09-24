@@ -264,11 +264,11 @@
     <string name="message_to_the_world_garcon">%1$s has been awakened by a frightening monster named %2$s! Thank you BabyboOH for helping me looking after my baby !</string>
     <string name="message_to_the_world_fille">%1$s has been awakened by a frightening monster named %2$s! Thank you BabyboOH for helping me looking after my baby !</string>
     <string name="partager">Share</string>
-    <string name="ask_calibre">To finish we have to calibrate your mike. To do that you must necessary be in a quiet place.You will have the possibility of calibrating again your mike later.</string>
-    <string name="demarrer_calibrage">Press the button to start the mike calibrating</string>
+    <string name="ask_calibre">To finish we have to calibrate your microphone. To do that you must necessary be in a quiet place.You will have the possibility of calibrating again your microphone later.</string>
+    <string name="demarrer_calibrage">Press the button to start the microphone calibrating</string>
     <string name="calibrage_en_cours">Be silent... the calibrating is in progress</string>
     <string name="calibrage_terminé">The calibrating is achieved. You can now use BabyboOH with your baby!</string>
-    <string name="salle_de_calibrage">Mike calibrating</string>
+    <string name="salle_de_calibrage">Microphone calibrating</string>
 
     <string name="apropos">About</string>
     <string name="a_propos1">BabyboOH Android version 1.0</string>
