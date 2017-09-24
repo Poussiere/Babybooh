@@ -44,6 +44,7 @@ public abstract class Monstre {
                             break;
                         case 4:
                             monstre = 11;
+                            break;
                     }}
                     else if (lum < 5 && difference > 180000) {
                         nombreAleatoire = rand.nextInt(3 - 1 + 1) + 1;
@@ -70,6 +71,7 @@ public abstract class Monstre {
                             break;
                         case 3:
                             monstre=11;
+                            break;
                     }
                 }
 
@@ -107,8 +109,10 @@ public abstract class Monstre {
                             break;
                         case 5 :
                             monstre = 10;
+                            break;
                         case 6 :
                             monstre=11;
+                            break;
                     }
                 }
 
@@ -129,6 +133,7 @@ public abstract class Monstre {
                             break;
                         case 5 :
                             monstre = 10;
+                            break;
                     }
                 }
 
@@ -147,8 +152,10 @@ public abstract class Monstre {
                             break;
                         case 4:
                             monstre = 10;
+                            break;
                         case 5:
                             monstre=11;
+                            break;
 
                     }
                 }
@@ -167,6 +174,7 @@ public abstract class Monstre {
                             break;
                         case 4:
                             monstre = 10;
+                            break;
 
                     }
                 }
@@ -211,6 +219,7 @@ public abstract class Monstre {
                         break;
                     case 3:
                         monstre=11;
+                        break;
                 }
             }
 
@@ -240,6 +249,7 @@ public abstract class Monstre {
                         break;
                     case 4:
                         monstre = 11;
+                        break;
                 }
             }
 
@@ -269,6 +279,7 @@ public abstract class Monstre {
                         break;
                     case 3:
                         monstre=11;
+                        break;
                 }
 
             }
@@ -327,6 +338,7 @@ public abstract class Monstre {
                             break;
                         case 3:
                             monstre = 11;
+                            break;
                     }
                 }
                 if (lum > 5 && decibels > 60 ) {
@@ -353,6 +365,7 @@ public abstract class Monstre {
                             break;
                         case 3:
                             monstre = 7;
+                            break;
                     }
                 }
             }
@@ -368,8 +381,10 @@ public abstract class Monstre {
                         break;
                     case 3:
                         monstre = 7;
+                        break;
                     case 4 :
                         monstre=11;
+                        break;
                 }
             }
             else if (lum>5) {
@@ -383,6 +398,7 @@ public abstract class Monstre {
                         break;
                     case 3:
                         monstre = 7;
+                        break;
                 }
             }
 
