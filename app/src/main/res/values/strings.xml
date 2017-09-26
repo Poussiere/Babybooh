@@ -8,7 +8,7 @@
     <string name="titre_activite2">Log Journal</string>
     <string name="titre_activite3">Gallery</string>
     <string name="merci">Your baby is now perfectly safe</string>
-    <string name="consigneRecord">Please select the message to play when your baby wakes up or record a new one.</string>
+    <string name="consigneRecord">Please select the song to play when your baby wakes up or record a new one.</string>
     <string name="consigneRecord2"> Recording in progress! Press the mike button again to stop.</string>
     <string name="record">Start recording</string>
     <string name="stopRecord">Stop recording</string>
@@ -106,7 +106,7 @@
     <string name="monstre12_desc">It shines in the night. The children are drawn to its light and this is probably the most fearful threat.</string>
     <string name="monstre12_conditions">It appears in total darkness, day or night. You will probably want to open up the blinds quickly, won\'t you? </string>
 
-    <string name="title_activity_settings">Set up</string>
+    <string name="title_activity_settings">Settings</string>
 
 
     <string name="pref_header_general">General</string>
