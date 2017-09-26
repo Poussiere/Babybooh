@@ -28,7 +28,7 @@ public abstract class Monstre {
 
         {
 
-             if (difference > 180000 && lum == 0 && decibels >=85) monstre=1; // Si cri très fort et noir alors Dédé la terreur (1)
+             if (difference > 180000 && lum <=2 && decibels >=85) monstre=1; // Si cri très fort et noir alors Dédé la terreur (1)
             else if (decibels>70 && lum<=10) {
                 if (lum < 5 && difference > 180000 && (nbReveils>2)) {
                     nombreAleatoire = rand.nextInt(4 - 1 + 1) + 1;
@@ -91,7 +91,7 @@ public abstract class Monstre {
             }
 
 
-            else if(lum>=10) {
+            else if(lum>=30) {
                 if (difference > 180000 && nbReveils>2) {
                     nombreAleatoire = rand.nextInt(6 - 1 + 1) + 1;
                     switch (nombreAleatoire) {
@@ -235,7 +235,7 @@ public abstract class Monstre {
                  }
              }
 
-            else if (lum==0&& nbReveils>2 ) {
+            else if (lum<=2 && nbReveils>2 ) {
                 nombreAleatoire = rand.nextInt(4 - 1 + 1) + 1;
                 switch (nombreAleatoire) {
                     case 1:
@@ -253,7 +253,7 @@ public abstract class Monstre {
                 }
             }
 
-             else if (lum==0 ) {
+             else if (lum<=2 ) {
                  nombreAleatoire = rand.nextInt(3 - 1 + 1) + 1;
                  switch (nombreAleatoire) {
                      case 1:
@@ -307,7 +307,7 @@ public abstract class Monstre {
         if (heure>7 && heure<21)
         {
 
-            if (lum==0 && decibels >65) monstre=12;
+            if (lum<=2 && decibels >65) monstre=12;
             else if (decibels>70)
             {
                 if ((heure>=8 && heure<=9) || (heure>=12 && heure<=14) || (heure>=16 && heure<=17) || (heure>=20 && heure<=21))
@@ -327,7 +327,7 @@ public abstract class Monstre {
 
             }
             else if ((heure>=8 && heure<=9) || (heure>=12 && heure<=14) || (heure>=16 && heure<=17) || (heure>=20 && heure<=21)) {
-                if (lum > 5 && decibels > 60 && nbReveils>2) {
+                if (lum > 50 && decibels > 60 && nbReveils>2) {
                     nombreAleatoire = rand.nextInt(3 - 1 + 1) + 1;
                     switch (nombreAleatoire) {
                         case 1:
@@ -341,7 +341,7 @@ public abstract class Monstre {
                             break;
                     }
                 }
-                if (lum > 5 && decibels > 60 ) {
+                if (lum > 50 && decibels > 60 ) {
                     nombreAleatoire = rand.nextInt(2 - 1 + 1) + 1;
                     switch (nombreAleatoire) {
                         case 1:
