@@ -76,7 +76,9 @@ public class mainFragment3 extends Fragment {
          int noOfColumns;
         // If we are on tablet, the posters we'll appeaR bigger
         if (dpWidth>=600)
-        { noOfColumns = (int) (dpWidth / 400);}
+        { //noOfColumns = (int) (dpWidth / 400);
+            noOfColumns=2;
+        }
       
          else if (dpWidth>=380)
          {noOfColumns = (int) (dpWidth / 130);}

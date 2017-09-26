@@ -169,7 +169,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
         sensibilite = Double.parseDouble(seuil); //Il faudra ajouter ce chiffre aux décibels obtenus pour augmenter la sensibilité du micro
 
-        seuilDecibels = 38 ; //Le détecteur se déclenchera à 35 décibels
+        seuilDecibels = 40 ; //Le détecteur se déclenchera à 40 décibels
 
 
         String ar = prefs.getString("amplitudeRef", "0.7");
