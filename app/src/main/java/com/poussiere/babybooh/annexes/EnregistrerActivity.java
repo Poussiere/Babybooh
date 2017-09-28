@@ -188,6 +188,7 @@ public class EnregistrerActivity extends AppCompatActivity implements Enregistre
                             public void onClick(DialogInterface dialog, int which) {
                                 File file = new File (getExternalFilesDir(null).getAbsolutePath()+"/babyboohSongs/"+sn+".3gpp");
                                 file.delete();
+                                rcAdapter.notifyDataSetChanged();
                               //  rcAdapter = new EnregistrerRecyclerViewAdapter(EnregistrerActivity.this);
                              //   rView.setAdapter(rcAdapter);
                                 dialog.dismiss();
@@ -208,7 +209,7 @@ public class EnregistrerActivity extends AppCompatActivity implements Enregistre
                 else{
                     Toast.makeText(getApplicationContext(), R.string.impossible_delete, Toast.LENGTH_LONG).show();
                 }
-                rcAdapter.notifyDataSetChanged();
+
             }
         };
 

@@ -29,13 +29,19 @@ public class EnregistrerRecyclerViewAdapter extends RecyclerView.Adapter<Enregis
 
     String nomDuSon, nomDuSonSelectionne,nomDuSonCourt;
     private Context context;
-    private final PlayOnlickHandler mClickHandler;
+    private PlayOnlickHandler mClickHandler=null;
 
 
 
     public interface PlayOnlickHandler {
 
         void onPlayClick(String nomDuSon);
+    }
+
+
+    public EnregistrerRecyclerViewAdapter(){
+
+
     }
 
     public EnregistrerRecyclerViewAdapter(Context context, PlayOnlickHandler p)
