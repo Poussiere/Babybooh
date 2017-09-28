@@ -47,10 +47,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".mainFragment3.IdMonstreActivity"
-            android:label="@string/title_activity_id_monstre"
+            android:label="@string/titre_activite3"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        <activity android:name=".annexes.EnregistrerRecyclerViewAdapter" />
         <activity
             android:name=".annexes.EnregistrerActivity2"
             android:label="@string/title_activity_enregistrer"

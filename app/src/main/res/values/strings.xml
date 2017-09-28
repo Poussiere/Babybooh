@@ -187,6 +187,7 @@
 
     <color name="gris_material">#E0E0E0</color>
 
+
     <string name="nom">Name : </string>
     <string name="alias">Aka : </string>
     <string name="description">Description : </string>
