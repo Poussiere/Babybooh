@@ -581,12 +581,35 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
 
 
 
+
+
+
             } // fin de la parenthèse du run
 
 
 
 
         }); // fin de la parenthèse du thread
+
+
+/*
+        //Insertion des données dans la base de données
+        cal=Calendar.getInstance();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(Contract.Evenements.COLUMN_COL2, 90);
+        contentValues.put(Contract.Evenements.COLUMN_COL3, cal.getTimeInMillis());
+        contentValues.put(Contract.Evenements.COLUMN_COL4, 3);
+        contentValues.put(Contract.Evenements.COLUMN_COL5, 11);
+        contentValues.put(Contract.Evenements.COLUMN_COL6, 95);
+        contentValues.put(Contract.Evenements.COLUMN_COL7, EVENEMENT_INTERROMPU);
+        contentValues.put(Contract.Evenements.COMUMN_COL8, 181000);
+
+
+
+        // Insert the content values via a ContentResolver
+        Uri uri = getContentResolver().insert(Contract.Evenements.URI, contentValues);
+
+        */
     }
 
 
