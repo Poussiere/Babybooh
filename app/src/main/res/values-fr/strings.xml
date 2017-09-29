@@ -259,13 +259,12 @@
     <string name="salle_de_calibrage">Calibrage du micro</string>
 
     <string name="apropos">A propos</string>
-    <string name="a_propos1">BabyboOH Android version 1.0</string>
-    <string name="a_propos2">BabyboOH est une application vous permettant de suivre le sommeil de votre bébé de manière ludique. BabyBoOH ne peut en aucun cas se substituer à la surveillance active de la part d\'une personne adulte. Ne laissez pas votre bébé pleurer. Ne laissez pas votre bébé seul. \n\n
-    Règles de confidentialité :\n
+    <string name="a_propos1">BabyboOH Android version 1.0.2</string>
+    <string name="a_propos2">BabyboOH est une application vous permettant de suivre le sommeil de votre bébé de manière ludique. BabyBoOH ne peut en aucun cas se substituer à la surveillance active de la part d\'une personne adulte. Ne laissez pas votre bébé pleurer. Ne laissez pas votre bébé seul. \n\nRègles de confidentialité :\nNous nous engageons à ne collecter aucune donnée à caractère personnel, d\'aucune sorte que ce soit.\n
 
-Nous nous engageons à ne collecter aucune donnée à caractère personnel, d\'aucune sorte que ce soit.\n
 
-Données saisies par l\'utilisateur :\n
+    </string>
+    <string name="remerciements">Données saisies par l\'utilisateur :\n
 Les données saisies par l\'utilisateur, tel que le prénom et le genre du bébé, sont uniquement enregistrées sur l\'appareil  de l\'utilisateur afin de personnaliser l’expérience.  Ces données ne font l\'objet d\'aucune collecte de la part du développeur de BabyboOH. L\'utilisateur peut à tout moment supprimer ces données en se rendant dans les paramètres de l\'application, en la réinitialisant ou en la supprimant. \n
 
 Autorisation d\’accès au microphone de l\'appareil de l\'utilisateur :\n
@@ -273,9 +272,7 @@ L\'application demande l\'autorisation d\'accéder au microphone de l\'utilisate
   - Permettre à l\'utilisateur d\'enregistrer un message sur l\'appareil qui sera lu en cas de réveil du bébé. Ce message peut être supprimé à tout moment de l\'appareil en se rendant dans la rubrique intitulée “salle d\’enregistrement”, en réinitialisant l\'application ou en la supprimant. Les messages enregistrés ne font l\'objet d\'aucune collecte de la part du développeur de BabyboOH et sont enregistrés uniquement sur l\'appareil de l\'utilisateur.\n
   - Permettre à l\'appareil d\'écouter le bébé lorsqu\'il dort afin de détecter lorsqu\'il fait du bruit. Cette phase d\'écoute ne fait l\'objet d\'aucun enregistrement, même sur l\'appareil de l\'utilisateur. \n
 
-
-    </string>
-    <string name="remerciements">BabyboOH a été développé par Nicolas Boutin. Merci à Blandine pour son soutien et ses précieux conseils, à ma soeur Geraldine pour la relecture et la traduction anglaise et à mon frère Jerome pour la conception des dessins de nombreux monstres. Remerciements spéciaux à Mahel pour les discussions enrichissantes et son soutien en territoire hostile. \n\nLa reproduction partielle ou totale du contenu de cette application est interdite.</string>
+        \n\nBabyboOH a été développé par Nicolas Boutin. Merci à Blandine pour son soutien et ses précieux conseils, à ma soeur Geraldine pour la relecture et la traduction anglaise et à mon frère Jerome pour la conception des dessins de nombreux monstres. Remerciements spéciaux à Mahel pour les discussions enrichissantes et son soutien en territoire hostile. \n\nLa reproduction partielle ou totale du contenu de cette application est interdite.</string>
     <string name="avertissement">Avertissement</string>
     <string name="compris">J\'ai compris</string>
     <string name="ecoute_active">L\'écoute est désormais active</string>
