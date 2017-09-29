@@ -265,13 +265,13 @@
 
 Nous nous engageons à ne collecter aucune donnée à caractère personnel, d\'aucune sorte que ce soit.\n
 
-Données saisies par l\’utilisateur :\n
-Les données saisies par l\'utilisateur, tel que le prénom et le genre du bébé, sont uniquement enregistrées sur l\’appareil  de l\'utilisateur afin de personnaliser l’expérience.  Ces données ne font l\’objet d\’aucune collecte de la part du développeur de BabyboOH. L\'utilisateur peut à tout moment supprimer ces données en se rendant dans les paramètres de l\’application, en la réinitialisant ou en la supprimant. \n
+Données saisies par l\'utilisateur :\n
+Les données saisies par l\'utilisateur, tel que le prénom et le genre du bébé, sont uniquement enregistrées sur l\'appareil  de l\'utilisateur afin de personnaliser l’expérience.  Ces données ne font l\'objet d\'aucune collecte de la part du développeur de BabyboOH. L\'utilisateur peut à tout moment supprimer ces données en se rendant dans les paramètres de l\'application, en la réinitialisant ou en la supprimant. \n
 
-Autorisation d\’accès au microphone de l\’appareil de l\’utilisateur :\n
-L\’application demande l\’autorisation d\’accéder au microphone de l\’utilisateur pour deux raisons :\n
-Permettre à l\’utilisateur d\’enregistrer un message sur l\’appareil qui sera lu en cas de réveil du bébé. Ce message peut être supprimée à tout moment de l\’appareil en se rendant dans la rubrique intitulée “salle d\’enregistrement”, en réinitialisant l\’application ou en la supprimant. Les messages enregistrés ne font l\’objet d\’aucune collecte de la part du développeur de BabyboOH et sont enregistrés uniquement sur l\’appareil de l\’utilisateur.\n
-Permettre à l\’appareil d\’écouter le bébé lorsqu\’il dort afin de détecter lorsqu\’il fait du bruit. Cette phase d\’écoute ne fait l\’objet d\’aucun enregistrement, même sur l\’appareil de l\’utilisateur. \n\n
+Autorisation d\’accès au microphone de l\'appareil de l\'utilisateur :\n
+L\'application demande l\'autorisation d\'accéder au microphone de l\'utilisateur pour deux raisons :\n
+  - Permettre à l\'utilisateur d\'enregistrer un message sur l\'appareil qui sera lu en cas de réveil du bébé. Ce message peut être supprimé à tout moment de l\'appareil en se rendant dans la rubrique intitulée “salle d\’enregistrement”, en réinitialisant l\'application ou en la supprimant. Les messages enregistrés ne font l\'objet d\'aucune collecte de la part du développeur de BabyboOH et sont enregistrés uniquement sur l\'appareil de l\'utilisateur.\n
+  - Permettre à l\'appareil d\'écouter le bébé lorsqu\'il dort afin de détecter lorsqu\'il fait du bruit. Cette phase d\'écoute ne fait l\'objet d\'aucun enregistrement, même sur l\'appareil de l\'utilisateur. \n
 
 
     </string>

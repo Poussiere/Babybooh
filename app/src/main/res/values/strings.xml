@@ -275,10 +275,10 @@ We pledge not to collect any personal data of any kind whatsoever.\n
 Data entered by the user:\n
 User-entered data, such as the baby\'s first name and gender, are only saved on the user\'s device to customize the experience. These data are not collected by the developer of BabyboOH. The user can delete these data at any time by going to the application settings, resetting it or deleting it.\n
 
-Authorization to access the microphone of the user's device:\n
+Authorization to access the microphone of the user\'s device:\n
 The application asks for permission to access the user\'s microphone for two reasons:\n
-- Allow the user to record a message on the device that will be played when the baby is awakened. This message can be deleted at any time from the device by going to the section titled "Recording room", resetting the application or deleting it. Saved messages are not collected by the developer of BabyboOH and are only stored on the user\'s device.\n
-- Allow the device to listen to the baby when sleeping in order to detect when he makes noise. This phase of listening is not recorded, even on the user\'s device.\n\n
+  - Allow the user to record a message on the device that will be played when the baby is awakened. This message can be deleted at any time from the device by going to the section titled "Recording room", resetting the application or deleting it. Saved messages are not collected by the developer of BabyboOH and are only stored on the user\'s device.\n
+  - Allow the device to listen to the baby when sleeping in order to detect when he makes noise. This phase of listening is not recorded, even on the user\'s device.\n
 
     </string>
     <string name="remerciements">BabyboOH has been developed by Nicolas Boutin. Grateful thanks to Blandine for her support and her precious advices, to my sister Geraldine for her final read-through and for  the english  translation, to my brother Jérôme for the monster design. Particular thanks to Mahel for her fruitful discussions and her support in an hostile territory. \n\nThe full or partial duplication of this application is strictly forbidden.</string>
