@@ -252,7 +252,7 @@
     <string name="message_to_the_world_garcon">%1$s a été réveillé par un monstre terrifiant nommé %2$s! Merci BabyBoOH de m\'aider à veiller sur mon bébé!</string>
     <string name="message_to_the_world_fille">%1$s a été réveillée par un monstre terrifiant nommé %2$s! Merci BabyBoOH de m\'aider à veiller sur mon bébé!</string>
     <string name="partager">Partager</string>
-    <string name="ask_calibre">Pour terminer, nous devons calibrer votre microphone. Pour cette étape, vous devez impérativement être dans un endroit silencieux. Vour pourrez recommencer le calibrage plus tard si nécessaire. </string>
+    <string name="ask_calibre">Pour terminer, nous devons calibrer votre microphone. Pour cette étape, vous devez impérativement être dans un endroit silencieux. Vous pourrez recommencer le calibrage plus tard si nécessaire. </string>
     <string name="demarrer_calibrage">Appuyez sur le bouton pour démarrer le calibrage du microphone</string>
     <string name="calibrage_en_cours">Chut...Calibrage du microphone en cours.</string>
     <string name="calibrage_terminé">Le calibrage est terminé. Vous pouvez désormais utiliser BabyboOH avec votre bébé!</string>
