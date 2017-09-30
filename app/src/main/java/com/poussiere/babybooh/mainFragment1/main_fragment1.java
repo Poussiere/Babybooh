@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.app.Fragment;
@@ -21,6 +22,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.bumptech.glide.Glide;
 import com.poussiere.babybooh.MainActivity;
 import com.poussiere.babybooh.R;
 import com.poussiere.babybooh.activite1.EcouteActivity;
@@ -36,7 +38,7 @@ public class main_fragment1 extends Fragment {
     protected Intent avionIntent;
     // Cr�er un ContentResolver sans l'instancier pour d�tecter le mode avion
     private ContentResolver contentResolver ;
-    private ImageView monstreFont;
+    private ImageView monstreFont, bebeAcceuil;
     private View bebeMain;
 
     public main_fragment1() {
@@ -63,6 +65,7 @@ public class main_fragment1 extends Fragment {
         fabLancerVeille=(FloatingActionButton)layoutView.findViewById(R.id.boutonLancerVeille);
         topContenair=(View)layoutView.findViewById((R.id.main1_top_conteneur));
         monstreFont=(ImageView)layoutView.findViewById(R.id.monstre_du_fond);
+        bebeAcceuil=(ImageView)layoutView.findViewById(R.id.image_bebe_accueil);
         bebeMain=(View)layoutView.findViewById((R.id.bebe_main));
 
         Display display = getActivity().getWindowManager().getDefaultDisplay();
@@ -83,6 +86,9 @@ public class main_fragment1 extends Fragment {
         parms2.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
         parms2.setMarginEnd(30);
         bebeMain.setLayoutParams(parms2);
+
+        Glide.with(this).load(R.drawable.fondmonstre).into(monstreFont);
+        Glide.with(this).load(R.drawable.bebeone).into(bebeAcceuil);
 
 
         fabLancerVeille.setOnClickListener(new View.OnClickListener() {

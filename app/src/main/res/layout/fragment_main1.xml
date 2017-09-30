@@ -66,7 +66,6 @@
         android:cropToPadding="false"
         android:scaleType="fitXY"
         android:layout_alignParentBottom="true"
-        android:src="@drawable/fondmonstre"
         android:id="@+id/monstre_du_fond"
 
         />
@@ -78,14 +77,13 @@
             android:id="@+id/bebe_main"
             android:layout_centerHorizontal="true">
         <ImageView
-
+            android:id="@+id/image_bebe_accueil"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:layout_alignParentBottom="true"
             android:cropToPadding="false"
             android:scaleType="fitXY"
-            android:src="@drawable/bebeone"
             />
 
         </RelativeLayout>

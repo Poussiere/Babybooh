@@ -22,6 +22,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.poussiere.babybooh.R;
 import com.poussiere.babybooh.bdd.Contract;
 import com.poussiere.babybooh.mainFragment3.IdMonstreActivity;
@@ -159,7 +160,10 @@ public class DetailActivity extends AppCompatActivity implements android.app.Loa
             if (cursor != null){
                 cursor.moveToFirst();
             numMonstre = cursor.getInt(Contract.Evenements.POSITION_COL5);
-                photoMonstre.setImageResource(tabImages[numMonstre-1]);
+               // photoMonstre.setImageResource(tabImages[numMonstre-1]);
+                Glide.with(this).load(tabImages[numMonstre-1]).into(photoMonstre);
+
+
 
                 mNomDuMonstre=getString(tabNoms[numMonstre-1]);
                 nomMonstre.setText(mNomDuMonstre);
