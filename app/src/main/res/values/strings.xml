@@ -255,8 +255,8 @@
     
  <!-- Pas encore traduit
 -->
-    <string name="message_to_the_world_garcon">%1$s has been awakened by a frightening monster named %2$s! Thank you BabyboOH for helping me looking after my baby !</string>
-    <string name="message_to_the_world_fille">%1$s has been awakened by a frightening monster named %2$s! Thank you BabyboOH for helping me looking after my baby !</string>
+    <string name="message_to_the_world_garcon">%1$s has been awakened by a frightening monster named %2$s! Thank you BabyboOH for helping me looking after my baby ! https://play.google.com/store/apps/details?id=com.poussiere.babybooh</string>
+    <string name="message_to_the_world_fille">%1$s has been awakened by a frightening monster named %2$s! Thank you BabyboOH for helping me looking after my baby ! https://play.google.com/store/apps/details?id=com.poussiere.babybooh</string>
     <string name="partager">Share</string>
     <string name="ask_calibre">To finish we have to calibrate your microphone. To do that you must necessary be in a quiet place.You will have the possibility of calibrating again your microphone later.</string>
     <string name="demarrer_calibrage">Press the button to start the microphone calibrating</string>

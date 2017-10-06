@@ -249,8 +249,8 @@
     <string name="son_en_cours">Il y a déjà une lecture en cours</string>
  <!-- Pas encore traduit
 -->
-    <string name="message_to_the_world_garcon">%1$s a été réveillé par un monstre terrifiant nommé %2$s! Merci BabyBoOH de m\'aider à veiller sur mon bébé!</string>
-    <string name="message_to_the_world_fille">%1$s a été réveillée par un monstre terrifiant nommé %2$s! Merci BabyBoOH de m\'aider à veiller sur mon bébé!</string>
+    <string name="message_to_the_world_garcon">%1$s a été réveillé par un monstre terrifiant nommé %2$s! Merci BabyBoOH de m\'aider à veiller sur mon bébé! https://play.google.com/store/apps/details?id=com.poussiere.babybooh</string>
+    <string name="message_to_the_world_fille">%1$s a été réveillée par un monstre terrifiant nommé %2$s! Merci BabyBoOH de m\'aider à veiller sur mon bébé! https://play.google.com/store/apps/details?id=com.poussiere.babybooh</string>
     <string name="partager">Partager</string>
     <string name="ask_calibre">Pour terminer, nous devons calibrer votre microphone. Pour cette étape, vous devez impérativement être dans un endroit silencieux. Vous pourrez recommencer le calibrage plus tard si nécessaire. </string>
     <string name="demarrer_calibrage">Appuyez sur le bouton pour démarrer le calibrage du microphone</string>
