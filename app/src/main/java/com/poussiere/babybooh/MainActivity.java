@@ -8,17 +8,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.preference.PreferenceManager;
 import android.os.Bundle;
-import android.support.design.widget.BottomNavigationView;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.content.res.ResourcesCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,10 +26,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.poussiere.babybooh.annexes.AProposActivity;
 import com.poussiere.babybooh.annexes.CalibreActivity;
 import com.poussiere.babybooh.bdd.Contract;
-import com.poussiere.babybooh.mainFragment1.main_fragment1;
+import com.poussiere.babybooh.mainFragment1.MainFragment1;
 import com.poussiere.babybooh.mainFragment2.mainFragment2;
 import com.poussiere.babybooh.annexes.EnregistrerActivity;
 import com.poussiere.babybooh.mainFragment3.mainFragment3;
@@ -107,13 +107,10 @@ public class MainActivity extends AppCompatActivity {
         welcomeReturnButton = (TextView) findViewById(R.id.btn_retour);
         conteneurDuMain=(RelativeLayout)findViewById(R.id.conteneur_du_main);
 
-        // couleur de la barre de statuts pour Lolipo et +
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        // couleur de la barre de statut
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(ContextCompat.getColor(this, R.color.primary_color_dark));
-        }
-        //////////////////////////////////////////////////////////////
 
         //Toolbar :
         Toolbar mToolbar = (Toolbar) findViewById(com.poussiere.babybooh.R.id.my_toolbar1);
@@ -549,7 +546,7 @@ public class MainActivity extends AppCompatActivity {
         // init corresponding fragment
         switch (item.getItemId()) {
             case R.id.accueil_btn:
-                frag = main_fragment1.newInstance();
+                frag = MainFragment1.newInstance();
                 break;
             case R.id.historique_btn:
                 frag = mainFragment2.newInstance();

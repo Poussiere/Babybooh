@@ -7,14 +7,10 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.preference.PreferenceManager;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -24,6 +20,12 @@ import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.poussiere.babybooh.MainActivity;
 import com.poussiere.babybooh.R;
 import com.poussiere.babybooh.objets.Ecoute;
@@ -64,7 +66,7 @@ public class CalibreActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         calibrageEnCours = false;
-        ecoute = new Ecoute();
+        ecoute = new Ecoute(this);
 
 
         //Construction de l'alert dialog finale
@@ -105,8 +107,9 @@ public class CalibreActivity extends AppCompatActivity {
                 tv1.setText(R.string.calibrage_en_cours);
 
 
-                handler=new Handler(){
+                handler=new Handler(Looper.myLooper()){
 
+                    @Override
                     public void handleMessage(Message msg){
                         super.handleMessage(msg);
                         ecoute.arreterEcoute();
@@ -144,8 +147,6 @@ public class CalibreActivity extends AppCompatActivity {
                         amplitudeRef = ecoute.obtenirAmplitude();
 
                         while (amplitudeRef==0.0) {
-
-
                             try {
                                 background1.sleep(2000);
                             } catch (InterruptedException e) {
@@ -165,18 +166,8 @@ public class CalibreActivity extends AppCompatActivity {
                         MainActivity.MY_PERMISSIONS_REQUEST_AUDIO_RECORD);
             }
 
-
-
-
-
-
-
-
             //////////////////////////////////////////////////////////////////////////////////////////////////
             //Construction d'une alertedialog pour demander de nommer le fichier son
-
-
-
 
         }
     }

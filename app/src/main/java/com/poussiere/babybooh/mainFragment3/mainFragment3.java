@@ -3,12 +3,13 @@ package com.poussiere.babybooh.mainFragment3;
 import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.poussiere.babybooh.R;
 
@@ -43,7 +44,7 @@ public class mainFragment3 extends Fragment {
         View layoutView= inflater.inflate(R.layout.fragment_main_3, container, false);
 
        // GridLayoutManager lLayout = new GridLayoutManager(getActivity(), 3);
-        GridLayoutManager  lLayout = new GridLayoutManager(getActivity(), calculateNoOfColumns(getActivity().getBaseContext())); // 2 = number of items on each row
+        GridLayoutManager lLayout = new GridLayoutManager(getActivity(), calculateNoOfColumns(getActivity().getBaseContext())); // 2 = number of items on each row
 
         RecyclerView rView = (RecyclerView)layoutView.findViewById(R.id.recycler_view_tableau);
         rView.setHasFixedSize(true);

@@ -1,38 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <FrameLayout
+        android:id="@+id/welcome_logo_conteneurr2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/welcome_logo_conteneurr2"
         android:layout_marginTop="50dp"
-        android:layout_marginBottom="40dp"
-        >
+        android:layout_marginBottom="40dp">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:scaleType="fitXY"
-        android:id="@+id/welcome_logo2" />
+        <ImageView
+            android:id="@+id/welcome_logo2"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="fitXY" />
     </FrameLayout>
-    
+
     <TextView
         android:id="@+id/welcome_fragment_2_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        android:text="@string/first_time1"
+        android:layout_below="@id/welcome_logo_conteneurr2"
         android:layout_centerInParent="true"
+        android:fitsSystemWindows="true"
         android:gravity="center"
+        android:text="@string/first_time1"
         android:textAppearance="@style/My.Medium.Text"
-        android:textColor="@android:color/white"
-               android:layout_below="@id/welcome_logo_conteneurr2"
-        />
-
+        android:textColor="@android:color/white" />
 
 
 </RelativeLayout>

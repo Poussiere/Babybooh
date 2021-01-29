@@ -2,13 +2,14 @@ package com.poussiere.babybooh.mainFragment2;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.poussiere.babybooh.R;
 
@@ -88,23 +89,6 @@ public class CarnetRecyclerView extends RecyclerView.Adapter< CarnetRecyclerView
 
         // Récupération de la date et de l'heure
         date=cursor.getLong(2);
-      /*  cal=Calendar.getInstance();
-        cal.setTimeInMillis(date);
-        annee = cal.get(Calendar.YEAR);
-        mois = cal.get(Calendar.MONTH)+1;
-        jour = cal.get (Calendar.DAY_OF_MONTH);
-        heure = cal.get (Calendar.HOUR_OF_DAY);
-        minutes = cal.get (Calendar.MINUTE);
-
-       
-        
-        dateText=""+jour+"/"+mois+"/"+annee;
-
-        if (minutes==0) heureText=""+heure+":00";
-        else heureText=""+heure+":"+minutes;
-        holder.dateTv.setText(dateText);
-        holder.heureTv.setText(heureText);
-*/
         // String formattedDate = String.valueOf(DateUtils.getRelativeTimeSpanString(date));
         String formattedDate=DateUtils.formatDateTime(context, date, DateUtils.FORMAT_SHOW_YEAR);
         holder.dateTv.setText(formattedDate);

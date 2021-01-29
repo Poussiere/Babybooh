@@ -1,44 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        
-        
+
     <FrameLayout
+        android:id="@+id/welcome_logo_conteneurr6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/welcome_logo_conteneurr6"
-         android:layout_marginTop="50dp"
-              android:layout_marginBottom="20dp">
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:scaleType="fitCenter"
-        android:id="@+id/welcome_logo6"
-        />
-    </FrameLayout>
-        
-        
-
-        <TextView
-            android:id="@+id/welcome_fragment_6_text"
+        <ImageView
+            android:id="@+id/welcome_logo6"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fitsSystemWindows="true"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            tools:text="@string/ask_calibre"
-            android:textAppearance="@style/My.Medium.Text"
-            android:textColor="@android:color/white"
-            android:layout_below="@id/welcome_logo_conteneurr6"
-        
-            />
-
-            />
+            android:layout_height="250dp"
+            android:scaleType="fitCenter" />
+    </FrameLayout>
 
 
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/welcome_fragment_6_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/welcome_logo_conteneurr6"
+        android:layout_centerInParent="true"
+        android:fitsSystemWindows="true"
+        android:gravity="center"
+        android:textAppearance="@style/My.Medium.Text"
+        android:textColor="@android:color/white"
+        tools:text="@string/ask_calibre" />
+    />
+
+</RelativeLayout>
 

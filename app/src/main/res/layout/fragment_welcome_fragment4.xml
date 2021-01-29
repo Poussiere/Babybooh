@@ -1,82 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true">
-    <TextView
-        android:id="@+id/welcome_fragment_4_text_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        android:text="@string/ask_genre1"
-        android:layout_alignParentTop="true"
-        android:gravity="center"
-        android:textSize="@dimen/my_basic_text_size"
-        android:textColor="@android:color/white"
-        />
 
-    <RadioGroup
-        android:id="@+id/radioSex"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/welcome_fragment_4_text_1"
-        android:textSize="@dimen/my_basic_text_size"
-        android:textColor="@android:color/white">
+        <TextView
+            android:id="@+id/welcome_fragment_4_text_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:fitsSystemWindows="true"
+            android:gravity="center"
+            android:text="@string/ask_genre1"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/my_basic_text_size" />
 
-        <RadioButton
-            android:id="@+id/radioFille"
+        <RadioGroup
+            android:id="@+id/radioSex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/fille"
-            android:checked="true"
-            android:textSize="@dimen/my_basic_text_size"
+            android:layout_below="@id/welcome_fragment_4_text_1"
             android:textColor="@android:color/white"
-            android:buttonTint="@color/color_accent"/>
+            android:textSize="@dimen/my_basic_text_size">
 
-        <RadioButton
-            android:id="@+id/radioGarcon"
+            <RadioButton
+                android:id="@+id/radioFille"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/color_accent"
+                android:checked="true"
+                android:text="@string/fille"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/my_basic_text_size" />
+
+            <RadioButton
+                android:id="@+id/radioGarcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/color_accent"
+                android:text="@string/garcon"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/my_basic_text_size" />
+
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/welcome_fragment_4_text_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/radioSex"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="30dp"
+            android:fitsSystemWindows="true"
+            android:gravity="center"
+            android:text="@string/ask_nom"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/my_basic_text_size" />
+
+        <EditText
+            android:id="@+id/welcome_bebe_nom_edit_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/garcon"
-            android:textSize="@dimen/my_basic_text_size"
-            android:textColor="@android:color/white"
-            android:buttonTint="@color/color_accent"/>
-
-    </RadioGroup>
-
-
-    <TextView
-        android:id="@+id/welcome_fragment_4_text_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/radioSex"
-        android:fitsSystemWindows="true"
-        android:text="@string/ask_nom"
-        android:layout_centerInParent="true"
-        android:gravity="center"
-        android:layout_marginTop="30dp"
-        android:textSize="@dimen/my_basic_text_size"
-        android:textColor="@android:color/white"
-        />
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/welcome_bebe_nom_edit_text"
-        android:layout_below="@id/welcome_fragment_4_text_2"
-        android:layout_centerHorizontal="true"
-        android:maxLines="1"
-        android:imeOptions="actionDone"
-        android:hint="@string/bebe_nom"
-        android:textAppearance="@style/My.Medium.Text"
-        android:textColor="@color/color_accent"
-        android:inputType="textCapWords"/>
+            android:layout_below="@id/welcome_fragment_4_text_2"
+            android:layout_centerHorizontal="true"
+            android:hint="@string/bebe_nom"
+            android:imeOptions="actionDone"
+            android:inputType="textCapWords"
+            android:maxLines="1"
+            android:textAppearance="@style/My.Medium.Text"
+            android:textColor="@color/color_accent" />
 
     </RelativeLayout>
 </RelativeLayout>

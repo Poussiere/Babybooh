@@ -18,7 +18,6 @@ import android.os.Message;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.os.Bundle;
-import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -27,6 +26,8 @@ import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.widget.TextView;
 
+
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.poussiere.babybooh.MainActivity;
 import com.poussiere.babybooh.R;
@@ -180,7 +181,7 @@ Il va falloir lancer un thread dans le onPause pour enregistrer la veille si jam
         //Récupération du nom du son à lire lorsque la veille est déclenchée
         sonNom=prefs.getString("nomDuSon","Music box 1.3gpp");
 
-        ecoute=new Ecoute();
+        ecoute=new Ecoute(this);
         lecture=new Lecture(this);
 
         final Animation animation = new AlphaAnimation(1, 0); // Change alpha from fully visible to invisible

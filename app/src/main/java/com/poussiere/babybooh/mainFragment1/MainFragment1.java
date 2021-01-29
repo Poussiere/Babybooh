@@ -9,12 +9,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Point;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.provider.Settings;
-import android.support.design.widget.FloatingActionButton;
 import android.app.Fragment;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,32 +18,34 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import com.bumptech.glide.Glide;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.poussiere.babybooh.MainActivity;
 import com.poussiere.babybooh.R;
 import com.poussiere.babybooh.activite1.EcouteActivity;
 
 
-public class main_fragment1 extends Fragment {
-
-
+public class MainFragment1 extends Fragment {
 
     private FloatingActionButton fabLancerVeille;
     private View topContenair;
     private Intent intentLancerVeille;
     protected Intent avionIntent;
     // Cr�er un ContentResolver sans l'instancier pour d�tecter le mode avion
-    private ContentResolver contentResolver ;
+    private ContentResolver contentResolver;
     private ImageView monstreFont, bebeAcceuil;
     private View bebeMain;
 
-    public main_fragment1() {
+    public MainFragment1() {
         // Required empty public constructor
     }
 
     // TODO: Rename and change types and number of parameters
-    public static main_fragment1 newInstance() {
-        main_fragment1 fragment = new main_fragment1();
+    public static MainFragment1 newInstance() {
+        MainFragment1 fragment = new MainFragment1();
         return fragment;
     }
 
@@ -61,27 +59,27 @@ public class main_fragment1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View layoutView  = inflater.inflate(R.layout.fragment_main1, container, false);
-        fabLancerVeille=(FloatingActionButton)layoutView.findViewById(R.id.boutonLancerVeille);
-        topContenair=(View)layoutView.findViewById((R.id.main1_top_conteneur));
-        monstreFont=(ImageView)layoutView.findViewById(R.id.monstre_du_fond);
-        bebeAcceuil=(ImageView)layoutView.findViewById(R.id.image_bebe_accueil);
-        bebeMain=(View)layoutView.findViewById((R.id.bebe_main));
+        View layoutView = inflater.inflate(R.layout.fragment_main1, container, false);
+        fabLancerVeille = (FloatingActionButton) layoutView.findViewById(R.id.boutonLancerVeille);
+        topContenair = (View) layoutView.findViewById((R.id.main1_top_conteneur));
+        monstreFont = (ImageView) layoutView.findViewById(R.id.monstre_du_fond);
+        bebeAcceuil = (ImageView) layoutView.findViewById(R.id.image_bebe_accueil);
+        bebeMain = (View) layoutView.findViewById((R.id.bebe_main));
 
         Display display = getActivity().getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
         int width = size.x;
-        double heightD = width*0.3;
-        int height=(int)heightD;
-        RelativeLayout.LayoutParams parms = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,height);
+        double heightD = width * 0.3;
+        int height = (int) heightD;
+        RelativeLayout.LayoutParams parms = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height);
         topContenair.setLayoutParams(parms);
 
-        double bebeWidthD= width/2.3;
-        int bebeWidth=(int)bebeWidthD;
-        double bebeheightD=bebeWidth*1.1;
-        int bebeheight=(int) bebeheightD;
-        RelativeLayout.LayoutParams parms2 = new RelativeLayout.LayoutParams(bebeWidth,bebeheight);
+        double bebeWidthD = width / 2.3;
+        int bebeWidth = (int) bebeWidthD;
+        double bebeheightD = bebeWidth * 1.1;
+        int bebeheight = (int) bebeheightD;
+        RelativeLayout.LayoutParams parms2 = new RelativeLayout.LayoutParams(bebeWidth, bebeheight);
         parms2.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE);
         parms2.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
         parms2.setMarginEnd(30);
@@ -101,9 +99,7 @@ public class main_fragment1 extends Fragment {
                 int permissionCheckAudio = ContextCompat.checkSelfPermission(getActivity(),
                         Manifest.permission.RECORD_AUDIO);
                 if (permissionCheckAudio == PackageManager.PERMISSION_GRANTED) {
-                    if (!estEnModeAvion())
-
-                    {
+                    if (!estEnModeAvion()) {
                         AlertDialog.Builder alerteOndes = new AlertDialog.Builder(
                                 getActivity());
 
@@ -124,8 +120,6 @@ public class main_fragment1 extends Fragment {
                                             }
                                         });
                                     }
-
-
                                 });
 
                         // D�finition du bouton non
@@ -136,21 +130,16 @@ public class main_fragment1 extends Fragment {
                                     }
                                 });
                         alerteOndes.show();
-                    } else
-
-                    {
+                    } else {
                         Intent i = new Intent(getActivity(), EcouteActivity.class);
                         startActivity(i);
                     }
 
-                }else {
+                } else {
                     ActivityCompat.requestPermissions(getActivity(),
                             new String[]{Manifest.permission.RECORD_AUDIO},
                             MainActivity.MY_PERMISSIONS_REQUEST_AUDIO_RECORD);
                 }
-
-
-
             }
         });
 
@@ -158,7 +147,6 @@ public class main_fragment1 extends Fragment {
         return layoutView;
 
     }
-
 
 
     @Override
@@ -174,21 +162,13 @@ public class main_fragment1 extends Fragment {
     }
 
 
-
-
-
     // Cr�er une m�thode qui teste si le mode avion est enclench� ou non :
 
-    public boolean estEnModeAvion ()
-    {
+    public boolean estEnModeAvion() {
 
         contentResolver = getActivity().getContentResolver();
-        if (Settings.System.getInt(contentResolver, Settings.Global.AIRPLANE_MODE_ON, 0) == 0)
-        {return false;}
-
-        else return true;
-
+        if (Settings.System.getInt(contentResolver, Settings.Global.AIRPLANE_MODE_ON, 0) == 0) {
+            return false;
+        } else return true;
     }
-
-
 }

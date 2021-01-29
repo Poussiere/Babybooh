@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.poussiere.babybooh.mainFragment1.main_fragment1">
+    tools:context="com.poussiere.babybooh.mainFragment1.MainFragment1">
 
 
     
@@ -36,7 +36,7 @@
         android:layout_below="@id/main1_top_conteneur"
         >
         
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/boutonLancerVeille"

@@ -7,7 +7,7 @@
 
     >
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/my_toolbar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -73,7 +73,7 @@
          android:clipChildren="false"
          android:id="@+id/fab_conteneur">
 
-         <android.support.design.widget.FloatingActionButton
+         <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/boutonFlottantEnregistrer"
@@ -101,14 +101,12 @@
               android:layout_below="@id/fab_conteneur"
               >
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view_enregistrer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical"
-        android:paddingTop="15dp"
-        ></android.support.v7.widget.RecyclerView>
-
+              <androidx.recyclerview.widget.RecyclerView
+                  android:id="@+id/recycler_view_enregistrer"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:scrollbars="vertical"
+                  android:paddingTop="15dp" />
 
 
     </RelativeLayout>

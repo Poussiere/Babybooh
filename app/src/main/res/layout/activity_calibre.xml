@@ -7,7 +7,7 @@
     android:background="@color/primary_color_light"
     >
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/my_toolbar_enr2"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -36,7 +36,7 @@
             />
 
 
-        <android.support.design.widget.FloatingActionButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/bouton_flottant_calibrage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

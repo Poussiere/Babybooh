@@ -2,11 +2,12 @@ package com.poussiere.babybooh;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Window;
 import android.view.WindowManager;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 public class AppCompatPreferenceActivity extends AppCompatActivity {
 
@@ -21,8 +22,6 @@ public class AppCompatPreferenceActivity extends AppCompatActivity {
             window.setStatusBarColor(ContextCompat.getColor(this, R.color.primary_color_dark));
         }
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar_settings);
-
-
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -30,9 +29,5 @@ public class AppCompatPreferenceActivity extends AppCompatActivity {
         getFragmentManager().beginTransaction()
                 .replace(R.id.pref_frag, new SettingsFragment())
                 .commit();
-
-
     }
-
-
 }
